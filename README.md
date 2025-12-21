@@ -19,34 +19,88 @@ No server required - works offline.
 
 ## Features
 
-- **Domain Navigation** - Browse RBCZ > MIB > Investment/Payments/Retail
-- **Interactive Graph** - Cytoscape.js powered visualization
-- **Concept Details** - Hover for definition, FIBO mapping, cross-domain info
-- **Expand/Collapse** - Click to explore concept hierarchy
-- **Cross-Domain** - Ghost nodes show shared concepts, portal navigation
+### Domain Navigation
+- Browse **RBCZ** > MIB > Investment / Payments / Retail
+- Browse **Test** > Order / Position / Transaction / Payment
+- Sidebar tree with concept counts
 
-## Screenshots
+### Interactive Graph
+- **Cytoscape.js** powered visualization
+- **Zoom** - mouse scroll
+- **Pan** - right-click drag
+- **Hover** - tooltips for concepts and edges
+- **Click** - expand/collapse hierarchy
+
+### CST Element Toggles
+
+Filter what's visible in the graph:
 
 ```
-┌────────────────┬────────────────────────────────────────────┐
-│ 🏦 RBCZ        │                                            │
-│  └─ MIB        │     ┌────────┐      ┌────────┐             │
-│     ├─ 📍 Inv  │     │Customer│──────│  Order │             │
-│     └─ Pay     │     │  🟢⭐  │      │   🟢   │             │
-│                │     └────────┘      └────────┘             │
-│ 🔍 Search...   │                                            │
-└────────────────┴────────────────────────────────────────────┘
+☑ Domain (45)      - Domain-specific concepts
+☑ FIBO (32)        - FIBO-mapped concepts
+☑ Schema.org (15)  - Schema.org-mapped concepts
+☑ Unknown (60)     - Unmapped concepts
+☑ Orphans (3)      - Concepts with no visible edges
+───────────────────
+☑ Context (12)     - Context reference concepts
+☑ Categorizations  - Is-a hierarchy edges
+☑ Relationships    - Binary verb edges
 ```
 
-## Legend
+All toggles default ON. Uncheck to hide. Graph re-layouts automatically.
 
-| Symbol | Meaning |
-|--------|---------|
-| 🟢 | FIBO mapped concept |
-| 🟠 | DRAFT (needs review) |
-| 🔵 | INHERITED definition |
-| ⭐ | Cross-domain (shared) |
-| ╌╌╌ | Ghost node (other domain) |
+### Layout Selector
+
+Choose graph layout algorithm:
+
+| Layout | Best for |
+|--------|----------|
+| **Dagre** (default) | Hierarchical structures |
+| **Cose** | Force-directed, relationships |
+| **Breadthfirst** | Tree exploration |
+| **Circle** | Small graphs |
+| **Grid** | Overview of all concepts |
+| **Concentric** | Hub-centric graphs |
+
+### Tooltips
+
+**Concept tooltip:**
+- Name and source badge (FIBO/Schema/Domain/Unknown)
+- Definition text
+- FIBO mapping URI
+- Cross-domain indicator
+- Child count
+
+**Edge tooltip:**
+- Relationship type (Binary Verb / Categorization)
+- Natural language description
+- CST notation
+
+### Cross-Domain
+
+- Thick border indicates concept shared across domains
+- Portal buttons to navigate to other domains
+- Ghost nodes show external references
+
+## BKB Notation Legend
+
+### Concepts
+
+| Style | Meaning |
+|-------|---------|
+| Green fill | FIBO mapped |
+| Blue fill | Schema.org mapped |
+| Purple fill | Domain-specific |
+| Orange fill | Unknown (needs mapping) |
+| Dotted border | Context reference |
+| Thick border | Cross-domain shared |
+
+### Edges
+
+| Style | Meaning |
+|-------|---------|
+| Thick black | Categorization (is-a) |
+| Thin purple | Binary verb (relationship) |
 
 ## Data
 
@@ -56,7 +110,19 @@ Data is bundled in `js/data.js`. To refresh:
 ./prepare-demo.sh
 ```
 
-This copies latest exports from `../ontology-lift/export/`.
+This copies latest exports from `../ontology-lift/export/` and `./test/`.
+
+### Domains
+
+| Domain | Path | Source |
+|--------|------|--------|
+| Investment | RBCZ:MIB:Investment | ontology-lift |
+| Payments | RBCZ:MIB:Payments | ontology-lift |
+| Retail | RBCZ:Retail | ontology-lift |
+| Order | Test:Order | test fixtures |
+| Position | Test:Position | test fixtures |
+| Transaction | Test:Transaction | test fixtures |
+| Payment | Test:Payment | test fixtures |
 
 ## Browser Support
 
@@ -64,6 +130,12 @@ This copies latest exports from `../ontology-lift/export/`.
 - Firefox
 - Safari
 - Edge
+
+## Tech Stack
+
+- **Cytoscape.js** - Graph visualization
+- **Dagre** - Hierarchical layout algorithm
+- **Vanilla JS** - No framework dependencies
 
 ## License
 
