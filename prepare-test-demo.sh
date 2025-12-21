@@ -39,6 +39,7 @@ fi
 mkdir -p "$SCRIPT_DIR/test/Order"
 mkdir -p "$SCRIPT_DIR/test/Position"
 mkdir -p "$SCRIPT_DIR/test/Transaction"
+mkdir -p "$SCRIPT_DIR/test/Payment"
 
 echo "Step 1: Copying test data from conceptspeak/tests..."
 
@@ -46,10 +47,12 @@ echo "Step 1: Copying test data from conceptspeak/tests..."
 cp "$CONCEPTSPEAK_DIR/tests/Investment_Order.test" "$SCRIPT_DIR/test/Order/Investment_Order.cs"
 cp "$CONCEPTSPEAK_DIR/tests/InvestmentPosition.test" "$SCRIPT_DIR/test/Position/Investment_Position.cs"
 cp "$CONCEPTSPEAK_DIR/tests/Investment_Transaction.test" "$SCRIPT_DIR/test/Transaction/Investment_Transaction.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Payment.test" "$SCRIPT_DIR/test/Payment/Investment_Payment.cs"
 
 echo "  - Order/Investment_Order.cs"
 echo "  - Position/Investment_Position.cs"
 echo "  - Transaction/Investment_Transaction.cs"
+echo "  - Payment/Investment_Payment.cs"
 echo ""
 
 # Create config files
@@ -89,6 +92,18 @@ cat > "$SCRIPT_DIR/test/Transaction/config.json" << 'EOF'
 }
 EOF
 
+cat > "$SCRIPT_DIR/test/Payment/config.json" << 'EOF'
+{
+  "domain": {
+    "path": "Test:Payment",
+    "name": "Payment"
+  },
+  "sources": [
+    "Investment_Payment.cs"
+  ]
+}
+EOF
+
 echo "Step 2: Running domain-forge..."
 
 # Run domain-forge
@@ -96,6 +111,7 @@ cd "$DOMAIN_FORGE_DIR"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Order/config.json"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Position/config.json"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Transaction/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Payment/config.json"
 echo ""
 
 echo "Step 3: Running ontology-lift..."
@@ -105,6 +121,7 @@ cd "$ONTOLOGY_LIFT_DIR"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Order/domain.json" -o "$SCRIPT_DIR/test/Order/"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Position/domain.json" -o "$SCRIPT_DIR/test/Position/"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Transaction/domain.json" -o "$SCRIPT_DIR/test/Transaction/"
+python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Payment/domain.json" -o "$SCRIPT_DIR/test/Payment/"
 echo ""
 
 echo "Step 4: Generating data.js..."
@@ -113,6 +130,7 @@ echo "Step 4: Generating data.js..."
 ORDER_FILE="$SCRIPT_DIR/test/Order/Test:Order/ontology.json"
 POSITION_FILE="$SCRIPT_DIR/test/Position/Test:Position/ontology.json"
 TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test:Transaction/ontology.json"
+PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test:Payment/ontology.json"
 
 python3 << PYTHON
 import json
@@ -127,6 +145,9 @@ with open('$POSITION_FILE') as f:
 
 with open('$TRANSACTION_FILE') as f:
     transaction_data = json.load(f)
+
+with open('$PAYMENT_FILE') as f:
+    payment_data = json.load(f)
 
 # Generate data.js
 output = f'''/**
@@ -148,7 +169,8 @@ const DOMAINS_DATA = {{
       "children": {{
         "Order": {{ "type": "domain", "stats": {{ "concepts": {len(order_data['concepts'])} }} }},
         "Position": {{ "type": "domain", "stats": {{ "concepts": {len(position_data['concepts'])} }} }},
-        "Transaction": {{ "type": "domain", "stats": {{ "concepts": {len(transaction_data['concepts'])} }} }}
+        "Transaction": {{ "type": "domain", "stats": {{ "concepts": {len(transaction_data['concepts'])} }} }},
+        "Payment": {{ "type": "domain", "stats": {{ "concepts": {len(payment_data['concepts'])} }} }}
       }}
     }}
   }},
@@ -164,12 +186,16 @@ const POSITION_DATA = {json.dumps(position_data, indent=2)};
 // Transaction domain
 const TRANSACTION_DATA = {json.dumps(transaction_data, indent=2)};
 
+// Payment domain
+const PAYMENT_DATA = {json.dumps(payment_data, indent=2)};
+
 // Export for application
 window.BKB_DATA = {{
   domains: DOMAINS_DATA,
   order: ORDER_DATA,
   position: POSITION_DATA,
-  transaction: TRANSACTION_DATA
+  transaction: TRANSACTION_DATA,
+  payment: PAYMENT_DATA
 }};
 
 console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
@@ -181,6 +207,7 @@ with open('$OUTPUT_FILE', 'w') as f:
 print(f"  Order: {len(order_data['concepts'])} concepts")
 print(f"  Position: {len(position_data['concepts'])} concepts")
 print(f"  Transaction: {len(transaction_data['concepts'])} concepts")
+print(f"  Payment: {len(payment_data['concepts'])} concepts")
 PYTHON
 
 echo ""
