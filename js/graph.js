@@ -83,14 +83,19 @@ const Graph = {
 
         // Build parent-child map from categorizations
         const childToParent = new Map();  // child -> { parent, schema }
+        const parentChildCount = new Map();  // parent -> count of children
         categorizations.forEach(cat => {
             const parentName = cat.parent_name;
             const schema = cat.category_name || '';
-            (cat.children_names || []).forEach(childName => {
+            const children = cat.children_names || [];
+            children.forEach(childName => {
                 if (internalNames.has(childName) && internalNames.has(parentName)) {
                     childToParent.set(childName, { parent: parentName, schema });
                 }
             });
+            // Count children for parent
+            const validChildren = children.filter(ch => internalNames.has(ch));
+            parentChildCount.set(parentName, (parentChildCount.get(parentName) || 0) + validChildren.length);
         });
 
         // Find root concepts (no parent in categorizations)
@@ -175,7 +180,7 @@ const Graph = {
                     matchType: concept.fibo_mapping?.match_type || null,
                     hasFibo: concept.has_fibo_mapping || false,
                     extendsName: concept.hierarchy?.extends_name || null,
-                    childCount: this.countChildren(concept.name, concepts),
+                    childCount: parentChildCount.get(concept.name) || 0,
                     isHub: isHub,
                     isContext: isContext
                 },
@@ -479,8 +484,8 @@ const Graph = {
                 selector: 'node.junction',
                 style: {
                     'shape': 'ellipse',
-                    'width': 3,
-                    'height': 3,
+                    'width': 2,
+                    'height': 2,
                     'background-color': '#333333',
                     'border-width': 0,
                     'padding': 0,
@@ -497,7 +502,7 @@ const Graph = {
             {
                 selector: 'edge.relationship',
                 style: {
-                    'width': 2,  // Thin line per CSV
+                    'width': 1,  // Thin line per CSV
                     'line-color': '#9b59b6',  // Purple for binary verbs
                     'curve-style': 'bezier',
                     'target-arrow-shape': 'none',
@@ -536,7 +541,7 @@ const Graph = {
             {
                 selector: 'edge.trunk',
                 style: {
-                    'width': 3,
+                    'width': 2,
                     'line-color': '#333333',
                     'curve-style': 'haystack',
                     'haystack-radius': 0.5,
@@ -552,7 +557,7 @@ const Graph = {
             {
                 selector: 'edge.branch',
                 style: {
-                    'width': 3,
+                    'width': 2,
                     'line-color': '#333333',
                     'curve-style': 'unbundled-bezier',
                     'control-point-distances': 20,

@@ -1,0 +1,9 @@
+{
+  "domain": {
+    "path": "Test:Position",
+    "name": "Position"
+  },
+  "sources": [
+    "Investment_Position.cs"
+  ]
+}

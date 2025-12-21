@@ -60,11 +60,11 @@ const Sidebar = {
             const isClickable = data.type === 'domain';
             const conceptCount = data.stats?.concepts || 0;
 
-            // Determine icon
-            let icon = '📄';
-            if (data.type === 'enterprise') icon = '🏦';
-            else if (data.type === 'business_unit') icon = '📁';
-            else if (hasChildren) icon = '📁';
+            // Determine icon (simple Unicode symbols)
+            let icon = '○';
+            if (data.type === 'enterprise') icon = '◆';
+            else if (data.type === 'business_unit') icon = '▶';
+            else if (hasChildren) icon = '▶';
 
             // Count display
             const countDisplay = conceptCount > 0 ? `(${conceptCount})` : '';
@@ -102,7 +102,7 @@ const Sidebar = {
             if (item) {
                 const icon = item.querySelector('.icon');
                 if (icon && item.dataset.type !== 'enterprise') {
-                    icon.textContent = '📂';
+                    icon.textContent = '▼';
                 }
             }
         }
@@ -126,7 +126,7 @@ const Sidebar = {
             if (type !== 'enterprise') {
                 const icon = item.querySelector('.icon');
                 if (icon) {
-                    icon.textContent = isCollapsed ? '📂' : '📁';
+                    icon.textContent = isCollapsed ? '▼' : '▶';
                 }
             }
         }
@@ -150,7 +150,7 @@ const Sidebar = {
         const item = this.container.querySelector(`.tree-item[data-name="${domainName}"]`);
         if (item) {
             item.classList.add('active');
-            item.querySelector('.icon').textContent = '📍';
+            item.querySelector('.icon').textContent = '●';
 
             // Expand parent folders
             let parent = item.parentElement;
@@ -160,7 +160,7 @@ const Sidebar = {
                     const parentName = parent.dataset.parent;
                     const parentItem = this.container.querySelector(`.tree-item[data-name="${parentName}"]`);
                     if (parentItem && parentItem.dataset.type !== 'enterprise') {
-                        parentItem.querySelector('.icon').textContent = '📂';
+                        parentItem.querySelector('.icon').textContent = '▼';
                     }
                 }
                 parent = parent.parentElement;

@@ -37,7 +37,7 @@ const Tooltip = {
         // Set FIBO info
         const fiboEl = document.getElementById('tooltip-fibo');
         if (data.hasFibo && data.fiboUri) {
-            fiboEl.textContent = `🏛 FIBO: ${data.fiboLabel || 'mapped'}`;
+            fiboEl.textContent = `✓ FIBO: ${data.fiboLabel || 'mapped'}`;
             fiboEl.style.display = 'block';
         } else {
             fiboEl.style.display = 'none';
@@ -46,7 +46,7 @@ const Tooltip = {
         // Set cross-domain info
         const crossEl = document.getElementById('tooltip-cross');
         if (data.crossDomains && data.crossDomains.length > 0) {
-            crossEl.textContent = `⭐ Shared: ${data.crossDomains.join(', ')}`;
+            crossEl.textContent = `⧉ Shared: ${data.crossDomains.join(', ')}`;
             crossEl.style.display = 'block';
         } else {
             crossEl.style.display = 'none';
@@ -54,7 +54,7 @@ const Tooltip = {
 
         // Set children count
         document.getElementById('tooltip-children').textContent =
-            `📦 Children: ${data.childCount || 0}`;
+            `▼ Children: ${data.childCount || 0}`;
 
         // Set portal actions
         const actionsEl = document.getElementById('tooltip-actions');

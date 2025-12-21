@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position - Business Glossary</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .stat-card.success {
+            border-left-color: var(--success-color);
+        }
+
+        .stat-card.warning {
+            border-left-color: var(--warning-color);
+        }
+
+        .stat-card h3 {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .concept {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .concept:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .concept.hidden {
+            display: none;
+        }
+
+        .concept-name {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .definition {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border-radius: 4px;
+            background: var(--border-color);
+            color: #333;
+        }
+
+        .tag.fibo-exact {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .tag.fibo-synonym {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .tag.fibo-llm {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        .tag.draft {
+            background: var(--danger-color);
+            color: white;
+        }
+
+        .parent-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .parent-info strong {
+            color: #333;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        @media print {
+            .search-box {
+                display: none;
+            }
+            .concept {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+    <div class="header">
+        <h1>Position</h1>
+        <div class="subtitle">Business Glossary — 14 concepts — 100.0% FIBO coverage</div>
+    </div>
+        
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search concepts by name or definition..." />
+    </div>
+        
+    <div class="stats">
+        <div class="stat-card success">
+            <h3>Total Concepts</h3>
+            <div class="value">14</div>
+        </div>
+        <div class="stat-card success">
+            <h3>FIBO Coverage</h3>
+            <div class="value">100.0%</div>
+        </div>
+        <div class="stat-card">
+            <h3>Exact Matches</h3>
+            <div class="value">6</div>
+        </div>
+        <div class="stat-card">
+            <h3>Synonym Matches</h3>
+            <div class="value">1</div>
+        </div>
+        <div class="stat-card warning">
+            <h3>LLM Matches</h3>
+            <div class="value">0</div>
+        </div>
+        <div class="stat-card warning">
+            <h3>Draft Definitions</h3>
+            <div class="value">0</div>
+        </div>
+    </div>
+        <div class="concepts-list">
+
+    <div class="concept" data-name="account" data-definition="container for records associated with a business arrangement for regular transactions and services">
+        <div class="concept-name">Account</div>
+        <div class="definition">container for records associated with a business arrangement for regular transactions and services</div>
+        <div class="metadata">
+            <span class="tag fibo-exact">FIBO: Exact Match</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> account
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="bond position" data-definition="position in some fund, which may be defined in terms of fund units">
+        <div class="concept-name">Bond position</div>
+        <div class="definition">position in some fund, which may be defined in terms of fund units</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> fund position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="cash position" data-definition="investor&amp;#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)">
+        <div class="concept-name">Cash position</div>
+        <div class="definition">investor&#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="closed position" data-definition="investor&amp;#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)">
+        <div class="concept-name">Closed position</div>
+        <div class="definition">investor&#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="custody fee" data-definition="a contract between an investor and a custodian bank for the safekeeping of securities and other assets.">
+        <div class="concept-name">Custody fee</div>
+        <div class="definition">A contract between an investor and a custodian bank for the safekeeping of securities and other assets.</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> Custody Agreement
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="equity position" data-definition="position in an equity instrument">
+        <div class="concept-name">Equity position</div>
+        <div class="definition">position in an equity instrument</div>
+        <div class="metadata">
+            <span class="tag fibo-exact">FIBO: Exact Match</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> equity position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="fund position" data-definition="position in some fund, which may be defined in terms of fund units">
+        <div class="concept-name">Fund position</div>
+        <div class="definition">position in some fund, which may be defined in terms of fund units</div>
+        <div class="metadata">
+            <span class="tag fibo-exact">FIBO: Exact Match</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> fund position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="long position" data-definition="investor&amp;#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)">
+        <div class="concept-name">Long position</div>
+        <div class="definition">investor&#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="market value" data-definition="price an asset would sell for in the market">
+        <div class="concept-name">Market value</div>
+        <div class="definition">price an asset would sell for in the market</div>
+        <div class="metadata">
+            <span class="tag fibo-exact">FIBO: Exact Match</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> market value
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="open position" data-definition="investor&amp;#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)">
+        <div class="concept-name">Open position</div>
+        <div class="definition">investor&#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="order" data-definition="an instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.">
+        <div class="concept-name">Order</div>
+        <div class="definition">An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.</div>
+        <div class="metadata">
+            <span class="tag fibo-exact">FIBO: Exact Match</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> Order
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="position" data-definition="investor&amp;#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)">
+        <div class="concept-name">Position</div>
+        <div class="definition">investor&#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)</div>
+        <div class="metadata">
+            <span class="tag fibo-exact">FIBO: Exact Match</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="securities position" data-definition="a holding of a security or commodity, either long or short, by an investor or trader.">
+        <div class="concept-name">Securities position</div>
+        <div class="definition">A holding of a security or commodity, either long or short, by an investor or trader.</div>
+        <div class="metadata">
+            <span class="tag fibo-synonym">FIBO: Synonym</span>
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> Position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="concept" data-name="short position" data-definition="investor&amp;#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)">
+        <div class="concept-name">Short position</div>
+        <div class="definition">investor&#x27;s stake, i.e., a holding, in a particular asset (such as an individual security)</div>
+        <div class="metadata">
+            
+        </div>
+        <div class="parent-info">
+            <strong>Extends:</strong> position
+            (depth: 1)
+        </div>
+    </div>
+    <div class="no-results" id="noResults">
+        <p>No concepts match your search.</p>
+    </div>
+</div>
+    </div>
+    
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const concepts = document.querySelectorAll('.concept');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            concepts.forEach(concept => {
+                const name = concept.dataset.name;
+                const definition = concept.dataset.definition;
+
+                if (name.includes(searchTerm) || definition.includes(searchTerm)) {
+                    concept.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    concept.classList.add('hidden');
+                }
+            });
+
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.classList.add('show');
+            } else {
+                noResults.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

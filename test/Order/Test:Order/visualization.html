@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#95a5a6", "font": {"color": "#000000"}, "id": "0250c467-0927-46dd-8db6-2e361f9c4f82", "label": "Buy", "shape": "box", "title": "\u003cb\u003eBuy\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e inherited\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.70\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "eb4c3d85-a61c-4cd5-b8cd-5e5c8a89bc0a", "label": "Sell", "shape": "box", "title": "\u003cb\u003eSell\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e parent\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.80\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 2"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "19d215bf-d466-4090-b68a-55d9ecf01014", "label": "Saving plan (regular investment)", "shape": "box", "title": "\u003cb\u003eSaving plan (regular investment)\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003ebanking institution organized to accept savings deposits and pay interest on those savings deposits\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e savings bank\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.74\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e savings bank\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "ce8ce2f2-f5ff-4daa-8a68-3ee1aa636f85", "label": "One-time", "shape": "box", "title": "\u003cb\u003eOne-time\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eenumeration that indicates whether a calendar-specified date is figured from the start or the end of a calendar period\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e time direction\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.74\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e time direction\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "1f0fcb51-7c24-4d09-b3dd-15d44e1a0f66", "label": "Weekly", "shape": "box", "title": "\u003cb\u003eWeekly\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003emeasure of the average weekly wage an employee makes over the reporting period\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e average weekly earnings\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.68\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e average weekly earnings\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "8b6d0fc0-814b-4bf0-961e-703541aff292", "label": "Monthly", "shape": "box", "title": "\u003cb\u003eMonthly\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003etotal monthly qualifying income of a potential borrower\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e borrower monthly income\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.68\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e borrower monthly income\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#2ecc71", "font": {"color": "#000000"}, "id": "ff8825f3-4378-44b5-9b6b-1a13d402b11b", "label": "Order", "shape": "box", "title": "\u003cb\u003eOrder\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e exact\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 1.00\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "fe268a5a-4444-410f-9c69-b3822fc8298f", "label": "Executed order", "shape": "box", "title": "\u003cb\u003eExecuted order\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.84\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "eb39c375-a69e-4763-b09b-b79d2a7c8fe8", "label": "Digital Onboarding Channel", "shape": "box", "title": "\u003cb\u003eDigital Onboarding Channel\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e parent\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.80\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 2"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "f0b547ee-1237-43c2-96ae-6a4b2185d439", "label": "Non-digital Onboarding Channel", "shape": "box", "title": "\u003cb\u003eNon-digital Onboarding Channel\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e parent\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.80\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 2"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "d1f10eb9-07fe-40bf-b56f-ce3e7be30b9d", "label": "Placed order", "shape": "box", "title": "\u003cb\u003ePlaced order\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.84\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "47662451-4ba3-4c72-aac1-455837255365", "label": "Settled order", "shape": "box", "title": "\u003cb\u003eSettled order\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eAn instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.84\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Order\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "110b0ed1-fe69-4f7f-82d0-dcd982825d70", "label": "Sales", "shape": "box", "title": "\u003cb\u003eSales\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eexchange of goods or services for money\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e sale\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e fuzzy\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.80\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e sale\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#2ecc71", "font": {"color": "#000000"}, "id": "9fb4ab22-cf83-4b14-b066-d1b6dfa9b79d", "label": "Position", "shape": "box", "title": "\u003cb\u003ePosition\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003einvestor\u0027s stake, i.e., a holding, in a particular asset (such as an individual security)\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e position\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e exact\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 1.00\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e position\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#2ecc71", "font": {"color": "#000000"}, "id": "d488d958-3559-41b7-8bcc-968bc26ca2ce", "label": "Payment", "shape": "box", "title": "\u003cb\u003ePayment\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003edelivery of money in fulfillment of an obligation, such as to satisfy a claim or debt\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e payment\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e exact\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 1.00\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e payment\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "20d9c161-9d54-499f-b1a0-ad656501dd8f", "label": "Custody fee", "shape": "box", "title": "\u003cb\u003eCustody fee\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eA contract between an investor and a custodian bank for the safekeeping of securities and other assets.\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eFIBO:\u003c/b\u003e Custody Agreement\u003cbr\u003e\u003cb\u003eMatch:\u003c/b\u003e keyword\u003cbr\u003e\u003cb\u003eConfidence:\u003c/b\u003e 0.73\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Custody Agreement\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "7be55311-37e4-40bf-a7a7-fa8dde8c25ce", "label": "SellAction", "shape": "box", "title": "\u003cb\u003eSellAction\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eSchema.org concept: https://schema.org/SellAction\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Thing\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}, {"color": "#95a5a6", "font": {"color": "#000000"}, "id": "0d8c6ce2-57e7-49df-ab0d-2663c84a21ae", "label": "Service Channel", "shape": "box", "title": "\u003cb\u003eService Channel\u003c/b\u003e\u003cbr\u003e\u003cbr\u003e\u003ci\u003eSchema.org concept: https://schema.org/ServiceChannel\u003c/i\u003e\u003cbr\u003e\u003cbr\u003e\u003cb\u003eExtends:\u003c/b\u003e Thing\u003cbr\u003e\u003cb\u003eDepth:\u003c/b\u003e 1"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#7f8c8d", "font": {"align": "top", "size": 10}, "from": "eb4c3d85-a61c-4cd5-b8cd-5e5c8a89bc0a", "label": "extends", "smooth": {"roundness": 0.1, "type": "curvedCW"}, "to": "ff8825f3-4378-44b5-9b6b-1a13d402b11b"}, {"arrows": "to", "color": "#7f8c8d", "font": {"align": "top", "size": 10}, "from": "eb39c375-a69e-4763-b09b-b79d2a7c8fe8", "label": "extends", "smooth": {"roundness": 0.1, "type": "curvedCW"}, "to": "ff8825f3-4378-44b5-9b6b-1a13d402b11b"}, {"arrows": "to", "color": "#7f8c8d", "font": {"align": "top", "size": 10}, "from": "f0b547ee-1237-43c2-96ae-6a4b2185d439", "label": "extends", "smooth": {"roundness": 0.1, "type": "curvedCW"}, "to": "ff8825f3-4378-44b5-9b6b-1a13d402b11b"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"physics": {"enabled": true, "barnesHut": {"gravitationalConstant": -8000, "centralGravity": 0.3, "springLength": 200, "springConstant": 0.04}, "minVelocity": 0.75}, "interaction": {"hover": true, "tooltipDelay": 100}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
