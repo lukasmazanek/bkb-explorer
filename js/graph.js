@@ -642,9 +642,10 @@ const Graph = {
                 this.clearSelection();
                 Tooltip.hideEdge();
                 this.selectedNode = node;
+                // Highlight connected nodes/edges BEFORE selecting (to save correct original colors)
+                this.highlightConnected(node);
                 node.select();
                 Tooltip.show(node, e.renderedPosition);
-                this.highlightNode(node);
             } else {
                 // Desktop: click expands/collapses
                 this.toggleExpand(node);
@@ -905,6 +906,53 @@ const Graph = {
             'width': origWidth + 2,
             'line-color': '#9b59b6',
             'z-index': 999
+        });
+    },
+
+    /**
+     * Highlight connected edges/concepts (but not the node itself)
+     * Used for mobile tap where node gets :selected styling
+     */
+    highlightConnected(node) {
+        // Get all connected edges
+        const connectedEdges = node.connectedEdges();
+
+        connectedEdges.forEach(edge => {
+            const type = edge.data('type') || '';
+
+            if (type === 'trunk') {
+                // This node is parent, highlight trunk and all branches
+                this.applyEdgeHighlight(edge);
+                const junctionId = edge.target().id();
+
+                const branchEdges = this.cy.edges().filter(e =>
+                    e.data('type') === 'branch' && e.data('source') === junctionId
+                );
+                branchEdges.forEach(branchEdge => {
+                    this.applyEdgeHighlight(branchEdge);
+                    this.applyNodeHighlight(branchEdge.target());
+                });
+
+            } else if (type === 'branch') {
+                // This node is child, highlight branch and trunk to parent
+                this.applyEdgeHighlight(edge);
+                const junctionId = edge.source().id();
+
+                const trunkEdge = this.cy.edges().filter(e =>
+                    e.data('type') === 'trunk' && e.data('target') === junctionId
+                ).first();
+
+                if (trunkEdge && trunkEdge.length > 0) {
+                    this.applyEdgeHighlight(trunkEdge);
+                    this.applyNodeHighlight(trunkEdge.source());
+                }
+
+            } else if (type === 'relationship') {
+                // Binary verb - highlight edge and other endpoint
+                this.applyEdgeHighlight(edge);
+                const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
+                this.applyNodeHighlight(otherNode);
+            }
         });
     },
 
