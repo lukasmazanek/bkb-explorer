@@ -1111,10 +1111,11 @@ const Graph = {
      * Calculate filter counts for current domain
      */
     getFilterCounts() {
-        if (!this.cy) return { domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
+        if (!this.cy) return { domain: 0, fibo: 0, schema: 0, unknown: 0, orphans: 0, context: 0, categorizations: 0, relationships: 0 };
 
-        const counts = { domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
+        const counts = { domain: 0, fibo: 0, schema: 0, unknown: 0, orphans: 0, context: 0, categorizations: 0, relationships: 0 };
 
+        // Count nodes by type
         this.cy.nodes().forEach(node => {
             if (node.hasClass('junction')) return;
 
@@ -1128,6 +1129,21 @@ const Graph = {
                 counts.domain++;
             } else if (node.hasClass('unknown')) {
                 counts.unknown++;
+            }
+
+            // Count orphans (nodes with no edges)
+            if (node.connectedEdges().length === 0) {
+                counts.orphans++;
+            }
+        });
+
+        // Count edges by type
+        this.cy.edges().forEach(edge => {
+            const type = edge.data('type');
+            if (type === 'trunk' || type === 'branch') {
+                counts.categorizations++;
+            } else if (type === 'relationship') {
+                counts.relationships++;
             }
         });
 

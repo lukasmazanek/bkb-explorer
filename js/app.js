@@ -121,7 +121,10 @@ const BKBExplorer = {
         document.getElementById('count-fibo').textContent = `(${counts.fibo})`;
         document.getElementById('count-schema').textContent = `(${counts.schema})`;
         document.getElementById('count-unknown').textContent = `(${counts.unknown})`;
+        document.getElementById('count-orphans').textContent = `(${counts.orphans})`;
         document.getElementById('count-context').textContent = `(${counts.context})`;
+        document.getElementById('count-categorizations').textContent = `(${counts.categorizations})`;
+        document.getElementById('count-relationships').textContent = `(${counts.relationships})`;
     },
 
     /**
