@@ -586,11 +586,25 @@ const Graph = {
     },
 
     /**
+     * Check if we're on mobile
+     */
+    isMobile() {
+        return window.innerWidth <= 768 || 'ontouchstart' in window;
+    },
+
+    /**
+     * Currently selected node (for mobile tap-to-select)
+     */
+    selectedNode: null,
+    selectedEdge: null,
+
+    /**
      * Set up event handlers
      */
     setupEventHandlers() {
-        // Node hover - show tooltip and highlight
+        // Node hover - show tooltip and highlight (desktop only)
         this.cy.on('mouseover', 'node', (e) => {
+            if (this.isMobile()) return; // Skip on mobile
             const node = e.target;
             if (!node.hasClass('junction')) {
                 Tooltip.show(node, e.renderedPosition);
@@ -599,32 +613,68 @@ const Graph = {
         });
 
         this.cy.on('mouseout', 'node', () => {
+            if (this.isMobile()) return; // Skip on mobile
             Tooltip.hide();
             this.clearEdgeHighlight();
         });
 
-        // Edge hover - show edge tooltip and highlight
+        // Edge hover - show edge tooltip and highlight (desktop only)
         this.cy.on('mouseover', 'edge', (e) => {
+            if (this.isMobile()) return; // Skip on mobile
             const edge = e.target;
             Tooltip.showEdge(edge, e.renderedPosition);
             this.highlightEdge(edge);
         });
 
         this.cy.on('mouseout', 'edge', () => {
+            if (this.isMobile()) return; // Skip on mobile
             Tooltip.hideEdge();
             this.clearEdgeHighlight();
         });
 
-        // Node click - expand/collapse
+        // Node tap - different behavior for mobile vs desktop
         this.cy.on('tap', 'node', (e) => {
             const node = e.target;
-            this.toggleExpand(node);
+            if (node.hasClass('junction')) return;
+
+            if (this.isMobile()) {
+                // Mobile: first tap shows tooltip, second tap on same node expands
+                if (this.selectedNode && this.selectedNode.id() === node.id()) {
+                    // Second tap on same node - expand/collapse
+                    this.toggleExpand(node);
+                } else {
+                    // First tap - show tooltip and highlight
+                    this.clearSelection();
+                    this.selectedNode = node;
+                    node.select();
+                    Tooltip.show(node, e.renderedPosition);
+                    this.highlightNode(node);
+                }
+            } else {
+                // Desktop: click expands/collapses
+                this.toggleExpand(node);
+            }
         });
 
-        // Canvas click - deselect
+        // Edge tap - show tooltip on mobile
+        this.cy.on('tap', 'edge', (e) => {
+            const edge = e.target;
+
+            if (this.isMobile()) {
+                // Mobile: tap shows tooltip
+                this.clearSelection();
+                this.selectedEdge = edge;
+                Tooltip.showEdge(edge, e.renderedPosition);
+                this.highlightEdge(edge);
+            }
+        });
+
+        // Canvas tap - deselect and hide tooltips
         this.cy.on('tap', (e) => {
             if (e.target === this.cy) {
+                this.clearSelection();
                 Tooltip.hide();
+                Tooltip.hideEdge();
             }
         });
 
@@ -689,6 +739,20 @@ const Graph = {
                 this.container.style.cursor = 'default';
             }
         });
+    },
+
+    /**
+     * Clear mobile selection state
+     */
+    clearSelection() {
+        if (this.selectedNode) {
+            this.selectedNode.unselect();
+            this.selectedNode = null;
+        }
+        if (this.selectedEdge) {
+            this.selectedEdge = null;
+        }
+        this.clearEdgeHighlight();
     },
 
     /**

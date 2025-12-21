@@ -720,10 +720,22 @@ body {
         padding: 20px;
         max-height: 50vh;
         overflow-y: auto;
+        pointer-events: auto; /* Allow interaction on mobile */
     }
 
     .edge-tooltip {
         max-height: 40vh;
+    }
+
+    /* Add close button hint for mobile tooltips */
+    .tooltip::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--border-color);
+        border-radius: 2px;
+        margin: 0 auto 12px;
     }
 
     /* Legend - collapsible on mobile */
