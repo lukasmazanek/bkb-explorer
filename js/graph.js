@@ -390,13 +390,13 @@ const Graph = {
 
             // ===========================================
             // BINARY VERB EDGES (relationships)
-            // Thin line (2px), no endpoint markers
+            // Thin line (2px), purple color for visibility
             // ===========================================
             {
                 selector: 'edge.relationship',
                 style: {
                     'width': 2,  // Thin line per CSV
-                    'line-color': '#1a1a1a',
+                    'line-color': '#9b59b6',  // Purple for binary verbs
                     'curve-style': 'bezier',
                     'target-arrow-shape': 'none',
                     'source-arrow-shape': 'none',
@@ -405,7 +405,7 @@ const Graph = {
                     'font-size': 10,
                     'text-rotation': 'autorotate',
                     'text-margin-y': -10,
-                    'color': '#1a1a1a',
+                    'color': '#8e44ad',
                     'text-background-color': '#fff',
                     'text-background-opacity': 0.9,
                     'text-background-padding': '3px'

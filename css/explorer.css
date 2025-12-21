@@ -441,6 +441,7 @@ body {
 
 .legend-edge-line.relationship {
     height: 2px;
+    background: #9b59b6;
 }
 
 .legend-edge-dot {
