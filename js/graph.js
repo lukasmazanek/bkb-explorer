@@ -299,28 +299,25 @@ const Graph = {
                     'border-color': '#1a1a1a'  // Dark border
                 }
             },
-            // FIBO mapped - green fill
+            // FIBO mapped - green fill, black border
             {
                 selector: 'node.fibo',
                 style: {
-                    'background-color': '#d5f4e6',
-                    'border-color': '#2ecc71'
+                    'background-color': '#d5f4e6'
                 }
             },
-            // DRAFT - orange fill
+            // DRAFT - orange fill, black border
             {
                 selector: 'node.draft',
                 style: {
-                    'background-color': '#fef3e2',
-                    'border-color': '#f39c12'
+                    'background-color': '#fef3e2'
                 }
             },
-            // INHERITED - blue fill
+            // INHERITED - blue fill, black border
             {
                 selector: 'node.inherited',
                 style: {
-                    'background-color': '#e3f2fd',
-                    'border-color': '#3498db'
+                    'background-color': '#e3f2fd'
                 }
             },
             // Cross-domain indicator - thicker border

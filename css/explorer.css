@@ -402,22 +402,22 @@ body {
 
 .legend-node.concept {
     background: var(--color-concept);
-    border-color: var(--color-concept-border);
+    border-color: #1a1a1a;
 }
 
 .legend-node.fibo {
     background: var(--color-fibo-bg);
-    border-color: var(--color-fibo);
+    border-color: #1a1a1a;
 }
 
 .legend-node.draft {
     background: var(--color-draft-bg);
-    border-color: var(--color-draft);
+    border-color: #1a1a1a;
 }
 
 .legend-node.inherited {
     background: var(--color-inherited-bg);
-    border-color: var(--color-inherited);
+    border-color: #1a1a1a;
 }
 
 /* Edge legend icons */
