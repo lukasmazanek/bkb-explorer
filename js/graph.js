@@ -141,7 +141,7 @@ const Graph = {
             });
         });
 
-        // Add edges (only between visible nodes)
+        // Add extends edges (hierarchy)
         // Direction: parent → child (for correct dagre TB hierarchy)
         visibleConcepts.forEach(concept => {
             const extendsName = concept.hierarchy?.extends_name;
@@ -151,9 +151,32 @@ const Graph = {
                         id: `${extendsName}-to-${concept.name}`,
                         source: extendsName,  // parent (top)
                         target: concept.name, // child (bottom)
-                        type: 'extends'
+                        type: 'extends',
+                        label: 'extends'
                     },
                     classes: 'extends'
+                });
+            }
+        });
+
+        // Add relationship edges (verb phrases from CST)
+        const relationships = domainData.relationships || [];
+        relationships.forEach(rel => {
+            const subj = rel.subject_name;
+            const obj = rel.object_name;
+            const verb = rel.verb_phrase || 'relates to';
+
+            // Only add if both concepts are visible
+            if (visibleNames.has(subj) && visibleNames.has(obj)) {
+                edges.push({
+                    data: {
+                        id: `rel-${rel.id || Math.random()}`,
+                        source: subj,
+                        target: obj,
+                        type: 'relationship',
+                        label: verb
+                    },
+                    classes: 'relationship'
                 });
             }
         });
@@ -364,14 +387,23 @@ const Graph = {
                     'color': '#7f8c8d'
                 }
             },
-            // Categorizes edge
+            // Relationship edge (CST verb phrases)
             {
-                selector: 'edge.categorizes',
+                selector: 'edge.relationship',
                 style: {
                     'width': 2,
                     'line-style': 'dashed',
-                    'line-color': '#95a5a6',
-                    'target-arrow-color': '#95a5a6'
+                    'line-color': '#9b59b6',
+                    'target-arrow-color': '#9b59b6',
+                    'target-arrow-shape': 'triangle',
+                    'label': 'data(label)',
+                    'font-size': 9,
+                    'text-rotation': 'autorotate',
+                    'text-margin-y': -8,
+                    'color': '#8e44ad',
+                    'text-background-color': '#fff',
+                    'text-background-opacity': 0.8,
+                    'text-background-padding': '2px'
                 }
             }
         ];
