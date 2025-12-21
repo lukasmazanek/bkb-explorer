@@ -280,22 +280,22 @@ const Graph = {
     getStyles() {
         return [
             // ===========================================
-            // CONCEPT NODES - Solid rectangle, bold text, 8px border
+            // CONCEPT NODES - Solid rectangle, bold text, 2px border
             // ===========================================
             {
                 selector: 'node',
                 style: {
                     'shape': 'rectangle',
                     'width': 'label',
-                    'height': 40,
-                    'padding': '14px',
+                    'height': 36,
+                    'padding': '12px',
                     'label': 'data(name)',
                     'text-valign': 'center',
                     'text-halign': 'center',
                     'font-size': 12,
                     'font-weight': 700,  // Bold per BKB notation
                     'background-color': '#dedaff',  // Light purple (BKB default)
-                    'border-width': 8,  // Thick border per CSV notation
+                    'border-width': 2,  // 2px border per CSV notation
                     'border-color': '#1a1a1a'  // Dark border
                 }
             },
