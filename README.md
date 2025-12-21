@@ -27,10 +27,23 @@ No server required - works offline. Test data is pre-bundled.
 
 ### Interactive Graph
 - **Cytoscape.js** powered visualization
-- **Zoom** - mouse scroll
-- **Pan** - right-click drag
-- **Hover** - tooltips for concepts and edges
+- **Zoom** - mouse scroll (desktop) / pinch-to-zoom (mobile)
+- **Pan** - right-click drag (desktop) / one-finger drag (mobile)
+- **Hover/Tap** - tooltips for concepts and edges
 - **Click** - expand/collapse hierarchy
+
+### Mobile Support
+
+Responsive design with mobile-optimized UI:
+
+- **Hamburger menu** (☰) - tap to open sidebar drawer
+- **Slide-out sidebar** - domain tree, search, filters
+- **Pinch-to-zoom** - zoom in/out on graph
+- **One-finger pan** - move around the graph
+- **Bottom sheet tooltips** - tap concept to see details
+- **Larger touch targets** - 44px minimum for easy tapping
+
+Works on iOS (Safari, Chrome) and Android devices.
 
 ### CST Element Toggles
 
@@ -141,10 +154,17 @@ The app automatically detects and merges organization data when available.
 
 ## Browser Support
 
+**Desktop:**
 - Chrome (recommended)
 - Firefox
 - Safari
 - Edge
+
+**Mobile:**
+- iOS Safari
+- iOS Chrome
+- Android Chrome
+- Other mobile browsers (Maxthon, Firefox, etc.)
 
 ## Tech Stack
 
