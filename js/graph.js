@@ -992,10 +992,18 @@ const Graph = {
     /**
      * Apply filter
      */
-    applyFilter(filterType, hideContext = false) {
+    applyFilter(filterType, hideContext = false, hideCategorizations = false) {
+        const prevHideCat = this._prevHideCategorizations || false;
+        this._prevHideCategorizations = hideCategorizations;
+
         this.cy.nodes().forEach(node => {
-            // Skip junction nodes - always follow their connected edges
+            // Handle junction nodes
             if (node.hasClass('junction')) {
+                if (hideCategorizations) {
+                    node.hide();
+                } else {
+                    node.show();
+                }
                 return;
             }
 
@@ -1031,16 +1039,37 @@ const Graph = {
             }
         });
 
-        // Hide edges connected to hidden nodes
+        // Hide edges connected to hidden nodes + categorization edges
         this.cy.edges().forEach(edge => {
             const source = edge.source();
             const target = edge.target();
+            const type = edge.data('type');
+
+            // Hide if endpoints are hidden
             if (source.hidden() || target.hidden()) {
+                edge.hide();
+            }
+            // Hide categorization edges (trunk/branch) when filter is on
+            else if (hideCategorizations && (type === 'trunk' || type === 'branch')) {
                 edge.hide();
             } else {
                 edge.show();
             }
         });
+
+        // Re-run layout if categorization visibility changed
+        if (prevHideCat !== hideCategorizations) {
+            this.cy.layout({
+                name: 'dagre',
+                rankDir: 'TB',
+                nodeSep: 15,
+                rankSep: 40,
+                edgeSep: 10,
+                padding: 20,
+                animate: true,
+                animationDuration: 300
+            }).run();
+        }
     },
 
     /**

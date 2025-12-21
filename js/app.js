@@ -12,7 +12,8 @@ const BKBExplorer = {
         expandedNodes: new Set(),
         selectedNode: null,
         currentFilter: 'all',
-        hideContext: false
+        hideContext: false,
+        hideCategorizations: false
     },
 
     /**
@@ -69,6 +70,15 @@ const BKBExplorer = {
         if (hideContextInput) {
             hideContextInput.addEventListener('change', (e) => {
                 this.state.hideContext = e.target.checked;
+                this.applyFilter();
+            });
+        }
+
+        // Hide categorizations checkbox
+        const hideCatInput = document.getElementById('hide-categorizations');
+        if (hideCatInput) {
+            hideCatInput.addEventListener('change', (e) => {
+                this.state.hideCategorizations = e.target.checked;
                 this.applyFilter();
             });
         }
@@ -155,7 +165,7 @@ const BKBExplorer = {
      * Apply current filter
      */
     applyFilter() {
-        Graph.applyFilter(this.state.currentFilter, this.state.hideContext);
+        Graph.applyFilter(this.state.currentFilter, this.state.hideContext, this.state.hideCategorizations);
     },
 
     /**
