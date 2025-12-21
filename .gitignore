@@ -17,5 +17,5 @@ test/*/config.json
 test/*/domain.json
 test/*/*/
 
-# Generated app data (RBCZ version - use prepare-public.sh for safe version)
-# js/data.js
+# RBCZ data (never commit - contains sensitive production data)
+js/data-rbcz.js

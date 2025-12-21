@@ -38,6 +38,23 @@ const BKBExplorer = {
             return;
         }
 
+        // Merge RBCZ data if available (separate bundle, never committed)
+        if (typeof window.BKB_RBCZ_DATA !== 'undefined') {
+            console.log('🔐 RBCZ data detected, merging...');
+            // Merge domain data
+            Object.assign(window.BKB_DATA, window.BKB_RBCZ_DATA);
+            // Merge domains hierarchy
+            if (window.BKB_RBCZ_DATA.domains && window.BKB_RBCZ_DATA.domains.hierarchy) {
+                Object.assign(
+                    window.BKB_DATA.domains.hierarchy,
+                    window.BKB_RBCZ_DATA.domains.hierarchy
+                );
+            }
+            console.log('✅ RBCZ data merged');
+        } else {
+            console.log('ℹ️ Running in public mode (Test data only)');
+        }
+
         // Initialize components
         Sidebar.init(window.BKB_DATA.domains);
         Graph.init('graph-container');
@@ -46,8 +63,9 @@ const BKBExplorer = {
         // Set up event listeners
         this.setupEventListeners();
 
-        // Load default domain
-        const defaultDomain = 'Investment';
+        // Load default domain (Investment if RBCZ available, Order otherwise)
+        const hasRbcz = typeof window.BKB_RBCZ_DATA !== 'undefined';
+        const defaultDomain = hasRbcz ? 'Investment' : 'Order';
         this.selectDomain(defaultDomain);
 
         console.log('✅ BKB Explorer ready');
