@@ -1,0 +1,9 @@
+{
+  "domain": {
+    "path": "Test:FinancialAccount",
+    "name": "FinancialAccount"
+  },
+  "sources": [
+    "Financial_Account.cs"
+  ]
+}

@@ -40,6 +40,7 @@ mkdir -p "$SCRIPT_DIR/test/Order"
 mkdir -p "$SCRIPT_DIR/test/Position"
 mkdir -p "$SCRIPT_DIR/test/Transaction"
 mkdir -p "$SCRIPT_DIR/test/Payment"
+mkdir -p "$SCRIPT_DIR/test/FinancialAccount"
 
 echo "Step 1: Copying test data from conceptspeak/tests..."
 
@@ -104,6 +105,18 @@ cat > "$SCRIPT_DIR/test/Payment/config.json" << 'EOF'
 }
 EOF
 
+cat > "$SCRIPT_DIR/test/FinancialAccount/config.json" << 'EOF'
+{
+  "domain": {
+    "path": "Test:FinancialAccount",
+    "name": "FinancialAccount"
+  },
+  "sources": [
+    "Financial_Account.cs"
+  ]
+}
+EOF
+
 echo "Step 2: Running domain-forge..."
 
 # Run domain-forge
@@ -112,6 +125,7 @@ python -m domain_forge consolidate "$SCRIPT_DIR/test/Order/config.json"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Position/config.json"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Transaction/config.json"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Payment/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/FinancialAccount/config.json"
 echo ""
 
 echo "Step 3: Running ontology-lift..."
@@ -122,6 +136,7 @@ python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Order/domain.json" -o "$SCRIP
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Position/domain.json" -o "$SCRIPT_DIR/test/Position/"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Transaction/domain.json" -o "$SCRIPT_DIR/test/Transaction/"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Payment/domain.json" -o "$SCRIPT_DIR/test/Payment/"
+python -m ontology_lift.cli lift "$SCRIPT_DIR/test/FinancialAccount/domain.json" -o "$SCRIPT_DIR/test/FinancialAccount/"
 echo ""
 
 echo "Step 4: Generating data.js..."
@@ -131,6 +146,7 @@ ORDER_FILE="$SCRIPT_DIR/test/Order/Test:Order/ontology.json"
 POSITION_FILE="$SCRIPT_DIR/test/Position/Test:Position/ontology.json"
 TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test:Transaction/ontology.json"
 PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test:Payment/ontology.json"
+FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test:FinancialAccount/ontology.json"
 
 python3 << PYTHON
 import json
@@ -148,6 +164,9 @@ with open('$TRANSACTION_FILE') as f:
 
 with open('$PAYMENT_FILE') as f:
     payment_data = json.load(f)
+
+with open('$FINANCIAL_ACCOUNT_FILE') as f:
+    financial_account_data = json.load(f)
 
 # Generate data.js
 output = f'''/**
@@ -170,7 +189,8 @@ const DOMAINS_DATA = {{
         "Order": {{ "type": "domain", "stats": {{ "concepts": {len(order_data['concepts'])} }} }},
         "Position": {{ "type": "domain", "stats": {{ "concepts": {len(position_data['concepts'])} }} }},
         "Transaction": {{ "type": "domain", "stats": {{ "concepts": {len(transaction_data['concepts'])} }} }},
-        "Payment": {{ "type": "domain", "stats": {{ "concepts": {len(payment_data['concepts'])} }} }}
+        "Payment": {{ "type": "domain", "stats": {{ "concepts": {len(payment_data['concepts'])} }} }},
+        "FinancialAccount": {{ "type": "domain", "stats": {{ "concepts": {len(financial_account_data['concepts'])} }} }}
       }}
     }}
   }},
@@ -189,13 +209,17 @@ const TRANSACTION_DATA = {json.dumps(transaction_data, indent=2)};
 // Payment domain
 const PAYMENT_DATA = {json.dumps(payment_data, indent=2)};
 
+// FinancialAccount domain
+const FINANCIAL_ACCOUNT_DATA = {json.dumps(financial_account_data, indent=2)};
+
 // Export for application
 window.BKB_DATA = {{
   domains: DOMAINS_DATA,
   order: ORDER_DATA,
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,
-  payment: PAYMENT_DATA
+  payment: PAYMENT_DATA,
+  financialAccount: FINANCIAL_ACCOUNT_DATA
 }};
 
 console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
@@ -208,6 +232,7 @@ print(f"  Order: {len(order_data['concepts'])} concepts")
 print(f"  Position: {len(position_data['concepts'])} concepts")
 print(f"  Transaction: {len(transaction_data['concepts'])} concepts")
 print(f"  Payment: {len(payment_data['concepts'])} concepts")
+print(f"  FinancialAccount: {len(financial_account_data['concepts'])} concepts")
 PYTHON
 
 echo ""

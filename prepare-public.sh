@@ -23,6 +23,7 @@ TEST_ORDER_FILE="$SCRIPT_DIR/test/Order/Test:Order/ontology.json"
 TEST_POSITION_FILE="$SCRIPT_DIR/test/Position/Test:Position/ontology.json"
 TEST_TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test:Transaction/ontology.json"
 TEST_PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test:Payment/ontology.json"
+TEST_FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test:FinancialAccount/ontology.json"
 
 # Run test demo first to ensure test data exists
 if [ ! -f "$TEST_ORDER_FILE" ]; then
@@ -54,6 +55,7 @@ TEST_ORDER_COUNT=0
 TEST_POSITION_COUNT=0
 TEST_TRANSACTION_COUNT=0
 TEST_PAYMENT_COUNT=0
+TEST_FINANCIAL_ACCOUNT_COUNT=0
 
 if [ -f "$TEST_ORDER_FILE" ]; then
     TEST_ORDER_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_ORDER_FILE'))['concepts']))" 2>/dev/null || echo 0)
@@ -66,6 +68,9 @@ if [ -f "$TEST_TRANSACTION_FILE" ]; then
 fi
 if [ -f "$TEST_PAYMENT_FILE" ]; then
     TEST_PAYMENT_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_PAYMENT_FILE'))['concepts']))" 2>/dev/null || echo 0)
+fi
+if [ -f "$TEST_FINANCIAL_ACCOUNT_FILE" ]; then
+    TEST_FINANCIAL_ACCOUNT_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_FINANCIAL_ACCOUNT_FILE'))['concepts']))" 2>/dev/null || echo 0)
 fi
 
 # Domains index (Test only)
@@ -80,7 +85,8 @@ echo '      "children": {' >> "$OUTPUT_FILE"
 echo "        \"Order\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_ORDER_COUNT } }," >> "$OUTPUT_FILE"
 echo "        \"Position\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_POSITION_COUNT } }," >> "$OUTPUT_FILE"
 echo "        \"Transaction\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_TRANSACTION_COUNT } }," >> "$OUTPUT_FILE"
-echo "        \"Payment\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_PAYMENT_COUNT } }" >> "$OUTPUT_FILE"
+echo "        \"Payment\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_PAYMENT_COUNT } }," >> "$OUTPUT_FILE"
+echo "        \"FinancialAccount\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_FINANCIAL_ACCOUNT_COUNT } }" >> "$OUTPUT_FILE"
 echo '      }' >> "$OUTPUT_FILE"
 echo '    }' >> "$OUTPUT_FILE"
 echo '  },' >> "$OUTPUT_FILE"
@@ -140,6 +146,19 @@ fi
 echo ";" >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 
+# Test FinancialAccount data
+echo "// Test FinancialAccount domain" >> "$OUTPUT_FILE"
+echo -n "const TEST_FINANCIAL_ACCOUNT_DATA = " >> "$OUTPUT_FILE"
+if [ -f "$TEST_FINANCIAL_ACCOUNT_FILE" ]; then
+    cat "$TEST_FINANCIAL_ACCOUNT_FILE" >> "$OUTPUT_FILE"
+    echo "  ✅ Test/FinancialAccount: $TEST_FINANCIAL_ACCOUNT_COUNT concepts"
+else
+    echo '{ "domain": { "name": "FinancialAccount", "path": "Test:FinancialAccount" }, "concepts": [] }' >> "$OUTPUT_FILE"
+    echo "  ⚠️  Test/FinancialAccount: not found"
+fi
+echo ";" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
 # Export
 echo "// Export for application" >> "$OUTPUT_FILE"
 echo "window.BKB_DATA = {" >> "$OUTPUT_FILE"
@@ -147,7 +166,8 @@ echo "  domains: DOMAINS_DATA," >> "$OUTPUT_FILE"
 echo "  order: TEST_ORDER_DATA," >> "$OUTPUT_FILE"
 echo "  position: TEST_POSITION_DATA," >> "$OUTPUT_FILE"
 echo "  transaction: TEST_TRANSACTION_DATA," >> "$OUTPUT_FILE"
-echo "  payment: TEST_PAYMENT_DATA" >> "$OUTPUT_FILE"
+echo "  payment: TEST_PAYMENT_DATA," >> "$OUTPUT_FILE"
+echo "  financialAccount: TEST_FINANCIAL_ACCOUNT_DATA" >> "$OUTPUT_FILE"
 echo "};" >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 echo "console.log('✅ BKB test data loaded:', Object.keys(window.BKB_DATA));" >> "$OUTPUT_FILE"

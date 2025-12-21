@@ -17,5 +17,9 @@ test/*/config.json
 test/*/domain.json
 test/*/*/
 
+# Exception: FinancialAccount is bkb-explorer specific test data
+!test/FinancialAccount/Financial_Account.cs
+!test/FinancialAccount/config.json
+
 # Organization data (never commit - contains sensitive production data)
 js/data-org.js
