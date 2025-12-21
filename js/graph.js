@@ -207,10 +207,9 @@ const Graph = {
         relationships.forEach(rel => {
             const subj = rel.subject_name;
             const obj = rel.object_name;
-            // Use verb_phrase, inverse_verb_phrase, or fallback "?" to highlight missing data
-            const verb = (rel.verb_phrase && rel.verb_phrase.trim())
-                || (rel.inverse_verb_phrase && rel.inverse_verb_phrase.trim())
-                || '???';
+            // Get both verb phrases for bidirectional labels
+            const verbPhrase = (rel.verb_phrase && rel.verb_phrase.trim()) || '';
+            const inversePhrase = (rel.inverse_verb_phrase && rel.inverse_verb_phrase.trim()) || '';
 
             // Only add if both concepts are visible
             if (visibleNames.has(subj) && visibleNames.has(obj)) {
@@ -222,7 +221,8 @@ const Graph = {
                         source: subj,
                         target: obj,
                         type: 'relationship',
-                        label: verb,
+                        sourceLabel: verbPhrase,      // verb near subject
+                        targetLabel: inversePhrase,   // inverse near object
                         isContext: isContextRel
                     },
                     classes: isContextRel ? 'relationship context-rel' : 'relationship'
@@ -448,6 +448,7 @@ const Graph = {
             // ===========================================
             // BINARY VERB EDGES (relationships)
             // Thin line (2px), purple color for visibility
+            // Labels on both ends: verb near source, inverse near target
             // ===========================================
             {
                 selector: 'edge.relationship',
@@ -457,15 +458,20 @@ const Graph = {
                     'curve-style': 'bezier',
                     'target-arrow-shape': 'none',
                     'source-arrow-shape': 'none',
-                    // Verb label
-                    'label': 'data(label)',
-                    'font-size': 10,
-                    'text-rotation': 'autorotate',
-                    'text-margin-y': -10,
+                    // Source label (verb_phrase near subject)
+                    'source-label': 'data(sourceLabel)',
+                    'source-text-offset': 15,
+                    'source-text-margin-y': -6,
+                    // Target label (inverse_verb_phrase near object)
+                    'target-label': 'data(targetLabel)',
+                    'target-text-offset': 5,
+                    'target-text-margin-y': -6,
+                    // Common label styling
+                    'font-size': 9,
                     'color': '#8e44ad',
                     'text-background-color': '#fff',
                     'text-background-opacity': 0.9,
-                    'text-background-padding': '3px'
+                    'text-background-padding': '2px'
                 }
             },
             // Context relationship edges (dotted 1px)
