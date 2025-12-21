@@ -280,22 +280,22 @@ const Graph = {
     getStyles() {
         return [
             // ===========================================
-            // CONCEPT NODES - Solid rectangle, bold text
+            // CONCEPT NODES - Solid rectangle, bold text, 8px border
             // ===========================================
             {
                 selector: 'node',
                 style: {
                     'shape': 'rectangle',
                     'width': 'label',
-                    'height': 36,
-                    'padding': '12px',
+                    'height': 40,
+                    'padding': '14px',
                     'label': 'data(name)',
                     'text-valign': 'center',
                     'text-halign': 'center',
                     'font-size': 12,
                     'font-weight': 700,  // Bold per BKB notation
                     'background-color': '#dedaff',  // Light purple (BKB default)
-                    'border-width': 4,  // Solid border per BKB
+                    'border-width': 8,  // Thick border per CSV notation
                     'border-color': '#1a1a1a'  // Dark border
                 }
             },
@@ -366,43 +366,31 @@ const Graph = {
 
             // ===========================================
             // CATEGORIZATION EDGES (extends/is-a)
-            // Thick line with filled dots at ends
+            // Thick line, no endpoint markers
             // ===========================================
             {
                 selector: 'edge.extends',
                 style: {
-                    'width': 5,  // Thick line per BKB
+                    'width': 5,  // Thick line per CSV
                     'line-color': '#1a1a1a',
                     'curve-style': 'bezier',
-                    // Filled circles at ends (BKB notation)
-                    'source-arrow-shape': 'circle',
-                    'source-arrow-color': '#1a1a1a',
-                    'source-arrow-fill': 'filled',
-                    'target-arrow-shape': 'circle',
-                    'target-arrow-color': '#1a1a1a',
-                    'target-arrow-fill': 'filled',
-                    'arrow-scale': 0.6
+                    'target-arrow-shape': 'none',
+                    'source-arrow-shape': 'none'
                 }
             },
 
             // ===========================================
             // BINARY VERB EDGES (relationships)
-            // Thin line with hollow circles
+            // Thin line (2px), no endpoint markers
             // ===========================================
             {
                 selector: 'edge.relationship',
                 style: {
-                    'width': 2,  // Thin line per BKB
+                    'width': 2,  // Thin line per CSV
                     'line-color': '#1a1a1a',
                     'curve-style': 'bezier',
-                    // Small hollow circles (BKB notation)
-                    'source-arrow-shape': 'circle',
-                    'source-arrow-color': '#1a1a1a',
-                    'source-arrow-fill': 'hollow',
-                    'target-arrow-shape': 'circle',
-                    'target-arrow-color': '#1a1a1a',
-                    'target-arrow-fill': 'hollow',
-                    'arrow-scale': 0.4,
+                    'target-arrow-shape': 'none',
+                    'source-arrow-shape': 'none',
                     // Verb label
                     'label': 'data(label)',
                     'font-size': 10,
