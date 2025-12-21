@@ -23,7 +23,7 @@ No server required - works offline. Test data is pre-bundled.
 ## Features
 
 ### Domain Navigation
-- Browse **Test** > Order / Position / Transaction / Payment
+- Browse **Test** > Order / Position / Transaction / Payment / FinancialAccount
 - Organization domains appear when data-org.js is loaded
 - Sidebar tree with concept counts
 
@@ -132,6 +132,7 @@ Data is split into two bundles for security:
 | Position | Test:Position | 16 |
 | Transaction | Test:Transaction | 9 |
 | Payment | Test:Payment | 27 |
+| FinancialAccount | Test:FinancialAccount | 14 |
 
 ### Organization Data (Never Committed)
 
