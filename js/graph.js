@@ -1090,8 +1090,9 @@ const Graph = {
             });
         }
 
-        // Re-run layout to compact the graph after filter changes
-        this.cy.layout({
+        // Re-run layout only on visible elements to compact the graph
+        const visibleElements = this.cy.elements().filter(ele => !ele.hidden());
+        visibleElements.layout({
             name: 'dagre',
             rankDir: 'TB',
             nodeSep: 15,
