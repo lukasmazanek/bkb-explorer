@@ -44,11 +44,10 @@ const Graph = {
             layout: {
                 name: 'dagre',
                 rankDir: 'TB',
-                nodeSep: 20,
-                rankSep: 50,
+                nodeSep: 15,
+                rankSep: 40,
                 edgeSep: 10,
-                padding: 20,
-                spacingFactor: 1.0
+                padding: 20
             },
             minZoom: 0.2,
             maxZoom: 3,
@@ -184,23 +183,59 @@ const Graph = {
             });
         });
 
-        // Add categorization edges (parent → child)
-        // Uses categorizations from ConceptSpeak, not FIBO hierarchy
-        visibleConcepts.forEach(concept => {
-            const parentInfo = childToParent.get(concept.name);
-            if (parentInfo && visibleNames.has(parentInfo.parent)) {
+        // Add categorization edges with junction nodes
+        // Structure: parent → junction (●) → children
+        // Junction node shows the categorization label
+        const addedJunctions = new Set();
+        let junctionIndex = 0;
+
+        categorizations.forEach(cat => {
+            const parentName = cat.parent_name;
+            const schema = cat.category_name || '';
+            const children = (cat.children_names || []).filter(ch => visibleNames.has(ch));
+
+            if (!visibleNames.has(parentName) || children.length === 0) return;
+
+            const junctionId = `junction-${parentName}-${schema.replace(/\s+/g, '_')}`;
+            if (addedJunctions.has(junctionId)) return;
+            addedJunctions.add(junctionId);
+
+            // Junction node (small circle with label)
+            nodes.push({
+                data: {
+                    id: junctionId,
+                    name: schema || '●',
+                    label: schema,
+                    isJunction: true,
+                    junctionIndex: junctionIndex++
+                },
+                classes: 'junction'
+            });
+
+            // Trunk edge: parent → junction
+            edges.push({
+                data: {
+                    id: `trunk-${parentName}-to-${junctionId}`,
+                    source: parentName,
+                    target: junctionId,
+                    type: 'trunk',
+                    schema: schema
+                },
+                classes: 'trunk'
+            });
+
+            // Branch edges: junction → children
+            children.forEach(childName => {
                 edges.push({
                     data: {
-                        id: `cat-${parentInfo.parent}-to-${concept.name}`,
-                        source: parentInfo.parent,  // parent (top)
-                        target: concept.name,       // child (bottom)
-                        type: 'extends',
-                        schema: parentInfo.schema,  // categorization label
-                        label: parentInfo.schema || ''
+                        id: `branch-${junctionId}-to-${childName}`,
+                        source: junctionId,
+                        target: childName,
+                        type: 'branch'
                     },
-                    classes: 'extends'
+                    classes: 'branch'
                 });
-            }
+            });
         });
 
         // Add relationship edges (binary verbs from ConceptSpeak)
@@ -329,6 +364,18 @@ const Graph = {
     getStyles() {
         return [
             // ===========================================
+            // BASE EDGE STYLE (fallback) - must be first
+            // ===========================================
+            {
+                selector: 'edge',
+                style: {
+                    'width': 2,
+                    'line-color': '#95a5a6',
+                    'curve-style': 'bezier'
+                }
+            },
+
+            // ===========================================
             // CONCEPT NODES - Solid rectangle, bold text, 2px border
             // ===========================================
             {
@@ -344,7 +391,7 @@ const Graph = {
                     'font-size': 12,
                     'font-weight': 700,  // Bold per BKB notation
                     'background-color': '#dedaff',  // Light purple (BKB default)
-                    'border-width': 2,  // 2px border per CSV notation
+                    'border-width': 1,
                     'border-color': '#1a1a1a'  // Dark border
                 }
             },
@@ -425,25 +472,22 @@ const Graph = {
             },
 
             // ===========================================
-            // CATEGORIZATION EDGES (extends/is-a)
-            // 8px thick line, label near parent (when available)
+            // JUNCTION NODES (categorization branch points)
+            // Small filled circle, 8px diameter (same as line width)
             // ===========================================
             {
-                selector: 'edge.extends',
+                selector: 'node.junction',
                 style: {
-                    'width': 8,  // 8px per CSV notation
-                    'line-color': '#1a1a1a',
-                    'curve-style': 'bezier',
-                    'target-arrow-shape': 'none',
-                    'source-arrow-shape': 'none',
-                    // Label (categorization schema) - needs data from ontology-lift
-                    'label': 'data(schema)',
-                    'font-size': 10,
-                    'text-margin-y': -12,
-                    'color': '#1a1a1a',
-                    'source-text-offset': 30
+                    'shape': 'ellipse',
+                    'width': 3,
+                    'height': 3,
+                    'background-color': '#333333',
+                    'border-width': 0,
+                    'padding': 0,
+                    'label': ''  // Label moved to trunk edge
                 }
             },
+
 
             // ===========================================
             // BINARY VERB EDGES (relationships)
@@ -486,14 +530,33 @@ const Graph = {
             },
 
             // ===========================================
-            // BASE EDGE STYLE (fallback)
+            // CATEGORIZATION EDGES - MUST BE LAST for CSS priority
             // ===========================================
+            // Trunk: parent → junction (haystack spreads edges along node border)
             {
-                selector: 'edge',
+                selector: 'edge.trunk',
                 style: {
-                    'width': 2,
-                    'line-color': '#95a5a6',
-                    'curve-style': 'bezier'
+                    'width': 3,
+                    'line-color': '#333333',
+                    'curve-style': 'haystack',
+                    'haystack-radius': 0.5,
+                    'label': 'data(schema)',
+                    'font-size': 10,
+                    'color': '#333333',
+                    'text-background-color': '#fff',
+                    'text-background-opacity': 0.9,
+                    'text-background-padding': '2px'
+                }
+            },
+            // Branch: junction → children
+            {
+                selector: 'edge.branch',
+                style: {
+                    'width': 3,
+                    'line-color': '#333333',
+                    'curve-style': 'unbundled-bezier',
+                    'control-point-distances': 20,
+                    'control-point-weights': 0.5
                 }
             }
         ];
