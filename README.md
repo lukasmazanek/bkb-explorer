@@ -104,15 +104,30 @@ Choose graph layout algorithm:
 
 ## Data
 
-Data is bundled in `js/data.js`. To refresh:
+Data is bundled in `js/data.js`. Two variants available:
+
+### Public Version (Test Data Only)
+
+```bash
+./prepare-public.sh
+```
+
+Safe for public repository. Contains only synthetic test data.
+
+| Domain | Path | Concepts |
+|--------|------|----------|
+| Order | Test:Order | 18 |
+| Position | Test:Position | 16 |
+| Transaction | Test:Transaction | 9 |
+| Payment | Test:Payment | 27 |
+
+### Full Version (RBCZ + Test Data)
 
 ```bash
 ./prepare-demo.sh
 ```
 
-This copies latest exports from `../ontology-lift/export/` and `./test/`.
-
-### Domains
+Contains production RBCZ data. **Do not publish publicly.**
 
 | Domain | Path | Source |
 |--------|------|--------|
