@@ -75,6 +75,9 @@ const BKBExplorer = {
      * Set up global event listeners
      */
     setupEventListeners() {
+        // Mobile sidebar toggle
+        this.setupMobileMenu();
+
         // Search input
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
@@ -137,6 +140,11 @@ const BKBExplorer = {
 
         // Reapply current filter
         this.applyFilter();
+
+        // Close mobile sidebar after selection
+        if (this.closeMobileSidebar && window.innerWidth <= 768) {
+            this.closeMobileSidebar();
+        }
     },
 
     /**
@@ -204,6 +212,43 @@ const BKBExplorer = {
         setTimeout(() => {
             Graph.focusNode(focusNode);
         }, 300);
+    },
+
+    /**
+     * Set up mobile menu (hamburger toggle)
+     */
+    setupMobileMenu() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('sidebar-close-btn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        const openSidebar = () => {
+            sidebar.classList.add('open');
+            overlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeSidebar = () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('visible');
+            document.body.style.overflow = '';
+        };
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', openSidebar);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeSidebar);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', closeSidebar);
+        }
+
+        // Close sidebar when domain is selected (mobile)
+        this.closeMobileSidebar = closeSidebar;
     },
 
     /**

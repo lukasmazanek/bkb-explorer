@@ -9,11 +9,28 @@ const Tooltip = {
     edgeElement: null,
 
     /**
+     * Check if we're on mobile
+     */
+    isMobile() {
+        return window.innerWidth <= 768;
+    },
+
+    /**
      * Initialize tooltip
      */
     init() {
         this.element = document.getElementById('tooltip');
         this.edgeElement = document.getElementById('edge-tooltip');
+
+        // On mobile, tap anywhere to close tooltip
+        if (this.isMobile()) {
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.tooltip')) {
+                    this.hide();
+                    this.hideEdge();
+                }
+            });
+        }
     },
 
     /**
@@ -84,6 +101,11 @@ const Tooltip = {
      * Position tooltip near the node (outside the node)
      */
     position(renderedPosition) {
+        // On mobile, CSS handles positioning as bottom sheet
+        if (this.isMobile()) {
+            return;
+        }
+
         const container = document.getElementById('graph-container');
         const containerRect = container.getBoundingClientRect();
 
@@ -219,6 +241,11 @@ const Tooltip = {
      * Position edge tooltip (away from edge)
      */
     positionEdge(renderedPosition) {
+        // On mobile, CSS handles positioning as bottom sheet
+        if (this.isMobile()) {
+            return;
+        }
+
         const container = document.getElementById('graph-container');
         const containerRect = container.getBoundingClientRect();
 

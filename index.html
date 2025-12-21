@@ -2,16 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>BKB Explorer - Business Knowledge Blueprint</title>
     <link rel="stylesheet" href="css/explorer.css">
 </head>
 <body>
     <div class="app-container">
+        <!-- Mobile Header (visible only on mobile) -->
+        <header class="mobile-header">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">☰</button>
+            <h1>BKB Explorer</h1>
+            <div style="width: 40px;"></div> <!-- Spacer for centering -->
+        </header>
+
+        <!-- Sidebar Overlay (mobile only) -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h1>BKB Explorer</h1>
+                <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close menu">✕</button>
             </div>
 
             <div class="domain-tree" id="domain-tree">
