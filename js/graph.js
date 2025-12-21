@@ -52,7 +52,10 @@ const Graph = {
             },
             minZoom: 0.2,
             maxZoom: 3,
-            wheelSensitivity: 0.3
+            wheelSensitivity: 0.5,
+            userPanningEnabled: false,  // We handle panning with right-click
+            userZoomingEnabled: true,
+            zoomingEnabled: true
         });
 
         // Set up event handlers
@@ -403,6 +406,24 @@ const Graph = {
 
         // Right-click panning
         this.setupRightClickPan();
+
+        // Manual wheel zoom (in case default doesn't work)
+        this.container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? 0.9 : 1.1;  // Zoom out/in
+            const zoom = this.cy.zoom() * delta;
+            const boundedZoom = Math.max(this.cy.minZoom(), Math.min(this.cy.maxZoom(), zoom));
+
+            // Zoom toward mouse position
+            const rect = this.container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            this.cy.zoom({
+                level: boundedZoom,
+                renderedPosition: { x, y }
+            });
+        }, { passive: false });
     },
 
     /**
@@ -410,7 +431,7 @@ const Graph = {
      */
     setupRightClickPan() {
         let isPanning = false;
-        let startX, startY, startPan;
+        let lastX, lastY;
 
         // Prevent context menu on graph
         this.container.addEventListener('contextmenu', (e) => {
@@ -420,21 +441,21 @@ const Graph = {
         this.container.addEventListener('mousedown', (e) => {
             if (e.button === 2) { // Right click
                 isPanning = true;
-                startX = e.clientX;
-                startY = e.clientY;
-                startPan = this.cy.pan();
+                lastX = e.clientX;
+                lastY = e.clientY;
                 this.container.style.cursor = 'grabbing';
+                e.preventDefault();
             }
         });
 
         document.addEventListener('mousemove', (e) => {
             if (isPanning) {
-                const dx = e.clientX - startX;
-                const dy = e.clientY - startY;
-                this.cy.pan({
-                    x: startPan.x + dx,
-                    y: startPan.y + dy
-                });
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                // Use panBy for incremental panning
+                this.cy.panBy({ x: dx, y: dy });
             }
         });
 
