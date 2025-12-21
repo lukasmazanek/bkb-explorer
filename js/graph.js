@@ -474,14 +474,8 @@ const Graph = {
                     'background-color': '#fadbd8'
                 }
             },
-            // Edge hover - connected nodes
-            {
-                selector: 'node.edge-connected',
-                style: {
-                    'border-color': '#9b59b6',
-                    'border-width': 3
-                }
-            },
+            // Edge hover - connected nodes (dynamic styling applied in JS)
+            // Note: actual border-width is set dynamically as original + 2
 
             // ===========================================
             // CONTEXT NODES (type: context_reference)
@@ -588,15 +582,8 @@ const Graph = {
 
             // ===========================================
             // EDGE HIGHLIGHT (on hover)
+            // Note: actual width is set dynamically as original + 2
             // ===========================================
-            {
-                selector: 'edge.edge-highlighted',
-                style: {
-                    'width': 4,
-                    'line-color': '#9b59b6',
-                    'z-index': 999
-                }
-            }
         ];
     },
 
@@ -827,11 +814,48 @@ const Graph = {
     },
 
     /**
+     * Apply highlight style to a node (dynamic +2 border width)
+     */
+    applyNodeHighlight(node) {
+        if (node.data('_origBorderWidth') !== undefined) return; // Already highlighted
+
+        const origWidth = node.numericStyle('border-width') || 1;
+        const origColor = node.style('border-color');
+
+        node.data('_origBorderWidth', origWidth);
+        node.data('_origBorderColor', origColor);
+        node.addClass('edge-connected');
+        node.style({
+            'border-width': origWidth + 2,
+            'border-color': '#9b59b6'
+        });
+    },
+
+    /**
+     * Apply highlight style to an edge (dynamic +2 line width)
+     */
+    applyEdgeHighlight(edge) {
+        if (edge.data('_origWidth') !== undefined) return; // Already highlighted
+
+        const origWidth = edge.numericStyle('width') || 2;
+        const origColor = edge.style('line-color');
+
+        edge.data('_origWidth', origWidth);
+        edge.data('_origColor', origColor);
+        edge.addClass('edge-highlighted');
+        edge.style({
+            'width': origWidth + 2,
+            'line-color': '#9b59b6',
+            'z-index': 999
+        });
+    },
+
+    /**
      * Highlight node and all connected edges/concepts
      */
     highlightNode(node) {
         // Highlight the node itself
-        node.addClass('edge-connected');
+        this.applyNodeHighlight(node);
 
         // Get all connected edges
         const connectedEdges = node.connectedEdges();
@@ -841,20 +865,20 @@ const Graph = {
 
             if (type === 'trunk') {
                 // This node is parent, highlight trunk and all branches
-                edge.addClass('edge-highlighted');
+                this.applyEdgeHighlight(edge);
                 const junctionId = edge.target().id();
 
                 const branchEdges = this.cy.edges().filter(e =>
                     e.data('type') === 'branch' && e.data('source') === junctionId
                 );
                 branchEdges.forEach(branchEdge => {
-                    branchEdge.addClass('edge-highlighted');
-                    branchEdge.target().addClass('edge-connected');
+                    this.applyEdgeHighlight(branchEdge);
+                    this.applyNodeHighlight(branchEdge.target());
                 });
 
             } else if (type === 'branch') {
                 // This node is child, highlight branch and trunk to parent
-                edge.addClass('edge-highlighted');
+                this.applyEdgeHighlight(edge);
                 const junctionId = edge.source().id();
 
                 const trunkEdge = this.cy.edges().filter(e =>
@@ -862,15 +886,15 @@ const Graph = {
                 ).first();
 
                 if (trunkEdge && trunkEdge.length > 0) {
-                    trunkEdge.addClass('edge-highlighted');
-                    trunkEdge.source().addClass('edge-connected');
+                    this.applyEdgeHighlight(trunkEdge);
+                    this.applyNodeHighlight(trunkEdge.source());
                 }
 
             } else if (type === 'relationship') {
                 // Binary verb - highlight edge and other endpoint
-                edge.addClass('edge-highlighted');
+                this.applyEdgeHighlight(edge);
                 const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
-                otherNode.addClass('edge-connected');
+                this.applyNodeHighlight(otherNode);
             }
         });
     },
@@ -883,7 +907,7 @@ const Graph = {
         const type = data.type || '';
 
         // Highlight the edge
-        edge.addClass('edge-highlighted');
+        this.applyEdgeHighlight(edge);
 
         if (type === 'branch') {
             // For branch: highlight child and find actual parent through trunk
@@ -898,10 +922,10 @@ const Graph = {
 
             if (trunkEdge && trunkEdge.length > 0) {
                 const parentNode = trunkEdge.source();
-                parentNode.addClass('edge-connected');
-                trunkEdge.addClass('edge-highlighted');
+                this.applyNodeHighlight(parentNode);
+                this.applyEdgeHighlight(trunkEdge);
             }
-            childNode.addClass('edge-connected');
+            this.applyNodeHighlight(childNode);
 
         } else if (type === 'trunk') {
             // For trunk: highlight parent and all children through branches
@@ -909,30 +933,60 @@ const Graph = {
             const junctionNode = edge.target();
             const junctionId = junctionNode.id();
 
-            parentNode.addClass('edge-connected');
+            this.applyNodeHighlight(parentNode);
 
             // Find all branch edges from this junction
             const branchEdges = this.cy.edges().filter(e =>
                 e.data('type') === 'branch' && e.data('source') === junctionId
             );
             branchEdges.forEach(branchEdge => {
-                branchEdge.addClass('edge-highlighted');
-                branchEdge.target().addClass('edge-connected');
+                this.applyEdgeHighlight(branchEdge);
+                this.applyNodeHighlight(branchEdge.target());
             });
 
         } else {
             // For regular edges: highlight both endpoints
-            edge.source().addClass('edge-connected');
-            edge.target().addClass('edge-connected');
+            this.applyNodeHighlight(edge.source());
+            this.applyNodeHighlight(edge.target());
         }
     },
 
     /**
-     * Clear edge highlight
+     * Clear edge highlight and restore original styles
      */
     clearEdgeHighlight() {
-        this.cy.edges().removeClass('edge-highlighted');
-        this.cy.nodes().removeClass('edge-connected');
+        // Restore node original styles
+        this.cy.nodes('.edge-connected').forEach(node => {
+            const origWidth = node.data('_origBorderWidth');
+            const origColor = node.data('_origBorderColor');
+
+            if (origWidth !== undefined) {
+                node.style({
+                    'border-width': origWidth,
+                    'border-color': origColor
+                });
+                node.removeData('_origBorderWidth');
+                node.removeData('_origBorderColor');
+            }
+            node.removeClass('edge-connected');
+        });
+
+        // Restore edge original styles
+        this.cy.edges('.edge-highlighted').forEach(edge => {
+            const origWidth = edge.data('_origWidth');
+            const origColor = edge.data('_origColor');
+
+            if (origWidth !== undefined) {
+                edge.style({
+                    'width': origWidth,
+                    'line-color': origColor,
+                    'z-index': 0
+                });
+                edge.removeData('_origWidth');
+                edge.removeData('_origColor');
+            }
+            edge.removeClass('edge-highlighted');
+        });
     },
 
     /**
