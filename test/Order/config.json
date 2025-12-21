@@ -1,9 +1,0 @@
-{
-  "domain": {
-    "path": "Test:Order",
-    "name": "Order"
-  },
-  "sources": [
-    "Investment_Order.cs"
-  ]
-}

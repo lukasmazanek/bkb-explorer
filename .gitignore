@@ -9,3 +9,13 @@ logs/
 *.swp
 *.swo
 *~
+
+# Generated test data (ADR-029)
+# Source of truth: conceptspeak/tests/
+test/*/*.cs
+test/*/config.json
+test/*/domain.json
+test/*/*/
+
+# Generated app data
+js/data.js
