@@ -44,9 +44,11 @@ const Graph = {
             layout: {
                 name: 'dagre',
                 rankDir: 'TB',
-                nodeSep: 50,
-                rankSep: 80,
-                padding: 30
+                nodeSep: 30,
+                rankSep: 60,
+                edgeSep: 20,
+                padding: 20,
+                spacingFactor: 1.2
             },
             minZoom: 0.2,
             maxZoom: 3,
@@ -66,16 +68,40 @@ const Graph = {
         const nodes = [];
         const edges = [];
         const concepts = domainData.concepts || [];
+        const conceptMap = new Map(concepts.map(c => [c.name, c]));
 
         // Calculate connectivity for each concept
         const connectivity = this.calculateConnectivity(concepts);
 
-        // Get top concepts by connectivity
-        const topConcepts = this.getTopConcepts(concepts, connectivity, 20);
-        const topConceptNames = new Set(topConcepts.map(c => c.name));
+        // Get top 10 concepts by connectivity (hubs)
+        const hubConcepts = this.getTopConcepts(concepts, connectivity, 10);
+
+        // Build visible set: hubs + their immediate neighborhood (parents + children)
+        const visibleNames = new Set();
+
+        hubConcepts.forEach(hub => {
+            visibleNames.add(hub.name);
+
+            // Add parent
+            const parentName = hub.hierarchy?.extends_name;
+            if (parentName && conceptMap.has(parentName)) {
+                visibleNames.add(parentName);
+            }
+
+            // Add children
+            concepts.forEach(c => {
+                if (c.hierarchy?.extends_name === hub.name) {
+                    visibleNames.add(c.name);
+                }
+            });
+        });
+
+        // Get visible concepts
+        const visibleConcepts = concepts.filter(c => visibleNames.has(c.name));
 
         // Add nodes
-        topConcepts.forEach(concept => {
+        visibleConcepts.forEach(concept => {
+            const isHub = hubConcepts.some(h => h.name === concept.name);
             nodes.push({
                 data: {
                     id: concept.name,
@@ -87,21 +113,23 @@ const Graph = {
                     matchType: concept.fibo_mapping?.match_type || null,
                     hasFibo: concept.has_fibo_mapping || false,
                     extendsName: concept.hierarchy?.extends_name || null,
-                    childCount: this.countChildren(concept.name, concepts)
+                    childCount: this.countChildren(concept.name, concepts),
+                    isHub: isHub
                 },
-                classes: this.getNodeClasses(concept)
+                classes: this.getNodeClasses(concept) + (isHub ? ' hub' : '')
             });
         });
 
         // Add edges (only between visible nodes)
-        topConcepts.forEach(concept => {
+        // Direction: parent → child (for correct dagre TB hierarchy)
+        visibleConcepts.forEach(concept => {
             const extendsName = concept.hierarchy?.extends_name;
-            if (extendsName && topConceptNames.has(extendsName)) {
+            if (extendsName && visibleNames.has(extendsName)) {
                 edges.push({
                     data: {
-                        id: `${concept.name}-extends-${extendsName}`,
-                        source: concept.name,
-                        target: extendsName,
+                        id: `${extendsName}-to-${concept.name}`,
+                        source: extendsName,  // parent (top)
+                        target: concept.name, // child (bottom)
                         type: 'extends'
                     },
                     classes: 'extends'
@@ -111,7 +139,7 @@ const Graph = {
 
         // Add ghost nodes for cross-domain concepts
         const crossDomain = window.BKB_DATA.domains?.crossDomain || {};
-        topConcepts.forEach(concept => {
+        visibleConcepts.forEach(concept => {
             const crossDomains = crossDomain[concept.name];
             if (crossDomains && crossDomains.domains) {
                 const otherDomains = crossDomains.domains.filter(d =>
@@ -265,6 +293,14 @@ const Graph = {
                     'border-style': 'dashed'
                 }
             },
+            // Hub node (top connectivity)
+            {
+                selector: 'node.hub',
+                style: {
+                    'font-weight': 700,
+                    'font-size': 14
+                }
+            },
             // Selected node
             {
                 selector: 'node:selected',
@@ -393,9 +429,9 @@ const Graph = {
 
                 this.cy.add({
                     data: {
-                        id: `${child.name}-extends-${nodeId}`,
-                        source: child.name,
-                        target: nodeId,
+                        id: `${nodeId}-to-${child.name}`,
+                        source: nodeId,      // parent (top)
+                        target: child.name,  // child (bottom)
                         type: 'extends'
                     },
                     classes: 'extends'
@@ -418,13 +454,13 @@ const Graph = {
     collapseNode(node) {
         const nodeId = node.id();
 
-        // Find and remove children
+        // Find and remove children (edges go parent→child, so source=parent, target=child)
         const childEdges = this.cy.edges().filter(e =>
-            e.data('target') === nodeId && e.data('type') === 'extends'
+            e.data('source') === nodeId && e.data('type') === 'extends'
         );
 
         childEdges.forEach(edge => {
-            const childId = edge.data('source');
+            const childId = edge.data('target');
             this.cy.getElementById(childId).remove();
         });
     },
