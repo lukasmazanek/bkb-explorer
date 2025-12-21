@@ -375,16 +375,22 @@ const Graph = {
 
             // ===========================================
             // CATEGORIZATION EDGES (extends/is-a)
-            // Thick line, no endpoint markers
+            // 8px thick line, label near parent (when available)
             // ===========================================
             {
                 selector: 'edge.extends',
                 style: {
-                    'width': 5,  // Thick line per CSV
+                    'width': 8,  // 8px per CSV notation
                     'line-color': '#1a1a1a',
                     'curve-style': 'bezier',
                     'target-arrow-shape': 'none',
-                    'source-arrow-shape': 'none'
+                    'source-arrow-shape': 'none',
+                    // Label (categorization schema) - needs data from ontology-lift
+                    'label': 'data(schema)',
+                    'font-size': 10,
+                    'text-margin-y': -12,
+                    'color': '#1a1a1a',
+                    'source-text-offset': 30
                 }
             },
 
