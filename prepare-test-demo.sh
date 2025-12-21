@@ -38,15 +38,18 @@ fi
 # Create test directories
 mkdir -p "$SCRIPT_DIR/test/Order"
 mkdir -p "$SCRIPT_DIR/test/Position"
+mkdir -p "$SCRIPT_DIR/test/Transaction"
 
 echo "Step 1: Copying test data from conceptspeak/tests..."
 
 # Copy test files (Single Source of Truth)
 cp "$CONCEPTSPEAK_DIR/tests/Investment_Order.test" "$SCRIPT_DIR/test/Order/Investment_Order.cs"
 cp "$CONCEPTSPEAK_DIR/tests/InvestmentPosition.test" "$SCRIPT_DIR/test/Position/Investment_Position.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Transaction.test" "$SCRIPT_DIR/test/Transaction/Investment_Transaction.cs"
 
 echo "  - Order/Investment_Order.cs"
 echo "  - Position/Investment_Position.cs"
+echo "  - Transaction/Investment_Transaction.cs"
 echo ""
 
 # Create config files
@@ -74,12 +77,25 @@ cat > "$SCRIPT_DIR/test/Position/config.json" << 'EOF'
 }
 EOF
 
+cat > "$SCRIPT_DIR/test/Transaction/config.json" << 'EOF'
+{
+  "domain": {
+    "path": "Test:Transaction",
+    "name": "Transaction"
+  },
+  "sources": [
+    "Investment_Transaction.cs"
+  ]
+}
+EOF
+
 echo "Step 2: Running domain-forge..."
 
 # Run domain-forge
 cd "$DOMAIN_FORGE_DIR"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Order/config.json"
 python -m domain_forge consolidate "$SCRIPT_DIR/test/Position/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Transaction/config.json"
 echo ""
 
 echo "Step 3: Running ontology-lift..."
@@ -88,6 +104,7 @@ echo "Step 3: Running ontology-lift..."
 cd "$ONTOLOGY_LIFT_DIR"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Order/domain.json" -o "$SCRIPT_DIR/test/Order/"
 python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Position/domain.json" -o "$SCRIPT_DIR/test/Position/"
+python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Transaction/domain.json" -o "$SCRIPT_DIR/test/Transaction/"
 echo ""
 
 echo "Step 4: Generating data.js..."
@@ -95,6 +112,7 @@ echo "Step 4: Generating data.js..."
 # Generate data.js
 ORDER_FILE="$SCRIPT_DIR/test/Order/Test:Order/ontology.json"
 POSITION_FILE="$SCRIPT_DIR/test/Position/Test:Position/ontology.json"
+TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test:Transaction/ontology.json"
 
 python3 << PYTHON
 import json
@@ -106,6 +124,9 @@ with open('$ORDER_FILE') as f:
 
 with open('$POSITION_FILE') as f:
     position_data = json.load(f)
+
+with open('$TRANSACTION_FILE') as f:
+    transaction_data = json.load(f)
 
 # Generate data.js
 output = f'''/**
@@ -126,7 +147,8 @@ const DOMAINS_DATA = {{
       "type": "test",
       "children": {{
         "Order": {{ "type": "domain", "stats": {{ "concepts": {len(order_data['concepts'])} }} }},
-        "Position": {{ "type": "domain", "stats": {{ "concepts": {len(position_data['concepts'])} }} }}
+        "Position": {{ "type": "domain", "stats": {{ "concepts": {len(position_data['concepts'])} }} }},
+        "Transaction": {{ "type": "domain", "stats": {{ "concepts": {len(transaction_data['concepts'])} }} }}
       }}
     }}
   }},
@@ -139,11 +161,15 @@ const ORDER_DATA = {json.dumps(order_data, indent=2)};
 // Position domain
 const POSITION_DATA = {json.dumps(position_data, indent=2)};
 
+// Transaction domain
+const TRANSACTION_DATA = {json.dumps(transaction_data, indent=2)};
+
 // Export for application
 window.BKB_DATA = {{
   domains: DOMAINS_DATA,
   order: ORDER_DATA,
-  position: POSITION_DATA
+  position: POSITION_DATA,
+  transaction: TRANSACTION_DATA
 }};
 
 console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
@@ -154,6 +180,7 @@ with open('$OUTPUT_FILE', 'w') as f:
 
 print(f"  Order: {len(order_data['concepts'])} concepts")
 print(f"  Position: {len(position_data['concepts'])} concepts")
+print(f"  Transaction: {len(transaction_data['concepts'])} concepts")
 PYTHON
 
 echo ""
