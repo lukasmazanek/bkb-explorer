@@ -474,6 +474,14 @@ const Graph = {
                     'background-color': '#fadbd8'
                 }
             },
+            // Edge hover - connected nodes
+            {
+                selector: 'node.edge-connected',
+                style: {
+                    'border-color': '#9b59b6',
+                    'border-width': 3
+                }
+            },
 
             // ===========================================
             // CONTEXT NODES (type: context_reference)
@@ -576,6 +584,18 @@ const Graph = {
                     'control-point-distances': 20,
                     'control-point-weights': 0.5
                 }
+            },
+
+            // ===========================================
+            // EDGE HIGHLIGHT (on hover)
+            // ===========================================
+            {
+                selector: 'edge.edge-highlighted',
+                style: {
+                    'width': 4,
+                    'line-color': '#9b59b6',
+                    'z-index': 999
+                }
             }
         ];
     },
@@ -584,24 +604,30 @@ const Graph = {
      * Set up event handlers
      */
     setupEventHandlers() {
-        // Node hover - show tooltip
+        // Node hover - show tooltip and highlight
         this.cy.on('mouseover', 'node', (e) => {
             const node = e.target;
-            Tooltip.show(node, e.renderedPosition);
+            if (!node.hasClass('junction')) {
+                Tooltip.show(node, e.renderedPosition);
+                this.highlightNode(node);
+            }
         });
 
         this.cy.on('mouseout', 'node', () => {
             Tooltip.hide();
+            this.clearEdgeHighlight();
         });
 
-        // Edge hover - show edge tooltip
+        // Edge hover - show edge tooltip and highlight
         this.cy.on('mouseover', 'edge', (e) => {
             const edge = e.target;
             Tooltip.showEdge(edge, e.renderedPosition);
+            this.highlightEdge(edge);
         });
 
         this.cy.on('mouseout', 'edge', () => {
             Tooltip.hideEdge();
+            this.clearEdgeHighlight();
         });
 
         // Node click - expand/collapse
@@ -798,6 +824,115 @@ const Graph = {
      */
     clearHighlight() {
         this.cy.nodes().removeClass('highlighted');
+    },
+
+    /**
+     * Highlight node and all connected edges/concepts
+     */
+    highlightNode(node) {
+        // Highlight the node itself
+        node.addClass('edge-connected');
+
+        // Get all connected edges
+        const connectedEdges = node.connectedEdges();
+
+        connectedEdges.forEach(edge => {
+            const type = edge.data('type') || '';
+
+            if (type === 'trunk') {
+                // This node is parent, highlight trunk and all branches
+                edge.addClass('edge-highlighted');
+                const junctionId = edge.target().id();
+
+                const branchEdges = this.cy.edges().filter(e =>
+                    e.data('type') === 'branch' && e.data('source') === junctionId
+                );
+                branchEdges.forEach(branchEdge => {
+                    branchEdge.addClass('edge-highlighted');
+                    branchEdge.target().addClass('edge-connected');
+                });
+
+            } else if (type === 'branch') {
+                // This node is child, highlight branch and trunk to parent
+                edge.addClass('edge-highlighted');
+                const junctionId = edge.source().id();
+
+                const trunkEdge = this.cy.edges().filter(e =>
+                    e.data('type') === 'trunk' && e.data('target') === junctionId
+                ).first();
+
+                if (trunkEdge && trunkEdge.length > 0) {
+                    trunkEdge.addClass('edge-highlighted');
+                    trunkEdge.source().addClass('edge-connected');
+                }
+
+            } else if (type === 'relationship') {
+                // Binary verb - highlight edge and other endpoint
+                edge.addClass('edge-highlighted');
+                const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
+                otherNode.addClass('edge-connected');
+            }
+        });
+    },
+
+    /**
+     * Highlight edge and connected concepts
+     */
+    highlightEdge(edge) {
+        const data = edge.data();
+        const type = data.type || '';
+
+        // Highlight the edge
+        edge.addClass('edge-highlighted');
+
+        if (type === 'branch') {
+            // For branch: highlight child and find actual parent through trunk
+            const junctionNode = edge.source();
+            const childNode = edge.target();
+            const junctionId = junctionNode.id();
+
+            // Find trunk edge to get actual parent
+            const trunkEdge = this.cy.edges().filter(e =>
+                e.data('type') === 'trunk' && e.data('target') === junctionId
+            ).first();
+
+            if (trunkEdge && trunkEdge.length > 0) {
+                const parentNode = trunkEdge.source();
+                parentNode.addClass('edge-connected');
+                trunkEdge.addClass('edge-highlighted');
+            }
+            childNode.addClass('edge-connected');
+
+        } else if (type === 'trunk') {
+            // For trunk: highlight parent and all children through branches
+            const parentNode = edge.source();
+            const junctionNode = edge.target();
+            const junctionId = junctionNode.id();
+
+            parentNode.addClass('edge-connected');
+
+            // Find all branch edges from this junction
+            const branchEdges = this.cy.edges().filter(e =>
+                e.data('type') === 'branch' && e.data('source') === junctionId
+            );
+            branchEdges.forEach(branchEdge => {
+                branchEdge.addClass('edge-highlighted');
+                branchEdge.target().addClass('edge-connected');
+            });
+
+        } else {
+            // For regular edges: highlight both endpoints
+            edge.source().addClass('edge-connected');
+            edge.target().addClass('edge-connected');
+        }
+    },
+
+    /**
+     * Clear edge highlight
+     */
+    clearEdgeHighlight() {
+        this.cy.edges().removeClass('edge-highlighted');
+        this.cy.nodes().removeClass('edge-connected');
     },
 
     /**

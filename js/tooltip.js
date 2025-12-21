@@ -24,6 +24,10 @@ const Tooltip = {
 
         const data = node.data();
 
+        // Get node bounding box to position tooltip outside
+        const bb = node.renderedBoundingBox();
+        this.nodeBox = bb;
+
         // Set content
         document.getElementById('tooltip-name').textContent = data.name;
 
@@ -77,28 +81,44 @@ const Tooltip = {
     },
 
     /**
-     * Position tooltip near the node
+     * Position tooltip near the node (outside the node)
      */
     position(renderedPosition) {
         const container = document.getElementById('graph-container');
         const containerRect = container.getBoundingClientRect();
 
-        let x = containerRect.left + renderedPosition.x + 20;
-        let y = containerRect.top + renderedPosition.y - 20;
+        // Position to the right of the node
+        let x, y;
+        if (this.nodeBox) {
+            x = containerRect.left + this.nodeBox.x2 + 15;
+            y = containerRect.top + this.nodeBox.y1;
+        } else {
+            x = containerRect.left + renderedPosition.x + 30;
+            y = containerRect.top + renderedPosition.y - 20;
+        }
 
-        // Keep within viewport
+        // Show temporarily to measure
+        this.element.style.visibility = 'hidden';
+        this.element.style.display = 'block';
         const tooltipRect = this.element.getBoundingClientRect();
+        this.element.style.visibility = 'visible';
+
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
 
+        // If tooltip goes off right edge, show on left of node
         if (x + tooltipRect.width > viewportWidth - 20) {
-            x = renderedPosition.x - tooltipRect.width - 20 + containerRect.left;
+            if (this.nodeBox) {
+                x = containerRect.left + this.nodeBox.x1 - tooltipRect.width - 15;
+            } else {
+                x = containerRect.left + renderedPosition.x - tooltipRect.width - 30;
+            }
         }
 
+        // Keep within vertical bounds
         if (y + tooltipRect.height > viewportHeight - 20) {
             y = viewportHeight - tooltipRect.height - 20;
         }
-
         if (y < 20) {
             y = 20;
         }
@@ -196,26 +216,33 @@ const Tooltip = {
     },
 
     /**
-     * Position edge tooltip
+     * Position edge tooltip (away from edge)
      */
     positionEdge(renderedPosition) {
         const container = document.getElementById('graph-container');
         const containerRect = container.getBoundingClientRect();
 
-        let x = containerRect.left + renderedPosition.x + 20;
-        let y = containerRect.top + renderedPosition.y - 20;
+        // Position tooltip below and to the right of cursor, with more offset
+        let x = containerRect.left + renderedPosition.x + 40;
+        let y = containerRect.top + renderedPosition.y + 30;
 
-        // Keep within viewport
+        // Show temporarily to measure
+        this.edgeElement.style.visibility = 'hidden';
+        this.edgeElement.style.display = 'block';
         const tooltipRect = this.edgeElement.getBoundingClientRect();
+        this.edgeElement.style.visibility = 'visible';
+
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
 
+        // If goes off right, show on left
         if (x + tooltipRect.width > viewportWidth - 20) {
-            x = renderedPosition.x - tooltipRect.width - 20 + containerRect.left;
+            x = containerRect.left + renderedPosition.x - tooltipRect.width - 40;
         }
 
+        // If goes off bottom, show above
         if (y + tooltipRect.height > viewportHeight - 20) {
-            y = viewportHeight - tooltipRect.height - 20;
+            y = containerRect.top + renderedPosition.y - tooltipRect.height - 30;
         }
 
         if (y < 20) {
