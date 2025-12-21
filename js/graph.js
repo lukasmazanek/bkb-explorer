@@ -1090,21 +1090,17 @@ const Graph = {
             });
         }
 
-        // Re-run layout if structure visibility changed
-        const structureChanged = (prevShowCat !== undefined && prevShowCat !== show.categorizations) ||
-                                 (prevShowRel !== undefined && prevShowRel !== show.relationships);
-        if (structureChanged) {
-            this.cy.layout({
-                name: 'dagre',
-                rankDir: 'TB',
-                nodeSep: 15,
-                rankSep: 40,
-                edgeSep: 10,
-                padding: 20,
-                animate: true,
-                animationDuration: 300
-            }).run();
-        }
+        // Re-run layout to compact the graph after filter changes
+        this.cy.layout({
+            name: 'dagre',
+            rankDir: 'TB',
+            nodeSep: 15,
+            rankSep: 40,
+            edgeSep: 10,
+            padding: 20,
+            animate: true,
+            animationDuration: 300
+        }).run();
     },
 
     /**
