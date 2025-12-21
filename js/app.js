@@ -11,7 +11,8 @@ const BKBExplorer = {
         currentDomain: null,
         expandedNodes: new Set(),
         selectedNode: null,
-        filter: 'all'
+        currentFilter: 'all',
+        hideContext: false
     },
 
     /**
@@ -58,10 +59,19 @@ const BKBExplorer = {
         const filterInputs = document.querySelectorAll('input[name="filter"]');
         filterInputs.forEach(input => {
             input.addEventListener('change', (e) => {
-                this.state.filter = e.target.value;
+                this.state.currentFilter = e.target.value;
                 this.applyFilter();
             });
         });
+
+        // Hide context checkbox
+        const hideContextInput = document.getElementById('hide-context');
+        if (hideContextInput) {
+            hideContextInput.addEventListener('change', (e) => {
+                this.state.hideContext = e.target.checked;
+                this.applyFilter();
+            });
+        }
     },
 
     /**
@@ -90,6 +100,26 @@ const BKBExplorer = {
 
         // Load graph
         Graph.loadDomain(domainData);
+
+        // Update filter counts
+        this.updateFilterCounts();
+
+        // Reapply current filter
+        this.applyFilter();
+    },
+
+    /**
+     * Update filter count labels
+     */
+    updateFilterCounts() {
+        const counts = Graph.getFilterCounts();
+
+        document.getElementById('count-all').textContent = `(${counts.all})`;
+        document.getElementById('count-domain').textContent = `(${counts.domain})`;
+        document.getElementById('count-fibo').textContent = `(${counts.fibo})`;
+        document.getElementById('count-schema').textContent = `(${counts.schema})`;
+        document.getElementById('count-unknown').textContent = `(${counts.unknown})`;
+        document.getElementById('count-context').textContent = `(${counts.context})`;
     },
 
     /**
@@ -125,7 +155,7 @@ const BKBExplorer = {
      * Apply current filter
      */
     applyFilter() {
-        Graph.applyFilter(this.state.filter);
+        Graph.applyFilter(this.state.currentFilter, this.state.hideContext);
     },
 
     /**

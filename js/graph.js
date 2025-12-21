@@ -179,6 +179,7 @@ const Graph = {
                     fiboLabel: concept.fibo_mapping?.label || null,
                     matchType: concept.fibo_mapping?.match_type || null,
                     hasFibo: concept.has_fibo_mapping || false,
+                    hasSchema: concept.has_schema_mapping || false,
                     extendsName: concept.hierarchy?.extends_name || null,
                     childCount: parentChildCount.get(concept.name) || 0,
                     isHub: isHub,
@@ -344,18 +345,24 @@ const Graph = {
 
     /**
      * Get CSS classes for a node
+     * Categories: fibo, schema, domain-local, unknown
      */
     getNodeClasses(concept) {
         const classes = [];
+        const hasFibo = concept.has_fibo_mapping || false;
+        const hasSchema = concept.has_schema_mapping || false;
+        const source = concept.definition?.source?.toLowerCase() || '';
+        const hasLocalDef = concept.local_definition && concept.local_definition.trim() !== '';
 
-        // Source-based styling
-        const source = concept.definition?.source?.toLowerCase() || 'draft';
-        if (source === 'fibo' || concept.has_fibo_mapping) {
+        // Determine category based on mapping priority
+        if (hasFibo) {
             classes.push('fibo');
-        } else if (source === 'inherited') {
-            classes.push('inherited');
+        } else if (hasSchema || source === 'explicit') {
+            classes.push('schema');
+        } else if (hasLocalDef || source === 'domain') {
+            classes.push('domain-local');
         } else {
-            classes.push('draft');
+            classes.push('unknown');
         }
 
         return classes.join(' ');
@@ -400,25 +407,32 @@ const Graph = {
                     'border-color': '#1a1a1a'  // Dark border
                 }
             },
-            // FIBO mapped - green fill, black border
+            // FIBO mapped - green fill
             {
                 selector: 'node.fibo',
                 style: {
                     'background-color': '#d5f4e6'
                 }
             },
-            // DRAFT - orange fill, black border
+            // Schema.org - blue fill
             {
-                selector: 'node.draft',
-                style: {
-                    'background-color': '#fef3e2'
-                }
-            },
-            // INHERITED - blue fill, black border
-            {
-                selector: 'node.inherited',
+                selector: 'node.schema',
                 style: {
                     'background-color': '#e3f2fd'
+                }
+            },
+            // Domain local - purple fill (default)
+            {
+                selector: 'node.domain-local',
+                style: {
+                    'background-color': '#dedaff'
+                }
+            },
+            // Unknown - orange fill
+            {
+                selector: 'node.unknown',
+                style: {
+                    'background-color': '#fef3e2'
                 }
             },
             // Cross-domain indicator - thicker border
@@ -780,22 +794,36 @@ const Graph = {
     /**
      * Apply filter
      */
-    applyFilter(filterType) {
+    applyFilter(filterType, hideContext = false) {
         this.cy.nodes().forEach(node => {
+            // Skip junction nodes - always follow their connected edges
+            if (node.hasClass('junction')) {
+                return;
+            }
+
             let visible = true;
+            const isContext = node.hasClass('context');
 
             switch (filterType) {
                 case 'fibo':
-                    visible = node.hasClass('fibo');
+                    visible = node.hasClass('fibo') && !isContext;
                     break;
-                case 'draft':
-                    visible = node.hasClass('draft');
+                case 'schema':
+                    visible = node.hasClass('schema') && !isContext;
                     break;
-                case 'cross':
-                    visible = node.data('crossDomains')?.length > 0;
+                case 'domain':
+                    visible = node.hasClass('domain-local') && !isContext;
+                    break;
+                case 'unknown':
+                    visible = node.hasClass('unknown') && !isContext;
                     break;
                 default:
                     visible = true;
+            }
+
+            // Apply context toggle (independent of filter)
+            if (hideContext && isContext) {
+                visible = false;
             }
 
             if (visible) {
@@ -804,5 +832,45 @@ const Graph = {
                 node.hide();
             }
         });
+
+        // Hide edges connected to hidden nodes
+        this.cy.edges().forEach(edge => {
+            const source = edge.source();
+            const target = edge.target();
+            if (source.hidden() || target.hidden()) {
+                edge.hide();
+            } else {
+                edge.show();
+            }
+        });
+    },
+
+    /**
+     * Calculate filter counts for current domain
+     */
+    getFilterCounts() {
+        if (!this.cy) return { all: 0, domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
+
+        const counts = { all: 0, domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
+
+        this.cy.nodes().forEach(node => {
+            if (node.hasClass('junction')) return;
+
+            counts.all++;
+
+            if (node.hasClass('context')) {
+                counts.context++;
+            } else if (node.hasClass('fibo')) {
+                counts.fibo++;
+            } else if (node.hasClass('schema')) {
+                counts.schema++;
+            } else if (node.hasClass('domain-local')) {
+                counts.domain++;
+            } else if (node.hasClass('unknown')) {
+                counts.unknown++;
+            }
+        });
+
+        return counts;
     }
 };

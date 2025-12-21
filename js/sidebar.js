@@ -141,9 +141,13 @@ const Sidebar = {
      * Set active domain in sidebar
      */
     setActive(domainName) {
-        // Remove previous active
+        // Remove previous active and reset icon
         this.container.querySelectorAll('.tree-item.active').forEach(item => {
             item.classList.remove('active');
+            const icon = item.querySelector('.icon');
+            if (icon) {
+                icon.textContent = '○';
+            }
         });
 
         // Set new active

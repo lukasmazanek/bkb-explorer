@@ -152,6 +152,17 @@ body {
     cursor: pointer;
 }
 
+.sidebar-filter label.filter-separator {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-color);
+}
+
+.sidebar-filter span {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
 /* Main Content */
 .main-content {
     flex: 1;
@@ -400,24 +411,30 @@ body {
     font-weight: 700;
 }
 
-.legend-node.concept {
-    background: var(--color-concept);
-    border-color: #1a1a1a;
-}
-
 .legend-node.fibo {
-    background: var(--color-fibo-bg);
+    background: #d5f4e6;
     border-color: #1a1a1a;
 }
 
-.legend-node.draft {
-    background: var(--color-draft-bg);
+.legend-node.schema {
+    background: #e3f2fd;
     border-color: #1a1a1a;
 }
 
-.legend-node.inherited {
-    background: var(--color-inherited-bg);
+.legend-node.domain {
+    background: #dedaff;
     border-color: #1a1a1a;
+}
+
+.legend-node.unknown {
+    background: #fef3e2;
+    border-color: #1a1a1a;
+}
+
+.legend-node.context {
+    background: #ffffff;
+    border-color: #1a1a1a;
+    border-style: dotted;
 }
 
 /* Edge legend icons */

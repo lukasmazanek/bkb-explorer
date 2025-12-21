@@ -23,10 +23,12 @@
             </div>
 
             <div class="sidebar-filter">
-                <label><input type="radio" name="filter" value="all" checked> All</label>
-                <label><input type="radio" name="filter" value="fibo"> FIBO only</label>
-                <label><input type="radio" name="filter" value="draft"> DRAFT only</label>
-                <label><input type="radio" name="filter" value="cross"> Cross-domain</label>
+                <label><input type="radio" name="filter" value="all" checked> All <span id="count-all">(0)</span></label>
+                <label><input type="radio" name="filter" value="domain"> Domain <span id="count-domain">(0)</span></label>
+                <label><input type="radio" name="filter" value="fibo"> FIBO <span id="count-fibo">(0)</span></label>
+                <label><input type="radio" name="filter" value="schema"> Schema.org <span id="count-schema">(0)</span></label>
+                <label><input type="radio" name="filter" value="unknown"> Unknown <span id="count-unknown">(0)</span></label>
+                <label class="filter-separator"><input type="checkbox" id="hide-context"> Hide context <span id="count-context">(0)</span></label>
             </div>
 
             <!-- BKB Notation Legend -->
@@ -37,15 +39,23 @@
                     <div class="legend-section-title">Concepts</div>
                     <div class="legend-item">
                         <div class="legend-node fibo">ABC</div>
-                        <span class="legend-label">FIBO mapped</span>
+                        <span class="legend-label">FIBO</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-node draft">ABC</div>
-                        <span class="legend-label">Draft</span>
+                        <div class="legend-node schema">ABC</div>
+                        <span class="legend-label">Schema.org</span>
                     </div>
                     <div class="legend-item">
-                        <div class="legend-node inherited">ABC</div>
-                        <span class="legend-label">Inherited</span>
+                        <div class="legend-node domain">ABC</div>
+                        <span class="legend-label">Domain</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-node unknown">ABC</div>
+                        <span class="legend-label">Unknown</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-node context">ABC</div>
+                        <span class="legend-label">Context</span>
                     </div>
                 </div>
 
