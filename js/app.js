@@ -11,9 +11,16 @@ const BKBExplorer = {
         currentDomain: null,
         expandedNodes: new Set(),
         selectedNode: null,
-        currentFilter: 'all',
-        hideContext: false,
-        hideCategorizations: false
+        // CST element visibility toggles (all default ON)
+        show: {
+            domain: true,
+            fibo: true,
+            schema: true,
+            unknown: true,
+            context: true,
+            categorizations: true,
+            relationships: true
+        }
     },
 
     /**
@@ -56,32 +63,17 @@ const BKBExplorer = {
             });
         }
 
-        // Filter radio buttons
-        const filterInputs = document.querySelectorAll('input[name="filter"]');
-        filterInputs.forEach(input => {
-            input.addEventListener('change', (e) => {
-                this.state.currentFilter = e.target.value;
-                this.applyFilter();
-            });
+        // CST element toggles
+        const toggles = ['domain', 'fibo', 'schema', 'unknown', 'context', 'categorizations', 'relationships'];
+        toggles.forEach(toggle => {
+            const input = document.getElementById(`show-${toggle}`);
+            if (input) {
+                input.addEventListener('change', (e) => {
+                    this.state.show[toggle] = e.target.checked;
+                    this.applyFilter();
+                });
+            }
         });
-
-        // Hide context checkbox
-        const hideContextInput = document.getElementById('hide-context');
-        if (hideContextInput) {
-            hideContextInput.addEventListener('change', (e) => {
-                this.state.hideContext = e.target.checked;
-                this.applyFilter();
-            });
-        }
-
-        // Hide categorizations checkbox
-        const hideCatInput = document.getElementById('hide-categorizations');
-        if (hideCatInput) {
-            hideCatInput.addEventListener('change', (e) => {
-                this.state.hideCategorizations = e.target.checked;
-                this.applyFilter();
-            });
-        }
     },
 
     /**
@@ -124,7 +116,6 @@ const BKBExplorer = {
     updateFilterCounts() {
         const counts = Graph.getFilterCounts();
 
-        document.getElementById('count-all').textContent = `(${counts.all})`;
         document.getElementById('count-domain').textContent = `(${counts.domain})`;
         document.getElementById('count-fibo').textContent = `(${counts.fibo})`;
         document.getElementById('count-schema').textContent = `(${counts.schema})`;
@@ -165,7 +156,7 @@ const BKBExplorer = {
      * Apply current filter
      */
     applyFilter() {
-        Graph.applyFilter(this.state.currentFilter, this.state.hideContext, this.state.hideCategorizations);
+        Graph.applyFilter(this.state.show);
     },
 
     /**

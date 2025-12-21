@@ -990,15 +990,18 @@ const Graph = {
     },
 
     /**
-     * Apply filter
+     * Apply filter based on CST element visibility toggles
+     * @param {Object} show - visibility toggles { domain, fibo, schema, unknown, context, categorizations, relationships }
      */
-    applyFilter(filterType, hideContext = false, hideCategorizations = false) {
-        const prevHideCat = this._prevHideCategorizations || false;
-        this._prevHideCategorizations = hideCategorizations;
+    applyFilter(show) {
+        const prevShowCat = this._prevShowCategorizations;
+        const prevShowRel = this._prevShowRelationships;
+        this._prevShowCategorizations = show.categorizations;
+        this._prevShowRelationships = show.relationships;
 
         // Find child concepts (targets of branch edges) to hide with categorizations
         const childConcepts = new Set();
-        if (hideCategorizations) {
+        if (!show.categorizations) {
             this.cy.edges('.branch').forEach(edge => {
                 const targetId = edge.target().id();
                 childConcepts.add(targetId);
@@ -1008,42 +1011,33 @@ const Graph = {
         this.cy.nodes().forEach(node => {
             // Handle junction nodes
             if (node.hasClass('junction')) {
-                if (hideCategorizations) {
-                    node.hide();
-                } else {
+                if (show.categorizations) {
                     node.show();
+                } else {
+                    node.hide();
                 }
                 return;
             }
 
-            let visible = true;
+            let visible = false;
             const isContext = node.hasClass('context');
             const nodeId = node.id();
 
-            switch (filterType) {
-                case 'fibo':
-                    visible = node.hasClass('fibo') && !isContext;
-                    break;
-                case 'schema':
-                    visible = node.hasClass('schema') && !isContext;
-                    break;
-                case 'domain':
-                    visible = node.hasClass('domain-local') && !isContext;
-                    break;
-                case 'unknown':
-                    visible = node.hasClass('unknown') && !isContext;
-                    break;
-                default:
-                    visible = true;
-            }
-
-            // Apply context toggle (independent of filter)
-            if (hideContext && isContext) {
-                visible = false;
+            // Determine visibility based on concept type toggles
+            if (isContext) {
+                visible = show.context;
+            } else if (node.hasClass('fibo')) {
+                visible = show.fibo;
+            } else if (node.hasClass('schema')) {
+                visible = show.schema;
+            } else if (node.hasClass('domain-local')) {
+                visible = show.domain;
+            } else if (node.hasClass('unknown')) {
+                visible = show.unknown;
             }
 
             // Hide child concepts when categorizations are hidden
-            if (hideCategorizations && childConcepts.has(nodeId)) {
+            if (!show.categorizations && childConcepts.has(nodeId)) {
                 visible = false;
             }
 
@@ -1054,7 +1048,7 @@ const Graph = {
             }
         });
 
-        // Hide edges connected to hidden nodes + categorization edges
+        // Handle edge visibility
         this.cy.edges().forEach(edge => {
             const source = edge.source();
             const target = edge.target();
@@ -1064,16 +1058,22 @@ const Graph = {
             if (source.hidden() || target.hidden()) {
                 edge.hide();
             }
-            // Hide categorization edges (trunk/branch) when filter is on
-            else if (hideCategorizations && (type === 'trunk' || type === 'branch')) {
+            // Hide categorization edges (trunk/branch) when toggle is off
+            else if (!show.categorizations && (type === 'trunk' || type === 'branch')) {
+                edge.hide();
+            }
+            // Hide relationship edges when toggle is off
+            else if (!show.relationships && type === 'relationship') {
                 edge.hide();
             } else {
                 edge.show();
             }
         });
 
-        // Re-run layout if categorization visibility changed
-        if (prevHideCat !== hideCategorizations) {
+        // Re-run layout if structure visibility changed
+        const structureChanged = (prevShowCat !== undefined && prevShowCat !== show.categorizations) ||
+                                 (prevShowRel !== undefined && prevShowRel !== show.relationships);
+        if (structureChanged) {
             this.cy.layout({
                 name: 'dagre',
                 rankDir: 'TB',
@@ -1091,14 +1091,12 @@ const Graph = {
      * Calculate filter counts for current domain
      */
     getFilterCounts() {
-        if (!this.cy) return { all: 0, domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
+        if (!this.cy) return { domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
 
-        const counts = { all: 0, domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
+        const counts = { domain: 0, fibo: 0, schema: 0, unknown: 0, context: 0 };
 
         this.cy.nodes().forEach(node => {
             if (node.hasClass('junction')) return;
-
-            counts.all++;
 
             if (node.hasClass('context')) {
                 counts.context++;
