@@ -21,7 +21,8 @@ const BKBExplorer = {
             categorizations: true,
             relationships: true,
             orphans: true
-        }
+        },
+        layout: 'dagre'
     },
 
     /**
@@ -75,6 +76,15 @@ const BKBExplorer = {
                 });
             }
         });
+
+        // Layout selector
+        const layoutSelect = document.getElementById('layout-select');
+        if (layoutSelect) {
+            layoutSelect.addEventListener('change', (e) => {
+                this.state.layout = e.target.value;
+                Graph.setLayout(this.state.layout);
+            });
+        }
     },
 
     /**

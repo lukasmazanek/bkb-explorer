@@ -8,6 +8,7 @@ const Graph = {
     cy: null,
     container: null,
     currentDomain: null,
+    currentLayout: 'dagre',
 
     /**
      * Initialize Cytoscape instance
@@ -37,18 +38,14 @@ const Graph = {
         const elements = this.buildElements(domainData);
 
         // Initialize Cytoscape
+        const initialLayout = this.getLayoutConfig();
+        initialLayout.animate = false; // No animation on initial load
+
         this.cy = cytoscape({
             container: this.container,
             elements: elements,
             style: this.getStyles(),
-            layout: {
-                name: 'dagre',
-                rankDir: 'TB',
-                nodeSep: 15,
-                rankSep: 40,
-                edgeSep: 10,
-                padding: 20
-            },
+            layout: initialLayout,
             minZoom: 0.2,
             maxZoom: 3,
             wheelSensitivity: 0.5,
@@ -1092,16 +1089,84 @@ const Graph = {
 
         // Re-run layout only on visible elements to compact the graph
         const visibleElements = this.cy.elements().filter(ele => !ele.hidden());
-        visibleElements.layout({
-            name: 'dagre',
-            rankDir: 'TB',
-            nodeSep: 15,
-            rankSep: 40,
-            edgeSep: 10,
-            padding: 20,
+        visibleElements.layout(this.getLayoutConfig()).run();
+    },
+
+    /**
+     * Get layout configuration based on current layout type
+     */
+    getLayoutConfig() {
+        const baseConfig = {
             animate: true,
-            animationDuration: 300
-        }).run();
+            animationDuration: 300,
+            padding: 20
+        };
+
+        switch (this.currentLayout) {
+            case 'dagre':
+                return {
+                    ...baseConfig,
+                    name: 'dagre',
+                    rankDir: 'TB',
+                    nodeSep: 15,
+                    rankSep: 40,
+                    edgeSep: 10
+                };
+            case 'cose':
+                return {
+                    ...baseConfig,
+                    name: 'cose',
+                    nodeRepulsion: 4000,
+                    idealEdgeLength: 100,
+                    edgeElasticity: 100,
+                    nestingFactor: 5,
+                    gravity: 80,
+                    numIter: 1000,
+                    coolingFactor: 0.95
+                };
+            case 'breadthfirst':
+                return {
+                    ...baseConfig,
+                    name: 'breadthfirst',
+                    directed: true,
+                    spacingFactor: 1.5
+                };
+            case 'circle':
+                return {
+                    ...baseConfig,
+                    name: 'circle',
+                    spacingFactor: 1.5
+                };
+            case 'grid':
+                return {
+                    ...baseConfig,
+                    name: 'grid',
+                    spacingFactor: 1.2
+                };
+            case 'concentric':
+                return {
+                    ...baseConfig,
+                    name: 'concentric',
+                    spacingFactor: 1.5,
+                    concentric: (node) => node.degree(),
+                    levelWidth: () => 2
+                };
+            default:
+                return {
+                    ...baseConfig,
+                    name: 'dagre',
+                    rankDir: 'TB'
+                };
+        }
+    },
+
+    /**
+     * Set and apply new layout
+     */
+    setLayout(layoutName) {
+        this.currentLayout = layoutName;
+        const visibleElements = this.cy.elements().filter(ele => !ele.hidden());
+        visibleElements.layout(this.getLayoutConfig()).run();
     },
 
     /**

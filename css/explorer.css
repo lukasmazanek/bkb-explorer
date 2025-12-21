@@ -163,6 +163,36 @@ body {
     font-size: 0.9em;
 }
 
+/* Sidebar Layout Selector */
+.sidebar-layout {
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9em;
+}
+
+.sidebar-layout label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.sidebar-layout select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--bg-primary);
+    cursor: pointer;
+}
+
+.sidebar-layout select:focus {
+    outline: none;
+    border-color: var(--color-inherited);
+}
+
 /* Main Content */
 .main-content {
     flex: 1;
