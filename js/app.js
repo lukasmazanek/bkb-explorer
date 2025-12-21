@@ -19,7 +19,8 @@ const BKBExplorer = {
             unknown: true,
             context: true,
             categorizations: true,
-            relationships: true
+            relationships: true,
+            orphans: true
         }
     },
 
@@ -64,7 +65,7 @@ const BKBExplorer = {
         }
 
         // CST element toggles
-        const toggles = ['domain', 'fibo', 'schema', 'unknown', 'context', 'categorizations', 'relationships'];
+        const toggles = ['domain', 'fibo', 'schema', 'unknown', 'context', 'categorizations', 'relationships', 'orphans'];
         toggles.forEach(toggle => {
             const input = document.getElementById(`show-${toggle}`);
             if (input) {

@@ -1070,6 +1070,26 @@ const Graph = {
             }
         });
 
+        // Detect and handle orphans (nodes with no visible edges)
+        if (!show.orphans) {
+            this.cy.nodes().forEach(node => {
+                if (node.hidden() || node.hasClass('junction')) return;
+
+                // Count visible edges for this node
+                const visibleEdges = node.connectedEdges().filter(edge => !edge.hidden());
+                if (visibleEdges.length === 0) {
+                    node.hide();
+                }
+            });
+
+            // Hide edges connected to newly hidden orphan nodes
+            this.cy.edges().forEach(edge => {
+                if (edge.source().hidden() || edge.target().hidden()) {
+                    edge.hide();
+                }
+            });
+        }
+
         // Re-run layout if structure visibility changed
         const structureChanged = (prevShowCat !== undefined && prevShowCat !== show.categorizations) ||
                                  (prevShowRel !== undefined && prevShowRel !== show.relationships);
