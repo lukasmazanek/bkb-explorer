@@ -58,6 +58,11 @@ const Graph = {
         // Set up event handlers
         this.setupEventHandlers();
 
+        // Fit graph to viewport after layout settles
+        setTimeout(() => {
+            this.cy.fit(50);
+        }, 100);
+
         console.log(`📊 Graph loaded: ${elements.nodes.length} nodes, ${elements.edges.length} edges`);
     },
 
@@ -393,6 +398,50 @@ const Graph = {
         this.cy.on('tap', (e) => {
             if (e.target === this.cy) {
                 Tooltip.hide();
+            }
+        });
+
+        // Right-click panning
+        this.setupRightClickPan();
+    },
+
+    /**
+     * Set up right-click panning
+     */
+    setupRightClickPan() {
+        let isPanning = false;
+        let startX, startY, startPan;
+
+        // Prevent context menu on graph
+        this.container.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+
+        this.container.addEventListener('mousedown', (e) => {
+            if (e.button === 2) { // Right click
+                isPanning = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                startPan = this.cy.pan();
+                this.container.style.cursor = 'grabbing';
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isPanning) {
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                this.cy.pan({
+                    x: startPan.x + dx,
+                    y: startPan.y + dy
+                });
+            }
+        });
+
+        document.addEventListener('mouseup', (e) => {
+            if (e.button === 2 && isPanning) {
+                isPanning = false;
+                this.container.style.cursor = 'default';
             }
         });
     },
