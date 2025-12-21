@@ -69,39 +69,52 @@ const Graph = {
         const edges = [];
         const concepts = domainData.concepts || [];
         const conceptMap = new Map(concepts.map(c => [c.name, c]));
+        const internalNames = new Set(concepts.map(c => c.name));
 
-        // Calculate connectivity for each concept
-        const connectivity = this.calculateConnectivity(concepts);
+        // Find roots with internal hierarchies (concepts whose parent is external/none)
+        const roots = concepts.filter(c => {
+            const parent = c.hierarchy?.extends_name;
+            return !parent || !internalNames.has(parent);
+        });
 
-        // Get top 10 concepts by connectivity (hubs)
-        const hubConcepts = this.getTopConcepts(concepts, connectivity, 10);
+        // Count descendants for each root
+        const countDescendants = (name, visited = new Set()) => {
+            if (visited.has(name)) return 0;
+            visited.add(name);
+            const children = concepts.filter(c => c.hierarchy?.extends_name === name);
+            return children.length + children.reduce((sum, ch) =>
+                sum + countDescendants(ch.name, visited), 0);
+        };
 
-        // Build visible set: hubs + their immediate neighborhood (parents + children)
+        // Get top 3 roots by descendant count
+        const rootsWithCount = roots.map(r => ({
+            concept: r,
+            descendants: countDescendants(r.name)
+        })).filter(r => r.descendants > 0)
+          .sort((a, b) => b.descendants - a.descendants)
+          .slice(0, 3);
+
+        // Collect all nodes in selected trees
         const visibleNames = new Set();
 
-        hubConcepts.forEach(hub => {
-            visibleNames.add(hub.name);
+        const addTree = (name, depth = 0, maxDepth = 5) => {
+            if (depth > maxDepth || visibleNames.has(name)) return;
+            visibleNames.add(name);
+            const children = concepts.filter(c => c.hierarchy?.extends_name === name);
+            children.forEach(ch => addTree(ch.name, depth + 1, maxDepth));
+        };
 
-            // Add parent
-            const parentName = hub.hierarchy?.extends_name;
-            if (parentName && conceptMap.has(parentName)) {
-                visibleNames.add(parentName);
-            }
-
-            // Add children
-            concepts.forEach(c => {
-                if (c.hierarchy?.extends_name === hub.name) {
-                    visibleNames.add(c.name);
-                }
-            });
+        rootsWithCount.forEach(r => {
+            addTree(r.concept.name);
         });
 
         // Get visible concepts
         const visibleConcepts = concepts.filter(c => visibleNames.has(c.name));
+        const hubNames = new Set(rootsWithCount.map(r => r.concept.name));
 
         // Add nodes
         visibleConcepts.forEach(concept => {
-            const isHub = hubConcepts.some(h => h.name === concept.name);
+            const isHub = hubNames.has(concept.name);
             nodes.push({
                 data: {
                     id: concept.name,
