@@ -71,61 +71,86 @@ const Graph = {
 
     /**
      * Build Cytoscape elements from domain data
+     * Uses categorizations for parent-child relationships (ConceptSpeak structure)
      */
     buildElements(domainData) {
         const nodes = [];
         const edges = [];
         const concepts = domainData.concepts || [];
+        const categorizations = domainData.categorizations || [];
+        const relationships = domainData.relationships || [];
         const conceptMap = new Map(concepts.map(c => [c.name, c]));
         const internalNames = new Set(concepts.map(c => c.name));
 
-        // Case-insensitive name lookup (workaround for data quality issues)
-        const nameLowerMap = new Map(concepts.map(c => [c.name.toLowerCase(), c.name]));
-
-        // Helper to resolve extends_name with case-insensitive fallback
-        const resolveParent = (extendsName) => {
-            if (!extendsName) return null;
-            if (internalNames.has(extendsName)) return extendsName;
-            // Try case-insensitive match
-            const resolved = nameLowerMap.get(extendsName.toLowerCase());
-            return resolved || null;
-        };
-
-        // Find roots with internal hierarchies (concepts whose parent is external/none)
-        const roots = concepts.filter(c => {
-            const parent = resolveParent(c.hierarchy?.extends_name);
-            return !parent;
+        // Build parent-child map from categorizations
+        const childToParent = new Map();  // child -> { parent, schema }
+        categorizations.forEach(cat => {
+            const parentName = cat.parent_name;
+            const schema = cat.category_name || '';
+            (cat.children_names || []).forEach(childName => {
+                if (internalNames.has(childName) && internalNames.has(parentName)) {
+                    childToParent.set(childName, { parent: parentName, schema });
+                }
+            });
         });
 
-        // Count descendants for each root (case-insensitive)
+        // Find root concepts (no parent in categorizations)
+        const roots = concepts.filter(c => !childToParent.has(c.name));
+
+        // Count descendants
         const countDescendants = (name, visited = new Set()) => {
             if (visited.has(name)) return 0;
             visited.add(name);
-            const children = concepts.filter(c => resolveParent(c.hierarchy?.extends_name) === name);
+            const children = concepts.filter(c => childToParent.get(c.name)?.parent === name);
             return children.length + children.reduce((sum, ch) =>
                 sum + countDescendants(ch.name, visited), 0);
         };
 
-        // Get top 3 roots by descendant count
+        // Get roots with descendants (main trees to display)
         const rootsWithCount = roots.map(r => ({
             concept: r,
             descendants: countDescendants(r.name)
         })).filter(r => r.descendants > 0)
           .sort((a, b) => b.descendants - a.descendants)
-          .slice(0, 3);
+          .slice(0, 5);
 
-        // Collect all nodes in selected trees
+        // If no roots with descendants, show all concepts
+        const showAll = rootsWithCount.length === 0;
+
+        // Collect visible nodes
         const visibleNames = new Set();
 
-        const addTree = (name, depth = 0, maxDepth = 5) => {
-            if (depth > maxDepth || visibleNames.has(name)) return;
-            visibleNames.add(name);
-            const children = concepts.filter(c => resolveParent(c.hierarchy?.extends_name) === name);
-            children.forEach(ch => addTree(ch.name, depth + 1, maxDepth));
-        };
+        if (showAll) {
+            concepts.forEach(c => visibleNames.add(c.name));
+        } else {
+            const addTree = (name, depth = 0, maxDepth = 6) => {
+                if (depth > maxDepth || visibleNames.has(name)) return;
+                visibleNames.add(name);
+                const children = concepts.filter(c => childToParent.get(c.name)?.parent === name);
+                children.forEach(ch => addTree(ch.name, depth + 1, maxDepth));
+            };
+            rootsWithCount.forEach(r => addTree(r.concept.name));
+        }
 
-        rootsWithCount.forEach(r => {
-            addTree(r.concept.name);
+        // Identify context concepts from concept.type field
+        const contextConcepts = new Set();
+        concepts.forEach(c => {
+            if (c.type === 'context_reference') {
+                contextConcepts.add(c.name);
+            }
+        });
+
+        // Also include concepts connected via relationships to visible nodes
+        relationships.forEach(rel => {
+            const subj = rel.subject_name;
+            const obj = rel.object_name;
+            // If one end is visible, add the other end too
+            if (visibleNames.has(subj) && internalNames.has(obj)) {
+                visibleNames.add(obj);
+            }
+            if (visibleNames.has(obj) && internalNames.has(subj)) {
+                visibleNames.add(subj);
+            }
         });
 
         // Get visible concepts
@@ -135,6 +160,11 @@ const Graph = {
         // Add nodes
         visibleConcepts.forEach(concept => {
             const isHub = hubNames.has(concept.name);
+            const isContext = contextConcepts.has(concept.name);
+            let classes = this.getNodeClasses(concept);
+            if (isHub) classes += ' hub';
+            if (isContext) classes += ' context';
+
             nodes.push({
                 data: {
                     id: concept.name,
@@ -147,32 +177,33 @@ const Graph = {
                     hasFibo: concept.has_fibo_mapping || false,
                     extendsName: concept.hierarchy?.extends_name || null,
                     childCount: this.countChildren(concept.name, concepts),
-                    isHub: isHub
+                    isHub: isHub,
+                    isContext: isContext
                 },
-                classes: this.getNodeClasses(concept) + (isHub ? ' hub' : '')
+                classes: classes
             });
         });
 
-        // Add extends edges (hierarchy)
-        // Direction: parent → child (for correct dagre TB hierarchy)
+        // Add categorization edges (parent → child)
+        // Uses categorizations from ConceptSpeak, not FIBO hierarchy
         visibleConcepts.forEach(concept => {
-            const extendsName = resolveParent(concept.hierarchy?.extends_name);
-            if (extendsName && visibleNames.has(extendsName)) {
+            const parentInfo = childToParent.get(concept.name);
+            if (parentInfo && visibleNames.has(parentInfo.parent)) {
                 edges.push({
                     data: {
-                        id: `${extendsName}-to-${concept.name}`,
-                        source: extendsName,  // parent (top)
-                        target: concept.name, // child (bottom)
+                        id: `cat-${parentInfo.parent}-to-${concept.name}`,
+                        source: parentInfo.parent,  // parent (top)
+                        target: concept.name,       // child (bottom)
                         type: 'extends',
-                        label: 'extends'
+                        schema: parentInfo.schema,  // categorization label
+                        label: parentInfo.schema || ''
                     },
                     classes: 'extends'
                 });
             }
         });
 
-        // Add relationship edges (verb phrases from CST)
-        const relationships = domainData.relationships || [];
+        // Add relationship edges (binary verbs from ConceptSpeak)
         relationships.forEach(rel => {
             const subj = rel.subject_name;
             const obj = rel.object_name;
@@ -183,15 +214,18 @@ const Graph = {
 
             // Only add if both concepts are visible
             if (visibleNames.has(subj) && visibleNames.has(obj)) {
+                // Context relationships get dotted styling
+                const isContextRel = rel.is_context === true;
                 edges.push({
                     data: {
                         id: `rel-${rel.id || Math.random()}`,
                         source: subj,
                         target: obj,
                         type: 'relationship',
-                        label: verb
+                        label: verb,
+                        isContext: isContextRel
                     },
-                    classes: 'relationship'
+                    classes: isContextRel ? 'relationship context-rel' : 'relationship'
                 });
             }
         });
@@ -377,6 +411,20 @@ const Graph = {
             },
 
             // ===========================================
+            // CONTEXT NODES (type: context_reference)
+            // Must come LAST to override all other node styles
+            // ===========================================
+            {
+                selector: 'node.context',
+                style: {
+                    'border-style': 'dotted',
+                    'border-width': 1,
+                    'border-color': '#1a1a1a',
+                    'background-color': '#ffffff'
+                }
+            },
+
+            // ===========================================
             // CATEGORIZATION EDGES (extends/is-a)
             // 8px thick line, label near parent (when available)
             // ===========================================
@@ -418,6 +466,16 @@ const Graph = {
                     'text-background-color': '#fff',
                     'text-background-opacity': 0.9,
                     'text-background-padding': '3px'
+                }
+            },
+            // Context relationship edges (dotted 1px)
+            // Edges connecting to/from context concepts
+            {
+                selector: 'edge.context-rel',
+                style: {
+                    'width': 1,
+                    'line-style': 'dotted',
+                    'line-color': '#9b59b6'
                 }
             },
 
