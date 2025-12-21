@@ -37,7 +37,7 @@ const BKBExplorer = {
         this.setupEventListeners();
 
         // Load default domain
-        const defaultDomain = 'Order';
+        const defaultDomain = 'Investment';
         this.selectDomain(defaultDomain);
 
         console.log('✅ BKB Explorer ready');

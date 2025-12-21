@@ -57,6 +57,10 @@
                         <div class="legend-node context">ABC</div>
                         <span class="legend-label">Context</span>
                     </div>
+                    <div class="legend-item">
+                        <div class="legend-node cross">ABC</div>
+                        <span class="legend-label">Cross-domain</span>
+                    </div>
                 </div>
 
                 <div class="legend-section">
@@ -106,6 +110,19 @@
             </div>
             <div class="tooltip-actions" id="tooltip-actions">
                 <!-- Portal links populated dynamically -->
+            </div>
+        </div>
+
+        <!-- Edge Tooltip (hidden by default) -->
+        <div class="tooltip edge-tooltip" id="edge-tooltip" style="display: none;">
+            <div class="tooltip-header">
+                <span class="tooltip-name" id="edge-tooltip-type">Relationship</span>
+            </div>
+            <div class="edge-tooltip-relation" id="edge-tooltip-relation">
+                Subject → verb → Object
+            </div>
+            <div class="edge-tooltip-cst" id="edge-tooltip-cst">
+                <code>CST notation</code>
             </div>
         </div>
     </div>

@@ -44,9 +44,10 @@ const Sidebar = {
             });
         });
 
-        // Expand RBCZ and MIB by default
+        // Expand RBCZ, MIB and Test by default
         this.expandNode('RBCZ');
         this.expandNode('MIB');
+        this.expandNode('Test');
     },
 
     /**

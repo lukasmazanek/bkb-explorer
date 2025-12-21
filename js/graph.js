@@ -271,7 +271,7 @@ const Graph = {
             }
         });
 
-        // Add ghost nodes for cross-domain concepts
+        // Add cross-domain indicator for concepts shared between domains
         const crossDomain = window.BKB_DATA.domains?.crossDomain || {};
         visibleConcepts.forEach(concept => {
             const crossDomains = crossDomain[concept.name];
@@ -280,7 +280,6 @@ const Graph = {
                     d !== domainData.domain.name
                 );
                 if (otherDomains.length > 0) {
-                    // Mark node as cross-domain
                     const node = nodes.find(n => n.data.id === concept.name);
                     if (node) {
                         node.data.crossDomains = otherDomains;
@@ -593,6 +592,16 @@ const Graph = {
 
         this.cy.on('mouseout', 'node', () => {
             Tooltip.hide();
+        });
+
+        // Edge hover - show edge tooltip
+        this.cy.on('mouseover', 'edge', (e) => {
+            const edge = e.target;
+            Tooltip.showEdge(edge, e.renderedPosition);
+        });
+
+        this.cy.on('mouseout', 'edge', () => {
+            Tooltip.hideEdge();
         });
 
         // Node click - expand/collapse

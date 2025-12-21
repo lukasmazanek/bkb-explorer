@@ -331,6 +331,30 @@ body {
     border-color: var(--color-inherited);
 }
 
+/* Edge Tooltip */
+.edge-tooltip .tooltip-header {
+    margin-bottom: 8px;
+}
+
+.edge-tooltip-relation {
+    font-size: 0.95em;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.edge-tooltip-cst {
+    background: var(--bg-secondary);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.edge-tooltip-cst code {
+    font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+    color: var(--color-cross-domain);
+}
+
 /* Loading State */
 .loading {
     display: flex;
@@ -435,6 +459,12 @@ body {
     background: #ffffff;
     border-color: #1a1a1a;
     border-style: dotted;
+}
+
+.legend-node.cross {
+    background: #d5f4e6;
+    border-color: #1a1a1a;
+    border-width: 4px;
 }
 
 /* Edge legend icons */

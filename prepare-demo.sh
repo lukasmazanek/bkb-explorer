@@ -5,6 +5,8 @@
 # Copies ontology data from ontology-lift/export and bundles it
 # into js/data.js for offline use.
 #
+# Includes both RBCZ production data and Test data.
+#
 # Usage: ./prepare-demo.sh
 #
 
@@ -38,10 +40,22 @@ fi
 echo "📂 Using export directory: $EXPORT_DIR"
 echo ""
 
-# Find ontology.json files
+# Find RBCZ ontology.json files
 INVESTMENT_FILE=$(find "$EXPORT_DIR" -path "*Investment*" -name "ontology.json" | head -1)
 PAYMENTS_FILE=$(find "$EXPORT_DIR" -path "*Payment*" -name "ontology.json" | head -1)
-RETAIL_FILE=$(find "$EXPORT_DIR" -path "*Retail*" -name "ontology.json" 2>/dev/null | head -1)
+RETAIL_FILE=$(find "$EXPORT_DIR" -path "*Retail*" -name "ontology.json" | head -1)
+
+# Find Test ontology.json files (from bkb-explorer/test)
+TEST_ORDER_FILE="$SCRIPT_DIR/test/Order/Test:Order/ontology.json"
+TEST_POSITION_FILE="$SCRIPT_DIR/test/Position/Test:Position/ontology.json"
+TEST_TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test:Transaction/ontology.json"
+TEST_PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test:Payment/ontology.json"
+
+# Run test demo first to ensure test data exists
+if [ ! -f "$TEST_ORDER_FILE" ]; then
+    echo "📦 Generating test data..."
+    "$SCRIPT_DIR/prepare-test-demo.sh" > /dev/null 2>&1 || true
+fi
 
 # Generate data.js
 echo "📝 Generating $OUTPUT_FILE..."
@@ -73,7 +87,7 @@ echo '        "MIB": {' >> "$OUTPUT_FILE"
 echo '          "type": "business_unit",' >> "$OUTPUT_FILE"
 echo '          "children": {' >> "$OUTPUT_FILE"
 
-# Count concepts
+# Count RBCZ concepts
 INV_COUNT=0
 PAY_COUNT=0
 RET_COUNT=0
@@ -88,11 +102,39 @@ if [ -f "$RETAIL_FILE" ]; then
     RET_COUNT=$(python3 -c "import json; print(len(json.load(open('$RETAIL_FILE'))['concepts']))" 2>/dev/null || echo 0)
 fi
 
+# Count Test concepts
+TEST_ORDER_COUNT=0
+TEST_POSITION_COUNT=0
+TEST_TRANSACTION_COUNT=0
+TEST_PAYMENT_COUNT=0
+
+if [ -f "$TEST_ORDER_FILE" ]; then
+    TEST_ORDER_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_ORDER_FILE'))['concepts']))" 2>/dev/null || echo 0)
+fi
+if [ -f "$TEST_POSITION_FILE" ]; then
+    TEST_POSITION_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_POSITION_FILE'))['concepts']))" 2>/dev/null || echo 0)
+fi
+if [ -f "$TEST_TRANSACTION_FILE" ]; then
+    TEST_TRANSACTION_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_TRANSACTION_FILE'))['concepts']))" 2>/dev/null || echo 0)
+fi
+if [ -f "$TEST_PAYMENT_FILE" ]; then
+    TEST_PAYMENT_COUNT=$(python3 -c "import json; print(len(json.load(open('$TEST_PAYMENT_FILE'))['concepts']))" 2>/dev/null || echo 0)
+fi
+
 echo "            \"Investment\": { \"type\": \"domain\", \"stats\": { \"concepts\": $INV_COUNT } }," >> "$OUTPUT_FILE"
 echo "            \"Payments\": { \"type\": \"domain\", \"stats\": { \"concepts\": $PAY_COUNT } }" >> "$OUTPUT_FILE"
 echo '          }' >> "$OUTPUT_FILE"
 echo '        },' >> "$OUTPUT_FILE"
 echo "        \"Retail\": { \"type\": \"domain\", \"stats\": { \"concepts\": $RET_COUNT } }" >> "$OUTPUT_FILE"
+echo '      }' >> "$OUTPUT_FILE"
+echo '    },' >> "$OUTPUT_FILE"
+echo '    "Test": {' >> "$OUTPUT_FILE"
+echo '      "type": "test",' >> "$OUTPUT_FILE"
+echo '      "children": {' >> "$OUTPUT_FILE"
+echo "        \"Order\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_ORDER_COUNT } }," >> "$OUTPUT_FILE"
+echo "        \"Position\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_POSITION_COUNT } }," >> "$OUTPUT_FILE"
+echo "        \"Transaction\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_TRANSACTION_COUNT } }," >> "$OUTPUT_FILE"
+echo "        \"Payment\": { \"type\": \"domain\", \"stats\": { \"concepts\": $TEST_PAYMENT_COUNT } }" >> "$OUTPUT_FILE"
 echo '      }' >> "$OUTPUT_FILE"
 echo '    }' >> "$OUTPUT_FILE"
 echo '  },' >> "$OUTPUT_FILE"
@@ -171,13 +213,69 @@ fi
 echo ";" >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 
+# Test Order data
+echo "// Test Order domain" >> "$OUTPUT_FILE"
+echo -n "const TEST_ORDER_DATA = " >> "$OUTPUT_FILE"
+if [ -f "$TEST_ORDER_FILE" ]; then
+    cat "$TEST_ORDER_FILE" >> "$OUTPUT_FILE"
+    echo "  ✅ Test/Order: $TEST_ORDER_COUNT concepts"
+else
+    echo '{ "domain": { "name": "Order", "path": "Test:Order" }, "concepts": [] }' >> "$OUTPUT_FILE"
+    echo "  ⚠️  Test/Order: not found"
+fi
+echo ";" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# Test Position data
+echo "// Test Position domain" >> "$OUTPUT_FILE"
+echo -n "const TEST_POSITION_DATA = " >> "$OUTPUT_FILE"
+if [ -f "$TEST_POSITION_FILE" ]; then
+    cat "$TEST_POSITION_FILE" >> "$OUTPUT_FILE"
+    echo "  ✅ Test/Position: $TEST_POSITION_COUNT concepts"
+else
+    echo '{ "domain": { "name": "Position", "path": "Test:Position" }, "concepts": [] }' >> "$OUTPUT_FILE"
+    echo "  ⚠️  Test/Position: not found"
+fi
+echo ";" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# Test Transaction data
+echo "// Test Transaction domain" >> "$OUTPUT_FILE"
+echo -n "const TEST_TRANSACTION_DATA = " >> "$OUTPUT_FILE"
+if [ -f "$TEST_TRANSACTION_FILE" ]; then
+    cat "$TEST_TRANSACTION_FILE" >> "$OUTPUT_FILE"
+    echo "  ✅ Test/Transaction: $TEST_TRANSACTION_COUNT concepts"
+else
+    echo '{ "domain": { "name": "Transaction", "path": "Test:Transaction" }, "concepts": [] }' >> "$OUTPUT_FILE"
+    echo "  ⚠️  Test/Transaction: not found"
+fi
+echo ";" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
+# Test Payment data
+echo "// Test Payment domain" >> "$OUTPUT_FILE"
+echo -n "const TEST_PAYMENT_DATA = " >> "$OUTPUT_FILE"
+if [ -f "$TEST_PAYMENT_FILE" ]; then
+    cat "$TEST_PAYMENT_FILE" >> "$OUTPUT_FILE"
+    echo "  ✅ Test/Payment: $TEST_PAYMENT_COUNT concepts"
+else
+    echo '{ "domain": { "name": "Payment", "path": "Test:Payment" }, "concepts": [] }' >> "$OUTPUT_FILE"
+    echo "  ⚠️  Test/Payment: not found"
+fi
+echo ";" >> "$OUTPUT_FILE"
+echo "" >> "$OUTPUT_FILE"
+
 # Export
 echo "// Export for application" >> "$OUTPUT_FILE"
 echo "window.BKB_DATA = {" >> "$OUTPUT_FILE"
 echo "  domains: DOMAINS_DATA," >> "$OUTPUT_FILE"
 echo "  investment: INVESTMENT_DATA," >> "$OUTPUT_FILE"
 echo "  payments: PAYMENTS_DATA," >> "$OUTPUT_FILE"
-echo "  retail: RETAIL_DATA" >> "$OUTPUT_FILE"
+echo "  retail: RETAIL_DATA," >> "$OUTPUT_FILE"
+echo "  order: TEST_ORDER_DATA," >> "$OUTPUT_FILE"
+echo "  position: TEST_POSITION_DATA," >> "$OUTPUT_FILE"
+echo "  transaction: TEST_TRANSACTION_DATA," >> "$OUTPUT_FILE"
+echo "  payment: TEST_PAYMENT_DATA" >> "$OUTPUT_FILE"
 echo "};" >> "$OUTPUT_FILE"
 echo "" >> "$OUTPUT_FILE"
 echo "console.log('✅ BKB data loaded:', Object.keys(window.BKB_DATA));" >> "$OUTPUT_FILE"

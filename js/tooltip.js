@@ -1,17 +1,19 @@
 /**
  * BKB Explorer - Tooltip Component
  *
- * Handles hover tooltips for concept details.
+ * Handles hover tooltips for concept and edge details.
  */
 
 const Tooltip = {
     element: null,
+    edgeElement: null,
 
     /**
      * Initialize tooltip
      */
     init() {
         this.element = document.getElementById('tooltip');
+        this.edgeElement = document.getElementById('edge-tooltip');
     },
 
     /**
@@ -111,6 +113,125 @@ const Tooltip = {
     hide() {
         if (this.element) {
             this.element.style.display = 'none';
+        }
+    },
+
+    /**
+     * Show tooltip for an edge
+     */
+    showEdge(edge, position) {
+        if (!this.edgeElement) return;
+
+        const data = edge.data();
+        const type = data.type || 'edge';
+
+        // Get source and target names
+        const sourceName = edge.source().data('name') || data.source;
+        const targetName = edge.target().data('name') || data.target;
+
+        // Set type header
+        const typeEl = document.getElementById('edge-tooltip-type');
+        const relationEl = document.getElementById('edge-tooltip-relation');
+        const cstEl = document.getElementById('edge-tooltip-cst');
+
+        if (type === 'relationship') {
+            // Binary verb relationship
+            const verb = data.sourceLabel || 'relates to';
+            const inverse = data.targetLabel || '';
+
+            typeEl.textContent = 'Binary Verb';
+            relationEl.innerHTML = `<strong>${sourceName}</strong> ${verb} <strong>${targetName}</strong>`;
+
+            // CST notation: Subject [verb phrase | inverse phrase] Object
+            if (inverse) {
+                cstEl.innerHTML = `<code>${sourceName} [${verb} | ${inverse}] ${targetName}</code>`;
+            } else {
+                cstEl.innerHTML = `<code>${sourceName} [${verb}] ${targetName}</code>`;
+            }
+        } else if (type === 'trunk' || type === 'branch') {
+            // Categorization edge
+            typeEl.textContent = 'Categorization';
+
+            if (type === 'trunk') {
+                const schema = data.schema || '';
+                relationEl.innerHTML = `<strong>${sourceName}</strong> is categorized by "${schema}"`;
+                cstEl.innerHTML = `<code>${sourceName} =&lt; @ ${schema} &gt;= [...]</code>`;
+            } else {
+                // Branch: junction → child
+                // Find the trunk edge to get the actual parent and schema
+                const junctionNode = edge.source();
+                const junctionId = junctionNode.id();
+                const cy = edge.cy();
+
+                // Find trunk edge (parent → junction)
+                const trunkEdge = cy.edges().filter(e =>
+                    e.data('type') === 'trunk' && e.data('target') === junctionId
+                ).first();
+
+                let parentName = 'Parent';
+                let schema = '';
+
+                if (trunkEdge && trunkEdge.length > 0) {
+                    parentName = trunkEdge.source().data('name') || 'Parent';
+                    schema = trunkEdge.data('schema') || '';
+                }
+
+                // Format: "Child is {schema} Parent"
+                // Remove bracketed concept from schema (e.g., "kind of [Payment]" → "kind of")
+                const schemaClean = schema.replace(/\s*\[[^\]]*\]\s*/g, ' ').trim();
+                const schemaText = schemaClean ? schemaClean : 'kind of';
+                relationEl.innerHTML = `<strong>${targetName}</strong> is ${schemaText} <strong>${parentName}</strong>`;
+                cstEl.innerHTML = `<code>${parentName} =&lt; @ ${schema} &gt;= [${targetName}, ...]</code>`;
+            }
+        } else {
+            // Generic edge
+            typeEl.textContent = 'Relationship';
+            relationEl.innerHTML = `<strong>${sourceName}</strong> → <strong>${targetName}</strong>`;
+            cstEl.innerHTML = `<code>${sourceName} → ${targetName}</code>`;
+        }
+
+        // Position and show
+        this.positionEdge(position);
+        this.edgeElement.style.display = 'block';
+    },
+
+    /**
+     * Position edge tooltip
+     */
+    positionEdge(renderedPosition) {
+        const container = document.getElementById('graph-container');
+        const containerRect = container.getBoundingClientRect();
+
+        let x = containerRect.left + renderedPosition.x + 20;
+        let y = containerRect.top + renderedPosition.y - 20;
+
+        // Keep within viewport
+        const tooltipRect = this.edgeElement.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        if (x + tooltipRect.width > viewportWidth - 20) {
+            x = renderedPosition.x - tooltipRect.width - 20 + containerRect.left;
+        }
+
+        if (y + tooltipRect.height > viewportHeight - 20) {
+            y = viewportHeight - tooltipRect.height - 20;
+        }
+
+        if (y < 20) {
+            y = 20;
+        }
+
+        this.edgeElement.style.left = x + 'px';
+        this.edgeElement.style.top = y + 'px';
+    },
+
+    /**
+     * Hide edge tooltip
+     */
+    hideEdge() {
+        if (this.edgeElement) {
+            this.edgeElement.style.display = 'none';
         }
     }
 };
