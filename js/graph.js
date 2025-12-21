@@ -638,19 +638,13 @@ const Graph = {
             if (node.hasClass('junction')) return;
 
             if (this.isMobile()) {
-                // Mobile: first tap shows tooltip, second tap on same node expands
-                if (this.selectedNode && this.selectedNode.id() === node.id()) {
-                    // Second tap on same node - expand/collapse
-                    this.toggleExpand(node);
-                } else {
-                    // First tap - show tooltip and highlight
-                    this.clearSelection();
-                    Tooltip.hideEdge(); // Hide edge tooltip when selecting node
-                    this.selectedNode = node;
-                    node.select();
-                    Tooltip.show(node, e.renderedPosition);
-                    this.highlightNode(node);
-                }
+                // Mobile: tap shows tooltip and highlight
+                this.clearSelection();
+                Tooltip.hideEdge();
+                this.selectedNode = node;
+                node.select();
+                Tooltip.show(node, e.renderedPosition);
+                this.highlightNode(node);
             } else {
                 // Desktop: click expands/collapses
                 this.toggleExpand(node);
