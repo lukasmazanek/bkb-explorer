@@ -996,6 +996,15 @@ const Graph = {
         const prevHideCat = this._prevHideCategorizations || false;
         this._prevHideCategorizations = hideCategorizations;
 
+        // Find child concepts (targets of branch edges) to hide with categorizations
+        const childConcepts = new Set();
+        if (hideCategorizations) {
+            this.cy.edges('.branch').forEach(edge => {
+                const targetId = edge.target().id();
+                childConcepts.add(targetId);
+            });
+        }
+
         this.cy.nodes().forEach(node => {
             // Handle junction nodes
             if (node.hasClass('junction')) {
@@ -1009,6 +1018,7 @@ const Graph = {
 
             let visible = true;
             const isContext = node.hasClass('context');
+            const nodeId = node.id();
 
             switch (filterType) {
                 case 'fibo':
@@ -1029,6 +1039,11 @@ const Graph = {
 
             // Apply context toggle (independent of filter)
             if (hideContext && isContext) {
+                visible = false;
+            }
+
+            // Hide child concepts when categorizations are hidden
+            if (hideCategorizations && childConcepts.has(nodeId)) {
                 visible = false;
             }
 
