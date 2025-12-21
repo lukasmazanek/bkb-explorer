@@ -49,9 +49,10 @@ const Graph = {
             minZoom: 0.2,
             maxZoom: 3,
             wheelSensitivity: 0.5,
-            userPanningEnabled: window.innerWidth <= 768,  // Enable on mobile for touch gestures
+            userPanningEnabled: true,   // Enable for touch gestures
             userZoomingEnabled: true,
-            zoomingEnabled: true
+            zoomingEnabled: true,
+            panningEnabled: true
         });
 
         // Set up event handlers
