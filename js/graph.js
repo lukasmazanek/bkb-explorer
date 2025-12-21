@@ -1128,8 +1128,9 @@ const Graph = {
                 counts.unknown++;
             }
 
-            // Count orphans (nodes with no edges)
-            if (node.connectedEdges().length === 0) {
+            // Count orphans (visible nodes with no visible edges)
+            const visibleEdges = node.connectedEdges().filter(e => !e.hidden());
+            if (!node.hidden() && visibleEdges.length === 0) {
                 counts.orphans++;
             }
         });

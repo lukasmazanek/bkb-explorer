@@ -161,6 +161,8 @@ const BKBExplorer = {
      */
     applyFilter() {
         Graph.applyFilter(this.state.show);
+        // Update counts after filter (orphan count depends on visible edges)
+        this.updateFilterCounts();
     },
 
     /**
