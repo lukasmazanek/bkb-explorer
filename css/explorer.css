@@ -1,7 +1,9 @@
 /* BKB Explorer Styles */
 
 :root {
-    /* Colors */
+    /* BKB Notation Colors */
+    --color-concept: #dedaff;     /* Light purple - default concept */
+    --color-concept-border: #1a1a1a;
     --color-fibo: #2ecc71;
     --color-fibo-bg: #d5f4e6;
     --color-draft: #f39c12;
@@ -11,7 +13,7 @@
     --color-cross-domain: #9b59b6;
 
     /* Layout */
-    --sidebar-width: 280px;
+    --sidebar-width: 300px;
     --header-height: 50px;
     --breadcrumb-height: 40px;
 
@@ -346,4 +348,126 @@ body {
 
 .empty-state p {
     font-size: 0.95em;
+}
+
+/* ===========================================
+   BKB NOTATION LEGEND
+   Based on ConceptSpeak Visual Manual
+   =========================================== */
+
+.legend {
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85em;
+}
+
+.legend-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.legend-section {
+    margin-bottom: 12px;
+}
+
+.legend-section-title {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+/* Node legend icons */
+.legend-node {
+    width: 60px;
+    height: 20px;
+    border-radius: 2px;
+    border-width: 3px;
+    border-style: solid;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.legend-node.concept {
+    background: var(--color-concept);
+    border-color: var(--color-concept-border);
+}
+
+.legend-node.fibo {
+    background: var(--color-fibo-bg);
+    border-color: var(--color-fibo);
+}
+
+.legend-node.draft {
+    background: var(--color-draft-bg);
+    border-color: var(--color-draft);
+}
+
+.legend-node.inherited {
+    background: var(--color-inherited-bg);
+    border-color: var(--color-inherited);
+}
+
+/* Edge legend icons */
+.legend-edge {
+    width: 60px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.legend-edge-line {
+    width: 40px;
+    background: var(--color-concept-border);
+}
+
+.legend-edge-line.categorization {
+    height: 4px;
+}
+
+.legend-edge-line.relationship {
+    height: 2px;
+}
+
+.legend-edge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.legend-edge-dot.filled {
+    background: var(--color-concept-border);
+}
+
+.legend-edge-dot.hollow {
+    background: white;
+    border: 2px solid var(--color-concept-border);
+}
+
+.legend-edge-dot.left {
+    left: 6px;
+}
+
+.legend-edge-dot.right {
+    right: 6px;
+}
+
+.legend-label {
+    flex: 1;
+    color: var(--text-secondary);
 }

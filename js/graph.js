@@ -274,10 +274,14 @@ const Graph = {
 
     /**
      * Get Cytoscape styles
+     * Based on BKB (Business Knowledge Blueprint) visual notation
+     * See ConceptSpeak-Visual-Manual.md for reference
      */
     getStyles() {
         return [
-            // Base node style
+            // ===========================================
+            // CONCEPT NODES - Solid rectangle, bold text
+            // ===========================================
             {
                 selector: 'node',
                 style: {
@@ -289,68 +293,65 @@ const Graph = {
                     'text-valign': 'center',
                     'text-halign': 'center',
                     'font-size': 12,
-                    'font-weight': 500,
-                    'background-color': '#ecf0f1',
-                    'border-width': 2,
-                    'border-color': '#bdc3c7'
+                    'font-weight': 700,  // Bold per BKB notation
+                    'background-color': '#dedaff',  // Light purple (BKB default)
+                    'border-width': 4,  // Solid border per BKB
+                    'border-color': '#1a1a1a'  // Dark border
                 }
             },
-            // FIBO mapped
+            // FIBO mapped - green fill
             {
                 selector: 'node.fibo',
                 style: {
                     'background-color': '#d5f4e6',
-                    'border-color': '#2ecc71',
-                    'border-width': 3
+                    'border-color': '#2ecc71'
                 }
             },
-            // DRAFT
+            // DRAFT - orange fill
             {
                 selector: 'node.draft',
                 style: {
                     'background-color': '#fef3e2',
-                    'border-color': '#f39c12',
-                    'border-width': 2
+                    'border-color': '#f39c12'
                 }
             },
-            // INHERITED
+            // INHERITED - blue fill
             {
                 selector: 'node.inherited',
                 style: {
                     'background-color': '#e3f2fd',
-                    'border-color': '#3498db',
-                    'border-width': 2
+                    'border-color': '#3498db'
                 }
             },
-            // Cross-domain indicator
+            // Cross-domain indicator - thicker border
             {
                 selector: 'node.cross-domain',
                 style: {
-                    'border-width': 4
+                    'border-width': 6
                 }
             },
-            // Ghost node
+            // Ghost node (external reference) - dotted border
             {
                 selector: 'node.ghost',
                 style: {
-                    'opacity': 0.5,
+                    'opacity': 0.6,
                     'border-style': 'dashed'
                 }
             },
-            // Hub node (top connectivity)
+            // Hub node (root of tree)
             {
                 selector: 'node.hub',
                 style: {
-                    'font-weight': 700,
-                    'font-size': 14
+                    'font-size': 14,
+                    'height': 42
                 }
             },
             // Selected node
             {
                 selector: 'node:selected',
                 style: {
-                    'border-color': '#2c3e50',
-                    'border-width': 4
+                    'border-color': '#e74c3c',
+                    'border-width': 5
                 }
             },
             // Highlighted (search match)
@@ -358,52 +359,71 @@ const Graph = {
                 selector: 'node.highlighted',
                 style: {
                     'border-color': '#e74c3c',
-                    'border-width': 4,
+                    'border-width': 5,
                     'background-color': '#fadbd8'
                 }
             },
-            // Base edge style
+
+            // ===========================================
+            // CATEGORIZATION EDGES (extends/is-a)
+            // Thick line with filled dots at ends
+            // ===========================================
+            {
+                selector: 'edge.extends',
+                style: {
+                    'width': 5,  // Thick line per BKB
+                    'line-color': '#1a1a1a',
+                    'curve-style': 'bezier',
+                    // Filled circles at ends (BKB notation)
+                    'source-arrow-shape': 'circle',
+                    'source-arrow-color': '#1a1a1a',
+                    'source-arrow-fill': 'filled',
+                    'target-arrow-shape': 'circle',
+                    'target-arrow-color': '#1a1a1a',
+                    'target-arrow-fill': 'filled',
+                    'arrow-scale': 0.6
+                }
+            },
+
+            // ===========================================
+            // BINARY VERB EDGES (relationships)
+            // Thin line with hollow circles
+            // ===========================================
+            {
+                selector: 'edge.relationship',
+                style: {
+                    'width': 2,  // Thin line per BKB
+                    'line-color': '#1a1a1a',
+                    'curve-style': 'bezier',
+                    // Small hollow circles (BKB notation)
+                    'source-arrow-shape': 'circle',
+                    'source-arrow-color': '#1a1a1a',
+                    'source-arrow-fill': 'hollow',
+                    'target-arrow-shape': 'circle',
+                    'target-arrow-color': '#1a1a1a',
+                    'target-arrow-fill': 'hollow',
+                    'arrow-scale': 0.4,
+                    // Verb label
+                    'label': 'data(label)',
+                    'font-size': 10,
+                    'text-rotation': 'autorotate',
+                    'text-margin-y': -10,
+                    'color': '#1a1a1a',
+                    'text-background-color': '#fff',
+                    'text-background-opacity': 0.9,
+                    'text-background-padding': '3px'
+                }
+            },
+
+            // ===========================================
+            // BASE EDGE STYLE (fallback)
+            // ===========================================
             {
                 selector: 'edge',
                 style: {
                     'width': 2,
                     'line-color': '#95a5a6',
-                    'target-arrow-color': '#95a5a6',
-                    'target-arrow-shape': 'triangle',
                     'curve-style': 'bezier'
-                }
-            },
-            // Extends edge
-            {
-                selector: 'edge.extends',
-                style: {
-                    'width': 4,
-                    'line-color': '#2c3e50',
-                    'target-arrow-color': '#2c3e50',
-                    'label': 'extends',
-                    'font-size': 10,
-                    'text-rotation': 'autorotate',
-                    'text-margin-y': -10,
-                    'color': '#7f8c8d'
-                }
-            },
-            // Relationship edge (CST verb phrases)
-            {
-                selector: 'edge.relationship',
-                style: {
-                    'width': 2,
-                    'line-style': 'dashed',
-                    'line-color': '#9b59b6',
-                    'target-arrow-color': '#9b59b6',
-                    'target-arrow-shape': 'triangle',
-                    'label': 'data(label)',
-                    'font-size': 9,
-                    'text-rotation': 'autorotate',
-                    'text-margin-y': -8,
-                    'color': '#8e44ad',
-                    'text-background-color': '#fff',
-                    'text-background-opacity': 0.8,
-                    'text-background-padding': '2px'
                 }
             }
         ];

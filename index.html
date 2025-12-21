@@ -28,6 +28,47 @@
                 <label><input type="radio" name="filter" value="draft"> DRAFT only</label>
                 <label><input type="radio" name="filter" value="cross"> Cross-domain</label>
             </div>
+
+            <!-- BKB Notation Legend -->
+            <div class="legend">
+                <div class="legend-title">BKB Notation</div>
+
+                <div class="legend-section">
+                    <div class="legend-section-title">Concepts</div>
+                    <div class="legend-item">
+                        <div class="legend-node fibo">ABC</div>
+                        <span class="legend-label">FIBO mapped</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-node draft">ABC</div>
+                        <span class="legend-label">Draft</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-node inherited">ABC</div>
+                        <span class="legend-label">Inherited</span>
+                    </div>
+                </div>
+
+                <div class="legend-section">
+                    <div class="legend-section-title">Edges</div>
+                    <div class="legend-item">
+                        <div class="legend-edge">
+                            <div class="legend-edge-dot filled left"></div>
+                            <div class="legend-edge-line categorization"></div>
+                            <div class="legend-edge-dot filled right"></div>
+                        </div>
+                        <span class="legend-label">Categorization (is-a)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-edge">
+                            <div class="legend-edge-dot hollow left"></div>
+                            <div class="legend-edge-line relationship"></div>
+                            <div class="legend-edge-dot hollow right"></div>
+                        </div>
+                        <span class="legend-label">Binary verb</span>
+                    </div>
+                </div>
+            </div>
         </aside>
 
         <!-- Main Content -->
