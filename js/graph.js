@@ -645,6 +645,7 @@ const Graph = {
                 } else {
                     // First tap - show tooltip and highlight
                     this.clearSelection();
+                    Tooltip.hideEdge(); // Hide edge tooltip when selecting node
                     this.selectedNode = node;
                     node.select();
                     Tooltip.show(node, e.renderedPosition);
@@ -663,6 +664,7 @@ const Graph = {
             if (this.isMobile()) {
                 // Mobile: tap shows tooltip
                 this.clearSelection();
+                Tooltip.hide(); // Hide node tooltip when selecting edge
                 this.selectedEdge = edge;
                 Tooltip.showEdge(edge, e.renderedPosition);
                 this.highlightEdge(edge);
