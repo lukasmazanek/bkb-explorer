@@ -38,19 +38,19 @@ const BKBExplorer = {
             return;
         }
 
-        // Merge RBCZ data if available (separate bundle, never committed)
-        if (typeof window.BKB_RBCZ_DATA !== 'undefined') {
-            console.log('🔐 RBCZ data detected, merging...');
+        // Merge organization data if available (separate bundle, never committed)
+        if (typeof window.BKB_ORG_DATA !== 'undefined') {
+            console.log('🔐 Organization data detected, merging...');
             // Merge domain data
-            Object.assign(window.BKB_DATA, window.BKB_RBCZ_DATA);
+            Object.assign(window.BKB_DATA, window.BKB_ORG_DATA);
             // Merge domains hierarchy
-            if (window.BKB_RBCZ_DATA.domains && window.BKB_RBCZ_DATA.domains.hierarchy) {
+            if (window.BKB_ORG_DATA.domains && window.BKB_ORG_DATA.domains.hierarchy) {
                 Object.assign(
                     window.BKB_DATA.domains.hierarchy,
-                    window.BKB_RBCZ_DATA.domains.hierarchy
+                    window.BKB_ORG_DATA.domains.hierarchy
                 );
             }
-            console.log('✅ RBCZ data merged');
+            console.log('✅ Organization data merged');
         } else {
             console.log('ℹ️ Running in public mode (Test data only)');
         }
@@ -63,9 +63,9 @@ const BKBExplorer = {
         // Set up event listeners
         this.setupEventListeners();
 
-        // Load default domain (Investment if RBCZ available, Order otherwise)
-        const hasRbcz = typeof window.BKB_RBCZ_DATA !== 'undefined';
-        const defaultDomain = hasRbcz ? 'Investment' : 'Order';
+        // Load default domain (first available from org data, or Order from test)
+        const hasOrgData = typeof window.BKB_ORG_DATA !== 'undefined';
+        const defaultDomain = hasOrgData ? 'Investment' : 'Order';
         this.selectDomain(defaultDomain);
 
         console.log('✅ BKB Explorer ready');

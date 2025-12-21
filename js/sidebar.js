@@ -44,10 +44,16 @@ const Sidebar = {
             });
         });
 
-        // Expand RBCZ, MIB and Test by default
-        this.expandNode('RBCZ');
-        this.expandNode('MIB');
-        this.expandNode('Test');
+        // Expand all top-level nodes and their first-level children by default
+        for (const name of Object.keys(this.domainsData.hierarchy)) {
+            this.expandNode(name);
+            const node = this.domainsData.hierarchy[name];
+            if (node.children) {
+                for (const childName of Object.keys(node.children)) {
+                    this.expandNode(childName);
+                }
+            }
+        }
     },
 
     /**

@@ -64,7 +64,7 @@ bkb-explorer/
 
 | Component | File | Description |
 |-----------|------|-------------|
-| **Sidebar** | sidebar.js | Domain tree navigation (RBCZ > MIB > ...) |
+| **Sidebar** | sidebar.js | Domain tree navigation |
 | **Graph** | graph.js | Cytoscape.js canvas with nodes/edges |
 | **Tooltip** | tooltip.js | Hover cards with definition, FIBO, cross-domain |
 | **Data** | data.js | Inline bundled ontology data |

@@ -17,5 +17,5 @@ test/*/config.json
 test/*/domain.json
 test/*/*/
 
-# RBCZ data (never commit - contains sensitive production data)
-js/data-rbcz.js
+# Organization data (never commit - contains sensitive production data)
+js/data-org.js
