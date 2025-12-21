@@ -219,7 +219,7 @@ window.BKB_DATA = {{
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,
   payment: PAYMENT_DATA,
-  financialAccount: FINANCIAL_ACCOUNT_DATA
+  financialaccount: FINANCIAL_ACCOUNT_DATA
 }};
 
 console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
