@@ -2,6 +2,8 @@
 
 Interactive **Business Knowledge Blueprint** Explorer for Semantic Platform.
 
+**Live Demo:** https://lukasmazanek.github.io/bkb-explorer/
+
 > **BKB** = Business Knowledge Blueprint
 > **CST** = ConceptSpeak Text
 
