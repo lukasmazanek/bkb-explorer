@@ -176,7 +176,10 @@ const Graph = {
         relationships.forEach(rel => {
             const subj = rel.subject_name;
             const obj = rel.object_name;
-            const verb = rel.verb_phrase || 'relates to';
+            // Use verb_phrase, inverse_verb_phrase, or fallback "?" to highlight missing data
+            const verb = (rel.verb_phrase && rel.verb_phrase.trim())
+                || (rel.inverse_verb_phrase && rel.inverse_verb_phrase.trim())
+                || '???';
 
             // Only add if both concepts are visible
             if (visibleNames.has(subj) && visibleNames.has(obj)) {
