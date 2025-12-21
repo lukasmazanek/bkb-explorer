@@ -70,6 +70,7 @@ body {
 /* Domain Tree */
 .domain-tree {
     flex: 1;
+    min-height: 200px;
     overflow-y: auto;
     padding: 12px;
 }
@@ -425,6 +426,9 @@ body {
     padding: 12px;
     border-top: 1px solid var(--border-color);
     font-size: 0.85em;
+    flex-shrink: 1;
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .legend-title {
