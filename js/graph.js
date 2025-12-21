@@ -44,11 +44,11 @@ const Graph = {
             layout: {
                 name: 'dagre',
                 rankDir: 'TB',
-                nodeSep: 30,
-                rankSep: 60,
-                edgeSep: 20,
+                nodeSep: 20,
+                rankSep: 50,
+                edgeSep: 10,
                 padding: 20,
-                spacingFactor: 1.2
+                spacingFactor: 1.0
             },
             minZoom: 0.2,
             maxZoom: 3,
@@ -79,17 +79,29 @@ const Graph = {
         const conceptMap = new Map(concepts.map(c => [c.name, c]));
         const internalNames = new Set(concepts.map(c => c.name));
 
+        // Case-insensitive name lookup (workaround for data quality issues)
+        const nameLowerMap = new Map(concepts.map(c => [c.name.toLowerCase(), c.name]));
+
+        // Helper to resolve extends_name with case-insensitive fallback
+        const resolveParent = (extendsName) => {
+            if (!extendsName) return null;
+            if (internalNames.has(extendsName)) return extendsName;
+            // Try case-insensitive match
+            const resolved = nameLowerMap.get(extendsName.toLowerCase());
+            return resolved || null;
+        };
+
         // Find roots with internal hierarchies (concepts whose parent is external/none)
         const roots = concepts.filter(c => {
-            const parent = c.hierarchy?.extends_name;
-            return !parent || !internalNames.has(parent);
+            const parent = resolveParent(c.hierarchy?.extends_name);
+            return !parent;
         });
 
-        // Count descendants for each root
+        // Count descendants for each root (case-insensitive)
         const countDescendants = (name, visited = new Set()) => {
             if (visited.has(name)) return 0;
             visited.add(name);
-            const children = concepts.filter(c => c.hierarchy?.extends_name === name);
+            const children = concepts.filter(c => resolveParent(c.hierarchy?.extends_name) === name);
             return children.length + children.reduce((sum, ch) =>
                 sum + countDescendants(ch.name, visited), 0);
         };
@@ -108,7 +120,7 @@ const Graph = {
         const addTree = (name, depth = 0, maxDepth = 5) => {
             if (depth > maxDepth || visibleNames.has(name)) return;
             visibleNames.add(name);
-            const children = concepts.filter(c => c.hierarchy?.extends_name === name);
+            const children = concepts.filter(c => resolveParent(c.hierarchy?.extends_name) === name);
             children.forEach(ch => addTree(ch.name, depth + 1, maxDepth));
         };
 
@@ -144,7 +156,7 @@ const Graph = {
         // Add extends edges (hierarchy)
         // Direction: parent → child (for correct dagre TB hierarchy)
         visibleConcepts.forEach(concept => {
-            const extendsName = concept.hierarchy?.extends_name;
+            const extendsName = resolveParent(concept.hierarchy?.extends_name);
             if (extendsName && visibleNames.has(extendsName)) {
                 edges.push({
                     data: {
