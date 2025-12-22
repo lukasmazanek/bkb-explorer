@@ -629,32 +629,22 @@ const Graph = {
             const node = e.target;
             if (node.hasClass('junction')) return;
 
-            if (this.isMobile()) {
-                // Mobile: tap shows tooltip and highlight (same as desktop hover)
-                this.clearSelection();
-                Tooltip.hideEdge();
-                this.selectedNode = node;
-                this.highlightNode(node);  // Purple highlight, same as desktop
-                Tooltip.show(node, e.renderedPosition);
-            } else {
-                // Desktop: click expands/collapses
-                node.unselect();  // Prevent red :selected border
-                this.toggleExpand(node);
-            }
+            // Both mobile and desktop: tap/click shows tooltip and highlight
+            this.clearSelection();
+            Tooltip.hideEdge();
+            this.selectedNode = node;
+            this.highlightNode(node);
+            Tooltip.show(node, e.renderedPosition);
         });
 
-        // Edge tap - show tooltip on mobile
+        // Edge tap - show tooltip (both mobile and desktop)
         this.cy.on('tap', 'edge', (e) => {
             const edge = e.target;
-
-            if (this.isMobile()) {
-                // Mobile: tap shows tooltip
-                this.clearSelection();
-                Tooltip.hide(); // Hide node tooltip when selecting edge
-                this.selectedEdge = edge;
-                Tooltip.showEdge(edge, e.renderedPosition);
-                this.highlightEdge(edge);
-            }
+            this.clearSelection();
+            Tooltip.hide();
+            this.selectedEdge = edge;
+            Tooltip.showEdge(edge, e.renderedPosition);
+            this.highlightEdge(edge);
         });
 
         // Canvas tap - deselect and hide tooltips
