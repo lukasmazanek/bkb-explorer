@@ -41,15 +41,19 @@ const BKBExplorer = {
         // Merge organization data if available (separate bundle, never committed)
         if (typeof window.BKB_ORG_DATA !== 'undefined') {
             console.log('🔐 Organization data detected, merging...');
-            // Merge domain data
+
+            // Save original domains hierarchy before merge
+            const originalHierarchy = { ...window.BKB_DATA.domains.hierarchy };
+
+            // Merge domain data (investment, payments, retail keys)
             Object.assign(window.BKB_DATA, window.BKB_ORG_DATA);
-            // Merge domains hierarchy
-            if (window.BKB_ORG_DATA.domains && window.BKB_ORG_DATA.domains.hierarchy) {
-                Object.assign(
-                    window.BKB_DATA.domains.hierarchy,
-                    window.BKB_ORG_DATA.domains.hierarchy
-                );
-            }
+
+            // Restore and merge domains hierarchy (Test + RBCZ)
+            window.BKB_DATA.domains.hierarchy = {
+                ...originalHierarchy,
+                ...window.BKB_ORG_DATA.domains.hierarchy
+            };
+
             console.log('✅ Organization data merged');
         } else {
             console.log('ℹ️ Running in public mode (Test data only)');
