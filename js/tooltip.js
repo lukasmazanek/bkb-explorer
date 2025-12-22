@@ -184,7 +184,13 @@ const Tooltip = {
             const inverse = data.targetLabel || '';
 
             typeEl.textContent = 'Binary Verb';
-            relationEl.innerHTML = `<strong>${sourceName}</strong> ${verb} <strong>${targetName}</strong>`;
+
+            // Show both forward and inverse statements
+            if (inverse) {
+                relationEl.innerHTML = `<strong>${sourceName}</strong> ${verb} <strong>${targetName}</strong><br><strong>${targetName}</strong> ${inverse} <strong>${sourceName}</strong>`;
+            } else {
+                relationEl.innerHTML = `<strong>${sourceName}</strong> ${verb} <strong>${targetName}</strong>`;
+            }
 
             // CST notation: Subject [verb phrase | inverse phrase] Object
             if (inverse) {

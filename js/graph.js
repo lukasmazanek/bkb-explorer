@@ -606,8 +606,8 @@ const Graph = {
 
         this.cy.on('mouseout', 'node', () => {
             if (this.isMobile()) return;
-            if (this.selectedNode) return;  // Don't clear if node is clicked/selected
             Tooltip.hide();
+            if (this.selectedNode) return;  // Keep highlight if clicked, but hide tooltip
             this.clearEdgeHighlight();
         });
 
@@ -621,8 +621,8 @@ const Graph = {
 
         this.cy.on('mouseout', 'edge', () => {
             if (this.isMobile()) return;
-            if (this.selectedEdge) return;  // Don't clear if edge is clicked/selected
             Tooltip.hideEdge();
+            if (this.selectedEdge) return;  // Keep highlight if clicked, but hide tooltip
             this.clearEdgeHighlight();
         });
 
