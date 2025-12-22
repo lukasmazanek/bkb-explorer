@@ -1061,36 +1061,22 @@ const Graph = {
      * Clear edge highlight and restore original styles
      */
     clearEdgeHighlight() {
-        // Restore node original styles
+        // Restore node original styles by REMOVING inline styles (allows stylesheet to apply)
         this.cy.nodes('.edge-connected').forEach(node => {
-            const origWidth = node.data('_origBorderWidth');
-            const origColor = node.data('_origBorderColor');
-
-            if (origWidth !== undefined) {
-                node.style({
-                    'border-width': origWidth,
-                    'border-color': origColor
-                });
-                node.removeData('_origBorderWidth');
-                node.removeData('_origBorderColor');
-            }
+            node.removeStyle('border-width');
+            node.removeStyle('border-color');
+            node.removeData('_origBorderWidth');
+            node.removeData('_origBorderColor');
             node.removeClass('edge-connected');
         });
 
-        // Restore edge original styles
+        // Restore edge original styles by REMOVING inline styles
         this.cy.edges('.edge-highlighted').forEach(edge => {
-            const origWidth = edge.data('_origWidth');
-            const origColor = edge.data('_origColor');
-
-            if (origWidth !== undefined) {
-                edge.style({
-                    'width': origWidth,
-                    'line-color': origColor,
-                    'z-index': 0
-                });
-                edge.removeData('_origWidth');
-                edge.removeData('_origColor');
-            }
+            edge.removeStyle('width');
+            edge.removeStyle('line-color');
+            edge.removeStyle('z-index');
+            edge.removeData('_origWidth');
+            edge.removeData('_origColor');
             edge.removeClass('edge-highlighted');
         });
     },
