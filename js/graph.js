@@ -638,13 +638,11 @@ const Graph = {
             if (node.hasClass('junction')) return;
 
             if (this.isMobile()) {
-                // Mobile: tap shows tooltip and highlight
+                // Mobile: tap shows tooltip and highlight (same as desktop hover)
                 this.clearSelection();
                 Tooltip.hideEdge();
                 this.selectedNode = node;
-                // Highlight connected nodes/edges BEFORE selecting (to save correct original colors)
-                this.highlightConnected(node);
-                node.select();
+                this.highlightNode(node);  // Purple highlight, same as desktop
                 Tooltip.show(node, e.renderedPosition);
             } else {
                 // Desktop: click expands/collapses
@@ -742,13 +740,8 @@ const Graph = {
      * Clear mobile selection state
      */
     clearSelection() {
-        if (this.selectedNode) {
-            this.selectedNode.unselect();
-            this.selectedNode = null;
-        }
-        if (this.selectedEdge) {
-            this.selectedEdge = null;
-        }
+        this.selectedNode = null;
+        this.selectedEdge = null;
         this.clearEdgeHighlight();
     },
 
