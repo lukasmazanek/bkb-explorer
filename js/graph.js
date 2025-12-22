@@ -455,21 +455,13 @@ const Graph = {
                     'height': 42
                 }
             },
-            // Selected node
-            {
-                selector: 'node:selected',
-                style: {
-                    'border-color': '#e74c3c',
-                    'border-width': 5
-                }
-            },
-            // Highlighted (search match)
+            // Highlighted (search match) - purple like hover
             {
                 selector: 'node.highlighted',
                 style: {
-                    'border-color': '#e74c3c',
+                    'border-color': '#9b59b6',
                     'border-width': 5,
-                    'background-color': '#fadbd8'
+                    'background-color': '#f5eef8'
                 }
             },
             // Edge hover - connected nodes (dynamic styling applied in JS)
