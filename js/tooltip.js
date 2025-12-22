@@ -22,13 +22,15 @@ const Tooltip = {
         this.element = document.getElementById('tooltip');
         this.edgeElement = document.getElementById('edge-tooltip');
 
-        // On mobile, tap anywhere to close tooltip
+        // On mobile, tap outside graph to close tooltip
         if (this.isMobile()) {
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('.tooltip')) {
-                    this.hide();
-                    this.hideEdge();
+                // Don't close if clicking on tooltip or graph container
+                if (e.target.closest('.tooltip') || e.target.closest('#graph-container')) {
+                    return;
                 }
+                this.hide();
+                this.hideEdge();
             });
         }
     },

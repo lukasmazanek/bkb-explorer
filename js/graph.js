@@ -646,6 +646,7 @@ const Graph = {
                 Tooltip.show(node, e.renderedPosition);
             } else {
                 // Desktop: click expands/collapses
+                node.unselect();  // Prevent red :selected border
                 this.toggleExpand(node);
             }
         });
