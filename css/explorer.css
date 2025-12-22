@@ -423,12 +423,7 @@ body {
    =========================================== */
 
 .legend {
-    padding: 12px;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.85em;
-    flex-shrink: 1;
-    max-height: 250px;
-    overflow-y: auto;
+    display: none;  /* Hidden to save space - notation is self-explanatory */
 }
 
 .legend-title {

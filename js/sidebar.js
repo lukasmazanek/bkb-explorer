@@ -62,16 +62,21 @@ const Sidebar = {
     renderHierarchy(node, depth) {
         let html = '';
 
-        for (const [name, data] of Object.entries(node)) {
+        // Sort: Test always last, others alphabetically
+        const entries = Object.entries(node).sort(([a], [b]) => {
+            if (a === 'Test') return 1;
+            if (b === 'Test') return -1;
+            return a.localeCompare(b);
+        });
+
+        for (const [name, data] of entries) {
             const hasChildren = data.children && Object.keys(data.children).length > 0;
             const isClickable = data.type === 'domain';
             const conceptCount = data.stats?.concepts || 0;
 
             // Determine icon (simple Unicode symbols)
             let icon = '○';
-            if (data.type === 'enterprise') icon = '◆';
-            else if (data.type === 'business_unit') icon = '▶';
-            else if (hasChildren) icon = '▶';
+            if (hasChildren) icon = '▶';
 
             // Count display
             const countDisplay = conceptCount > 0 ? `(${conceptCount})` : '';
@@ -108,7 +113,7 @@ const Sidebar = {
             const item = this.container.querySelector(`.tree-item[data-name="${name}"]`);
             if (item) {
                 const icon = item.querySelector('.icon');
-                if (icon && item.dataset.type !== 'enterprise') {
+                if (icon) {
                     icon.textContent = '▼';
                 }
             }
@@ -129,12 +134,10 @@ const Sidebar = {
             const isCollapsed = children.classList.contains('collapsed');
             children.classList.toggle('collapsed');
 
-            // Update icon (not for enterprise)
-            if (type !== 'enterprise') {
-                const icon = item.querySelector('.icon');
-                if (icon) {
-                    icon.textContent = isCollapsed ? '▼' : '▶';
-                }
+            // Update icon
+            const icon = item.querySelector('.icon');
+            if (icon) {
+                icon.textContent = isCollapsed ? '▼' : '▶';
             }
         }
 
@@ -170,7 +173,7 @@ const Sidebar = {
                     parent.classList.remove('collapsed');
                     const parentName = parent.dataset.parent;
                     const parentItem = this.container.querySelector(`.tree-item[data-name="${parentName}"]`);
-                    if (parentItem && parentItem.dataset.type !== 'enterprise') {
+                    if (parentItem) {
                         parentItem.querySelector('.icon').textContent = '▼';
                     }
                 }
