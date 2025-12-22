@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <title>BKB Explorer - Business Knowledge Blueprint</title>
-    <link rel="stylesheet" href="css/explorer.css?v=6">
+    <link rel="stylesheet" href="css/explorer.css?v=7">
 </head>
 <body>
     <div class="app-container">
@@ -58,51 +58,51 @@
                 </select>
             </div>
 
-            <!-- BKB Notation Legend -->
-            <div class="legend">
-                <div class="legend-title">BKB Notation</div>
-
-                <div class="legend-section">
-                    <div class="legend-section-title">Concepts</div>
-                    <div class="legend-item">
-                        <div class="legend-node fibo">ABC</div>
-                        <span class="legend-label">FIBO</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-node schema">ABC</div>
-                        <span class="legend-label">Schema.org</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-node domain">ABC</div>
-                        <span class="legend-label">Domain</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-node unknown">ABC</div>
-                        <span class="legend-label">Unknown</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-node context">ABC</div>
-                        <span class="legend-label">Context</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-node cross">ABC</div>
-                        <span class="legend-label">Cross-domain</span>
-                    </div>
-                </div>
-
-                <div class="legend-section">
-                    <div class="legend-section-title">Edges</div>
-                    <div class="legend-item">
-                        <div class="legend-edge">
-                            <div class="legend-edge-line categorization"></div>
+            <!-- BKB Notation Legend (collapsible) -->
+            <div class="legend" id="legend">
+                <div class="legend-title" id="legend-toggle">▶ BKB Notation</div>
+                <div class="legend-content" id="legend-content">
+                    <div class="legend-section">
+                        <div class="legend-section-title">Concepts</div>
+                        <div class="legend-item">
+                            <div class="legend-node fibo">ABC</div>
+                            <span class="legend-label">FIBO</span>
                         </div>
-                        <span class="legend-label">Categorization (is-a)</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-edge">
-                            <div class="legend-edge-line relationship"></div>
+                        <div class="legend-item">
+                            <div class="legend-node schema">ABC</div>
+                            <span class="legend-label">Schema.org</span>
                         </div>
-                        <span class="legend-label">Binary verb</span>
+                        <div class="legend-item">
+                            <div class="legend-node domain">ABC</div>
+                            <span class="legend-label">Domain</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node unknown">ABC</div>
+                            <span class="legend-label">Unknown</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node context">ABC</div>
+                            <span class="legend-label">Context</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node cross">ABC</div>
+                            <span class="legend-label">Cross-domain</span>
+                        </div>
+                    </div>
+                    <div class="legend-section">
+                        <div class="legend-section-title">Edges</div>
+                        <div class="legend-item">
+                            <div class="legend-edge">
+                                <div class="legend-edge-line categorization"></div>
+                            </div>
+                            <span class="legend-label">Categorization (is-a)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-edge">
+                                <div class="legend-edge-line relationship"></div>
+                            </div>
+                            <span class="legend-label">Binary verb</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,6 +168,6 @@
     <script src="js/sidebar.js?v=3"></script>
     <script src="js/tooltip.js?v=4"></script>
     <script src="js/graph.js?v=13"></script>
-    <script src="js/app.js?v=3"></script>
+    <script src="js/app.js?v=4"></script>
 </body>
 </html>

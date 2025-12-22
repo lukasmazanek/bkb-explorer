@@ -63,6 +63,7 @@ const BKBExplorer = {
         Sidebar.init(window.BKB_DATA.domains);
         Graph.init('graph-container');
         Tooltip.init();
+        this.setupLegendToggle();
 
         // Set up event listeners
         this.setupEventListeners();
@@ -216,6 +217,22 @@ const BKBExplorer = {
         setTimeout(() => {
             Graph.focusNode(focusNode);
         }, 300);
+    },
+
+    /**
+     * Set up legend toggle (collapsible)
+     */
+    setupLegendToggle() {
+        const legend = document.getElementById('legend');
+        const toggle = document.getElementById('legend-toggle');
+        if (legend && toggle) {
+            toggle.addEventListener('click', () => {
+                legend.classList.toggle('expanded');
+                toggle.textContent = legend.classList.contains('expanded')
+                    ? '▼ BKB Notation'
+                    : '▶ BKB Notation';
+            });
+        }
     },
 
     /**

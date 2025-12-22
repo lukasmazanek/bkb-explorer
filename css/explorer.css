@@ -423,25 +423,32 @@ body {
    =========================================== */
 
 .legend {
-    padding: 12px;
+    padding: 8px 12px;
     border-top: 1px solid var(--border-color);
     font-size: 0.85em;
-    flex-shrink: 1;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-/* Hide legend when sidebar is short */
-@media (max-height: 800px) {
-    .legend {
-        display: none;
-    }
+    flex-shrink: 0;
 }
 
 .legend-title {
     font-weight: 600;
-    margin-bottom: 10px;
     color: var(--text-primary);
+    cursor: pointer;
+    user-select: none;
+}
+
+.legend-title:hover {
+    color: var(--accent-color);
+}
+
+.legend-content {
+    display: none;
+    padding-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.legend.expanded .legend-content {
+    display: block;
 }
 
 .legend-section {
