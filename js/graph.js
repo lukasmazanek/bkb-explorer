@@ -605,7 +605,8 @@ const Graph = {
         });
 
         this.cy.on('mouseout', 'node', () => {
-            if (this.isMobile()) return; // Skip on mobile
+            if (this.isMobile()) return;
+            if (this.selectedNode) return;  // Don't clear if node is clicked/selected
             Tooltip.hide();
             this.clearEdgeHighlight();
         });
@@ -619,7 +620,8 @@ const Graph = {
         });
 
         this.cy.on('mouseout', 'edge', () => {
-            if (this.isMobile()) return; // Skip on mobile
+            if (this.isMobile()) return;
+            if (this.selectedEdge) return;  // Don't clear if edge is clicked/selected
             Tooltip.hideEdge();
             this.clearEdgeHighlight();
         });
