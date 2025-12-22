@@ -423,7 +423,19 @@ body {
    =========================================== */
 
 .legend {
-    display: none;  /* Hidden to save space - notation is self-explanatory */
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85em;
+    flex-shrink: 1;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Hide legend when sidebar is short */
+@media (max-height: 800px) {
+    .legend {
+        display: none;
+    }
 }
 
 .legend-title {
