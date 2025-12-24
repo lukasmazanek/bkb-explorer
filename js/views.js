@@ -90,11 +90,32 @@ const Views = {
 
     /**
      * Convert view ID to display name
-     * @param {string} viewId - View ID (e.g., "Investment_Order")
-     * @returns {string} Display name (e.g., "Investment Order")
+     * Normalizes different naming conventions to clean names:
+     * - "Investment_Order" → "Order"
+     * - "allininvestment-financial-transaction" → "Transaction"
+     * @param {string} viewId - View ID
+     * @returns {string} Display name
      */
     viewIdToName(viewId) {
-        return viewId.replace(/_/g, ' ');
+        let name = viewId;
+
+        // Strip common prefixes (case-insensitive)
+        const prefixes = [
+            /^allininvestment-/i,
+            /^investment[_-]/i,
+            /^financial[_-]/i,
+        ];
+        for (const prefix of prefixes) {
+            name = name.replace(prefix, '');
+        }
+
+        // Replace separators with spaces
+        name = name.replace(/[_-]/g, ' ');
+
+        // Title case
+        name = name.replace(/\b\w/g, c => c.toUpperCase());
+
+        return name;
     },
 
     /**

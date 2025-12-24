@@ -108,16 +108,18 @@ const Graph = {
                 sum + countDescendants(ch.name, visited), 0);
         };
 
-        // Get roots with descendants (main trees to display)
+        // Get all roots with descendant counts
         const rootsWithCount = roots.map(r => ({
             concept: r,
             descendants: countDescendants(r.name)
-        })).filter(r => r.descendants > 0)
-          .sort((a, b) => b.descendants - a.descendants)
-          .slice(0, 5);
+        })).sort((a, b) => b.descendants - a.descendants);
+
+        // Separate roots with trees vs orphan roots
+        const rootsWithTrees = rootsWithCount.filter(r => r.descendants > 0).slice(0, 5);
+        const orphanRoots = rootsWithCount.filter(r => r.descendants === 0);
 
         // If no roots with descendants, show all concepts
-        const showAll = rootsWithCount.length === 0;
+        const showAll = rootsWithTrees.length === 0 && orphanRoots.length === 0;
 
         // Collect visible nodes
         const visibleNames = new Set();
@@ -125,13 +127,17 @@ const Graph = {
         if (showAll) {
             concepts.forEach(c => visibleNames.add(c.name));
         } else {
+            // Add trees from roots with descendants
             const addTree = (name, depth = 0, maxDepth = 6) => {
                 if (depth > maxDepth || visibleNames.has(name)) return;
                 visibleNames.add(name);
                 const children = concepts.filter(c => childToParent.get(c.name)?.parent === name);
                 children.forEach(ch => addTree(ch.name, depth + 1, maxDepth));
             };
-            rootsWithCount.forEach(r => addTree(r.concept.name));
+            rootsWithTrees.forEach(r => addTree(r.concept.name));
+
+            // Add orphan roots (no descendants but still in domain)
+            orphanRoots.forEach(r => visibleNames.add(r.concept.name));
         }
 
         // Identify context concepts from concept.type field
@@ -157,7 +163,7 @@ const Graph = {
 
         // Get visible concepts
         const visibleConcepts = concepts.filter(c => visibleNames.has(c.name));
-        const hubNames = new Set(rootsWithCount.map(r => r.concept.name));
+        const hubNames = new Set(rootsWithTrees.map(r => r.concept.name));
 
         // Add nodes
         visibleConcepts.forEach(concept => {
