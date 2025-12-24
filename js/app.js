@@ -152,8 +152,7 @@ const BKBExplorer = {
         // Extract and render views
         Views.extractViews(domainData);
         const viewsList = Views.getViewsList();
-        const totalConcepts = (domainData.concepts || []).length;
-        Sidebar.renderViews(viewsList, domainName, totalConcepts);
+        Sidebar.renderViews(viewsList, domainName);
 
         // Update view filter dropdown
         this.updateViewDropdown(viewsList);

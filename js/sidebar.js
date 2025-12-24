@@ -190,9 +190,8 @@ const Sidebar = {
      * Render views under the active domain
      * @param {Array} views - Array of { id, name, conceptCount }
      * @param {string} domainName - Currently active domain
-     * @param {number} totalConcepts - Total concepts in domain
      */
-    renderViews(views, domainName, totalConcepts) {
+    renderViews(views, domainName) {
         if (!this.viewsEnabled || views.length === 0) return;
 
         // Find the domain item
@@ -208,23 +207,7 @@ const Sidebar = {
         viewsContainer.className = 'views-container';
         viewsContainer.dataset.domain = domainName;
 
-        // Add "All" option - use total concepts from domain
-        const allItem = document.createElement('div');
-        allItem.className = 'tree-item view-item active';
-        allItem.dataset.viewId = '';
-        allItem.dataset.domain = domainName;
-        allItem.innerHTML = `
-            <span class="icon">◉</span>
-            <span class="label">All</span>
-            <span class="count">(${totalConcepts})</span>
-        `;
-        allItem.addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.selectView(null, domainName);
-        });
-        viewsContainer.appendChild(allItem);
-
-        // Add view items
+        // Add view items (no "All" - redundant with domain count)
         views.forEach(view => {
             const viewItem = document.createElement('div');
             viewItem.className = 'tree-item view-item';
