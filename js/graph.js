@@ -1060,7 +1060,7 @@ const Graph = {
     },
 
     /**
-     * Apply filter based on CST element visibility toggles
+     * Apply filter based on CST element visibility toggles and view filter
      * @param {Object} show - visibility toggles { domain, fibo, schema, unknown, context, categorizations, relationships }
      */
     applyFilter(show) {
@@ -1077,6 +1077,9 @@ const Graph = {
                 childConcepts.add(targetId);
             });
         }
+
+        // Get active view filter
+        const activeView = Views.activeView;
 
         this.cy.nodes().forEach(node => {
             // Handle junction nodes
@@ -1109,6 +1112,11 @@ const Graph = {
             // Hide child concepts when categorizations are hidden
             if (!show.categorizations && childConcepts.has(nodeId)) {
                 visible = false;
+            }
+
+            // Apply view filter (if active)
+            if (visible && activeView) {
+                visible = Views.isConceptInActiveView(nodeId);
             }
 
             if (visible) {

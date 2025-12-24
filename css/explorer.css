@@ -117,6 +117,33 @@ body {
     display: none;
 }
 
+/* Views Container (under domain) */
+.views-container {
+    margin-left: 28px;
+    padding: 4px 0;
+    border-left: 2px solid var(--border-color);
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.views-container .tree-item {
+    padding: 4px 8px;
+    font-size: 0.9em;
+}
+
+.views-container .tree-item .icon {
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.views-container .tree-item.active .icon {
+    color: var(--color-inherited);
+}
+
+.views-container .tree-item:not(.active):hover {
+    background: var(--bg-secondary);
+}
+
 /* Sidebar Search */
 .sidebar-search {
     padding: 12px;
@@ -162,6 +189,36 @@ body {
 .sidebar-filter span {
     color: var(--text-secondary);
     font-size: 0.9em;
+}
+
+/* Sidebar View Filter */
+.sidebar-view-filter {
+    padding: 12px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9em;
+}
+
+.sidebar-view-filter label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.sidebar-view-filter select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    background: var(--bg-primary);
+    cursor: pointer;
+}
+
+.sidebar-view-filter select:focus {
+    outline: none;
+    border-color: var(--color-inherited);
 }
 
 /* Sidebar Layout Selector */

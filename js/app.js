@@ -9,6 +9,7 @@ const BKBExplorer = {
     // Current state
     state: {
         currentDomain: null,
+        currentView: null,  // Active view filter (null = all)
         expandedNodes: new Set(),
         selectedNode: null,
         // CST element visibility toggles (all default ON)
@@ -111,6 +112,19 @@ const BKBExplorer = {
                 Graph.setLayout(this.state.layout);
             });
         }
+
+        // View filter selector
+        const viewSelect = document.getElementById('view-select');
+        if (viewSelect) {
+            viewSelect.addEventListener('change', (e) => {
+                const viewId = e.target.value || null;
+                this.selectView(viewId);
+                // Also update sidebar view selection
+                if (this.state.currentDomain) {
+                    Sidebar.selectView(viewId, this.state.currentDomain);
+                }
+            });
+        }
     },
 
     /**
@@ -120,6 +134,7 @@ const BKBExplorer = {
         console.log(`📂 Selecting domain: ${domainName}`);
 
         this.state.currentDomain = domainName;
+        this.state.currentView = null;  // Reset view filter
         this.state.expandedNodes.clear();
 
         // Get domain data
@@ -133,6 +148,15 @@ const BKBExplorer = {
 
         // Update sidebar
         Sidebar.setActive(domainName);
+
+        // Extract and render views
+        Views.extractViews(domainData);
+        const viewsList = Views.getViewsList();
+        const totalConcepts = (domainData.concepts || []).length;
+        Sidebar.renderViews(viewsList, domainName, totalConcepts);
+
+        // Update view filter dropdown
+        this.updateViewDropdown(viewsList);
 
         // Update breadcrumb
         this.updateBreadcrumb(domainData.domain.path);
@@ -150,6 +174,66 @@ const BKBExplorer = {
         if (this.closeMobileSidebar && window.innerWidth <= 768) {
             this.closeMobileSidebar();
         }
+    },
+
+    /**
+     * Select a view within the current domain
+     * @param {string|null} viewId - View ID or null for all
+     */
+    selectView(viewId) {
+        console.log(`📋 Selecting view: ${viewId || 'All'}`);
+
+        this.state.currentView = viewId;
+        Views.setActiveView(viewId);
+
+        // Sync view dropdown
+        const viewSelect = document.getElementById('view-select');
+        if (viewSelect) {
+            viewSelect.value = viewId || '';
+        }
+
+        // Update breadcrumb to show view
+        const domainData = window.BKB_DATA[this.state.currentDomain.toLowerCase()];
+        if (domainData) {
+            const viewInfo = viewId ? Views.viewsMap.get(viewId) : null;
+            const path = viewInfo
+                ? `${domainData.domain.path} › ${viewInfo.name}`
+                : domainData.domain.path;
+            this.updateBreadcrumb(path);
+        }
+
+        // Reapply filter (includes view filter)
+        this.applyFilter();
+    },
+
+    /**
+     * Update the view dropdown with current views
+     * @param {Array} views - Array of { id, name, conceptCount }
+     */
+    updateViewDropdown(views) {
+        const container = document.getElementById('view-filter-container');
+        const select = document.getElementById('view-select');
+        if (!container || !select) return;
+
+        // Show/hide based on whether there are views
+        if (views.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+
+        container.style.display = '';
+
+        // Rebuild options
+        select.innerHTML = '<option value="">All concepts</option>';
+        views.forEach(view => {
+            const option = document.createElement('option');
+            option.value = view.id;
+            option.textContent = `${view.name} (${view.conceptCount})`;
+            select.appendChild(option);
+        });
+
+        // Reset to "All"
+        select.value = '';
     },
 
     /**

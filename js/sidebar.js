@@ -1,12 +1,13 @@
 /**
  * BKB Explorer - Sidebar Component
  *
- * Handles domain tree navigation.
+ * Handles domain tree navigation with View support (ADR-040).
  */
 
 const Sidebar = {
     container: null,
     domainsData: null,
+    viewsEnabled: true,  // Show views under domains
 
     /**
      * Initialize sidebar with domain hierarchy
@@ -155,10 +156,13 @@ const Sidebar = {
         this.container.querySelectorAll('.tree-item.active').forEach(item => {
             item.classList.remove('active');
             const icon = item.querySelector('.icon');
-            if (icon) {
+            if (icon && !item.classList.contains('view-item')) {
                 icon.textContent = '○';
             }
         });
+
+        // Remove previous view items
+        this.container.querySelectorAll('.views-container').forEach(el => el.remove());
 
         // Set new active
         const item = this.container.querySelector(`.tree-item[data-name="${domainName}"]`);
@@ -180,5 +184,85 @@ const Sidebar = {
                 parent = parent.parentElement;
             }
         }
+    },
+
+    /**
+     * Render views under the active domain
+     * @param {Array} views - Array of { id, name, conceptCount }
+     * @param {string} domainName - Currently active domain
+     * @param {number} totalConcepts - Total concepts in domain
+     */
+    renderViews(views, domainName, totalConcepts) {
+        if (!this.viewsEnabled || views.length === 0) return;
+
+        // Find the domain item
+        const domainItem = this.container.querySelector(`.tree-item[data-name="${domainName}"]`);
+        if (!domainItem) return;
+
+        // Remove existing views container
+        const existingContainer = domainItem.parentElement.querySelector('.views-container');
+        if (existingContainer) existingContainer.remove();
+
+        // Create views container
+        const viewsContainer = document.createElement('div');
+        viewsContainer.className = 'views-container';
+        viewsContainer.dataset.domain = domainName;
+
+        // Add "All" option - use total concepts from domain
+        const allItem = document.createElement('div');
+        allItem.className = 'tree-item view-item active';
+        allItem.dataset.viewId = '';
+        allItem.dataset.domain = domainName;
+        allItem.innerHTML = `
+            <span class="icon">◉</span>
+            <span class="label">All</span>
+            <span class="count">(${totalConcepts})</span>
+        `;
+        allItem.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.selectView(null, domainName);
+        });
+        viewsContainer.appendChild(allItem);
+
+        // Add view items
+        views.forEach(view => {
+            const viewItem = document.createElement('div');
+            viewItem.className = 'tree-item view-item';
+            viewItem.dataset.viewId = view.id;
+            viewItem.dataset.domain = domainName;
+            viewItem.innerHTML = `
+                <span class="icon">○</span>
+                <span class="label">${view.name}</span>
+                <span class="count">(${view.conceptCount})</span>
+            `;
+            viewItem.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.selectView(view.id, domainName);
+            });
+            viewsContainer.appendChild(viewItem);
+        });
+
+        // Insert after domain item
+        domainItem.insertAdjacentElement('afterend', viewsContainer);
+    },
+
+    /**
+     * Select a view
+     * @param {string|null} viewId - View ID or null for all
+     * @param {string} domainName - Domain name
+     */
+    selectView(viewId, domainName) {
+        // Update active state in sidebar
+        const container = this.container.querySelector(`.views-container[data-domain="${domainName}"]`);
+        if (container) {
+            container.querySelectorAll('.view-item').forEach(item => {
+                const isActive = item.dataset.viewId === (viewId || '');
+                item.classList.toggle('active', isActive);
+                item.querySelector('.icon').textContent = isActive ? '◉' : '○';
+            });
+        }
+
+        // Notify app
+        BKBExplorer.selectView(viewId);
     }
 };

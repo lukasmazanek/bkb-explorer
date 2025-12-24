@@ -56,7 +56,8 @@ bkb-explorer/
 │   ├── app.js          # Main application
 │   ├── sidebar.js      # Domain tree navigation
 │   ├── graph.js        # Cytoscape wrapper
-│   └── tooltip.js      # Hover cards
+│   ├── tooltip.js      # Hover cards
+│   └── views.js        # View abstraction (ADR-040)
 └── prepare-demo.sh     # Data preparation script
 ```
 
@@ -64,9 +65,11 @@ bkb-explorer/
 
 | Component | File | Description |
 |-----------|------|-------------|
-| **Sidebar** | sidebar.js | Domain tree navigation |
+| **App** | app.js | Main application, state management |
+| **Sidebar** | sidebar.js | Domain tree navigation with Views |
 | **Graph** | graph.js | Cytoscape.js canvas with nodes/edges |
 | **Tooltip** | tooltip.js | Hover cards with definition, FIBO, cross-domain |
+| **Views** | views.js | View abstraction - filter by source file (ADR-040) |
 | **Data** | data.js | Inline bundled ontology data |
 
 ## Visual Rules
@@ -99,6 +102,8 @@ Manual testing in browser:
 - [ ] Click expands/collapses node
 - [ ] Ghost nodes visible for cross-domain
 - [ ] Portal navigation works
+- [ ] View navigation filters concepts (ADR-040)
+- [ ] View dropdown syncs with sidebar selection
 
 ## Dependencies
 
