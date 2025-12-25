@@ -217,16 +217,19 @@ const Sidebar = {
             if (icon) {
                 if (item.dataset.type === 'view') {
                     icon.textContent = '◇';
-                } else {
-                    icon.textContent = '○';
                 }
+                // Domain icons stay as ▼ (don't reset to ○)
             }
         });
 
-        // Set domain as semi-active (expanded but not selected)
+        // Ensure domain is expanded (▼ icon)
         const domainItem = this.container.querySelector(`.tree-item[data-name="${domainName}"][data-type="domain"]`);
         if (domainItem) {
-            domainItem.querySelector('.icon').textContent = '▼';
+            const icon = domainItem.querySelector('.icon');
+            if (icon) icon.textContent = '▼';
+            // Ensure views list is expanded
+            const viewsList = this.container.querySelector(`.tree-children.views-list[data-parent="${domainName}"]`);
+            if (viewsList) viewsList.classList.remove('collapsed');
         }
 
         // Set view as active
@@ -241,11 +244,13 @@ const Sidebar = {
      * Set active domain in sidebar
      */
     setActive(domainName) {
-        // Remove previous active and reset icon
+        // Remove previous active
         this.container.querySelectorAll('.tree-item.active').forEach(item => {
             item.classList.remove('active');
+            // Reset icon only for items without children/views (leaf domains)
             const icon = item.querySelector('.icon');
-            if (icon && !item.classList.contains('view-item')) {
+            const hasChildren = this.container.querySelector(`.tree-children[data-parent="${item.dataset.name}"]`);
+            if (icon && !item.classList.contains('view-item') && !hasChildren) {
                 icon.textContent = '○';
             }
         });
@@ -257,7 +262,12 @@ const Sidebar = {
         const item = this.container.querySelector(`.tree-item[data-name="${domainName}"]`);
         if (item) {
             item.classList.add('active');
-            item.querySelector('.icon').textContent = '●';
+            // Only change icon to ● for domains without views (leaf domains)
+            // Domains with views keep ▼ icon (expand state shown, selection via CSS)
+            const hasViews = this.container.querySelector(`.tree-children.views-list[data-parent="${domainName}"]`);
+            if (!hasViews) {
+                item.querySelector('.icon').textContent = '●';
+            }
 
             // Expand parent folders
             let parent = item.parentElement;
