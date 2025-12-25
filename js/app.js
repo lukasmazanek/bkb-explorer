@@ -146,16 +146,6 @@ const BKBExplorer = {
         const domainData = window.BKB_DATA[domainKey];
 
         if (!domainData) {
-            // If clicking on parent domain without view, try first view
-            const hierarchy = window.BKB_DATA.domains?.hierarchy?.[domainName];
-            if (hierarchy?.views) {
-                const firstView = Object.keys(hierarchy.views).sort()[0];
-                if (firstView) {
-                    console.log(`📂 Domain ${domainName} has no data, loading first view: ${firstView}`);
-                    this.selectDomain(domainName, firstView);
-                    return;
-                }
-            }
             console.error(`❌ Data not found for: ${viewName || domainName}`);
             return;
         }

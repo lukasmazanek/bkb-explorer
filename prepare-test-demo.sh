@@ -178,6 +178,71 @@ with open('$FINANCIAL_ACCOUNT_FILE') as f:
 def total_concepts(data):
     return len(data.get('concepts', [])) + len(data.get('external_concepts', []))
 
+# Merge multiple view datasets into one domain dataset
+def merge_domain_data(datasets, domain_name):
+    merged = {
+        "domain": {
+            "path": domain_name,
+            "name": domain_name,
+            "version": "1.0.0",
+            "created": datetime.now().isoformat(),
+            "sources": []
+        },
+        "concepts": [],
+        "external_concepts": [],
+        "categorizations": [],
+        "relationships": [],
+        "enumerations": [],
+        "unary_states": [],
+        "metadata": {
+            "concept_count": 0,
+            "external_concept_count": 0,
+            "fibo_mapped_count": 0,
+            "fibo_coverage": 0,
+            "schema_mapped_count": 0,
+            "semantic_coverage": 0,
+            "definition_coverage": 0,
+            "validation_errors": [],
+            "validation_warnings": []
+        },
+        "schema_version": "1.0.0"
+    }
+
+    seen_concept_ids = set()
+    seen_external_uris = set()
+
+    for data in datasets:
+        # Merge sources
+        merged["domain"]["sources"].extend(data.get("domain", {}).get("sources", []))
+
+        # Merge concepts (dedupe by id)
+        for concept in data.get("concepts", []):
+            if concept.get("id") not in seen_concept_ids:
+                seen_concept_ids.add(concept.get("id"))
+                merged["concepts"].append(concept)
+
+        # Merge external concepts (dedupe by uri)
+        for ext in data.get("external_concepts", []):
+            if ext.get("uri") not in seen_external_uris:
+                seen_external_uris.add(ext.get("uri"))
+                merged["external_concepts"].append(ext)
+
+        # Merge relationships, categorizations, etc.
+        merged["categorizations"].extend(data.get("categorizations", []))
+        merged["relationships"].extend(data.get("relationships", []))
+        merged["enumerations"].extend(data.get("enumerations", []))
+        merged["unary_states"].extend(data.get("unary_states", []))
+
+    # Update metadata
+    merged["metadata"]["concept_count"] = len(merged["concepts"])
+    merged["metadata"]["external_concept_count"] = len(merged["external_concepts"])
+    fibo_count = sum(1 for c in merged["concepts"] if c.get("has_fibo_mapping"))
+    merged["metadata"]["fibo_mapped_count"] = fibo_count
+    if merged["concepts"]:
+        merged["metadata"]["fibo_coverage"] = (fibo_count / len(merged["concepts"])) * 100
+
+    return merged
+
 # Generate data.js
 # ADR-040: Views are perspectives within a domain, not subdomains
 output = f'''/**
@@ -226,9 +291,13 @@ const PAYMENT_DATA = {json.dumps(payment_data, indent=2)};
 // FinancialAccount domain
 const FINANCIAL_ACCOUNT_DATA = {json.dumps(financial_account_data, indent=2)};
 
+// Merged Test domain (all views combined)
+const TEST_DATA = {json.dumps(merge_domain_data([order_data, position_data, transaction_data, payment_data, financial_account_data], "Test"), indent=2)};
+
 // Export for application
 window.BKB_DATA = {{
   domains: DOMAINS_DATA,
+  test: TEST_DATA,
   order: ORDER_DATA,
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,

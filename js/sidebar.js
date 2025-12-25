@@ -157,30 +157,52 @@ const Sidebar = {
         const domain = item.dataset.domain;  // For views
         const isClickable = item.dataset.clickable === 'true';
 
-        // Toggle children visibility for folders
-        const children = this.container.querySelector(`.tree-children[data-parent="${name}"]`);
-        if (children) {
-            const isCollapsed = children.classList.contains('collapsed');
-            children.classList.toggle('collapsed');
-
-            // Update icon
-            const icon = item.querySelector('.icon');
-            if (icon && type !== 'view') {
-                icon.textContent = isCollapsed ? '▼' : '▶';
-            }
-        }
-
-        // Handle view click - load domain with view filter
+        // Handle view click - load view data
         if (type === 'view' && domain) {
-            BKBExplorer.selectDomain(domain, name);  // Pass view name as second arg
+            BKBExplorer.selectDomain(domain, name);
             this.setActiveView(domain, name);
             return;
         }
 
-        // Load domain if it's a domain type
-        if (isClickable && type === 'domain') {
-            BKBExplorer.selectDomain(name);
-            this.setActive(name);
+        // Handle domain click
+        if (type === 'domain') {
+            // Check if domain has views (children container with views-list class)
+            const viewsList = this.container.querySelector(`.tree-children.views-list[data-parent="${name}"]`);
+
+            if (viewsList) {
+                // Domain with views - just expand if collapsed, then load domain data
+                if (viewsList.classList.contains('collapsed')) {
+                    viewsList.classList.remove('collapsed');
+                    const icon = item.querySelector('.icon');
+                    if (icon) icon.textContent = '▼';
+                }
+                // Load full domain data (all views merged)
+                BKBExplorer.selectDomain(name);
+                this.setActive(name);
+            } else {
+                // Domain without views - toggle expand/collapse and load
+                const children = this.container.querySelector(`.tree-children[data-parent="${name}"]`);
+                if (children) {
+                    const isCollapsed = children.classList.contains('collapsed');
+                    children.classList.toggle('collapsed');
+                    const icon = item.querySelector('.icon');
+                    if (icon) icon.textContent = isCollapsed ? '▼' : '▶';
+                }
+                if (isClickable) {
+                    BKBExplorer.selectDomain(name);
+                    this.setActive(name);
+                }
+            }
+            return;
+        }
+
+        // Toggle children visibility for other items (folders)
+        const children = this.container.querySelector(`.tree-children[data-parent="${name}"]`);
+        if (children) {
+            const isCollapsed = children.classList.contains('collapsed');
+            children.classList.toggle('collapsed');
+            const icon = item.querySelector('.icon');
+            if (icon) icon.textContent = isCollapsed ? '▼' : '▶';
         }
     },
 
