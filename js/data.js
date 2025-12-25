@@ -5,7 +5,7 @@
  * Source: conceptspeak/tests/
  * DO NOT EDIT MANUALLY
  *
- * Generated: 2025-12-25T07:29:56.140373
+ * Generated: 2025-12-25T08:20:06.801891
  */
 
 // Domain hierarchy
@@ -17,7 +17,7 @@ const DOMAINS_DATA = {
       "children": {
         "Order": { "type": "domain", "stats": { "concepts": 17 } },
         "Position": { "type": "domain", "stats": { "concepts": 16 } },
-        "Transaction": { "type": "domain", "stats": { "concepts": 9 } },
+        "Transaction": { "type": "domain", "stats": { "concepts": 10 } },
         "Payment": { "type": "domain", "stats": { "concepts": 27 } },
         "FinancialAccount": { "type": "domain", "stats": { "concepts": 14 } }
       }
@@ -32,14 +32,14 @@ const ORDER_DATA = {
     "path": "Test:Order",
     "name": "Order",
     "version": "1.0.0",
-    "created": "2025-12-22T07:53:25.073047",
+    "created": "2025-12-25T08:19:02.203941",
     "sources": [
       "Investment_Order.cs"
     ]
   },
   "concepts": [
     {
-      "id": "50d80a80-cfb8-4ba4-98af-cfd2b6a4aaed",
+      "id": "34114483-0a3c-4901-81ee-e8f3025547de",
       "name": "Buy",
       "type": "concept",
       "sources": [
@@ -81,7 +81,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "943b04e3-6524-4322-ad7e-5b90f742122b",
+      "id": "bfb1fb98-13ad-462e-ae6f-431c13b19911",
       "name": "Sell",
       "type": "concept",
       "sources": [
@@ -123,7 +123,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "9e6c7ab5-d44d-46a8-87cb-cff6b804e1bc",
+      "id": "2b5fdb17-8a80-41e7-8e47-c096962aafb4",
       "name": "Saving plan (regular investment)",
       "type": "concept",
       "sources": [
@@ -165,7 +165,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "52799411-33b5-49f7-b12c-9da2a8b33029",
+      "id": "e183183a-1c94-412c-95cf-984583c94a52",
       "name": "One-time",
       "type": "concept",
       "sources": [
@@ -207,7 +207,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "b46a1be3-e346-4442-a6cc-80ef32053c5f",
+      "id": "00247520-5f45-4209-bbcd-4f258c5a2f33",
       "name": "Weekly",
       "type": "concept",
       "sources": [
@@ -249,7 +249,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "8c9e3abd-e641-4ec6-bd79-9122ee1461d0",
+      "id": "a3e2f210-e6a9-422e-8204-c1029ee32ebf",
       "name": "Monthly",
       "type": "concept",
       "sources": [
@@ -291,7 +291,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+      "id": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
       "name": "Order",
       "type": "concept",
       "sources": [
@@ -333,7 +333,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "a603b988-3e51-449e-82ab-e09090e26119",
+      "id": "697832a5-c5bf-4728-9f39-013d7773dbe5",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -375,7 +375,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "5c4391e2-8285-468c-94a4-004d151b7018",
+      "id": "4b9fce61-a683-4b6c-b50f-dfa2603b269a",
       "name": "Digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -404,11 +404,11 @@ const ORDER_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+        "extends": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "e2a13737-a2fd-4718-abfc-cf1e102f0c88"
+          "fad78cb3-abb1-48f6-b8b2-73eea14bca3a"
         ]
       },
       "has_fibo_mapping": true,
@@ -417,7 +417,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "9fc3c1a5-eeed-4bd9-a074-82af94b99123",
+      "id": "e0eb14cf-f1bb-46d4-9812-11aa345b6743",
       "name": "Non-digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -446,11 +446,11 @@ const ORDER_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+        "extends": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "e2a13737-a2fd-4718-abfc-cf1e102f0c88"
+          "fad78cb3-abb1-48f6-b8b2-73eea14bca3a"
         ]
       },
       "has_fibo_mapping": true,
@@ -459,7 +459,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "a02ff5f4-9a90-4984-ace6-9f207651ec30",
+      "id": "6019c2a0-2f32-4772-8940-99d5081e0cda",
       "name": "Placed order",
       "type": "concept",
       "sources": [
@@ -501,7 +501,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "bc686585-7a2d-4f70-aa45-f65952002dcb",
+      "id": "fc807ddb-8bea-4423-95d6-498095d3701d",
       "name": "Settled order",
       "type": "concept",
       "sources": [
@@ -543,7 +543,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "1a01e96e-edb2-44bd-824f-0c8b86d3a17e",
+      "id": "c7015d6f-9b69-44bb-a093-70bb74fa548d",
       "name": "Sales",
       "type": "concept",
       "sources": [
@@ -585,7 +585,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "11ec54ba-69ab-42b3-8d78-bb5cef5aad51",
+      "id": "d63cad8a-b6ba-4dc7-ac8b-aa5b34c3e64e",
       "name": "Position",
       "type": "context_reference",
       "sources": [
@@ -627,7 +627,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "2fd15dad-4f42-43cb-9645-e52e257fb8dd",
+      "id": "e5867ad8-53d7-4f25-96fd-c029c065f815",
       "name": "Payment",
       "type": "context_reference",
       "sources": [
@@ -669,7 +669,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "ca7d37da-61c5-4d5b-9e1d-310236b148cc",
+      "id": "1f9d2709-dded-4d7b-86ca-85e20f216bff",
       "name": "Custody fee",
       "type": "context_reference",
       "sources": [
@@ -709,51 +709,31 @@ const ORDER_DATA = {
       "has_schema_mapping": false,
       "has_definition": true,
       "has_parent": true
-    },
+    }
+  ],
+  "external_concepts": [
     {
-      "id": "2f3639d7-130b-4ae1-aee8-fd488ab8ae7f",
       "name": "Service Channel",
-      "type": "concept",
+      "uri": "https://schema.org/ServiceChannel",
+      "type": "schema.org",
       "sources": [
         {
-          "type": "schema.org",
-          "uri": "https://schema.org/ServiceChannel"
+          "file": "Investment_Order.cs",
+          "inherited_from": "Digital Onboarding Channel",
+          "relationship": "isA"
         }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "Schema.org concept: https://schema.org/ServiceChannel",
-      "fibo_mapping": null,
-      "definition": {
-        "text": "Schema.org concept: https://schema.org/ServiceChannel",
-        "source": "EXPLICIT",
-        "confidence": "EXPLICIT",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "owl:Thing",
-        "extends_name": "Thing",
-        "depth": 1,
-        "path": [
-          "owl:Thing"
-        ]
-      },
-      "has_fibo_mapping": false,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
+      ]
     }
   ],
   "categorizations": [
     {
-      "id": "7354164b-cd26-47ad-b5aa-0ce462e1336b",
-      "parent_id": "9e6c7ab5-d44d-46a8-87cb-cff6b804e1bc",
+      "id": "4acb683f-6774-4659-aa76-b68f8d0a82dd",
+      "parent_id": "2b5fdb17-8a80-41e7-8e47-c096962aafb4",
       "parent_name": "Saving plan (regular investment)",
       "category_name": "@ by the frequency",
       "children_ids": [
-        "b46a1be3-e346-4442-a6cc-80ef32053c5f",
-        "8c9e3abd-e641-4ec6-bd79-9122ee1461d0"
+        "00247520-5f45-4209-bbcd-4f258c5a2f33",
+        "a3e2f210-e6a9-422e-8204-c1029ee32ebf"
       ],
       "children_names": [
         "Weekly",
@@ -767,13 +747,13 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "79acd882-8ca9-450e-9db4-297d6848d710",
-      "parent_id": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+      "id": "a15980a5-e43b-4209-85d0-d58e61c25a14",
+      "parent_id": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
       "parent_name": "Order",
       "category_name": "@ by the frequency of trading",
       "children_ids": [
-        "9e6c7ab5-d44d-46a8-87cb-cff6b804e1bc",
-        "52799411-33b5-49f7-b12c-9da2a8b33029"
+        "2b5fdb17-8a80-41e7-8e47-c096962aafb4",
+        "e183183a-1c94-412c-95cf-984583c94a52"
       ],
       "children_names": [
         "Saving plan (regular investment)",
@@ -787,13 +767,13 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "a6584c83-3b4a-4836-8382-f92250f381e9",
-      "parent_id": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+      "id": "93434947-05ac-4c86-a432-48c557ad170b",
+      "parent_id": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
       "parent_name": "Order",
       "category_name": "@ by the kind of trading",
       "children_ids": [
-        "943b04e3-6524-4322-ad7e-5b90f742122b",
-        "50d80a80-cfb8-4ba4-98af-cfd2b6a4aaed"
+        "bfb1fb98-13ad-462e-ae6f-431c13b19911",
+        "34114483-0a3c-4901-81ee-e8f3025547de"
       ],
       "children_names": [
         "Sell",
@@ -807,14 +787,14 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "61a27629-c9bc-4948-8e03-ec216ff5d0c6",
-      "parent_id": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+      "id": "0b0d8a80-9fcb-47bc-8603-b830b4f87d0f",
+      "parent_id": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
       "parent_name": "Order",
       "category_name": "@ by state",
       "children_ids": [
-        "a603b988-3e51-449e-82ab-e09090e26119",
-        "bc686585-7a2d-4f70-aa45-f65952002dcb",
-        "a02ff5f4-9a90-4984-ace6-9f207651ec30"
+        "697832a5-c5bf-4728-9f39-013d7773dbe5",
+        "fc807ddb-8bea-4423-95d6-498095d3701d",
+        "6019c2a0-2f32-4772-8940-99d5081e0cda"
       ],
       "children_names": [
         "Executed order",
@@ -829,13 +809,13 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "ed9adcfc-5ca2-42db-9901-704557fb7c52",
-      "parent_id": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+      "id": "7ac58e1a-34f4-4002-b64a-e934130e9122",
+      "parent_id": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
       "parent_name": "Order",
       "category_name": "@ by [Onboarding Channel]",
       "children_ids": [
-        "9fc3c1a5-eeed-4bd9-a074-82af94b99123",
-        "5c4391e2-8285-468c-94a4-004d151b7018"
+        "e0eb14cf-f1bb-46d4-9812-11aa345b6743",
+        "4b9fce61-a683-4b6c-b50f-dfa2603b269a"
       ],
       "children_names": [
         "Non-digital Onboarding Channel",
@@ -847,26 +827,14 @@ const ORDER_DATA = {
           "line": 24
         }
       ]
-    },
-    {
-      "from": "Digital Onboarding Channel",
-      "to": "Service Channel",
-      "type": "isA",
-      "source": "manual:channels"
-    },
-    {
-      "from": "Non-digital Onboarding Channel",
-      "to": "Service Channel",
-      "type": "isA",
-      "source": "manual:channels"
     }
   ],
   "relationships": [
     {
-      "id": "ea4e610a-4903-4f96-a5e3-209f11cc9179",
-      "subject_id": "1a01e96e-edb2-44bd-824f-0c8b86d3a17e",
+      "id": "24c7184b-1009-4ff6-ba49-ba69fd9828e5",
+      "subject_id": "c7015d6f-9b69-44bb-a093-70bb74fa548d",
       "subject_name": "Sales",
-      "object_id": "e2a13737-a2fd-4718-abfc-cf1e102f0c88",
+      "object_id": "fad78cb3-abb1-48f6-b8b2-73eea14bca3a",
       "object_name": "Order",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -882,10 +850,10 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "141cd835-8690-4675-90a4-e004411cf603",
-      "subject_id": "a603b988-3e51-449e-82ab-e09090e26119",
+      "id": "e0b333e2-e4d5-4611-b536-f3bbe70655ce",
+      "subject_id": "697832a5-c5bf-4728-9f39-013d7773dbe5",
       "subject_name": "Executed order",
-      "object_id": "11ec54ba-69ab-42b3-8d78-bb5cef5aad51",
+      "object_id": "d63cad8a-b6ba-4dc7-ac8b-aa5b34c3e64e",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -901,10 +869,10 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "ec776ca4-d8a7-45c0-ae88-7688c167d7eb",
-      "subject_id": "a603b988-3e51-449e-82ab-e09090e26119",
+      "id": "cc1a0a41-fb1c-48c3-a000-1da5f61e2cbf",
+      "subject_id": "697832a5-c5bf-4728-9f39-013d7773dbe5",
       "subject_name": "Executed order",
-      "object_id": "2fd15dad-4f42-43cb-9645-e52e257fb8dd",
+      "object_id": "e5867ad8-53d7-4f25-96fd-c029c065f815",
       "object_name": "Payment",
       "verb_phrase": "is being settled for",
       "inverse_verb_phrase": "is settled to",
@@ -920,10 +888,10 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "046fda5e-1740-4787-85a5-813dc24e9fcc",
-      "subject_id": "ca7d37da-61c5-4d5b-9e1d-310236b148cc",
+      "id": "abdf0ee4-d0eb-4c92-9847-63ba5a7b9b60",
+      "subject_id": "1f9d2709-dded-4d7b-86ca-85e20f216bff",
       "subject_name": "Custody fee",
-      "object_id": "11ec54ba-69ab-42b3-8d78-bb5cef5aad51",
+      "object_id": "d63cad8a-b6ba-4dc7-ac8b-aa5b34c3e64e",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -937,32 +905,51 @@ const ORDER_DATA = {
           "line": 32
         }
       ]
+    },
+    {
+      "source_name": "Digital Onboarding Channel",
+      "target_name": "Schema.org:Service Channel",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:channels",
+      "external_uri": "https://schema.org/ServiceChannel"
+    },
+    {
+      "source_name": "Non-digital Onboarding Channel",
+      "target_name": "Schema.org:Service Channel",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:channels",
+      "external_uri": "https://schema.org/ServiceChannel"
     }
   ],
   "enumerations": [],
   "unary_states": [],
   "metadata": {
-    "concept_count": 17,
+    "concept_count": 16,
+    "external_concept_count": 1,
     "fibo_mapped_count": 16,
-    "fibo_coverage": 94.11764705882352,
+    "fibo_coverage": 100.0,
     "schema_mapped_count": 2,
-    "semantic_coverage": 105.88235294117648,
+    "semantic_coverage": 112.5,
     "definition_coverage": 100.0,
     "exact_matches": 3,
     "synonym_matches": 0,
     "parent_matches": 2,
     "hierarchical_matches": 0,
     "llm_matches": 0,
-    "no_matches": 1,
-    "non_fibo_count": 1,
+    "no_matches": 0,
+    "non_fibo_count": 0,
     "draft_definitions": 0,
     "validation_errors": [],
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-22T07:53:29.404473",
-  "modified_at": "2025-12-22T07:53:29.404485",
-  "generated": "2025-12-22T07:53:29.404486",
+  "created_at": "2025-12-25T08:19:06.177896",
+  "modified_at": "2025-12-25T08:19:06.177910",
+  "generated": "2025-12-25T08:19:06.177913",
   "fibo_version": "2024Q1"
 };
 
@@ -972,14 +959,14 @@ const POSITION_DATA = {
     "path": "Test:Position",
     "name": "Position",
     "version": "1.0.0",
-    "created": "2025-12-22T07:53:25.568131",
+    "created": "2025-12-25T08:19:02.660652",
     "sources": [
       "Investment_Position.cs"
     ]
   },
   "concepts": [
     {
-      "id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -1021,7 +1008,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "51b5c0f8-df86-41e3-9f93-1ed47bbdc4bd",
+      "id": "23f1129b-934a-40ce-91be-a9d2f5357d4e",
       "name": "Market / exchange",
       "type": "concept",
       "sources": [
@@ -1063,7 +1050,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "7141ae59-5616-4e3e-bad5-12afb4123237",
+      "id": "0991bf12-8847-48b3-a32c-2cc1977fd721",
       "name": "Date",
       "type": "concept",
       "sources": [
@@ -1105,7 +1092,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "99d000b7-5929-4c6d-a1b8-2c868416fc9c",
+      "id": "f614fd4b-3026-493c-b318-71cacbcbf324",
       "name": "Trade date",
       "type": "concept",
       "sources": [
@@ -1147,7 +1134,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "e3c80de0-2454-46b8-a3b3-d4b25f4178e2",
+      "id": "37bee4b2-1cea-4dfd-bcf3-71eed5dfcedb",
       "name": "Settlement date",
       "type": "concept",
       "sources": [
@@ -1189,7 +1176,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "1b61a095-d939-4f67-a26a-785724ec1f5e",
+      "id": "069c4169-958e-4774-82f3-9986edf9da19",
       "name": "Sold position",
       "type": "concept",
       "sources": [
@@ -1231,7 +1218,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "name": "Asset under Management (AUM)",
       "type": "concept",
       "sources": [
@@ -1273,7 +1260,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "c5e6627b-f523-4b06-a731-127f1d09395b",
+      "id": "5bfe16aa-1723-4e7f-b27b-5cef481c250e",
       "name": "Market value",
       "type": "concept",
       "sources": [
@@ -1315,7 +1302,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "b22de5c2-d5c6-430d-b4f3-0bafcf9edcf3",
+      "id": "329b381b-f034-4116-856f-4ab6f053de92",
       "name": "Number of products",
       "type": "concept",
       "sources": [
@@ -1357,7 +1344,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "b6f0f7de-3577-4b11-b058-fd32d873c9c5",
+      "id": "8206fd9f-22d5-4abe-96fd-05636ef70ea7",
       "name": "Portfolio",
       "type": "concept",
       "sources": [
@@ -1399,7 +1386,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "e5fed0f4-997e-4780-8e62-46261016dc3d",
+      "id": "5d8bb9e3-3834-4bdc-b089-97e26fbb863d",
       "name": "Product",
       "type": "context_reference",
       "sources": [
@@ -1441,7 +1428,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "898d4fe5-4b28-4770-af6a-c0b33294eae3",
+      "id": "fa81c043-52ea-4124-a26c-0e9f098b6cc4",
       "name": "Active contract",
       "type": "context_reference",
       "sources": [
@@ -1483,7 +1470,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "98b8aa3b-0380-4fcb-b8f0-e77511222cb0",
+      "id": "42940bd0-f09c-4f02-94e1-dac6aa43db72",
       "name": "Customer",
       "type": "context_reference",
       "sources": [
@@ -1525,7 +1512,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "a9328956-232d-4410-a976-83db1f568349",
+      "id": "1c497667-7863-406a-9a98-f937cf2b716a",
       "name": "Executed order",
       "type": "context_reference",
       "sources": [
@@ -1567,7 +1554,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "9f4f340c-5654-4e4b-b129-fc5c71fb3772",
+      "id": "e585983f-8444-4c59-a0b8-b177e3279b20",
       "name": "Transaction",
       "type": "context_reference",
       "sources": [
@@ -1609,7 +1596,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "b8c53ddd-28d8-405b-aa16-0f0e9fcca4c3",
+      "id": "1187b35b-78f1-463e-9625-c494a49a6d7c",
       "name": "Custody fee",
       "type": "context_reference",
       "sources": [
@@ -1651,15 +1638,16 @@ const POSITION_DATA = {
       "has_parent": true
     }
   ],
+  "external_concepts": [],
   "categorizations": [
     {
-      "id": "3d46706a-e8ad-488d-86e1-edc4773f4445",
-      "parent_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "ebebde44-342b-4c2a-b45c-039d93cb587f",
+      "parent_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "parent_name": "Position",
       "category_name": "kind of [Posiition]",
       "children_ids": [
-        "51b5c0f8-df86-41e3-9f93-1ed47bbdc4bd",
-        "7141ae59-5616-4e3e-bad5-12afb4123237"
+        "23f1129b-934a-40ce-91be-a9d2f5357d4e",
+        "0991bf12-8847-48b3-a32c-2cc1977fd721"
       ],
       "children_names": [
         "Market / exchange",
@@ -1673,12 +1661,12 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "482eeccf-821b-43bc-ab1c-cf459f686a72",
-      "parent_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "a72e70ae-94ce-463a-9575-5aaa51a0511a",
+      "parent_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "parent_name": "Position",
       "category_name": "by the state",
       "children_ids": [
-        "1b61a095-d939-4f67-a26a-785724ec1f5e"
+        "069c4169-958e-4774-82f3-9986edf9da19"
       ],
       "children_names": [
         "Sold position"
@@ -1691,13 +1679,13 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "ee4b4ede-fda1-4b96-90ff-1054ba048d30",
-      "parent_id": "7141ae59-5616-4e3e-bad5-12afb4123237",
+      "id": "848a43c9-bce5-4911-ac30-4b8ff774e850",
+      "parent_id": "0991bf12-8847-48b3-a32c-2cc1977fd721",
       "parent_name": "Date",
       "category_name": "kind of [Date]",
       "children_ids": [
-        "99d000b7-5929-4c6d-a1b8-2c868416fc9c",
-        "e3c80de0-2454-46b8-a3b3-d4b25f4178e2"
+        "f614fd4b-3026-493c-b318-71cacbcbf324",
+        "37bee4b2-1cea-4dfd-bcf3-71eed5dfcedb"
       ],
       "children_names": [
         "Trade date",
@@ -1713,10 +1701,10 @@ const POSITION_DATA = {
   ],
   "relationships": [
     {
-      "id": "ad074fc0-5760-42fe-8fd3-d597a2cc3369",
-      "subject_id": "1b61a095-d939-4f67-a26a-785724ec1f5e",
+      "id": "b17ffd0c-28ec-4a98-9761-d74fd86cd3d3",
+      "subject_id": "069c4169-958e-4774-82f3-9986edf9da19",
       "subject_name": "Sold position",
-      "object_id": "e3c80de0-2454-46b8-a3b3-d4b25f4178e2",
+      "object_id": "37bee4b2-1cea-4dfd-bcf3-71eed5dfcedb",
       "object_name": "Settlement date",
       "verb_phrase": "transfers of funds on",
       "inverse_verb_phrase": "",
@@ -1732,10 +1720,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "e4e89868-e592-4abc-9ee3-ece51166a629",
-      "subject_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "2ae82637-0ea8-416a-9fde-45df90309489",
+      "subject_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "subject_name": "Position",
-      "object_id": "99d000b7-5929-4c6d-a1b8-2c868416fc9c",
+      "object_id": "f614fd4b-3026-493c-b318-71cacbcbf324",
       "object_name": "Trade date",
       "verb_phrase": "is traded on",
       "inverse_verb_phrase": "",
@@ -1751,10 +1739,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "2f910183-8d7a-427f-95f0-d117f70f318c",
-      "subject_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "b4ffff98-c579-4700-8641-7e8955940d3e",
+      "subject_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "object_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "object_name": "Position",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -1770,10 +1758,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "74cfe6ea-ce75-4425-86bf-dfb4a25e31b0",
-      "subject_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "7edfd036-d6a6-4219-a32b-cde9a8177b76",
+      "subject_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "c5e6627b-f523-4b06-a731-127f1d09395b",
+      "object_id": "5bfe16aa-1723-4e7f-b27b-5cef481c250e",
       "object_name": "Market value",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -1789,10 +1777,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "8a7f35bd-3af7-4da6-8ce9-e0b477f58962",
-      "subject_id": "b22de5c2-d5c6-430d-b4f3-0bafcf9edcf3",
+      "id": "51018cda-cffc-4d66-bb86-ddc32398e9d1",
+      "subject_id": "329b381b-f034-4116-856f-4ab6f053de92",
       "subject_name": "Number of products",
-      "object_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "object_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "object_name": "Asset under Management (AUM)",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -1808,10 +1796,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "dddb2ac3-53c6-410e-a479-4240bb128a4b",
-      "subject_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "30922fe6-f57a-4285-ba66-deec02a7b500",
+      "subject_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "subject_name": "Position",
-      "object_id": "b6f0f7de-3577-4b11-b058-fd32d873c9c5",
+      "object_id": "8206fd9f-22d5-4abe-96fd-05636ef70ea7",
       "object_name": "Portfolio",
       "verb_phrase": "is part of",
       "inverse_verb_phrase": "is sum of",
@@ -1827,10 +1815,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "4fdfd923-fce8-4e1e-be72-da213bc394d6",
-      "subject_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "61bdce98-d7e1-4fb9-8b19-cfd2748b54d1",
+      "subject_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "b6f0f7de-3577-4b11-b058-fd32d873c9c5",
+      "object_id": "8206fd9f-22d5-4abe-96fd-05636ef70ea7",
       "object_name": "Portfolio",
       "verb_phrase": "is value of",
       "inverse_verb_phrase": "is valuated as",
@@ -1846,10 +1834,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "94f9dc94-49be-4c23-8651-0dfda9e16015",
-      "subject_id": "a9328956-232d-4410-a976-83db1f568349",
+      "id": "7df1fe3b-6cc5-4054-894a-f86364864086",
+      "subject_id": "1c497667-7863-406a-9a98-f937cf2b716a",
       "subject_name": "Executed order",
-      "object_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "object_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -1865,10 +1853,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "f7fd6fd2-627c-4281-ad1a-7e32323a1bf7",
-      "subject_id": "898d4fe5-4b28-4770-af6a-c0b33294eae3",
+      "id": "f23e43d0-c6f6-40d4-89a3-dac12beb9dd2",
+      "subject_id": "fa81c043-52ea-4124-a26c-0e9f098b6cc4",
       "subject_name": "Active contract",
-      "object_id": "98b8aa3b-0380-4fcb-b8f0-e77511222cb0",
+      "object_id": "42940bd0-f09c-4f02-94e1-dac6aa43db72",
       "object_name": "Customer",
       "verb_phrase": "belongs to",
       "inverse_verb_phrase": "",
@@ -1884,10 +1872,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "f1980e9d-8dfa-4ab7-8ef0-76721689762a",
-      "subject_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "9073f6e1-759b-48dc-9fd6-3863d4f917e3",
+      "subject_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "subject_name": "Position",
-      "object_id": "9f4f340c-5654-4e4b-b129-fc5c71fb3772",
+      "object_id": "e585983f-8444-4c59-a0b8-b177e3279b20",
       "object_name": "Transaction",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -1903,10 +1891,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "c20a0a5d-02c2-4782-a038-b5a5905e1297",
-      "subject_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "id": "1d64ca58-6dfe-4ec6-938c-ef02a67f6388",
+      "subject_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "subject_name": "Position",
-      "object_id": "98b8aa3b-0380-4fcb-b8f0-e77511222cb0",
+      "object_id": "42940bd0-f09c-4f02-94e1-dac6aa43db72",
       "object_name": "Customer",
       "verb_phrase": "is owned by",
       "inverse_verb_phrase": "owns",
@@ -1922,10 +1910,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "2ab3aa6c-64f7-4575-a75d-06b2514b233d",
-      "subject_id": "b8c53ddd-28d8-405b-aa16-0f0e9fcca4c3",
+      "id": "51ab7d54-d920-45dc-bbf5-941eb12697e8",
+      "subject_id": "1187b35b-78f1-463e-9625-c494a49a6d7c",
       "subject_name": "Custody fee",
-      "object_id": "050ffb9e-bd90-43b5-ac1f-45847133282b",
+      "object_id": "c285ae87-e02d-4806-8d17-91a1ed2fa663",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -1941,10 +1929,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "a9f65fbc-e9ea-4dcb-a89b-75c501fe8364",
-      "subject_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "6769c69c-ebe8-4ad8-93f6-2e35a056af79",
+      "subject_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "898d4fe5-4b28-4770-af6a-c0b33294eae3",
+      "object_id": "fa81c043-52ea-4124-a26c-0e9f098b6cc4",
       "object_name": "Active contract",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -1960,10 +1948,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "28f94840-5f31-4970-8477-e70c47788f12",
-      "subject_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "3f94e958-ffc0-4d95-b50f-d958e5bb69ee",
+      "subject_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "98b8aa3b-0380-4fcb-b8f0-e77511222cb0",
+      "object_id": "42940bd0-f09c-4f02-94e1-dac6aa43db72",
       "object_name": "Customer",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -1979,10 +1967,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "c5c4c85d-4881-4128-b361-280c99a26dd2",
-      "subject_id": "0590fbaf-0f31-48dd-87bf-e2269a344e98",
+      "id": "fe6ad3b0-50d2-431b-8502-0b68a6ccdd1a",
+      "subject_id": "2d20c864-d656-4211-b28c-ddbc4a4314e0",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "e5fed0f4-997e-4780-8e62-46261016dc3d",
+      "object_id": "5d8bb9e3-3834-4bdc-b089-97e26fbb863d",
       "object_name": "Product",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -2000,8 +1988,8 @@ const POSITION_DATA = {
   ],
   "enumerations": [
     {
-      "id": "6fa12f9f-aff7-402c-b450-61acc62c08f5",
-      "concept_id": "51b5c0f8-df86-41e3-9f93-1ed47bbdc4bd",
+      "id": "8390e990-1e8a-4992-bfff-ded87f26b8f6",
+      "concept_id": "23f1129b-934a-40ce-91be-a9d2f5357d4e",
       "concept_name": "Market / exchange",
       "values": [
         "BCPP",
@@ -2019,6 +2007,7 @@ const POSITION_DATA = {
   "unary_states": [],
   "metadata": {
     "concept_count": 16,
+    "external_concept_count": 0,
     "fibo_mapped_count": 16,
     "fibo_coverage": 100.0,
     "schema_mapped_count": 0,
@@ -2036,9 +2025,9 @@ const POSITION_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-22T07:53:41.795219",
-  "modified_at": "2025-12-22T07:53:41.795233",
-  "generated": "2025-12-22T07:53:41.795235",
+  "created_at": "2025-12-25T08:19:16.117546",
+  "modified_at": "2025-12-25T08:19:16.117556",
+  "generated": "2025-12-25T08:19:16.117558",
   "fibo_version": "2024Q1"
 };
 
@@ -2048,14 +2037,14 @@ const TRANSACTION_DATA = {
     "path": "Test:Transaction",
     "name": "Transaction",
     "version": "1.0.0",
-    "created": "2025-12-22T07:53:26.412123",
+    "created": "2025-12-25T08:19:03.182090",
     "sources": [
       "Investment_Transaction.cs"
     ]
   },
   "concepts": [
     {
-      "id": "65961421-4030-4dc1-92f5-c180d3d82069",
+      "id": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
       "name": "Transaction",
       "type": "concept",
       "sources": [
@@ -2097,7 +2086,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "ed6388cf-73c2-4135-9edd-eb6f823db5bc",
+      "id": "5ee36764-3b18-4589-a0bf-918f706b02e4",
       "name": "Automatic",
       "type": "concept",
       "sources": [
@@ -2126,11 +2115,11 @@ const TRANSACTION_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "65961421-4030-4dc1-92f5-c180d3d82069",
+        "extends": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "65961421-4030-4dc1-92f5-c180d3d82069"
+          "42a666f3-faa9-4f4b-bf04-fa0b8560c53d"
         ]
       },
       "has_fibo_mapping": true,
@@ -2139,7 +2128,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "6bd576bb-9a1d-4cf3-a992-0868c9f69ab2",
+      "id": "f0f2026a-c71d-4e0c-aea5-84d17dda7132",
       "name": "Manual",
       "type": "concept",
       "sources": [
@@ -2168,11 +2157,11 @@ const TRANSACTION_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "65961421-4030-4dc1-92f5-c180d3d82069",
+        "extends": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "65961421-4030-4dc1-92f5-c180d3d82069"
+          "42a666f3-faa9-4f4b-bf04-fa0b8560c53d"
         ]
       },
       "has_fibo_mapping": true,
@@ -2181,7 +2170,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "9c93f963-d515-416e-87d2-efbe13b2ed6f",
+      "id": "ea707fc9-4be9-41aa-b9dc-f2981a3acecd",
       "name": "Trade",
       "type": "concept",
       "sources": [
@@ -2223,7 +2212,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "31408295-8ae6-44e3-a4c9-2be19571c37b",
+      "id": "ff43d6b0-9e47-4a33-87e3-e7418312c009",
       "name": "Repo trade",
       "type": "concept",
       "sources": [
@@ -2265,7 +2254,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "19649996-30e1-41a1-9160-7dd6a8a7d4bd",
+      "id": "7ae2979e-6a52-4166-83d0-0533bbf433bf",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -2307,7 +2296,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "25a95292-3a14-42d0-879b-ff1f74bc7274",
+      "id": "50527acc-cad2-446d-b0e4-50b29b2d5c79",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -2349,13 +2338,47 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "3a584999-aab0-4278-93cb-7d25dab5649a",
+      "id": "6653a8e3-4380-47fb-badd-66b5dccd06a8",
+      "name": "Profitcenter",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Profitcenter in Transaction domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "d6e7e799-57c4-4a74-a809-781480967bae",
       "name": "Position",
       "type": "context_reference",
       "sources": [
         {
           "file": "Investment_Transaction.cs",
-          "line": 9
+          "line": 10
         }
       ],
       "aliases": [],
@@ -2389,75 +2412,35 @@ const TRANSACTION_DATA = {
       "has_schema_mapping": false,
       "has_definition": true,
       "has_parent": true
-    },
+    }
+  ],
+  "external_concepts": [
     {
-      "id": "f7def00f-da08-4a73-8c36-c9d3f63c7674",
       "name": "Action",
-      "type": "concept",
+      "uri": "https://schema.org/Action",
+      "type": "schema.org",
       "sources": [
         {
-          "type": "schema.org",
-          "uri": "https://schema.org/Action"
+          "file": "Investment_Transaction.cs",
+          "inherited_from": "Automatic",
+          "relationship": "isA"
         }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "Schema.org concept: https://schema.org/Action",
-      "fibo_mapping": null,
-      "definition": {
-        "text": "Schema.org concept: https://schema.org/Action",
-        "source": "EXPLICIT",
-        "confidence": "EXPLICIT",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "owl:Thing",
-        "extends_name": "Thing",
-        "depth": 1,
-        "path": [
-          "owl:Thing"
-        ]
-      },
-      "has_fibo_mapping": false,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
+      ]
     }
   ],
   "categorizations": [
     {
-      "id": "7731a04b-a6d6-4ed3-b08b-95c1ae0092e6",
-      "parent_id": "65961421-4030-4dc1-92f5-c180d3d82069",
+      "id": "128799b5-87d5-4e3e-afd7-6654c9e7d26f",
+      "parent_id": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
       "parent_name": "Transaction",
       "category_name": "@ by the type of trades",
       "children_ids": [
-        "9c93f963-d515-416e-87d2-efbe13b2ed6f",
-        "31408295-8ae6-44e3-a4c9-2be19571c37b"
+        "ea707fc9-4be9-41aa-b9dc-f2981a3acecd",
+        "ff43d6b0-9e47-4a33-87e3-e7418312c009"
       ],
       "children_names": [
         "Trade",
         "Repo trade"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Transaction.cs",
-          "line": 12
-        }
-      ]
-    },
-    {
-      "id": "885dee69-1518-4cb2-b005-3881316baac5",
-      "parent_id": "65961421-4030-4dc1-92f5-c180d3d82069",
-      "parent_name": "Transaction",
-      "category_name": "@ by the type of processing",
-      "children_ids": [
-        "ed6388cf-73c2-4135-9edd-eb6f823db5bc",
-        "6bd576bb-9a1d-4cf3-a992-0868c9f69ab2"
-      ],
-      "children_names": [
-        "Automatic",
-        "Manual"
       ],
       "sources": [
         {
@@ -2467,17 +2450,17 @@ const TRANSACTION_DATA = {
       ]
     },
     {
-      "id": "3f838e95-0b19-4212-a27d-20fc16c08f24",
-      "parent_id": "65961421-4030-4dc1-92f5-c180d3d82069",
+      "id": "dcc324fd-c251-43e6-b2e5-239820e0ede4",
+      "parent_id": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
       "parent_name": "Transaction",
-      "category_name": "kind of [Transaction]",
+      "category_name": "@ by the type of processing",
       "children_ids": [
-        "25a95292-3a14-42d0-879b-ff1f74bc7274",
-        "19649996-30e1-41a1-9160-7dd6a8a7d4bd"
+        "5ee36764-3b18-4589-a0bf-918f706b02e4",
+        "f0f2026a-c71d-4e0c-aea5-84d17dda7132"
       ],
       "children_names": [
-        "Executed order",
-        "Payment"
+        "Automatic",
+        "Manual"
       ],
       "sources": [
         {
@@ -2487,24 +2470,32 @@ const TRANSACTION_DATA = {
       ]
     },
     {
-      "from": "Automatic",
-      "to": "Action",
-      "type": "isA",
-      "source": "manual:process_types"
-    },
-    {
-      "from": "Manual",
-      "to": "Action",
-      "type": "isA",
-      "source": "manual:process_types"
+      "id": "d4d472df-bade-40cf-9521-7a3da4fe39ee",
+      "parent_id": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
+      "parent_name": "Transaction",
+      "category_name": "kind of [Transaction]",
+      "children_ids": [
+        "50527acc-cad2-446d-b0e4-50b29b2d5c79",
+        "7ae2979e-6a52-4166-83d0-0533bbf433bf"
+      ],
+      "children_names": [
+        "Executed order",
+        "Payment"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 15
+        }
+      ]
     }
   ],
   "relationships": [
     {
-      "id": "f3b6bc75-7e18-4107-b3ca-9f348c54e6c0",
-      "subject_id": "3a584999-aab0-4278-93cb-7d25dab5649a",
+      "id": "5bc9f40d-563d-4233-85ba-20e62a964bb6",
+      "subject_id": "d6e7e799-57c4-4a74-a809-781480967bae",
       "subject_name": "Position",
-      "object_id": "65961421-4030-4dc1-92f5-c180d3d82069",
+      "object_id": "42a666f3-faa9-4f4b-bf04-fa0b8560c53d",
       "object_name": "Transaction",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -2515,35 +2506,65 @@ const TRANSACTION_DATA = {
       "sources": [
         {
           "file": "Investment_Transaction.cs",
-          "line": 17
+          "line": 18
         }
       ]
+    },
+    {
+      "source_name": "Automatic",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:process_types",
+      "external_uri": "https://schema.org/Action"
+    },
+    {
+      "source_name": "Manual",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:process_types",
+      "external_uri": "https://schema.org/Action"
+    },
+    {
+      "source_name": "Profitcenter",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:operational",
+      "external_uri": "https://schema.org/Action"
     }
   ],
   "enumerations": [],
   "unary_states": [],
   "metadata": {
     "concept_count": 9,
+    "external_concept_count": 1,
     "fibo_mapped_count": 8,
     "fibo_coverage": 88.88888888888889,
-    "schema_mapped_count": 2,
-    "semantic_coverage": 111.11111111111111,
+    "schema_mapped_count": 3,
+    "semantic_coverage": 122.22222222222223,
     "definition_coverage": 100.0,
     "exact_matches": 4,
     "synonym_matches": 0,
     "parent_matches": 2,
     "hierarchical_matches": 0,
     "llm_matches": 0,
-    "no_matches": 1,
+    "no_matches": 0,
     "non_fibo_count": 1,
-    "draft_definitions": 0,
+    "draft_definitions": 1,
     "validation_errors": [],
-    "validation_warnings": []
+    "validation_warnings": [
+      "1 concepts have DRAFT definitions that need review"
+    ]
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-22T07:53:56.247962",
-  "modified_at": "2025-12-22T07:53:56.247973",
-  "generated": "2025-12-22T07:53:56.247974",
+  "created_at": "2025-12-25T08:19:29.661478",
+  "modified_at": "2025-12-25T08:19:29.661492",
+  "generated": "2025-12-25T08:19:29.661496",
   "fibo_version": "2024Q1"
 };
 
@@ -2553,14 +2574,14 @@ const PAYMENT_DATA = {
     "path": "Test:Payment",
     "name": "Payment",
     "version": "1.0.0",
-    "created": "2025-12-22T07:53:27.125635",
+    "created": "2025-12-25T08:19:03.659039",
     "sources": [
       "Investment_Payment.cs"
     ]
   },
   "concepts": [
     {
-      "id": "fcce0efc-7c96-4611-aedc-20a4ece39004",
+      "id": "7c3ad6ab-b7b4-44cd-a0b3-78478bacfa78",
       "name": "Fee",
       "type": "concept",
       "sources": [
@@ -2602,7 +2623,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "7dd16f07-5da8-4880-b945-e9b2f856d9de",
+      "id": "c25a4f27-c590-4b60-943a-27e6ee8e287c",
       "name": "Incoming Payment",
       "type": "concept",
       "sources": [
@@ -2644,7 +2665,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "c00ba18c-e57e-4db7-aabd-a5b4fe919595",
+      "id": "3f264c4b-1257-45f0-964e-33626be80542",
       "name": "Outgoing Payment",
       "type": "concept",
       "sources": [
@@ -2686,7 +2707,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "3470dac2-4975-47d6-baee-9c0634b9ca9e",
+      "id": "f9a8985b-43fd-4d56-8a16-f50f7292a4fd",
       "name": "Deposit",
       "type": "concept",
       "sources": [
@@ -2728,7 +2749,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "b9c70266-1e68-43b1-9c4c-1ff0733e706b",
+      "id": "5e4b9099-1d80-4696-97ae-d444f1d342a9",
       "name": "First date of Deposit",
       "type": "concept",
       "sources": [
@@ -2770,7 +2791,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "f26457b5-47d6-422b-972b-fc3552e10207",
+      "id": "e7bd3c04-7b42-43ca-9845-5f02c731e667",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -2812,7 +2833,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "90930869-1d12-4f66-ada3-64407feff0a3",
+      "id": "41ac9dd3-5d41-4bc4-8d10-ab6cd4567df6",
       "name": "Custody fee",
       "type": "concept",
       "sources": [
@@ -2854,7 +2875,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "9cc521c7-c13a-4520-ac50-6c258a094dd0",
+      "id": "717afbf9-e622-4b16-b150-77308425ab74",
       "name": "Entry fee",
       "type": "concept",
       "sources": [
@@ -2896,7 +2917,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "4cb56923-b39a-4d9a-899b-18faeee7bae8",
+      "id": "0648b660-6cde-4926-83ad-0aa110423638",
       "name": "Kickback fee",
       "type": "concept",
       "sources": [
@@ -2938,7 +2959,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "ed5972cb-cbcb-435c-bd0a-faf320a95fa2",
+      "id": "377508ba-c29f-4980-a926-335f69496a24",
       "name": "Liability margin",
       "type": "concept",
       "sources": [
@@ -2984,7 +3005,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "51ebfd60-439b-4d44-8493-78d472907845",
+      "id": "06e1f25f-b376-472a-98df-be1b57d15cf8",
       "name": "Trailer fee",
       "type": "concept",
       "sources": [
@@ -3026,7 +3047,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "a07a1716-ae71-44fe-9ded-b9faf6bd0468",
+      "id": "e488e320-e100-4d89-a28a-eba243006d9c",
       "name": "Other fee",
       "type": "concept",
       "sources": [
@@ -3068,7 +3089,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "ec872ce4-427c-43cf-87d5-2d1c2bf4c93d",
+      "id": "6f2bc4dc-e423-4c20-94fc-4ebf3eb3336b",
       "name": "Portfolio-based fee",
       "type": "concept",
       "sources": [
@@ -3110,7 +3131,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "cbbdbe9a-67b4-4c02-b714-b3ecb4f4f836",
+      "id": "33ba9b62-ebaf-47f1-8db1-9c00699bad1d",
       "name": "Sales fee",
       "type": "concept",
       "sources": [
@@ -3152,7 +3173,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "274489b2-b43f-4e14-9251-3fd23aa06b74",
+      "id": "731f2d54-ba5f-4104-9ce7-8a29d1147d28",
       "name": "Income",
       "type": "concept",
       "sources": [
@@ -3194,7 +3215,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "0a97d45f-43a3-48a2-ada2-3367f78f818b",
+      "id": "5bd650dd-72d5-475d-944b-46182021528c",
       "name": "Core income",
       "type": "concept",
       "sources": [
@@ -3236,7 +3257,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "0fca8c73-0f4e-4e4b-a3ac-1d204acdb5b6",
+      "id": "0e43ed0f-db07-4ee7-8dfd-11c4df2211f4",
       "name": "RIS group income",
       "type": "concept",
       "sources": [
@@ -3278,7 +3299,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "629cba07-5fd6-4a3c-9a94-bf7ada4e3c14",
+      "id": "354b2413-3452-4392-ba31-6810b69f8131",
       "name": "Allocated income",
       "type": "concept",
       "sources": [
@@ -3320,7 +3341,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "d4824d5b-dc4e-491d-8032-f18f55060a2a",
+      "id": "9a3dbc14-1bd6-4a86-a1a6-89e4ccfd5077",
       "name": "LAMC income",
       "type": "concept",
       "sources": [
@@ -3362,7 +3383,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "13e2b347-cea2-46ca-bdc0-05f791a70555",
+      "id": "fdc89145-9717-49d3-884f-658d25f3aec2",
       "name": "Profitability",
       "type": "concept",
       "sources": [
@@ -3396,7 +3417,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "9bd9b32c-1144-49cd-88e6-1449a8b5dc29",
+      "id": "af6a05c0-32e4-4487-b274-d44111af1492",
       "name": "Gross Income",
       "type": "concept",
       "sources": [
@@ -3438,7 +3459,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "5c25d859-fb59-4ee3-b0d7-e6c1f195f777",
+      "id": "440777c4-8d37-490b-b1e6-4b53dec9718f",
       "name": "LTV (Life Time Value) GI (Gross Income)",
       "type": "concept",
       "sources": [
@@ -3472,7 +3493,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "75af51be-9f75-4a9d-af28-6a6f84624281",
+      "id": "c1a94182-b0a2-4368-9ec2-9b5aba64991d",
       "name": "Other income",
       "type": "concept",
       "sources": [
@@ -3514,7 +3535,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "323904c3-ea59-4d80-a316-a00a6fe5b47e",
+      "id": "2004c433-2d27-4c25-b406-428bbe93aa2d",
       "name": "Position",
       "type": "context_reference",
       "sources": [
@@ -3556,7 +3577,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "6a91f50b-d9bd-429f-8fc7-a7ce842bc699",
+      "id": "7253ae91-f430-4b7e-85b1-6767b2e15913",
       "name": "Executed order",
       "type": "context_reference",
       "sources": [
@@ -3598,7 +3619,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "0f91a8f7-bff0-4ace-84b4-bdfe77308fdb",
+      "id": "4c638651-fe9f-423f-b95b-477660caa498",
       "name": "Investment account (BIU)",
       "type": "context_reference",
       "sources": [
@@ -3640,7 +3661,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "88eb258e-252b-4500-b82f-426519b7399d",
+      "id": "4d05c025-8634-4eb4-b9d6-85cfbd40d65a",
       "name": "Balance",
       "type": "context_reference",
       "sources": [
@@ -3682,15 +3703,16 @@ const PAYMENT_DATA = {
       "has_parent": true
     }
   ],
+  "external_concepts": [],
   "categorizations": [
     {
-      "id": "6cebe700-08de-4cdb-885b-50c6d7723873",
-      "parent_id": "7dd16f07-5da8-4880-b945-e9b2f856d9de",
+      "id": "d33f6b76-6f4a-42ce-b034-ca4914e4339d",
+      "parent_id": "c25a4f27-c590-4b60-943a-27e6ee8e287c",
       "parent_name": "Incoming Payment",
       "category_name": "kind of[IncomingPayment]",
       "children_ids": [
-        "fcce0efc-7c96-4611-aedc-20a4ece39004",
-        "3470dac2-4975-47d6-baee-9c0634b9ca9e"
+        "7c3ad6ab-b7b4-44cd-a0b3-78478bacfa78",
+        "f9a8985b-43fd-4d56-8a16-f50f7292a4fd"
       ],
       "children_names": [
         "Fee",
@@ -3704,13 +3726,13 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "377c7f20-f3dd-4cec-a44c-b626847716ae",
-      "parent_id": "f26457b5-47d6-422b-972b-fc3552e10207",
+      "id": "88cd4bb9-6aa9-48bf-a3e8-0fb989bb1644",
+      "parent_id": "e7bd3c04-7b42-43ca-9845-5f02c731e667",
       "parent_name": "Payment",
       "category_name": "Kind of [Payment]",
       "children_ids": [
-        "7dd16f07-5da8-4880-b945-e9b2f856d9de",
-        "c00ba18c-e57e-4db7-aabd-a5b4fe919595"
+        "c25a4f27-c590-4b60-943a-27e6ee8e287c",
+        "3f264c4b-1257-45f0-964e-33626be80542"
       ],
       "children_names": [
         "Incoming Payment",
@@ -3724,13 +3746,13 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "5e0c61ae-9106-43ef-8e6e-758d3c3b8711",
-      "parent_id": "cbbdbe9a-67b4-4c02-b714-b3ecb4f4f836",
+      "id": "b8726780-7887-4512-b5bb-ca6de2d0aa28",
+      "parent_id": "33ba9b62-ebaf-47f1-8db1-9c00699bad1d",
       "parent_name": "Sales fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "4cb56923-b39a-4d9a-899b-18faeee7bae8",
-        "9cc521c7-c13a-4520-ac50-6c258a094dd0"
+        "0648b660-6cde-4926-83ad-0aa110423638",
+        "717afbf9-e622-4b16-b150-77308425ab74"
       ],
       "children_names": [
         "Kickback fee",
@@ -3744,14 +3766,14 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "b55202b5-9b6e-45af-9c09-da125fae86be",
-      "parent_id": "ec872ce4-427c-43cf-87d5-2d1c2bf4c93d",
+      "id": "d2aa52eb-1947-4d99-a2fb-42f1838dea76",
+      "parent_id": "6f2bc4dc-e423-4c20-94fc-4ebf3eb3336b",
       "parent_name": "Portfolio-based fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "90930869-1d12-4f66-ada3-64407feff0a3",
-        "a07a1716-ae71-44fe-9ded-b9faf6bd0468",
-        "51ebfd60-439b-4d44-8493-78d472907845"
+        "41ac9dd3-5d41-4bc4-8d10-ab6cd4567df6",
+        "e488e320-e100-4d89-a28a-eba243006d9c",
+        "06e1f25f-b376-472a-98df-be1b57d15cf8"
       ],
       "children_names": [
         "Custody fee",
@@ -3766,14 +3788,14 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "31ebbb05-bf77-4e2b-bc97-2a3f98382a16",
-      "parent_id": "fcce0efc-7c96-4611-aedc-20a4ece39004",
+      "id": "542ca21a-ff46-42fe-8fd2-7f4b9e0a91e3",
+      "parent_id": "7c3ad6ab-b7b4-44cd-a0b3-78478bacfa78",
       "parent_name": "Fee",
       "category_name": "@ by fee category",
       "children_ids": [
-        "ec872ce4-427c-43cf-87d5-2d1c2bf4c93d",
-        "cbbdbe9a-67b4-4c02-b714-b3ecb4f4f836",
-        "ed5972cb-cbcb-435c-bd0a-faf320a95fa2"
+        "6f2bc4dc-e423-4c20-94fc-4ebf3eb3336b",
+        "33ba9b62-ebaf-47f1-8db1-9c00699bad1d",
+        "377508ba-c29f-4980-a926-335f69496a24"
       ],
       "children_names": [
         "Portfolio-based fee",
@@ -3788,16 +3810,16 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "d3eb8e76-93e1-4fb1-aa91-b308cad130f8",
-      "parent_id": "274489b2-b43f-4e14-9251-3fd23aa06b74",
+      "id": "7555715e-098c-44cf-a7bd-f82c9bc2fcc8",
+      "parent_id": "731f2d54-ba5f-4104-9ce7-8a29d1147d28",
       "parent_name": "Income",
       "category_name": "kind of [Income]",
       "children_ids": [
-        "75af51be-9f75-4a9d-af28-6a6f84624281",
-        "0fca8c73-0f4e-4e4b-a3ac-1d204acdb5b6",
-        "629cba07-5fd6-4a3c-9a94-bf7ada4e3c14",
-        "d4824d5b-dc4e-491d-8032-f18f55060a2a",
-        "0a97d45f-43a3-48a2-ada2-3367f78f818b"
+        "c1a94182-b0a2-4368-9ec2-9b5aba64991d",
+        "0e43ed0f-db07-4ee7-8dfd-11c4df2211f4",
+        "354b2413-3452-4392-ba31-6810b69f8131",
+        "9a3dbc14-1bd6-4a86-a1a6-89e4ccfd5077",
+        "5bd650dd-72d5-475d-944b-46182021528c"
       ],
       "children_names": [
         "Other income",
@@ -3816,10 +3838,10 @@ const PAYMENT_DATA = {
   ],
   "relationships": [
     {
-      "id": "108f3b3e-5897-42c1-abf2-fa7b387f4c86",
-      "subject_id": "3470dac2-4975-47d6-baee-9c0634b9ca9e",
+      "id": "7d422124-d827-434f-a6d0-cf1c29c46368",
+      "subject_id": "f9a8985b-43fd-4d56-8a16-f50f7292a4fd",
       "subject_name": "Deposit",
-      "object_id": "b9c70266-1e68-43b1-9c4c-1ff0733e706b",
+      "object_id": "5e4b9099-1d80-4696-97ae-d444f1d342a9",
       "object_name": "First date of Deposit",
       "verb_phrase": "has [First date]",
       "inverse_verb_phrase": "",
@@ -3835,10 +3857,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "382b6798-4dcc-4db1-948b-127aa670e589",
-      "subject_id": "274489b2-b43f-4e14-9251-3fd23aa06b74",
+      "id": "f51b485b-a458-4694-b55d-2cb224ea7118",
+      "subject_id": "731f2d54-ba5f-4104-9ce7-8a29d1147d28",
       "subject_name": "Income",
-      "object_id": "7dd16f07-5da8-4880-b945-e9b2f856d9de",
+      "object_id": "c25a4f27-c590-4b60-943a-27e6ee8e287c",
       "object_name": "Incoming Payment",
       "verb_phrase": "is generated by",
       "inverse_verb_phrase": "generates",
@@ -3854,10 +3876,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "8dd7327e-f732-4f13-9722-2b4f0854e9c9",
-      "subject_id": "13e2b347-cea2-46ca-bdc0-05f791a70555",
+      "id": "21558ee8-0762-476b-b145-59f88c3beefa",
+      "subject_id": "fdc89145-9717-49d3-884f-658d25f3aec2",
       "subject_name": "Profitability",
-      "object_id": "274489b2-b43f-4e14-9251-3fd23aa06b74",
+      "object_id": "731f2d54-ba5f-4104-9ce7-8a29d1147d28",
       "object_name": "Income",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -3873,10 +3895,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "9919f1ab-ab13-48c3-b96e-fa8bb92b7ab7",
-      "subject_id": "9bd9b32c-1144-49cd-88e6-1449a8b5dc29",
+      "id": "468fb79c-6d90-4a74-bbce-95ea8c291067",
+      "subject_id": "af6a05c0-32e4-4487-b274-d44111af1492",
       "subject_name": "Gross Income",
-      "object_id": "13e2b347-cea2-46ca-bdc0-05f791a70555",
+      "object_id": "fdc89145-9717-49d3-884f-658d25f3aec2",
       "object_name": "Profitability",
       "verb_phrase": "measures",
       "inverse_verb_phrase": "is measured by",
@@ -3892,10 +3914,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "9d4a4281-103d-49ea-8e80-ffa07f6f8154",
-      "subject_id": "5c25d859-fb59-4ee3-b0d7-e6c1f195f777",
+      "id": "440be834-6315-4d0c-8540-93bd11dbcfc2",
+      "subject_id": "440777c4-8d37-490b-b1e6-4b53dec9718f",
       "subject_name": "LTV (Life Time Value) GI (Gross Income)",
-      "object_id": "13e2b347-cea2-46ca-bdc0-05f791a70555",
+      "object_id": "fdc89145-9717-49d3-884f-658d25f3aec2",
       "object_name": "Profitability",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "is measured by",
@@ -3911,10 +3933,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "da522247-9ad8-43ec-aeaa-df06625ff9e2",
-      "subject_id": "6a91f50b-d9bd-429f-8fc7-a7ce842bc699",
+      "id": "770d6c66-d0bb-4918-8a25-4eee418db505",
+      "subject_id": "7253ae91-f430-4b7e-85b1-6767b2e15913",
       "subject_name": "Executed order",
-      "object_id": "323904c3-ea59-4d80-a316-a00a6fe5b47e",
+      "object_id": "2004c433-2d27-4c25-b406-428bbe93aa2d",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -3930,10 +3952,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "a5af60d6-5110-49d5-bac1-9a48528362fb",
-      "subject_id": "0f91a8f7-bff0-4ace-84b4-bdfe77308fdb",
+      "id": "c18d7b5c-cd6d-4162-a7ba-1bceb7cd16f1",
+      "subject_id": "4c638651-fe9f-423f-b95b-477660caa498",
       "subject_name": "Investment account (BIU)",
-      "object_id": "f26457b5-47d6-422b-972b-fc3552e10207",
+      "object_id": "e7bd3c04-7b42-43ca-9845-5f02c731e667",
       "object_name": "Payment",
       "verb_phrase": "processes",
       "inverse_verb_phrase": "is settled from",
@@ -3949,10 +3971,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "4e7db2af-7e82-435a-a461-05fec629cd76",
-      "subject_id": "88eb258e-252b-4500-b82f-426519b7399d",
+      "id": "304a64c8-67a8-4de2-b89c-8833a0bf5bc8",
+      "subject_id": "4d05c025-8634-4eb4-b9d6-85cfbd40d65a",
       "subject_name": "Balance",
-      "object_id": "f26457b5-47d6-422b-972b-fc3552e10207",
+      "object_id": "e7bd3c04-7b42-43ca-9845-5f02c731e667",
       "object_name": "Payment",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "",
@@ -3968,10 +3990,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "e3e80a2d-22dd-4f90-8eac-30bd32ee0d0c",
-      "subject_id": "6a91f50b-d9bd-429f-8fc7-a7ce842bc699",
+      "id": "06882f14-c46f-404c-8443-13364388769b",
+      "subject_id": "7253ae91-f430-4b7e-85b1-6767b2e15913",
       "subject_name": "Executed order",
-      "object_id": "f26457b5-47d6-422b-972b-fc3552e10207",
+      "object_id": "e7bd3c04-7b42-43ca-9845-5f02c731e667",
       "object_name": "Payment",
       "verb_phrase": "is being settled for",
       "inverse_verb_phrase": "is settled to",
@@ -3987,10 +4009,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "2cde8014-5794-4751-bd3c-262386a10eff",
-      "subject_id": "90930869-1d12-4f66-ada3-64407feff0a3",
+      "id": "998c2615-c1c8-4ab9-836f-bf8a04d8eb9e",
+      "subject_id": "41ac9dd3-5d41-4bc4-8d10-ab6cd4567df6",
       "subject_name": "Custody fee",
-      "object_id": "323904c3-ea59-4d80-a316-a00a6fe5b47e",
+      "object_id": "2004c433-2d27-4c25-b406-428bbe93aa2d",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -4006,10 +4028,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "f3aea83a-4d7e-47b9-89fb-3d78aedcc0b5",
-      "subject_id": "3470dac2-4975-47d6-baee-9c0634b9ca9e",
+      "id": "d45f8a82-95ac-47b3-bb82-00dc9816feba",
+      "subject_id": "f9a8985b-43fd-4d56-8a16-f50f7292a4fd",
       "subject_name": "Deposit",
-      "object_id": "88eb258e-252b-4500-b82f-426519b7399d",
+      "object_id": "4d05c025-8634-4eb4-b9d6-85cfbd40d65a",
       "object_name": "Balance",
       "verb_phrase": "increases",
       "inverse_verb_phrase": "",
@@ -4029,6 +4051,7 @@ const PAYMENT_DATA = {
   "unary_states": [],
   "metadata": {
     "concept_count": 27,
+    "external_concept_count": 0,
     "fibo_mapped_count": 25,
     "fibo_coverage": 92.5925925925926,
     "schema_mapped_count": 0,
@@ -4048,9 +4071,9 @@ const PAYMENT_DATA = {
     ]
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-22T07:54:03.128430",
-  "modified_at": "2025-12-22T07:54:03.128444",
-  "generated": "2025-12-22T07:54:03.128447",
+  "created_at": "2025-12-25T08:19:34.224153",
+  "modified_at": "2025-12-25T08:19:34.224163",
+  "generated": "2025-12-25T08:19:34.224165",
   "fibo_version": "2024Q1"
 };
 
@@ -4060,14 +4083,14 @@ const FINANCIAL_ACCOUNT_DATA = {
     "path": "Test:FinancialAccount",
     "name": "FinancialAccount",
     "version": "1.0.0",
-    "created": "2025-12-22T07:53:27.634794",
+    "created": "2025-12-25T08:19:04.685631",
     "sources": [
       "Financial_Account.cs"
     ]
   },
   "concepts": [
     {
-      "id": "6e43447b-810e-4c22-9a99-70d24d568af6",
+      "id": "b4c52053-c15b-494e-a69b-09613ff6e920",
       "name": "Financial Account",
       "type": "concept",
       "sources": [
@@ -4109,7 +4132,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "753aefdf-ea1d-4b13-9d77-65fd0b79d0e0",
+      "id": "690f5736-767f-4598-b673-1ebd949e195f",
       "name": "Current Account",
       "type": "concept",
       "sources": [
@@ -4151,7 +4174,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "68679dd1-6d8b-47e2-a242-efdd91d73a83",
+      "id": "8916d11d-8ad3-4c9c-84c1-7d0bb3dcdeb7",
       "name": "Savings Account",
       "type": "concept",
       "sources": [
@@ -4193,7 +4216,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "6c72a14a-7685-49c7-a148-e210b31af814",
+      "id": "02c3247d-7987-4b89-8ed1-97bb6d2aeb24",
       "name": "Investment Account",
       "type": "concept",
       "sources": [
@@ -4235,7 +4258,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "f7056c88-30b2-4bdd-bc02-08bc8e0b2c0c",
+      "id": "99c355c5-1ad6-4bfd-88f4-1a5ee7869b6f",
       "name": "Loan Account",
       "type": "concept",
       "sources": [
@@ -4277,7 +4300,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "c34df795-cd71-400b-9da5-13d1ebbcf18e",
+      "id": "feadfb47-acda-4ecb-8c22-8f4d451ab476",
       "name": "Credit Card Account",
       "type": "concept",
       "sources": [
@@ -4319,7 +4342,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "935c4f05-d757-4d2c-aab6-6e623a50532f",
+      "id": "1113242f-79ef-4b8c-a15a-6f760f923842",
       "name": "Account Holder",
       "type": "concept",
       "sources": [
@@ -4361,7 +4384,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "2828930b-5c54-4ca6-8a12-f0c8edbf695f",
+      "id": "31d104bc-4bee-4ff7-bb10-46c5a5df9b79",
       "name": "Account Balance",
       "type": "concept",
       "sources": [
@@ -4403,7 +4426,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "21c0f230-48eb-4a0a-959a-74a1b28f8144",
+      "id": "29ef5d0a-81b5-4dfc-af61-26958933c16c",
       "name": "Account Statement",
       "type": "concept",
       "sources": [
@@ -4445,7 +4468,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "0387774c-74a6-4759-822d-7b43a1eda908",
+      "id": "1a6fdd99-b51c-4b2f-9820-9a3f7c82e094",
       "name": "Interest Rate",
       "type": "concept",
       "sources": [
@@ -4487,7 +4510,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "6d07adbd-786f-4df6-ba7f-d27723a24744",
+      "id": "b86df6a8-39eb-4e7c-a5d2-6f951076de83",
       "name": "Account Opening",
       "type": "concept",
       "sources": [
@@ -4529,7 +4552,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "9865839c-f019-45aa-ad5c-eebcac46a4b3",
+      "id": "97c40928-5db2-40d5-b55b-d5e60233aff0",
       "name": "Account Closure",
       "type": "concept",
       "sources": [
@@ -4571,7 +4594,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "f7de103e-fa5c-4fa6-9d66-e41e7d61b536",
+      "id": "30c3d794-10e0-46c8-82b1-90e2c33e812a",
       "name": "Monthly Statement",
       "type": "concept",
       "sources": [
@@ -4613,7 +4636,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "ce90572e-cb92-4364-bfd8-83feafde939f",
+      "id": "997d8eaa-6fac-4cc6-9a30-b80f8b15cd3f",
       "name": "Annual Statement",
       "type": "concept",
       "sources": [
@@ -4655,18 +4678,19 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     }
   ],
+  "external_concepts": [],
   "categorizations": [
     {
-      "id": "63561efd-81c4-4d74-9b8e-d9eb38754ef7",
-      "parent_id": "6e43447b-810e-4c22-9a99-70d24d568af6",
+      "id": "ce5d7a88-fd9e-4485-9961-96b200520f03",
+      "parent_id": "b4c52053-c15b-494e-a69b-09613ff6e920",
       "parent_name": "Financial Account",
       "category_name": "@ by purpose",
       "children_ids": [
-        "753aefdf-ea1d-4b13-9d77-65fd0b79d0e0",
-        "68679dd1-6d8b-47e2-a242-efdd91d73a83",
-        "6c72a14a-7685-49c7-a148-e210b31af814",
-        "f7056c88-30b2-4bdd-bc02-08bc8e0b2c0c",
-        "c34df795-cd71-400b-9da5-13d1ebbcf18e"
+        "690f5736-767f-4598-b673-1ebd949e195f",
+        "8916d11d-8ad3-4c9c-84c1-7d0bb3dcdeb7",
+        "02c3247d-7987-4b89-8ed1-97bb6d2aeb24",
+        "99c355c5-1ad6-4bfd-88f4-1a5ee7869b6f",
+        "feadfb47-acda-4ecb-8c22-8f4d451ab476"
       ],
       "children_names": [
         "Current Account",
@@ -4683,13 +4707,13 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "ff4f3eef-b8d8-46fd-bf17-ccaf5f169ef9",
-      "parent_id": "21c0f230-48eb-4a0a-959a-74a1b28f8144",
+      "id": "dd716174-d2a5-415c-9118-b7a092e4897f",
+      "parent_id": "29ef5d0a-81b5-4dfc-af61-26958933c16c",
       "parent_name": "Account Statement",
       "category_name": "@ by period",
       "children_ids": [
-        "f7de103e-fa5c-4fa6-9d66-e41e7d61b536",
-        "ce90572e-cb92-4364-bfd8-83feafde939f"
+        "30c3d794-10e0-46c8-82b1-90e2c33e812a",
+        "997d8eaa-6fac-4cc6-9a30-b80f8b15cd3f"
       ],
       "children_names": [
         "Monthly Statement",
@@ -4705,10 +4729,10 @@ const FINANCIAL_ACCOUNT_DATA = {
   ],
   "relationships": [
     {
-      "id": "8b0ff2c7-06e8-4881-9d39-bcd5af95419c",
-      "subject_id": "935c4f05-d757-4d2c-aab6-6e623a50532f",
+      "id": "0977b322-7ea1-4706-a930-d50ed89c93ea",
+      "subject_id": "1113242f-79ef-4b8c-a15a-6f760f923842",
       "subject_name": "Account Holder",
-      "object_id": "6e43447b-810e-4c22-9a99-70d24d568af6",
+      "object_id": "b4c52053-c15b-494e-a69b-09613ff6e920",
       "object_name": "Financial Account",
       "verb_phrase": "owns",
       "inverse_verb_phrase": "is owned by",
@@ -4724,10 +4748,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "09eaa6cd-0143-4888-af37-4b4613f505ae",
-      "subject_id": "6e43447b-810e-4c22-9a99-70d24d568af6",
+      "id": "7de1858f-9570-4317-8eb6-327caf849e9c",
+      "subject_id": "b4c52053-c15b-494e-a69b-09613ff6e920",
       "subject_name": "Financial Account",
-      "object_id": "2828930b-5c54-4ca6-8a12-f0c8edbf695f",
+      "object_id": "31d104bc-4bee-4ff7-bb10-46c5a5df9b79",
       "object_name": "Account Balance",
       "verb_phrase": "has",
       "inverse_verb_phrase": "belongs to",
@@ -4743,10 +4767,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "79d010d4-596e-498f-8d5d-2c2a359267fe",
-      "subject_id": "6e43447b-810e-4c22-9a99-70d24d568af6",
+      "id": "0934eccb-c62b-4750-a835-73bd81f7736b",
+      "subject_id": "b4c52053-c15b-494e-a69b-09613ff6e920",
       "subject_name": "Financial Account",
-      "object_id": "21c0f230-48eb-4a0a-959a-74a1b28f8144",
+      "object_id": "29ef5d0a-81b5-4dfc-af61-26958933c16c",
       "object_name": "Account Statement",
       "verb_phrase": "generates",
       "inverse_verb_phrase": "is generated for",
@@ -4762,10 +4786,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "e96f957d-41ca-46d6-aa55-ae76c91a01d5",
-      "subject_id": "68679dd1-6d8b-47e2-a242-efdd91d73a83",
+      "id": "3277f63e-7923-46cf-9efd-40649daebe4a",
+      "subject_id": "8916d11d-8ad3-4c9c-84c1-7d0bb3dcdeb7",
       "subject_name": "Savings Account",
-      "object_id": "0387774c-74a6-4759-822d-7b43a1eda908",
+      "object_id": "1a6fdd99-b51c-4b2f-9820-9a3f7c82e094",
       "object_name": "Interest Rate",
       "verb_phrase": "earns",
       "inverse_verb_phrase": "is applied to",
@@ -4785,6 +4809,7 @@ const FINANCIAL_ACCOUNT_DATA = {
   "unary_states": [],
   "metadata": {
     "concept_count": 14,
+    "external_concept_count": 0,
     "fibo_mapped_count": 14,
     "fibo_coverage": 100.0,
     "schema_mapped_count": 0,
@@ -4802,9 +4827,9 @@ const FINANCIAL_ACCOUNT_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-22T07:54:32.352380",
-  "modified_at": "2025-12-22T07:54:32.352417",
-  "generated": "2025-12-22T07:54:32.352420",
+  "created_at": "2025-12-25T08:19:59.005760",
+  "modified_at": "2025-12-25T08:19:59.005777",
+  "generated": "2025-12-25T08:19:59.005780",
   "fibo_version": "2024Q1"
 };
 

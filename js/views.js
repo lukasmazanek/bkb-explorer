@@ -40,8 +40,13 @@ const Views = {
         this.activeView = null;
 
         const concepts = domainData.concepts || [];
+        // ADR-044: External concepts inherit View membership from referencing concepts
+        const externalConcepts = domainData.external_concepts || [];
 
-        concepts.forEach(concept => {
+        // Process all concepts (domain + external)
+        const allConcepts = [...concepts, ...externalConcepts];
+
+        allConcepts.forEach(concept => {
             const sources = concept.sources || [];
 
             sources.forEach(source => {
@@ -72,7 +77,7 @@ const Views = {
             });
         });
 
-        console.log(`📋 Extracted ${this.viewsMap.size} views from domain`);
+        console.log(`📋 Extracted ${this.viewsMap.size} views from domain (${concepts.length} concepts + ${externalConcepts.length} external)`);
         return this.viewsMap;
     },
 

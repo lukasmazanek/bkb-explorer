@@ -142,11 +142,12 @@ echo ""
 echo "Step 4: Generating data.js..."
 
 # Generate data.js
-ORDER_FILE="$SCRIPT_DIR/test/Order/Test:Order/ontology.json"
-POSITION_FILE="$SCRIPT_DIR/test/Position/Test:Position/ontology.json"
-TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test:Transaction/ontology.json"
-PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test:Payment/ontology.json"
-FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test:FinancialAccount/ontology.json"
+# Note: ontology-lift creates directories with '/' separator (Test/Order) not ':' (Test:Order)
+ORDER_FILE="$SCRIPT_DIR/test/Order/Test/Order/ontology.json"
+POSITION_FILE="$SCRIPT_DIR/test/Position/Test/Position/ontology.json"
+TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test/Transaction/ontology.json"
+PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test/Payment/ontology.json"
+FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test/FinancialAccount/ontology.json"
 
 python3 << PYTHON
 import json
@@ -168,6 +169,10 @@ with open('$PAYMENT_FILE') as f:
 with open('$FINANCIAL_ACCOUNT_FILE') as f:
     financial_account_data = json.load(f)
 
+# ADR-044: Count total concepts = domain concepts + external concepts
+def total_concepts(data):
+    return len(data.get('concepts', [])) + len(data.get('external_concepts', []))
+
 # Generate data.js
 output = f'''/**
  * BKB Explorer - Test Demo Data
@@ -186,11 +191,11 @@ const DOMAINS_DATA = {{
     "Test": {{
       "type": "test",
       "children": {{
-        "Order": {{ "type": "domain", "stats": {{ "concepts": {len(order_data['concepts'])} }} }},
-        "Position": {{ "type": "domain", "stats": {{ "concepts": {len(position_data['concepts'])} }} }},
-        "Transaction": {{ "type": "domain", "stats": {{ "concepts": {len(transaction_data['concepts'])} }} }},
-        "Payment": {{ "type": "domain", "stats": {{ "concepts": {len(payment_data['concepts'])} }} }},
-        "FinancialAccount": {{ "type": "domain", "stats": {{ "concepts": {len(financial_account_data['concepts'])} }} }}
+        "Order": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(order_data)} }} }},
+        "Position": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(position_data)} }} }},
+        "Transaction": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(transaction_data)} }} }},
+        "Payment": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(payment_data)} }} }},
+        "FinancialAccount": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(financial_account_data)} }} }}
       }}
     }}
   }},
@@ -228,11 +233,11 @@ console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
 with open('$OUTPUT_FILE', 'w') as f:
     f.write(output)
 
-print(f"  Order: {len(order_data['concepts'])} concepts")
-print(f"  Position: {len(position_data['concepts'])} concepts")
-print(f"  Transaction: {len(transaction_data['concepts'])} concepts")
-print(f"  Payment: {len(payment_data['concepts'])} concepts")
-print(f"  FinancialAccount: {len(financial_account_data['concepts'])} concepts")
+print(f"  Order: {len(order_data['concepts'])} + {len(order_data.get('external_concepts', []))} external = {total_concepts(order_data)}")
+print(f"  Position: {len(position_data['concepts'])} + {len(position_data.get('external_concepts', []))} external = {total_concepts(position_data)}")
+print(f"  Transaction: {len(transaction_data['concepts'])} + {len(transaction_data.get('external_concepts', []))} external = {total_concepts(transaction_data)}")
+print(f"  Payment: {len(payment_data['concepts'])} + {len(payment_data.get('external_concepts', []))} external = {total_concepts(payment_data)}")
+print(f"  FinancialAccount: {len(financial_account_data['concepts'])} + {len(financial_account_data.get('external_concepts', []))} external = {total_concepts(financial_account_data)}")
 PYTHON
 
 echo ""
