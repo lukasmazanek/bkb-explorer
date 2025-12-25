@@ -573,6 +573,14 @@ body {
     border-width: 4px;
 }
 
+.legend-node.external {
+    background: #f5f5f5;
+    border-color: #666666;
+    border-style: dashed;
+    font-style: italic;
+    color: #666666;
+}
+
 /* Edge legend icons */
 .legend-edge {
     width: 60px;
@@ -595,6 +603,13 @@ body {
 .legend-edge-line.relationship {
     height: 2px;
     background: #9b59b6;
+}
+
+.legend-edge-line.isA {
+    height: 2px;
+    background: #666666;
+    border-top: 2px dashed #666666;
+    background: transparent;
 }
 
 .legend-edge-dot {

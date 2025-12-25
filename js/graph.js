@@ -69,15 +69,25 @@ const Graph = {
     /**
      * Build Cytoscape elements from domain data
      * Uses categorizations for parent-child relationships (ConceptSpeak structure)
+     * Supports external_concepts[] (ADR-042) and isA relationships (ADR-043)
      */
     buildElements(domainData) {
         const nodes = [];
         const edges = [];
         const concepts = domainData.concepts || [];
+        const externalConcepts = domainData.external_concepts || [];  // ADR-042
         const categorizations = domainData.categorizations || [];
         const relationships = domainData.relationships || [];
         const conceptMap = new Map(concepts.map(c => [c.name, c]));
         const internalNames = new Set(concepts.map(c => c.name));
+
+        // Build external concept map (ADR-042)
+        // External concepts use cross-domain ref format: "Schema.org:Action"
+        const externalMap = new Map();
+        externalConcepts.forEach(ext => {
+            const refName = `${ext.type === 'schema.org' ? 'Schema.org' : 'FIBO'}:${ext.name}`;
+            externalMap.set(refName, ext);
+        });
 
         // Build parent-child map from categorizations
         const childToParent = new Map();  // child -> { parent, schema }
@@ -248,29 +258,81 @@ const Graph = {
             });
         });
 
+        // Track external concepts referenced by isA relationships (ADR-042/043)
+        const referencedExternals = new Set();
+
         // Add relationship edges (binary verbs from ConceptSpeak)
         relationships.forEach(rel => {
-            const subj = rel.subject_name;
-            const obj = rel.object_name;
-            // Get both verb phrases for bidirectional labels
-            const verbPhrase = (rel.verb_phrase && rel.verb_phrase.trim()) || '';
-            const inversePhrase = (rel.inverse_verb_phrase && rel.inverse_verb_phrase.trim()) || '';
+            // ADR-042/043: Handle isA relationships with cross-domain refs
+            const relType = rel.type || '';
+            const isIsA = relType === 'isA';
 
-            // Only add if both concepts are visible
-            if (visibleNames.has(subj) && visibleNames.has(obj)) {
-                // Context relationships get dotted styling
-                const isContextRel = rel.is_context === true;
-                edges.push({
+            // Support both old format (subject_name/object_name) and new format (source_name/target_name)
+            const subj = rel.subject_name || rel.source_name || '';
+            const obj = rel.object_name || rel.target_name || '';
+
+            // Get both verb phrases for bidirectional labels
+            const verbPhrase = (rel.verb_phrase || rel.forward_verb || '').trim();
+            const inversePhrase = (rel.inverse_verb_phrase || '').trim();
+
+            // For isA: target might be external concept (e.g., "Schema.org:Action")
+            const isExternalTarget = externalMap.has(obj);
+
+            if (isIsA && isExternalTarget) {
+                // Track that we need this external concept node
+                referencedExternals.add(obj);
+
+                // Add isA edge if source is visible
+                if (visibleNames.has(subj)) {
+                    edges.push({
+                        data: {
+                            id: `isA-${rel.id || Math.random()}`,
+                            source: subj,
+                            target: obj,  // External concept ID (e.g., "Schema.org:Action")
+                            type: 'isA',
+                            sourceLabel: verbPhrase || 'is a',
+                            targetLabel: ''
+                        },
+                        classes: 'isA'
+                    });
+                }
+            } else if (visibleNames.has(subj) && (visibleNames.has(obj) || internalNames.has(obj))) {
+                // Regular relationship: both concepts should be visible
+                if (visibleNames.has(obj)) {
+                    // Context relationships get dotted styling
+                    const isContextRel = rel.is_context === true;
+                    edges.push({
+                        data: {
+                            id: `rel-${rel.id || Math.random()}`,
+                            source: subj,
+                            target: obj,
+                            type: 'relationship',
+                            sourceLabel: verbPhrase,      // verb near subject
+                            targetLabel: inversePhrase,   // inverse near object
+                            isContext: isContextRel
+                        },
+                        classes: isContextRel ? 'relationship context-rel' : 'relationship'
+                    });
+                }
+            }
+        });
+
+        // Add external concept nodes for referenced isA targets (ADR-042)
+        referencedExternals.forEach(extRef => {
+            const ext = externalMap.get(extRef);
+            if (ext) {
+                nodes.push({
                     data: {
-                        id: `rel-${rel.id || Math.random()}`,
-                        source: subj,
-                        target: obj,
-                        type: 'relationship',
-                        sourceLabel: verbPhrase,      // verb near subject
-                        targetLabel: inversePhrase,   // inverse near object
-                        isContext: isContextRel
+                        id: extRef,  // e.g., "Schema.org:Action"
+                        name: ext.name,  // e.g., "Action"
+                        definition: '',
+                        source: ext.type === 'schema.org' ? 'Schema.org' : 'FIBO',
+                        fiboUri: ext.uri,
+                        fiboLabel: ext.name,
+                        isExternal: true,
+                        externalType: ext.type
                     },
-                    classes: isContextRel ? 'relationship context-rel' : 'relationship'
+                    classes: 'external'
                 });
             }
         });
@@ -453,6 +515,19 @@ const Graph = {
                     'border-style': 'dashed'
                 }
             },
+            // External concept node (Schema.org/FIBO - ADR-042)
+            // Distinct style: dashed border, gray fill, italic text
+            {
+                selector: 'node.external',
+                style: {
+                    'background-color': '#f5f5f5',
+                    'border-style': 'dashed',
+                    'border-width': 2,
+                    'border-color': '#666666',
+                    'font-style': 'italic',
+                    'color': '#666666'
+                }
+            },
             // Hub node (root of tree)
             {
                 selector: 'node.hub',
@@ -542,6 +617,27 @@ const Graph = {
                     'width': 1,
                     'line-style': 'dotted',
                     'line-color': '#9b59b6'
+                }
+            },
+            // isA relationship edges (ADR-043)
+            // Dashed line with arrow, connects to external Schema.org/FIBO concepts
+            {
+                selector: 'edge.isA',
+                style: {
+                    'width': 2,
+                    'line-color': '#666666',
+                    'line-style': 'dashed',
+                    'curve-style': 'bezier',
+                    'target-arrow-shape': 'triangle',
+                    'target-arrow-color': '#666666',
+                    'source-label': 'data(sourceLabel)',
+                    'source-text-offset': 15,
+                    'source-text-margin-y': -6,
+                    'font-size': 9,
+                    'color': '#666666',
+                    'text-background-color': '#fff',
+                    'text-background-opacity': 0.9,
+                    'text-background-padding': '2px'
                 }
             },
 
@@ -931,8 +1027,8 @@ const Graph = {
                     this.applyNodeHighlight(trunkEdge.source());
                 }
 
-            } else if (type === 'relationship') {
-                // Binary verb - highlight edge and other endpoint
+            } else if (type === 'relationship' || type === 'isA') {
+                // Binary verb or isA - highlight edge and other endpoint
                 this.applyEdgeHighlight(edge);
                 const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
                 this.applyNodeHighlight(otherNode);
@@ -980,8 +1076,8 @@ const Graph = {
                     this.applyNodeHighlight(trunkEdge.source());
                 }
 
-            } else if (type === 'relationship') {
-                // Binary verb - highlight edge and other endpoint
+            } else if (type === 'relationship' || type === 'isA') {
+                // Binary verb or isA - highlight edge and other endpoint
                 this.applyEdgeHighlight(edge);
                 const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
                 this.applyNodeHighlight(otherNode);
@@ -1098,6 +1194,17 @@ const Graph = {
                 return;
             }
 
+            // Handle external nodes (Schema.org/FIBO - ADR-042)
+            if (node.hasClass('external')) {
+                // External nodes are only visible when relationships toggle is on
+                if (show.relationships) {
+                    node.show();
+                } else {
+                    node.hide();
+                }
+                return;
+            }
+
             let visible = false;
             const isContext = node.hasClass('context');
             const nodeId = node.id();
@@ -1146,8 +1253,8 @@ const Graph = {
             else if (!show.categorizations && (type === 'trunk' || type === 'branch')) {
                 edge.hide();
             }
-            // Hide relationship edges when toggle is off
-            else if (!show.relationships && type === 'relationship') {
+            // Hide relationship edges (including isA) when toggle is off
+            else if (!show.relationships && (type === 'relationship' || type === 'isA')) {
                 edge.hide();
             } else {
                 edge.show();
@@ -1267,6 +1374,7 @@ const Graph = {
         // Count nodes by type
         this.cy.nodes().forEach(node => {
             if (node.hasClass('junction')) return;
+            if (node.hasClass('external')) return;  // Don't count external nodes (ADR-042)
 
             if (node.hasClass('context')) {
                 counts.context++;
@@ -1280,7 +1388,7 @@ const Graph = {
                 counts.unknown++;
             }
 
-            // Count orphans (visible nodes with no visible edges)
+            // Count orphans (visible nodes with no visible edges, excluding external)
             const visibleEdges = node.connectedEdges().filter(e => !e.hidden());
             if (!node.hidden() && visibleEdges.length === 0) {
                 counts.orphans++;
@@ -1292,8 +1400,8 @@ const Graph = {
             const type = edge.data('type');
             if (type === 'trunk' || type === 'branch') {
                 counts.categorizations++;
-            } else if (type === 'relationship') {
-                counts.relationships++;
+            } else if (type === 'relationship' || type === 'isA') {
+                counts.relationships++;  // isA counts as relationship
             }
         });
 
