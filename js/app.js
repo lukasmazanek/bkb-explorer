@@ -69,10 +69,11 @@ const BKBExplorer = {
         // Set up event listeners
         this.setupEventListeners();
 
-        // Load default domain (first available from org data, or Order from test)
+        // Load default domain (first available from org data, or Test from test data)
+        // ADR-040: Test data uses domain "Test" with views (Order, Payment, etc.)
         const hasOrgData = typeof window.BKB_ORG_DATA !== 'undefined';
-        const defaultDomain = hasOrgData ? 'Investment' : 'Order';
-        this.selectDomain(defaultDomain);
+        const defaultDomain = hasOrgData ? 'Investment' : 'Test';
+        this.selectDomain(defaultDomain);  // Will auto-select first view alphabetically
 
         console.log('✅ BKB Explorer ready');
     },
