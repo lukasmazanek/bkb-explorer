@@ -129,25 +129,42 @@ const BKBExplorer = {
 
     /**
      * Select a domain to display
+     * @param {string} domainName - Domain name (e.g., "Test")
+     * @param {string} [viewName] - Optional view name (e.g., "Order")
      */
-    selectDomain(domainName) {
-        console.log(`📂 Selecting domain: ${domainName}`);
+    selectDomain(domainName, viewName) {
+        console.log(`📂 Selecting domain: ${domainName}${viewName ? ` (view: ${viewName})` : ''}`);
 
         this.state.currentDomain = domainName;
-        this.state.currentView = null;  // Reset view filter
+        this.state.currentView = viewName || null;
         this.state.expandedNodes.clear();
 
-        // Get domain data
-        const domainKey = domainName.toLowerCase();
+        // Get domain data - if viewName is provided, load that view's data
+        // Views are stored as separate data objects (order, position, etc.)
+        const domainKey = viewName ? viewName.toLowerCase() : domainName.toLowerCase();
         const domainData = window.BKB_DATA[domainKey];
 
         if (!domainData) {
-            console.error(`❌ Domain not found: ${domainName}`);
+            // If clicking on parent domain without view, try first view
+            const hierarchy = window.BKB_DATA.domains?.hierarchy?.[domainName];
+            if (hierarchy?.views) {
+                const firstView = Object.keys(hierarchy.views).sort()[0];
+                if (firstView) {
+                    console.log(`📂 Domain ${domainName} has no data, loading first view: ${firstView}`);
+                    this.selectDomain(domainName, firstView);
+                    return;
+                }
+            }
+            console.error(`❌ Data not found for: ${viewName || domainName}`);
             return;
         }
 
         // Update sidebar
-        Sidebar.setActive(domainName);
+        if (viewName) {
+            Sidebar.setActiveView(domainName, viewName);
+        } else {
+            Sidebar.setActive(domainName);
+        }
 
         // Extract and render views
         Views.extractViews(domainData);
