@@ -159,7 +159,12 @@ FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test/ontology.json"
 
 python3 << PYTHON
 import json
+import sys
 from datetime import datetime
+
+# Add domain-forge to path for merge utility
+sys.path.insert(0, '$SCRIPT_DIR/../domain-forge')
+from domain_forge.utils import merge_domains
 
 # Load ontologies
 with open('$ORDER_FILE') as f:
@@ -180,91 +185,6 @@ with open('$FINANCIAL_ACCOUNT_FILE') as f:
 # ADR-044: Count total concepts = domain concepts + external concepts
 def total_concepts(data):
     return len(data.get('concepts', [])) + len(data.get('external_concepts', []))
-
-# Merge multiple view datasets into one domain dataset
-def merge_domain_data(datasets, domain_name):
-    merged = {
-        "domain": {
-            "path": domain_name,
-            "name": domain_name,
-            "version": "1.0.0",
-            "created": datetime.now().isoformat(),
-            "sources": []
-        },
-        "concepts": [],
-        "external_concepts": [],
-        "categorizations": [],
-        "relationships": [],
-        "enumerations": [],
-        "unary_states": [],
-        "metadata": {
-            "concept_count": 0,
-            "external_concept_count": 0,
-            "fibo_mapped_count": 0,
-            "fibo_coverage": 0,
-            "schema_mapped_count": 0,
-            "semantic_coverage": 0,
-            "definition_coverage": 0,
-            "validation_errors": [],
-            "validation_warnings": []
-        },
-        "schema_version": "1.0.0"
-    }
-
-    seen_concept_ids = set()
-    seen_external_uris = set()
-
-    for data in datasets:
-        # Merge sources
-        merged["domain"]["sources"].extend(data.get("domain", {}).get("sources", []))
-
-        # Merge concepts (dedupe by id)
-        for concept in data.get("concepts", []):
-            if concept.get("id") not in seen_concept_ids:
-                seen_concept_ids.add(concept.get("id"))
-                merged["concepts"].append(concept)
-
-        # Merge external concepts (dedupe by uri)
-        for ext in data.get("external_concepts", []):
-            if ext.get("uri") not in seen_external_uris:
-                seen_external_uris.add(ext.get("uri"))
-                merged["external_concepts"].append(ext)
-
-        # Merge relationships, categorizations, etc. (with deduplication)
-        merged["categorizations"].extend(data.get("categorizations", []))
-        merged["relationships"].extend(data.get("relationships", []))
-        merged["enumerations"].extend(data.get("enumerations", []))
-        merged["unary_states"].extend(data.get("unary_states", []))
-
-    # Deduplicate relationships by (subject_name, object_name, verb_phrase)
-    seen_rels = set()
-    unique_rels = []
-    for rel in merged["relationships"]:
-        key = (rel.get("subject_name"), rel.get("object_name"), rel.get("verb_phrase"))
-        if key not in seen_rels:
-            seen_rels.add(key)
-            unique_rels.append(rel)
-    merged["relationships"] = unique_rels
-
-    # Deduplicate categorizations by (parent_name, children hash)
-    seen_cats = set()
-    unique_cats = []
-    for cat in merged["categorizations"]:
-        key = (cat.get("parent_name"), tuple(sorted(cat.get("children_names", []))))
-        if key not in seen_cats:
-            seen_cats.add(key)
-            unique_cats.append(cat)
-    merged["categorizations"] = unique_cats
-
-    # Update metadata
-    merged["metadata"]["concept_count"] = len(merged["concepts"])
-    merged["metadata"]["external_concept_count"] = len(merged["external_concepts"])
-    fibo_count = sum(1 for c in merged["concepts"] if c.get("has_fibo_mapping"))
-    merged["metadata"]["fibo_mapped_count"] = fibo_count
-    if merged["concepts"]:
-        merged["metadata"]["fibo_coverage"] = (fibo_count / len(merged["concepts"])) * 100
-
-    return merged
 
 # Generate data.js
 # ADR-040: Views are perspectives within a domain, not subdomains
@@ -314,8 +234,8 @@ const PAYMENT_DATA = {json.dumps(payment_data, indent=2)};
 // FinancialAccount domain
 const FINANCIAL_ACCOUNT_DATA = {json.dumps(financial_account_data, indent=2)};
 
-// Merged Test domain (all views combined)
-const TEST_DATA = {json.dumps(merge_domain_data([order_data, position_data, transaction_data, payment_data, financial_account_data], "Test"), indent=2)};
+// Merged Test domain (all views combined, using domain-forge merge)
+const TEST_DATA = {json.dumps(merge_domains([order_data, position_data, transaction_data, payment_data, financial_account_data], "Test"), indent=2)};
 
 // Export for application
 window.BKB_DATA = {{

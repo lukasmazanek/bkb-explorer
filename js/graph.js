@@ -1420,7 +1420,17 @@ const Graph = {
         // Count nodes by type
         this.cy.nodes().forEach(node => {
             if (node.hasClass('junction')) return;
-            if (node.hasClass('external')) return;  // Don't count external nodes (ADR-042)
+
+            // External nodes (Schema.org/FIBO) count in schema category
+            if (node.hasClass('external')) {
+                const source = node.data('source');
+                if (source === 'Schema.org') {
+                    counts.schema++;
+                } else if (source === 'FIBO') {
+                    counts.fibo++;
+                }
+                return;
+            }
 
             if (node.hasClass('context')) {
                 counts.context++;
