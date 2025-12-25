@@ -49,11 +49,13 @@ cp "$CONCEPTSPEAK_DIR/tests/Investment_Order.test" "$SCRIPT_DIR/test/Order/Inves
 cp "$CONCEPTSPEAK_DIR/tests/InvestmentPosition.test" "$SCRIPT_DIR/test/Position/Investment_Position.cs"
 cp "$CONCEPTSPEAK_DIR/tests/Investment_Transaction.test" "$SCRIPT_DIR/test/Transaction/Investment_Transaction.cs"
 cp "$CONCEPTSPEAK_DIR/tests/Investment_Payment.test" "$SCRIPT_DIR/test/Payment/Investment_Payment.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Financial_Account.test" "$SCRIPT_DIR/test/FinancialAccount/Investment_Financial_Account.cs"
 
 echo "  - Order/Investment_Order.cs"
 echo "  - Position/Investment_Position.cs"
 echo "  - Transaction/Investment_Transaction.cs"
 echo "  - Payment/Investment_Payment.cs"
+echo "  - FinancialAccount/Investment_Financial_Account.cs"
 echo ""
 
 # Create config files - all use domain "Test", views derived from source file
@@ -117,7 +119,7 @@ cat > "$SCRIPT_DIR/test/FinancialAccount/config.json" << 'EOF'
   },
   "view": "FinancialAccount",
   "sources": [
-    "Financial_Account.cs"
+    "Investment_Financial_Account.cs"
   ]
 }
 EOF

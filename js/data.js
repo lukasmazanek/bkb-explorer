@@ -5,7 +5,7 @@
  * Source: conceptspeak/tests/
  * DO NOT EDIT MANUALLY
  *
- * Generated: 2025-12-25T16:00:50.025155
+ * Generated: 2025-12-25T16:11:18.264076
  */
 
 // Domain hierarchy (ADR-040: Views are NOT subdomains)
@@ -4797,7 +4797,7 @@ const TEST_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-25T16:00:50.034908",
+    "created": "2025-12-25T16:11:18.271606",
     "sources": [
       "Investment_Order.cs",
       "Investment_Position.cs",
