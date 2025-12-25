@@ -166,10 +166,10 @@ const BKBExplorer = {
             Sidebar.setActive(domainName);
         }
 
-        // Extract and render views
+        // Extract views for filtering (views are rendered inline in sidebar hierarchy)
         Views.extractViews(domainData);
         const viewsList = Views.getViewsList();
-        Sidebar.renderViews(viewsList, domainName);
+        // Note: Sidebar.renderViews() removed - views now rendered by renderHierarchy()
 
         // Update view filter dropdown
         this.updateViewDropdown(viewsList);
