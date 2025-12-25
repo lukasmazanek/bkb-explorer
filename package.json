@@ -1,0 +1,12 @@
+{
+  "name": "bkb-explorer",
+  "version": "1.0.0",
+  "description": "Business Knowledge Base Explorer - Interactive ontology visualization",
+  "scripts": {
+    "test": "node test-visual.js",
+    "prepare-demo": "./prepare-test-demo.sh"
+  },
+  "devDependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}
