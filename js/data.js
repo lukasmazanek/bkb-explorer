@@ -5,7 +5,7 @@
  * Source: conceptspeak/tests/
  * DO NOT EDIT MANUALLY
  *
- * Generated: 2025-12-25T16:31:03.438586
+ * Generated: 2025-12-25T17:50:01.998692
  */
 
 // Domain hierarchy (ADR-040: Views are NOT subdomains)
@@ -15,14 +15,14 @@ const DOMAINS_DATA = {
     "Test": {
       "type": "domain",
       "stats": {
-        "concepts": 64
+        "concepts": 84
       },
       "views": {
-        "Order": { "stats": { "concepts": 14 } },
-        "Position": { "stats": { "concepts": 10 } },
-        "Transaction": { "stats": { "concepts": 8 } },
-        "Payment": { "stats": { "concepts": 23 } },
-        "FinancialAccount": { "stats": { "concepts": 9 } }
+        "Order": { "stats": { "concepts": 17 } },
+        "Position": { "stats": { "concepts": 16 } },
+        "Transaction": { "stats": { "concepts": 9 } },
+        "Payment": { "stats": { "concepts": 27 } },
+        "FinancialAccount": { "stats": { "concepts": 15 } }
       }
     }
   },
@@ -35,14 +35,14 @@ const ORDER_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-25T16:30:04.785829",
+    "created": "2025-12-25T17:48:10.736467",
     "sources": [
       "Investment_Order.cs"
     ]
   },
   "concepts": [
     {
-      "id": "1569de41-5c9b-41a8-8414-3382be68a684",
+      "id": "0b69c292-ec51-4ef6-aaaa-f838ef4c9992",
       "name": "Buy",
       "type": "concept",
       "sources": [
@@ -84,7 +84,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "fc788e1b-74ca-4dd8-919e-5f8f8c361326",
+      "id": "a0080959-60f1-4524-93de-abefe6dab8d2",
       "name": "Sell",
       "type": "concept",
       "sources": [
@@ -126,7 +126,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "42465b86-692b-458c-a977-520ce4fe0368",
+      "id": "85651491-ac31-4b73-931e-53c33a824790",
       "name": "Saving plan (regular investment)",
       "type": "concept",
       "sources": [
@@ -168,7 +168,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "cda6b2f7-6efd-448d-ada7-da6e0fa08e0a",
+      "id": "68060a44-4020-4899-8226-64589b20efd2",
       "name": "One-time",
       "type": "concept",
       "sources": [
@@ -210,7 +210,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "8a759cf0-ef95-42b2-8558-8fe53e53f319",
+      "id": "9320a85f-ac28-450d-8ecc-e7703bbe8e8d",
       "name": "Weekly",
       "type": "concept",
       "sources": [
@@ -252,7 +252,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "401e7382-7694-4675-81b2-7ce43650f7e0",
+      "id": "aedd1d1a-722a-4b5d-875b-10becf53cf13",
       "name": "Monthly",
       "type": "concept",
       "sources": [
@@ -294,7 +294,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "dad0060e-c829-4ccf-97c1-19be598661b2",
+      "id": "68d29707-015b-4565-9828-cd167d4db22e",
       "name": "Order",
       "type": "concept",
       "sources": [
@@ -336,7 +336,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "dd73bf1c-f6f7-4137-b2b5-c1adcefb02e7",
+      "id": "b7707459-023e-481c-9c61-2c6f592a61cf",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -378,7 +378,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "f3ec86ea-7d0b-4e3c-8b0c-2a17478642cf",
+      "id": "87d2ce75-d17c-4720-9842-694d88b2ecf3",
       "name": "Digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -407,11 +407,11 @@ const ORDER_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "dad0060e-c829-4ccf-97c1-19be598661b2",
+        "extends": "68d29707-015b-4565-9828-cd167d4db22e",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "dad0060e-c829-4ccf-97c1-19be598661b2"
+          "68d29707-015b-4565-9828-cd167d4db22e"
         ]
       },
       "has_fibo_mapping": true,
@@ -420,7 +420,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "070a2151-e607-48f0-8bf8-c2973f4b0472",
+      "id": "59afe995-d5ce-4b22-b23a-909e551741a5",
       "name": "Non-digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -449,11 +449,11 @@ const ORDER_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "dad0060e-c829-4ccf-97c1-19be598661b2",
+        "extends": "68d29707-015b-4565-9828-cd167d4db22e",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "dad0060e-c829-4ccf-97c1-19be598661b2"
+          "68d29707-015b-4565-9828-cd167d4db22e"
         ]
       },
       "has_fibo_mapping": true,
@@ -462,7 +462,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "dc4dac15-b538-414d-9b29-c18fe545babe",
+      "id": "23e2893a-aabe-4cb9-bbfd-90068677aa2b",
       "name": "Placed order",
       "type": "concept",
       "sources": [
@@ -504,7 +504,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "29bfa43c-50d2-48f6-b64a-79264d10738e",
+      "id": "62178978-3d6c-4b4a-9a26-3401f1a69ae8",
       "name": "Settled order",
       "type": "concept",
       "sources": [
@@ -546,7 +546,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "78aea508-9f2f-4535-b5bb-4252e8c437c6",
+      "id": "62721c78-c839-4eef-9a17-07e0e725ebbb",
       "name": "Sales",
       "type": "concept",
       "sources": [
@@ -586,213 +586,15 @@ const ORDER_DATA = {
       "has_schema_mapping": false,
       "has_definition": true,
       "has_parent": true
-    }
-  ],
-  "external_concepts": [
-    {
-      "name": "Service Channel",
-      "uri": "https://schema.org/ServiceChannel",
-      "type": "schema.org",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "inherited_from": "Digital Onboarding Channel",
-          "relationship": "isA"
-        }
-      ]
-    }
-  ],
-  "categorizations": [
-    {
-      "id": "a21969ee-4592-4778-a3d1-3de569f88bd0",
-      "parent_id": "42465b86-692b-458c-a977-520ce4fe0368",
-      "parent_name": "Saving plan (regular investment)",
-      "category_name": "@ by the frequency",
-      "children_ids": [
-        "8a759cf0-ef95-42b2-8558-8fe53e53f319",
-        "401e7382-7694-4675-81b2-7ce43650f7e0"
-      ],
-      "children_names": [
-        "Weekly",
-        "Monthly"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 22
-        }
-      ]
     },
     {
-      "id": "e97d3d14-8260-404d-94cb-05314b41720e",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
-      "parent_name": "Order",
-      "category_name": "@ by the frequency of trading",
-      "children_ids": [
-        "42465b86-692b-458c-a977-520ce4fe0368",
-        "cda6b2f7-6efd-448d-ada7-da6e0fa08e0a"
-      ],
-      "children_names": [
-        "Saving plan (regular investment)",
-        "One-time"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 23
-        }
-      ]
-    },
-    {
-      "id": "859bc475-6079-4921-9847-8b257cdb8259",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
-      "parent_name": "Order",
-      "category_name": "@ by the kind of trading",
-      "children_ids": [
-        "fc788e1b-74ca-4dd8-919e-5f8f8c361326",
-        "1569de41-5c9b-41a8-8414-3382be68a684"
-      ],
-      "children_names": [
-        "Sell",
-        "Buy"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 24
-        }
-      ]
-    },
-    {
-      "id": "f367e41c-0ba3-4ea6-9f91-c339c02d3f31",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
-      "parent_name": "Order",
-      "category_name": "@ by state",
-      "children_ids": [
-        "dd73bf1c-f6f7-4137-b2b5-c1adcefb02e7",
-        "29bfa43c-50d2-48f6-b64a-79264d10738e",
-        "dc4dac15-b538-414d-9b29-c18fe545babe"
-      ],
-      "children_names": [
-        "Executed order",
-        "Settled order",
-        "Placed order"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 25
-        }
-      ]
-    },
-    {
-      "id": "3ff5a511-bae5-44c0-82b7-75315d60dc99",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
-      "parent_name": "Order",
-      "category_name": "@ by [Onboarding Channel]",
-      "children_ids": [
-        "070a2151-e607-48f0-8bf8-c2973f4b0472",
-        "f3ec86ea-7d0b-4e3c-8b0c-2a17478642cf"
-      ],
-      "children_names": [
-        "Non-digital Onboarding Channel",
-        "Digital Onboarding Channel"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 26
-        }
-      ]
-    }
-  ],
-  "relationships": [
-    {
-      "id": "06b038ad-99e2-4bfc-a6a3-22281842aabc",
-      "subject_id": "78aea508-9f2f-4535-b5bb-4252e8c437c6",
-      "subject_name": "Sales",
-      "object_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
-      "object_name": "Order",
-      "verb_phrase": "is sum of",
-      "inverse_verb_phrase": "generates",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 29
-        }
-      ]
-    },
-    {
-      "source_name": "Digital Onboarding Channel",
-      "target_name": "Schema.org:Service Channel",
-      "forward_verb": "is a",
-      "backward_verb": "",
-      "type": "isA",
-      "match_source": "manual:channels",
-      "external_uri": "https://schema.org/ServiceChannel"
-    },
-    {
-      "source_name": "Non-digital Onboarding Channel",
-      "target_name": "Schema.org:Service Channel",
-      "forward_verb": "is a",
-      "backward_verb": "",
-      "type": "isA",
-      "match_source": "manual:channels",
-      "external_uri": "https://schema.org/ServiceChannel"
-    }
-  ],
-  "enumerations": [],
-  "unary_states": [],
-  "metadata": {
-    "concept_count": 13,
-    "external_concept_count": 1,
-    "fibo_mapped_count": 13,
-    "fibo_coverage": 100.0,
-    "schema_mapped_count": 2,
-    "semantic_coverage": 115.38461538461537,
-    "definition_coverage": 100.0,
-    "exact_matches": 1,
-    "synonym_matches": 0,
-    "parent_matches": 2,
-    "hierarchical_matches": 0,
-    "llm_matches": 0,
-    "no_matches": 0,
-    "non_fibo_count": 0,
-    "draft_definitions": 0,
-    "validation_errors": [],
-    "validation_warnings": []
-  },
-  "schema_version": "1.0.0",
-  "created_at": "2025-12-25T16:30:09.195842",
-  "modified_at": "2025-12-25T16:30:09.195853",
-  "generated": "2025-12-25T16:30:09.195857",
-  "fibo_version": "2024Q1"
-};
-
-// Position domain
-const POSITION_DATA = {
-  "domain": {
-    "path": "Test",
-    "name": "Test",
-    "version": "1.0.0",
-    "created": "2025-12-25T16:30:05.465098",
-    "sources": [
-      "Investment_Position.cs"
-    ]
-  },
-  "concepts": [
-    {
-      "id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "id": "f1e62582-8ddf-4ed4-9ebd-7f2b36f37c16",
       "name": "Position",
-      "type": "concept",
+      "type": "context_reference",
       "sources": [
         {
-          "file": "Investment_Position.cs",
-          "line": 4
+          "file": "Investment_Order.cs",
+          "line": 17
         }
       ],
       "aliases": [],
@@ -828,855 +630,13 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "b42e63d0-f31d-47e6-a21d-3c3237feaeb9",
-      "name": "Market / exchange",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 5
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/Exchange",
-        "label": "exchange",
-        "match_type": "keyword",
-        "confidence": 0.842,
-        "fibo_definition": "any organization, association, or group of persons, whether incorporated or unincorporated, which constitutes, maintains, or provides a facility for bringing together purchasers and sellers of financial instruments, commodities, or other products, services, or goods, and includes the market place and facilities maintained by such exchange",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "any organization, association, or group of persons, whether incorporated or unincorporated, which constitutes, maintains, or provides a facility for bringing together purchasers and sellers of financial instruments, commodities, or other products, services, or goods, and includes the market place and facilities maintained by such exchange",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/Exchange",
-        "extends_name": "exchange",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/Exchange"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "bc9be2f7-02f8-4680-82a0-32124708fb54",
-      "name": "Date",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 6
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/Date",
-        "label": "Date",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "A specific point in time defined by year, month, and day.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "A specific point in time defined by year, month, and day.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/Date",
-        "extends_name": "Date",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/Date"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "d90d108d-099e-4d9e-965c-8d3e83780296",
-      "name": "Trade date",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 7
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/BP/Process/FinancialContextAndProcess/SecuritiesTradeDatePositionReporting",
-        "label": "securities trade date position reporting",
-        "match_type": "keyword",
-        "confidence": 0.8,
-        "fibo_definition": "Matching of trade allegations to identify confirmed trades, on an Over the Counter market in Traded Securities.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "Matching of trade allegations to identify confirmed trades, on an Over the Counter market in Traded Securities.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/BP/Process/FinancialContextAndProcess/SecuritiesTradeDatePositionReporting",
-        "extends_name": "securities trade date position reporting",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/BP/Process/FinancialContextAndProcess/SecuritiesTradeDatePositionReporting"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "4d998fff-dbd1-4ea1-af7c-bc8a17933f0f",
-      "name": "Settlement date",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 8
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/ParametricSchedules/SettlementDateRule",
-        "label": "settlement date rule",
-        "match_type": "keyword",
-        "confidence": 0.8,
-        "fibo_definition": "convention for determining settlement dates by reference to some jurisdiction or as set by a given exchange or similar venue",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "convention for determining settlement dates by reference to some jurisdiction or as set by a given exchange or similar venue",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/ParametricSchedules/SettlementDateRule",
-        "extends_name": "settlement date rule",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/ParametricSchedules/SettlementDateRule"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "7c5dfdd3-9a87-462e-96bc-0ef78853d9ae",
-      "name": "Sold position",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 9
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
-        "label": "position",
-        "match_type": "keyword",
-        "confidence": 0.842,
-        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
-        "extends_name": "position",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
-      "name": "Asset under Management (AUM)",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 10
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
-        "label": "Assets Under Management",
-        "match_type": "keyword",
-        "confidence": 0.8,
-        "fibo_definition": "The total market value of investments that a financial institution manages on behalf of clients.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "The total market value of investments that a financial institution manages on behalf of clients.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
-        "extends_name": "Assets Under Management",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "5df0d7ed-e9b3-4154-947c-c7a7d1667cc3",
-      "name": "Market value",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 11
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/MarketValue",
-        "label": "market value",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "price an asset would sell for in the market",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "price an asset would sell for in the market",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/MarketValue",
-        "extends_name": "market value",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/MarketValue"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "c8b13224-6e84-407b-bf05-006fecdd7824",
-      "name": "Number of products",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 12
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/BP/SecuritiesIssuance/PrivateLabelMBSIssuance/NumberingAgency",
-        "label": "numbering agency",
-        "match_type": "keyword",
-        "confidence": 0.734,
-        "fibo_definition": "The agency which will provide the primary securitiy identifier for the security. Term origin:MBS PoC Reviews",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "The agency which will provide the primary securitiy identifier for the security. Term origin:MBS PoC Reviews",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/BP/SecuritiesIssuance/PrivateLabelMBSIssuance/NumberingAgency",
-        "extends_name": "numbering agency",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/BP/SecuritiesIssuance/PrivateLabelMBSIssuance/NumberingAgency"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "bc7432d0-f214-4726-820e-9f30f25a8a4d",
-      "name": "Portfolio",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 13
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
-        "label": "portfolio",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
-        "extends_name": "portfolio",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    }
-  ],
-  "external_concepts": [],
-  "categorizations": [
-    {
-      "id": "13fc2d66-3c03-490b-8429-42ea78b1f1bc",
-      "parent_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
-      "parent_name": "Position",
-      "category_name": "kind of [Posiition]",
-      "children_ids": [
-        "b42e63d0-f31d-47e6-a21d-3c3237feaeb9",
-        "bc9be2f7-02f8-4680-82a0-32124708fb54"
-      ],
-      "children_names": [
-        "Market / exchange",
-        "Date"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 22
-        }
-      ]
-    },
-    {
-      "id": "849b3615-c7b9-42f8-b0e2-703bd4bd3b60",
-      "parent_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
-      "parent_name": "Position",
-      "category_name": "by the state",
-      "children_ids": [
-        "7c5dfdd3-9a87-462e-96bc-0ef78853d9ae"
-      ],
-      "children_names": [
-        "Sold position"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 23
-        }
-      ]
-    },
-    {
-      "id": "decb0a2f-a999-468a-81ab-38fb3f94638f",
-      "parent_id": "bc9be2f7-02f8-4680-82a0-32124708fb54",
-      "parent_name": "Date",
-      "category_name": "kind of [Date]",
-      "children_ids": [
-        "d90d108d-099e-4d9e-965c-8d3e83780296",
-        "4d998fff-dbd1-4ea1-af7c-bc8a17933f0f"
-      ],
-      "children_names": [
-        "Trade date",
-        "Settlement date"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 24
-        }
-      ]
-    }
-  ],
-  "relationships": [
-    {
-      "id": "ab8bb4a1-4e88-4bf1-a6ae-4a983699376d",
-      "subject_id": "7c5dfdd3-9a87-462e-96bc-0ef78853d9ae",
-      "subject_name": "Sold position",
-      "object_id": "4d998fff-dbd1-4ea1-af7c-bc8a17933f0f",
-      "object_name": "Settlement date",
-      "verb_phrase": "transfers of funds on",
-      "inverse_verb_phrase": "",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 30
-        }
-      ]
-    },
-    {
-      "id": "aba30229-b7cc-47ec-b3d4-c4e4d19094d5",
-      "subject_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
-      "subject_name": "Position",
-      "object_id": "d90d108d-099e-4d9e-965c-8d3e83780296",
-      "object_name": "Trade date",
-      "verb_phrase": "is traded on",
-      "inverse_verb_phrase": "",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 31
-        }
-      ]
-    },
-    {
-      "id": "9991a03f-0bff-48ac-bfc1-34dfb9264e59",
-      "subject_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
-      "subject_name": "Asset under Management (AUM)",
-      "object_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
-      "object_name": "Position",
-      "verb_phrase": "is sum of",
-      "inverse_verb_phrase": "generates",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 32
-        }
-      ]
-    },
-    {
-      "id": "146e6b97-b39e-4c58-9c32-e7cd09f53d32",
-      "subject_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
-      "subject_name": "Asset under Management (AUM)",
-      "object_id": "5df0d7ed-e9b3-4154-947c-c7a7d1667cc3",
-      "object_name": "Market value",
-      "verb_phrase": "is calculated based on",
-      "inverse_verb_phrase": "",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 33
-        }
-      ]
-    },
-    {
-      "id": "888f528a-0979-4d1d-8150-80a3220595cc",
-      "subject_id": "c8b13224-6e84-407b-bf05-006fecdd7824",
-      "subject_name": "Number of products",
-      "object_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
-      "object_name": "Asset under Management (AUM)",
-      "verb_phrase": "is calculated based on",
-      "inverse_verb_phrase": "",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 34
-        }
-      ]
-    },
-    {
-      "id": "d5a3d74d-a4cc-4e0c-9068-2d7fd44ac6c7",
-      "subject_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
-      "subject_name": "Position",
-      "object_id": "bc7432d0-f214-4726-820e-9f30f25a8a4d",
-      "object_name": "Portfolio",
-      "verb_phrase": "is part of",
-      "inverse_verb_phrase": "is sum of",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 35
-        }
-      ]
-    },
-    {
-      "id": "d36cc0c8-cda4-4047-9691-c9f2cb199847",
-      "subject_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
-      "subject_name": "Asset under Management (AUM)",
-      "object_id": "bc7432d0-f214-4726-820e-9f30f25a8a4d",
-      "object_name": "Portfolio",
-      "verb_phrase": "is value of",
-      "inverse_verb_phrase": "is valuated as",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 36
-        }
-      ]
-    }
-  ],
-  "enumerations": [
-    {
-      "id": "9d6e15c9-46ed-4b1b-b671-cb5dead416a1",
-      "concept_id": "b42e63d0-f31d-47e6-a21d-3c3237feaeb9",
-      "concept_name": "Market / exchange",
-      "values": [
-        "BCPP",
-        "US",
-        "GY"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Position.cs",
-          "line": 27
-        }
-      ]
-    }
-  ],
-  "unary_states": [],
-  "metadata": {
-    "concept_count": 10,
-    "external_concept_count": 0,
-    "fibo_mapped_count": 10,
-    "fibo_coverage": 100.0,
-    "schema_mapped_count": 0,
-    "semantic_coverage": 100.0,
-    "definition_coverage": 100.0,
-    "exact_matches": 4,
-    "synonym_matches": 0,
-    "parent_matches": 0,
-    "hierarchical_matches": 0,
-    "llm_matches": 0,
-    "no_matches": 0,
-    "non_fibo_count": 0,
-    "draft_definitions": 0,
-    "validation_errors": [],
-    "validation_warnings": []
-  },
-  "schema_version": "1.0.0",
-  "created_at": "2025-12-25T16:30:21.476621",
-  "modified_at": "2025-12-25T16:30:21.476631",
-  "generated": "2025-12-25T16:30:21.476632",
-  "fibo_version": "2024Q1"
-};
-
-// Transaction domain
-const TRANSACTION_DATA = {
-  "domain": {
-    "path": "Test",
-    "name": "Test",
-    "version": "1.0.0",
-    "created": "2025-12-25T16:30:06.034320",
-    "sources": [
-      "Investment_Transaction.cs"
-    ]
-  },
-  "concepts": [
-    {
-      "id": "33088419-0871-4164-9bdd-9df97c864a20",
-      "name": "Transaction",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Transaction.cs",
-          "line": 4
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
-        "label": "Transaction",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instance of buying or selling something; a business deal or exchange.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
-        "extends_name": "Transaction",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "b4625732-d22e-4e28-aa97-0d83b0410113",
-      "name": "Automatic",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Transaction.cs",
-          "line": 5
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
-        "label": "Transaction",
-        "match_type": "parent",
-        "confidence": 0.8,
-        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instance of buying or selling something; a business deal or exchange.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "33088419-0871-4164-9bdd-9df97c864a20",
-        "extends_name": "Transaction",
-        "depth": 2,
-        "path": [
-          "33088419-0871-4164-9bdd-9df97c864a20"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": true,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "1cc51c9e-140a-4f60-a0b1-5e4bba099eca",
-      "name": "Manual",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Transaction.cs",
-          "line": 6
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
-        "label": "Transaction",
-        "match_type": "parent",
-        "confidence": 0.8,
-        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instance of buying or selling something; a business deal or exchange.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "33088419-0871-4164-9bdd-9df97c864a20",
-        "extends_name": "Transaction",
-        "depth": 2,
-        "path": [
-          "33088419-0871-4164-9bdd-9df97c864a20"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": true,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "fef71090-db68-4dc1-bfe5-47ae716e646b",
-      "name": "Trade",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Transaction.cs",
-          "line": 7
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
-        "label": "trade",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
-        "extends_name": "trade",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "4efffb56-de3d-453b-b46a-152f9d23a894",
-      "name": "Repo trade",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Transaction.cs",
-          "line": 8
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
-        "label": "trade",
-        "match_type": "keyword",
-        "confidence": 0.845,
-        "fibo_definition": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
-        "extends_name": "trade",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "3ab1e5b9-1c21-4609-b712-aa86f255dfeb",
+      "id": "0a4aac6e-c7ad-482c-ae71-8097ae4ec156",
       "name": "Payment",
-      "type": "concept",
+      "type": "context_reference",
       "sources": [
         {
-          "file": "Investment_Transaction.cs",
-          "line": 9
+          "file": "Investment_Order.cs",
+          "line": 18
         }
       ],
       "aliases": [],
@@ -1712,40 +672,40 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "7cd8aac7-c95b-4379-bf6e-830817fb5e96",
-      "name": "Executed order",
-      "type": "concept",
+      "id": "08972fe9-a545-46ee-9cdd-c6aed6315626",
+      "name": "Custody fee",
+      "type": "context_reference",
       "sources": [
         {
-          "file": "Investment_Transaction.cs",
-          "line": 10
+          "file": "Investment_Order.cs",
+          "line": 19
         }
       ],
       "aliases": [],
       "merged_from": [],
       "local_definition": "",
       "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "label": "Custody Agreement",
         "match_type": "keyword",
-        "confidence": 0.845,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "confidence": 0.733,
+        "fibo_definition": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
         "fibo_module": "",
         "isA": ""
       },
       "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "text": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
         "source": "FIBO",
         "confidence": "MAPPED",
         "needs_review": false,
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "extends_name": "Custody Agreement",
         "depth": 1,
         "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement"
         ]
       },
       "has_fibo_mapping": true,
@@ -1756,13 +716,13 @@ const TRANSACTION_DATA = {
   ],
   "external_concepts": [
     {
-      "name": "Action",
-      "uri": "https://schema.org/Action",
+      "name": "Service Channel",
+      "uri": "https://schema.org/ServiceChannel",
       "type": "schema.org",
       "sources": [
         {
-          "file": "Investment_Transaction.cs",
-          "inherited_from": "Automatic",
+          "file": "Investment_Order.cs",
+          "inherited_from": "Digital Onboarding Channel",
           "relationship": "isA"
         }
       ]
@@ -1770,95 +730,213 @@ const TRANSACTION_DATA = {
   ],
   "categorizations": [
     {
-      "id": "a880e288-d5e8-4b63-b99b-35e35f42b0be",
-      "parent_id": "33088419-0871-4164-9bdd-9df97c864a20",
-      "parent_name": "Transaction",
-      "category_name": "@ by the type of trades",
+      "id": "92e3a3de-5556-4688-afdd-dea93c3da98d",
+      "parent_id": "85651491-ac31-4b73-931e-53c33a824790",
+      "parent_name": "Saving plan (regular investment)",
+      "category_name": "@ by the frequency",
       "children_ids": [
-        "fef71090-db68-4dc1-bfe5-47ae716e646b",
-        "4efffb56-de3d-453b-b46a-152f9d23a894"
+        "9320a85f-ac28-450d-8ecc-e7703bbe8e8d",
+        "aedd1d1a-722a-4b5d-875b-10becf53cf13"
       ],
       "children_names": [
-        "Trade",
-        "Repo trade"
+        "Weekly",
+        "Monthly"
       ],
       "sources": [
         {
-          "file": "Investment_Transaction.cs",
-          "line": 14
+          "file": "Investment_Order.cs",
+          "line": 22
         }
       ]
     },
     {
-      "id": "acbd563a-ac51-4543-82f9-bdf13263cf90",
-      "parent_id": "33088419-0871-4164-9bdd-9df97c864a20",
-      "parent_name": "Transaction",
-      "category_name": "@ by the type of processing",
+      "id": "ff9d967c-7617-4997-ada1-a2bc05b4f639",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
+      "parent_name": "Order",
+      "category_name": "@ by the frequency of trading",
       "children_ids": [
-        "b4625732-d22e-4e28-aa97-0d83b0410113",
-        "1cc51c9e-140a-4f60-a0b1-5e4bba099eca"
+        "85651491-ac31-4b73-931e-53c33a824790",
+        "68060a44-4020-4899-8226-64589b20efd2"
       ],
       "children_names": [
-        "Automatic",
-        "Manual"
+        "Saving plan (regular investment)",
+        "One-time"
       ],
       "sources": [
         {
-          "file": "Investment_Transaction.cs",
-          "line": 15
+          "file": "Investment_Order.cs",
+          "line": 23
         }
       ]
     },
     {
-      "id": "f6518646-c550-4f96-a628-a4821c76b6ce",
-      "parent_id": "33088419-0871-4164-9bdd-9df97c864a20",
-      "parent_name": "Transaction",
-      "category_name": "kind of [Transaction]",
+      "id": "dd13a321-31a0-4f3d-8b90-e8def9ec9d46",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
+      "parent_name": "Order",
+      "category_name": "@ by the kind of trading",
       "children_ids": [
-        "7cd8aac7-c95b-4379-bf6e-830817fb5e96",
-        "3ab1e5b9-1c21-4609-b712-aa86f255dfeb"
+        "a0080959-60f1-4524-93de-abefe6dab8d2",
+        "0b69c292-ec51-4ef6-aaaa-f838ef4c9992"
+      ],
+      "children_names": [
+        "Sell",
+        "Buy"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "id": "70ff36cd-7d20-4d9c-9a2c-62454a2a0e23",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
+      "parent_name": "Order",
+      "category_name": "@ by state",
+      "children_ids": [
+        "b7707459-023e-481c-9c61-2c6f592a61cf",
+        "62178978-3d6c-4b4a-9a26-3401f1a69ae8",
+        "23e2893a-aabe-4cb9-bbfd-90068677aa2b"
       ],
       "children_names": [
         "Executed order",
-        "Payment"
+        "Settled order",
+        "Placed order"
       ],
       "sources": [
         {
-          "file": "Investment_Transaction.cs",
-          "line": 16
+          "file": "Investment_Order.cs",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "id": "e4b302e0-5f15-4c8e-ab45-39c020660487",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
+      "parent_name": "Order",
+      "category_name": "@ by [Onboarding Channel]",
+      "children_ids": [
+        "59afe995-d5ce-4b22-b23a-909e551741a5",
+        "87d2ce75-d17c-4720-9842-694d88b2ecf3"
+      ],
+      "children_names": [
+        "Non-digital Onboarding Channel",
+        "Digital Onboarding Channel"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 26
         }
       ]
     }
   ],
   "relationships": [
     {
-      "source_name": "Automatic",
-      "target_name": "Schema.org:Action",
-      "forward_verb": "is a",
-      "backward_verb": "",
-      "type": "isA",
-      "match_source": "manual:process_types",
-      "external_uri": "https://schema.org/Action"
+      "id": "ebb44a21-d6d3-4cab-970c-885d13c6b505",
+      "subject_id": "62721c78-c839-4eef-9a17-07e0e725ebbb",
+      "subject_name": "Sales",
+      "object_id": "68d29707-015b-4565-9828-cd167d4db22e",
+      "object_name": "Order",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 29
+        }
+      ]
     },
     {
-      "source_name": "Manual",
-      "target_name": "Schema.org:Action",
+      "id": "e44cb03b-a1a3-4ccc-8b92-3ec444b8dbc6",
+      "subject_id": "b7707459-023e-481c-9c61-2c6f592a61cf",
+      "subject_name": "Executed order",
+      "object_id": "f1e62582-8ddf-4ed4-9ebd-7f2b36f37c16",
+      "object_name": "Position",
+      "verb_phrase": "predicts",
+      "inverse_verb_phrase": "consists of",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "5454e5e7-2a54-4eaf-b225-07118067b92b",
+      "subject_id": "b7707459-023e-481c-9c61-2c6f592a61cf",
+      "subject_name": "Executed order",
+      "object_id": "0a4aac6e-c7ad-482c-ae71-8097ae4ec156",
+      "object_name": "Payment",
+      "verb_phrase": "is being settled for",
+      "inverse_verb_phrase": "is settled to",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "#~Settlement",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "3358e43e-bca3-4639-8ae6-f91ef8e74b16",
+      "subject_id": "08972fe9-a545-46ee-9cdd-c6aed6315626",
+      "subject_name": "Custody fee",
+      "object_id": "f1e62582-8ddf-4ed4-9ebd-7f2b36f37c16",
+      "object_name": "Position",
+      "verb_phrase": "is charged for",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "source_name": "Digital Onboarding Channel",
+      "target_name": "Schema.org:Service Channel",
       "forward_verb": "is a",
       "backward_verb": "",
       "type": "isA",
-      "match_source": "manual:process_types",
-      "external_uri": "https://schema.org/Action"
+      "match_source": "manual:channels",
+      "external_uri": "https://schema.org/ServiceChannel"
+    },
+    {
+      "source_name": "Non-digital Onboarding Channel",
+      "target_name": "Schema.org:Service Channel",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:channels",
+      "external_uri": "https://schema.org/ServiceChannel"
     }
   ],
   "enumerations": [],
   "unary_states": [],
   "metadata": {
-    "concept_count": 7,
+    "concept_count": 16,
     "external_concept_count": 1,
-    "fibo_mapped_count": 7,
+    "fibo_mapped_count": 16,
     "fibo_coverage": 100.0,
     "schema_mapped_count": 2,
-    "semantic_coverage": 128.57142857142858,
+    "semantic_coverage": 112.5,
     "definition_coverage": 100.0,
     "exact_matches": 3,
     "synonym_matches": 0,
@@ -1872,2325 +950,26 @@ const TRANSACTION_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-25T16:30:31.346338",
-  "modified_at": "2025-12-25T16:30:31.346348",
-  "generated": "2025-12-25T16:30:31.346350",
+  "created_at": "2025-12-25T17:48:17.677854",
+  "modified_at": "2025-12-25T17:48:17.677868",
+  "generated": "2025-12-25T17:48:17.677872",
   "fibo_version": "2024Q1"
 };
 
-// Payment domain
-const PAYMENT_DATA = {
+// Position domain
+const POSITION_DATA = {
   "domain": {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-25T16:30:06.875449",
+    "created": "2025-12-25T17:48:11.662555",
     "sources": [
-      "Investment_Payment.cs"
+      "Investment_Position.cs"
     ]
   },
   "concepts": [
     {
-      "id": "cdc8af33-d996-4b4c-8130-a512df8cdc03",
-      "name": "Fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 4
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Fee",
-        "label": "fee",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "charge for services performed",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "charge for services performed",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Fee",
-        "extends_name": "fee",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Fee"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "a70b7057-779f-48ff-bb1d-cc19a88f9604",
-      "name": "Incoming Payment",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 5
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
-        "label": "payment",
-        "match_type": "keyword",
-        "confidence": 0.843,
-        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
-        "extends_name": "payment",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "840ca546-7463-4026-8e05-35fd21758399",
-      "name": "Outgoing Payment",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 6
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
-        "label": "payment",
-        "match_type": "keyword",
-        "confidence": 0.843,
-        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
-        "extends_name": "payment",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "80b064dd-34a3-4a4a-a2c4-a523ee826ef9",
-      "name": "Deposit",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 7
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
-        "label": "Deposit",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "A sum of money placed or kept in a bank account, usually to gain interest.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "A sum of money placed or kept in a bank account, usually to gain interest.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
-        "extends_name": "Deposit",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "f37832ac-3f43-4714-b5b3-b0e06927375b",
-      "name": "First date of Deposit",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 8
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/Bonds/FirstRegularCouponDate",
-        "label": "first regular coupon date",
-        "match_type": "keyword",
-        "confidence": 0.8,
-        "fibo_definition": "scheduled date for the first regular coupon payment, in a regular repeating series of coupon periods, after any non standard (long or short) first coupon period in the schedule",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "scheduled date for the first regular coupon payment, in a regular repeating series of coupon periods, after any non standard (long or short) first coupon period in the schedule",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/Bonds/FirstRegularCouponDate",
-        "extends_name": "first regular coupon date",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/Bonds/FirstRegularCouponDate"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "99044663-d50d-460a-beb8-43dc1b73f7db",
-      "name": "Payment",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 9
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
-        "label": "payment",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
-        "extends_name": "payment",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "77cf5306-e53b-4959-a3b0-d02550a4ef00",
-      "name": "Custody fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 10
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
-        "label": "Custody Agreement",
-        "match_type": "keyword",
-        "confidence": 0.733,
-        "fibo_definition": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
-        "extends_name": "Custody Agreement",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "364d26a0-ed98-4d79-955b-35b846f260a5",
-      "name": "Entry fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 11
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/LedgerEntry",
-        "label": "ledger entry",
-        "match_type": "keyword",
-        "confidence": 0.688,
-        "fibo_definition": "Some imbalance, at a given point in time, between the respective rights and obligations of two parties with respect to one another.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "Some imbalance, at a given point in time, between the respective rights and obligations of two parties with respect to one another.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/LedgerEntry",
-        "extends_name": "ledger entry",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/LedgerEntry"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "d2134a26-0a6b-4ab0-a001-e1d55f3acd7d",
-      "name": "Kickback fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 12
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
-        "label": "sales strategy",
-        "match_type": "inherited",
-        "confidence": 0.5152,
-        "fibo_definition": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
-        "extends_name": "sales strategy",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "52c68771-cb0a-451f-bf46-143c2137a9c0",
-      "name": "Liability margin",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 13
-        },
-        {
-          "file": "Investment_Payment.cs",
-          "line": 16
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/DebtInstruments/Margin",
-        "label": "margin",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "a variable that is added to a specified index rate to determine the fully indexed interest rate charged to a borrower on a credit balance",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "a variable that is added to a specified index rate to determine the fully indexed interest rate charged to a borrower on a credit balance",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/DebtInstruments/Margin",
-        "extends_name": "margin",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/DebtInstruments/Margin"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "a1f7d763-13d3-4b82-9bc6-d7a57bef432f",
-      "name": "Trailer fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 14
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
-        "label": "portfolio",
-        "match_type": "inherited",
-        "confidence": 0.5886999999999999,
-        "fibo_definition": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
-        "extends_name": "portfolio",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "e3d6df58-293f-4694-8f60-46a183a6e605",
-      "name": "Other fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 15
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Funds/CollectiveInvestmentVehicles/OtherInvestmentFundInformation",
-        "label": "other investment fund information",
-        "match_type": "keyword",
-        "confidence": 0.717,
-        "fibo_definition": "Things which are not part of the prospectus but are important if you want to understand the fund.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "Things which are not part of the prospectus but are important if you want to understand the fund.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Funds/CollectiveInvestmentVehicles/OtherInvestmentFundInformation",
-        "extends_name": "other investment fund information",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Funds/CollectiveInvestmentVehicles/OtherInvestmentFundInformation"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "9a36bcb3-bff5-4aae-a210-959274b776e8",
-      "name": "Portfolio-based fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 17
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
-        "label": "portfolio",
-        "match_type": "keyword",
-        "confidence": 0.841,
-        "fibo_definition": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
-        "extends_name": "portfolio",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "fea921ff-9b73-4310-82f6-5a455d69e4eb",
-      "name": "Sales fee",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 18
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
-        "label": "sales strategy",
-        "match_type": "keyword",
-        "confidence": 0.736,
-        "fibo_definition": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
-        "extends_name": "sales strategy",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
-      "name": "Income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 19
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "label": "income",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "revenue received during a period of time",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "revenue received during a period of time",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "extends_name": "income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "b71d2039-ec63-473b-aeef-a3cc7a20d9a8",
-      "name": "Core income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 20
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "label": "income",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "revenue received during a period of time",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "revenue received during a period of time",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "extends_name": "income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "4d7b1c43-5b95-47e6-b07c-264e7f1a70b7",
-      "name": "RIS group income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 21
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/Group",
-        "label": "group",
-        "match_type": "keyword",
-        "confidence": 0.845,
-        "fibo_definition": "collection of agents (people, organizations, software agents, etc.) that are considered as a unit",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "collection of agents (people, organizations, software agents, etc.) that are considered as a unit",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/Group",
-        "extends_name": "group",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/Group"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "3574ea18-2d89-4bcf-a7ca-3bf880b8cb0e",
-      "name": "Allocated income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 22
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "label": "income",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "revenue received during a period of time",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "revenue received during a period of time",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "extends_name": "income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "e52c85c4-462f-4d01-bbb5-69d2e320ae57",
-      "name": "LAMC income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 23
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "label": "income",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "revenue received during a period of time",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "revenue received during a period of time",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "extends_name": "income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
-      "name": "Profitability",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 24
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": null,
-      "definition": {
-        "text": "Profitability in Test domain",
-        "source": "DRAFT",
-        "confidence": "DRAFT",
-        "needs_review": true,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "owl:Thing",
-        "extends_name": "Thing",
-        "depth": 1,
-        "path": [
-          "owl:Thing"
-        ]
-      },
-      "has_fibo_mapping": false,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "48b7cbb1-80a5-4301-a387-2afa6242c0c6",
-      "name": "Gross Income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 25
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "label": "income",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "revenue received during a period of time",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "revenue received during a period of time",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "extends_name": "income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "e0a1c21e-cd4e-4f5b-a3dd-df40d46f0e23",
-      "name": "LTV (Life Time Value) GI (Gross Income)",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 26
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": null,
-      "definition": {
-        "text": "LTV (Life Time Value) GI (Gross Income) in Test domain",
-        "source": "DRAFT",
-        "confidence": "DRAFT",
-        "needs_review": true,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "owl:Thing",
-        "extends_name": "Thing",
-        "depth": 1,
-        "path": [
-          "owl:Thing"
-        ]
-      },
-      "has_fibo_mapping": false,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "53b448a4-f199-4977-b361-fd3760f7be7c",
-      "name": "Other income",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 27
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "label": "income",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "revenue received during a period of time",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "revenue received during a period of time",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
-        "extends_name": "income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    }
-  ],
-  "external_concepts": [],
-  "categorizations": [
-    {
-      "id": "c0ab9c0b-72ee-48b9-bd54-c775abaef1b5",
-      "parent_id": "a70b7057-779f-48ff-bb1d-cc19a88f9604",
-      "parent_name": "Incoming Payment",
-      "category_name": "kind of[IncomingPayment]",
-      "children_ids": [
-        "cdc8af33-d996-4b4c-8130-a512df8cdc03",
-        "80b064dd-34a3-4a4a-a2c4-a523ee826ef9"
-      ],
-      "children_names": [
-        "Fee",
-        "Deposit"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 34
-        }
-      ]
-    },
-    {
-      "id": "0232a674-33eb-445b-8722-a75826e2bfd2",
-      "parent_id": "99044663-d50d-460a-beb8-43dc1b73f7db",
-      "parent_name": "Payment",
-      "category_name": "Kind of [Payment]",
-      "children_ids": [
-        "a70b7057-779f-48ff-bb1d-cc19a88f9604",
-        "840ca546-7463-4026-8e05-35fd21758399"
-      ],
-      "children_names": [
-        "Incoming Payment",
-        "Outgoing Payment"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 35
-        }
-      ]
-    },
-    {
-      "id": "d50d29c1-b2cb-4555-bcfe-a4ef4af7262a",
-      "parent_id": "fea921ff-9b73-4310-82f6-5a455d69e4eb",
-      "parent_name": "Sales fee",
-      "category_name": "@ by fee name",
-      "children_ids": [
-        "d2134a26-0a6b-4ab0-a001-e1d55f3acd7d",
-        "364d26a0-ed98-4d79-955b-35b846f260a5"
-      ],
-      "children_names": [
-        "Kickback fee",
-        "Entry fee"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 36
-        }
-      ]
-    },
-    {
-      "id": "dce039dc-5e35-438d-830e-2cd419bfe24e",
-      "parent_id": "9a36bcb3-bff5-4aae-a210-959274b776e8",
-      "parent_name": "Portfolio-based fee",
-      "category_name": "@ by fee name",
-      "children_ids": [
-        "77cf5306-e53b-4959-a3b0-d02550a4ef00",
-        "e3d6df58-293f-4694-8f60-46a183a6e605",
-        "a1f7d763-13d3-4b82-9bc6-d7a57bef432f"
-      ],
-      "children_names": [
-        "Custody fee",
-        "Other fee",
-        "Trailer fee"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 37
-        }
-      ]
-    },
-    {
-      "id": "ffae47a4-6702-40a3-a7e3-a3ac6ecacc16",
-      "parent_id": "cdc8af33-d996-4b4c-8130-a512df8cdc03",
-      "parent_name": "Fee",
-      "category_name": "@ by fee category",
-      "children_ids": [
-        "9a36bcb3-bff5-4aae-a210-959274b776e8",
-        "fea921ff-9b73-4310-82f6-5a455d69e4eb",
-        "52c68771-cb0a-451f-bf46-143c2137a9c0"
-      ],
-      "children_names": [
-        "Portfolio-based fee",
-        "Sales fee",
-        "Liability margin"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 38
-        }
-      ]
-    },
-    {
-      "id": "a1a6a6b3-9c73-4834-ad2d-403552f8c14e",
-      "parent_id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
-      "parent_name": "Income",
-      "category_name": "kind of [Income]",
-      "children_ids": [
-        "53b448a4-f199-4977-b361-fd3760f7be7c",
-        "4d7b1c43-5b95-47e6-b07c-264e7f1a70b7",
-        "3574ea18-2d89-4bcf-a7ca-3bf880b8cb0e",
-        "e52c85c4-462f-4d01-bbb5-69d2e320ae57",
-        "b71d2039-ec63-473b-aeef-a3cc7a20d9a8"
-      ],
-      "children_names": [
-        "Other income",
-        "RIS group income",
-        "Allocated income",
-        "LAMC income",
-        "Core income"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 40
-        }
-      ]
-    }
-  ],
-  "relationships": [
-    {
-      "id": "8cfa6eae-7197-4ff0-898f-374c968eaff5",
-      "subject_id": "80b064dd-34a3-4a4a-a2c4-a523ee826ef9",
-      "subject_name": "Deposit",
-      "object_id": "f37832ac-3f43-4714-b5b3-b0e06927375b",
-      "object_name": "First date of Deposit",
-      "verb_phrase": "has [First date]",
-      "inverse_verb_phrase": "",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 43
-        }
-      ]
-    },
-    {
-      "id": "91f15e39-1bf2-4b55-bdef-ec063c65398f",
-      "subject_id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
-      "subject_name": "Income",
-      "object_id": "a70b7057-779f-48ff-bb1d-cc19a88f9604",
-      "object_name": "Incoming Payment",
-      "verb_phrase": "is generated by",
-      "inverse_verb_phrase": "generates",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 44
-        }
-      ]
-    },
-    {
-      "id": "519ffd3f-4e07-4009-81ac-36ca0f531533",
-      "subject_id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
-      "subject_name": "Profitability",
-      "object_id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
-      "object_name": "Income",
-      "verb_phrase": "is sum of",
-      "inverse_verb_phrase": "generates",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 45
-        }
-      ]
-    },
-    {
-      "id": "625bdd31-6229-4d10-9e3a-1720f2e2f682",
-      "subject_id": "48b7cbb1-80a5-4301-a387-2afa6242c0c6",
-      "subject_name": "Gross Income",
-      "object_id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
-      "object_name": "Profitability",
-      "verb_phrase": "measures",
-      "inverse_verb_phrase": "is measured by",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 46
-        }
-      ]
-    },
-    {
-      "id": "a0dbe670-fc87-43d7-8a6b-2457cfc996df",
-      "subject_id": "e0a1c21e-cd4e-4f5b-a3dd-df40d46f0e23",
-      "subject_name": "LTV (Life Time Value) GI (Gross Income)",
-      "object_id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
-      "object_name": "Profitability",
-      "verb_phrase": "predicts",
-      "inverse_verb_phrase": "is measured by",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Payment.cs",
-          "line": 47
-        }
-      ]
-    }
-  ],
-  "enumerations": [],
-  "unary_states": [],
-  "metadata": {
-    "concept_count": 23,
-    "external_concept_count": 0,
-    "fibo_mapped_count": 21,
-    "fibo_coverage": 91.30434782608695,
-    "schema_mapped_count": 0,
-    "semantic_coverage": 91.30434782608695,
-    "definition_coverage": 100.0,
-    "exact_matches": 4,
-    "synonym_matches": 0,
-    "parent_matches": 0,
-    "hierarchical_matches": 0,
-    "llm_matches": 0,
-    "no_matches": 2,
-    "non_fibo_count": 2,
-    "draft_definitions": 2,
-    "validation_errors": [],
-    "validation_warnings": [
-      "2 concepts have DRAFT definitions that need review"
-    ]
-  },
-  "schema_version": "1.0.0",
-  "created_at": "2025-12-25T16:30:35.692373",
-  "modified_at": "2025-12-25T16:30:35.692382",
-  "generated": "2025-12-25T16:30:35.692385",
-  "fibo_version": "2024Q1"
-};
-
-// FinancialAccount domain
-const FINANCIAL_ACCOUNT_DATA = {
-  "domain": {
-    "path": "Test",
-    "name": "Test",
-    "version": "1.0.0",
-    "created": "2025-12-25T16:30:07.439953",
-    "sources": [
-      "Investment_Financial_Account.cs"
-    ]
-  },
-  "concepts": [
-    {
-      "id": "85e23f29-d2e2-4c91-8f74-eab774b8354c",
-      "name": "Account",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 4
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
-        "label": "account",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "container for records associated with a business arrangement for regular transactions and services",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "container for records associated with a business arrangement for regular transactions and services",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
-        "extends_name": "account",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
-      "name": "Current account",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 5
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount",
-        "label": "Deposit Account",
-        "match_type": "synonym",
-        "confidence": 0.9,
-        "fibo_definition": "A bank account that allows money to be deposited and withdrawn by the account holder.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "A bank account that allows money to be deposited and withdrawn by the account holder.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount",
-        "extends_name": "Deposit Account",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "ae97a7d8-bacf-480b-8e0f-0d46f784622f",
-      "name": "Active current account",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 6
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
-        "label": "active",
-        "match_type": "keyword",
-        "confidence": 0.844,
-        "fibo_definition": "Security is actively traded",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "Security is actively traded",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
-        "extends_name": "active",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "74190731-4374-4229-b180-728f95905b4d",
-      "name": "Saving Account",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 7
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
-        "label": "account",
-        "match_type": "keyword",
-        "confidence": 0.843,
-        "fibo_definition": "container for records associated with a business arrangement for regular transactions and services",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "container for records associated with a business arrangement for regular transactions and services",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
-        "extends_name": "account",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "8fe8680d-8937-4bb2-86aa-ced80c114f67",
-      "name": "Investment account (BIU)",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 8
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
-        "label": "investment account",
-        "match_type": "keyword",
-        "confidence": 0.8,
-        "fibo_definition": "account that provides a record of deposits of funds and/or securities held at a financial institution",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "account that provides a record of deposits of funds and/or securities held at a financial institution",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
-        "extends_name": "investment account",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "b04e3f72-4410-4ee7-9701-5460803d201b",
-      "name": "Currency",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 9
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "label": "currency",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "extends_name": "currency",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "549f7019-bf11-4a64-a855-fbcee46e195a",
-      "name": "CZK",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 10
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "label": "currency",
-        "match_type": "inherited",
-        "confidence": 0.7,
-        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "extends_name": "currency",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "b815754a-7e68-4318-b3cc-9bd63a424c76",
-      "name": "EUR",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 11
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "label": "currency",
-        "match_type": "inherited",
-        "confidence": 0.7,
-        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "extends_name": "currency",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "f207c3da-a550-4c30-8670-1d8b7068f68d",
-      "name": "USD",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 12
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "label": "currency",
-        "match_type": "inherited",
-        "confidence": 0.7,
-        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
-        "extends_name": "currency",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    }
-  ],
-  "external_concepts": [],
-  "categorizations": [
-    {
-      "id": "d5c40c05-0756-4438-9184-14b07e266745",
-      "parent_id": "85e23f29-d2e2-4c91-8f74-eab774b8354c",
-      "parent_name": "Account",
-      "category_name": "kind of [Account]",
-      "children_ids": [
-        "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
-        "74190731-4374-4229-b180-728f95905b4d"
-      ],
-      "children_names": [
-        "Current account",
-        "Saving Account"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 21
-        }
-      ]
-    },
-    {
-      "id": "994f4b2e-3e98-45bb-b42a-64def987eb5e",
-      "parent_id": "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
-      "parent_name": "Current account",
-      "category_name": "by state",
-      "children_ids": [
-        "ae97a7d8-bacf-480b-8e0f-0d46f784622f"
-      ],
-      "children_names": [
-        "Active current account"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 22
-        }
-      ]
-    },
-    {
-      "id": "73a71bd8-26ea-4ae2-8b4e-c6832aaed927",
-      "parent_id": "b04e3f72-4410-4ee7-9701-5460803d201b",
-      "parent_name": "Currency",
-      "category_name": "kind of [Currency]",
-      "children_ids": [
-        "b815754a-7e68-4318-b3cc-9bd63a424c76",
-        "549f7019-bf11-4a64-a855-fbcee46e195a",
-        "f207c3da-a550-4c30-8670-1d8b7068f68d"
-      ],
-      "children_names": [
-        "EUR",
-        "CZK",
-        "USD"
-      ],
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 23
-        }
-      ]
-    }
-  ],
-  "relationships": [
-    {
-      "id": "9cc9b384-50d3-48c2-a07e-7efae8d62e1c",
-      "subject_id": "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
-      "subject_name": "Current account",
-      "object_id": "8fe8680d-8937-4bb2-86aa-ced80c114f67",
-      "object_name": "Investment account (BIU)",
-      "verb_phrase": "Is a",
-      "inverse_verb_phrase": "",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 29
-        }
-      ]
-    },
-    {
-      "id": "77ec4e7f-1b01-4a72-b4e1-af239fab12f4",
-      "subject_id": "85e23f29-d2e2-4c91-8f74-eab774b8354c",
-      "subject_name": "Account",
-      "object_id": "b04e3f72-4410-4ee7-9701-5460803d201b",
-      "object_name": "Currency",
-      "verb_phrase": "is composed of",
-      "inverse_verb_phrase": "composes",
-      "role_subject": "",
-      "role_object": "",
-      "objectification_name": "",
-      "is_context": false,
-      "sources": [
-        {
-          "file": "Investment_Financial_Account.cs",
-          "line": 30
-        }
-      ]
-    }
-  ],
-  "enumerations": [],
-  "unary_states": [],
-  "metadata": {
-    "concept_count": 9,
-    "external_concept_count": 0,
-    "fibo_mapped_count": 9,
-    "fibo_coverage": 100.0,
-    "schema_mapped_count": 0,
-    "semantic_coverage": 100.0,
-    "definition_coverage": 100.0,
-    "exact_matches": 2,
-    "synonym_matches": 1,
-    "parent_matches": 0,
-    "hierarchical_matches": 0,
-    "llm_matches": 0,
-    "no_matches": 0,
-    "non_fibo_count": 0,
-    "draft_definitions": 0,
-    "validation_errors": [],
-    "validation_warnings": []
-  },
-  "schema_version": "1.0.0",
-  "created_at": "2025-12-25T16:30:57.841222",
-  "modified_at": "2025-12-25T16:30:57.841237",
-  "generated": "2025-12-25T16:30:57.841241",
-  "fibo_version": "2024Q1"
-};
-
-// Merged Test domain (all views combined)
-const TEST_DATA = {
-  "domain": {
-    "path": "Test",
-    "name": "Test",
-    "version": "1.0.0",
-    "created": "2025-12-25T16:31:03.444717",
-    "sources": [
-      "Investment_Order.cs",
-      "Investment_Position.cs",
-      "Investment_Transaction.cs",
-      "Investment_Payment.cs",
-      "Investment_Financial_Account.cs"
-    ]
-  },
-  "concepts": [
-    {
-      "id": "1569de41-5c9b-41a8-8414-3382be68a684",
-      "name": "Buy",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 4
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "inherited",
-        "confidence": 0.7,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "fc788e1b-74ca-4dd8-919e-5f8f8c361326",
-      "name": "Sell",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 5
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "inherited",
-        "confidence": 0.7,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "42465b86-692b-458c-a977-520ce4fe0368",
-      "name": "Saving plan (regular investment)",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 6
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/NorthAmericanEntities/USFinancialServicesEntities/SavingsBank",
-        "label": "savings bank",
-        "match_type": "keyword",
-        "confidence": 0.738,
-        "fibo_definition": "banking institution organized to accept savings deposits and pay interest on those savings deposits",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "banking institution organized to accept savings deposits and pay interest on those savings deposits",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/NorthAmericanEntities/USFinancialServicesEntities/SavingsBank",
-        "extends_name": "savings bank",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/NorthAmericanEntities/USFinancialServicesEntities/SavingsBank"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "cda6b2f7-6efd-448d-ada7-da6e0fa08e0a",
-      "name": "One-time",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 7
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/TimeDirection",
-        "label": "time direction",
-        "match_type": "keyword",
-        "confidence": 0.736,
-        "fibo_definition": "enumeration that indicates whether a calendar-specified date is figured from the start or the end of a calendar period",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "enumeration that indicates whether a calendar-specified date is figured from the start or the end of a calendar period",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/TimeDirection",
-        "extends_name": "time direction",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/TimeDirection"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "8a759cf0-ef95-42b2-8558-8fe53e53f319",
-      "name": "Weekly",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 8
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/AverageWeeklyEarnings",
-        "label": "average weekly earnings",
-        "match_type": "keyword",
-        "confidence": 0.6769999999999999,
-        "fibo_definition": "measure of the average weekly wage an employee makes over the reporting period",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "measure of the average weekly wage an employee makes over the reporting period",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/AverageWeeklyEarnings",
-        "extends_name": "average weekly earnings",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/AverageWeeklyEarnings"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "401e7382-7694-4675-81b2-7ce43650f7e0",
-      "name": "Monthly",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 9
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/LOAN/LoansGeneral/LoanApplications/BorrowerMonthlyIncome",
-        "label": "borrower monthly income",
-        "match_type": "keyword",
-        "confidence": 0.6769999999999999,
-        "fibo_definition": "total monthly qualifying income of a potential borrower",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "total monthly qualifying income of a potential borrower",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/LOAN/LoansGeneral/LoanApplications/BorrowerMonthlyIncome",
-        "extends_name": "borrower monthly income",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/LOAN/LoansGeneral/LoanApplications/BorrowerMonthlyIncome"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "dad0060e-c829-4ccf-97c1-19be598661b2",
-      "name": "Order",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 10
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "exact",
-        "confidence": 1.0,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "dd73bf1c-f6f7-4137-b2b5-c1adcefb02e7",
-      "name": "Executed order",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 11
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "keyword",
-        "confidence": 0.845,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "f3ec86ea-7d0b-4e3c-8b0c-2a17478642cf",
-      "name": "Digital Onboarding Channel",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 12
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "parent",
-        "confidence": 0.8,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "dad0060e-c829-4ccf-97c1-19be598661b2",
-        "extends_name": "Order",
-        "depth": 2,
-        "path": [
-          "dad0060e-c829-4ccf-97c1-19be598661b2"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": true,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "070a2151-e607-48f0-8bf8-c2973f4b0472",
-      "name": "Non-digital Onboarding Channel",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 13
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "parent",
-        "confidence": 0.8,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "dad0060e-c829-4ccf-97c1-19be598661b2",
-        "extends_name": "Order",
-        "depth": 2,
-        "path": [
-          "dad0060e-c829-4ccf-97c1-19be598661b2"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": true,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "dc4dac15-b538-414d-9b29-c18fe545babe",
-      "name": "Placed order",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 14
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "keyword",
-        "confidence": 0.845,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "29bfa43c-50d2-48f6-b64a-79264d10738e",
-      "name": "Settled order",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 15
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "label": "Order",
-        "match_type": "keyword",
-        "confidence": 0.845,
-        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
-        "extends_name": "Order",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "78aea508-9f2f-4535-b5bb-4252e8c437c6",
-      "name": "Sales",
-      "type": "concept",
-      "sources": [
-        {
-          "file": "Investment_Order.cs",
-          "line": 16
-        }
-      ],
-      "aliases": [],
-      "merged_from": [],
-      "local_definition": "",
-      "fibo_mapping": {
-        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Sale",
-        "label": "sale",
-        "match_type": "fuzzy",
-        "confidence": 0.8,
-        "fibo_definition": "exchange of goods or services for money",
-        "fibo_module": "",
-        "isA": ""
-      },
-      "definition": {
-        "text": "exchange of goods or services for money",
-        "source": "FIBO",
-        "confidence": "MAPPED",
-        "needs_review": false,
-        "parent_name": ""
-      },
-      "hierarchy": {
-        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Sale",
-        "extends_name": "sale",
-        "depth": 1,
-        "path": [
-          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Sale"
-        ]
-      },
-      "has_fibo_mapping": true,
-      "has_schema_mapping": false,
-      "has_definition": true,
-      "has_parent": true
-    },
-    {
-      "id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -4232,7 +1011,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "b42e63d0-f31d-47e6-a21d-3c3237feaeb9",
+      "id": "c40f8e76-a6b1-4235-b21d-166d8240a8d7",
       "name": "Market / exchange",
       "type": "concept",
       "sources": [
@@ -4274,7 +1053,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "bc9be2f7-02f8-4680-82a0-32124708fb54",
+      "id": "b7f5f94a-fbc1-4dff-b0d3-1e84dd034c0c",
       "name": "Date",
       "type": "concept",
       "sources": [
@@ -4316,7 +1095,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "d90d108d-099e-4d9e-965c-8d3e83780296",
+      "id": "df268fe2-5ec8-4232-a165-8a6b692f582b",
       "name": "Trade date",
       "type": "concept",
       "sources": [
@@ -4358,7 +1137,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "4d998fff-dbd1-4ea1-af7c-bc8a17933f0f",
+      "id": "2983666e-3830-4b9c-a81f-f679a0e0fb8a",
       "name": "Settlement date",
       "type": "concept",
       "sources": [
@@ -4400,7 +1179,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "7c5dfdd3-9a87-462e-96bc-0ef78853d9ae",
+      "id": "46bedd79-30ea-49cd-aa35-cb137a1cfab1",
       "name": "Sold position",
       "type": "concept",
       "sources": [
@@ -4442,7 +1221,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
+      "id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
       "name": "Asset under Management (AUM)",
       "type": "concept",
       "sources": [
@@ -4484,7 +1263,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "5df0d7ed-e9b3-4154-947c-c7a7d1667cc3",
+      "id": "0a2b1647-6456-47e7-adbb-abf27c7cc281",
       "name": "Market value",
       "type": "concept",
       "sources": [
@@ -4526,7 +1305,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "c8b13224-6e84-407b-bf05-006fecdd7824",
+      "id": "c21ce011-2375-4424-85f2-49ab2db8d910",
       "name": "Number of products",
       "type": "concept",
       "sources": [
@@ -4568,7 +1347,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "bc7432d0-f214-4726-820e-9f30f25a8a4d",
+      "id": "49b8ea7f-7029-422e-bbc4-79f6bbb655cf",
       "name": "Portfolio",
       "type": "concept",
       "sources": [
@@ -4610,7 +1389,665 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "33088419-0871-4164-9bdd-9df97c864a20",
+      "id": "7923de3c-8168-4629-99fd-ddc5337064df",
+      "name": "Product",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "ef8296fa-39cd-4f72-8c6e-bc4d49a10246",
+      "name": "Active contract",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "name": "Customer",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Customer",
+        "label": "customer",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "party that receives or consumes products (goods or services) and has the ability to choose between different products and suppliers",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "party that receives or consumes products (goods or services) and has the ability to choose between different products and suppliers",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Customer",
+        "extends_name": "customer",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Customer"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c5a6cf85-2b70-451e-b0ca-18c4886b16dd",
+      "name": "Executed order",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "69ed9244-3d1a-426f-a089-162220ac42ae",
+      "name": "Transaction",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "extends_name": "Transaction",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1d9d5541-094a-4bf2-8c75-1523885ceb0d",
+      "name": "Custody fee",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "label": "Custody Agreement",
+        "match_type": "keyword",
+        "confidence": 0.733,
+        "fibo_definition": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "extends_name": "Custody Agreement",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [],
+  "categorizations": [
+    {
+      "id": "6a02df0a-a920-4271-92f6-5565d1dfb4d4",
+      "parent_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "parent_name": "Position",
+      "category_name": "kind of [Posiition]",
+      "children_ids": [
+        "c40f8e76-a6b1-4235-b21d-166d8240a8d7",
+        "b7f5f94a-fbc1-4dff-b0d3-1e84dd034c0c"
+      ],
+      "children_names": [
+        "Market / exchange",
+        "Date"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "d0a84f55-9ad8-4545-8066-fc62ad6c2f8e",
+      "parent_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "parent_name": "Position",
+      "category_name": "by the state",
+      "children_ids": [
+        "46bedd79-30ea-49cd-aa35-cb137a1cfab1"
+      ],
+      "children_names": [
+        "Sold position"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "id": "f2755328-518e-40e6-b121-8c65e2731c7a",
+      "parent_id": "b7f5f94a-fbc1-4dff-b0d3-1e84dd034c0c",
+      "parent_name": "Date",
+      "category_name": "kind of [Date]",
+      "children_ids": [
+        "df268fe2-5ec8-4232-a165-8a6b692f582b",
+        "2983666e-3830-4b9c-a81f-f679a0e0fb8a"
+      ],
+      "children_names": [
+        "Trade date",
+        "Settlement date"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 24
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "8b534015-8d2f-4451-83b5-0410ba5f6053",
+      "subject_id": "46bedd79-30ea-49cd-aa35-cb137a1cfab1",
+      "subject_name": "Sold position",
+      "object_id": "2983666e-3830-4b9c-a81f-f679a0e0fb8a",
+      "object_name": "Settlement date",
+      "verb_phrase": "transfers of funds on",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "6b8ee21b-23ac-4602-b195-993785f60308",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "subject_name": "Position",
+      "object_id": "df268fe2-5ec8-4232-a165-8a6b692f582b",
+      "object_name": "Trade date",
+      "verb_phrase": "is traded on",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "40ecae43-8ec2-4b22-93b9-e4ecf0048a50",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "object_name": "Position",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "726398ea-c7bc-4d9b-a32a-4ec918f7ed94",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "0a2b1647-6456-47e7-adbb-abf27c7cc281",
+      "object_name": "Market value",
+      "verb_phrase": "is calculated based on",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "id": "a2f8da64-3f0a-42ef-8e61-fe1805a67bb8",
+      "subject_id": "c21ce011-2375-4424-85f2-49ab2db8d910",
+      "subject_name": "Number of products",
+      "object_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "object_name": "Asset under Management (AUM)",
+      "verb_phrase": "is calculated based on",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "id": "65afeaa3-cab5-44d6-8fb6-0769bdba2f54",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "subject_name": "Position",
+      "object_id": "49b8ea7f-7029-422e-bbc4-79f6bbb655cf",
+      "object_name": "Portfolio",
+      "verb_phrase": "is part of",
+      "inverse_verb_phrase": "is sum of",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "id": "1c4bcb59-39c2-4220-9941-d1d5d5254b9b",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "49b8ea7f-7029-422e-bbc4-79f6bbb655cf",
+      "object_name": "Portfolio",
+      "verb_phrase": "is value of",
+      "inverse_verb_phrase": "is valuated as",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "id": "cd8f37ef-c1fa-43d6-8c9e-e61901f1af40",
+      "subject_id": "c5a6cf85-2b70-451e-b0ca-18c4886b16dd",
+      "subject_name": "Executed order",
+      "object_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "object_name": "Position",
+      "verb_phrase": "predicts",
+      "inverse_verb_phrase": "consists of",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "id": "a9129f28-2ff0-45a3-9905-b8c830c5e203",
+      "subject_id": "ef8296fa-39cd-4f72-8c6e-bc4d49a10246",
+      "subject_name": "Active contract",
+      "object_id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "object_name": "Customer",
+      "verb_phrase": "belongs to",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "id": "1549fc25-1f1f-4c9d-b07c-62d0a2f5afc4",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "subject_name": "Position",
+      "object_id": "69ed9244-3d1a-426f-a089-162220ac42ae",
+      "object_name": "Transaction",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "id": "1591c3d5-3095-44c1-82b8-e1fa80314407",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "subject_name": "Position",
+      "object_id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "object_name": "Customer",
+      "verb_phrase": "is owned by",
+      "inverse_verb_phrase": "owns",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "id": "76cf9c4d-29d2-4d87-8b2f-9b2c85bb08d5",
+      "subject_id": "1d9d5541-094a-4bf2-8c75-1523885ceb0d",
+      "subject_name": "Custody fee",
+      "object_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "object_name": "Position",
+      "verb_phrase": "is charged for",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 41
+        }
+      ]
+    },
+    {
+      "id": "6114489e-0cb4-4293-a9d3-a01ac50dc679",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "ef8296fa-39cd-4f72-8c6e-bc4d49a10246",
+      "object_name": "Active contract",
+      "verb_phrase": "",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "id": "0196c3e2-70cf-42de-83ad-f5824bfa5aba",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "object_name": "Customer",
+      "verb_phrase": "",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "id": "839f946d-6e70-4738-84d2-9af7ac903b56",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "7923de3c-8168-4629-99fd-ddc5337064df",
+      "object_name": "Product",
+      "verb_phrase": "",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 44
+        }
+      ]
+    }
+  ],
+  "enumerations": [
+    {
+      "id": "52cc0d2b-b032-496f-a3b5-537cc701267a",
+      "concept_id": "c40f8e76-a6b1-4235-b21d-166d8240a8d7",
+      "concept_name": "Market / exchange",
+      "values": [
+        "BCPP",
+        "US",
+        "GY"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 16,
+    "external_concept_count": 0,
+    "fibo_mapped_count": 16,
+    "fibo_coverage": 100.0,
+    "schema_mapped_count": 0,
+    "semantic_coverage": 100.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 7,
+    "synonym_matches": 0,
+    "parent_matches": 0,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 0,
+    "non_fibo_count": 0,
+    "draft_definitions": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-25T17:48:38.715702",
+  "modified_at": "2025-12-25T17:48:38.715711",
+  "generated": "2025-12-25T17:48:38.715713",
+  "fibo_version": "2024Q1"
+};
+
+// Transaction domain
+const TRANSACTION_DATA = {
+  "domain": {
+    "path": "Test",
+    "name": "Test",
+    "version": "1.0.0",
+    "created": "2025-12-25T17:48:13.013655",
+    "sources": [
+      "Investment_Transaction.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
       "name": "Transaction",
       "type": "concept",
       "sources": [
@@ -4652,7 +2089,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "b4625732-d22e-4e28-aa97-0d83b0410113",
+      "id": "fc50a529-18b5-44aa-9fc5-8106aa8aaeee",
       "name": "Automatic",
       "type": "concept",
       "sources": [
@@ -4681,11 +2118,11 @@ const TEST_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "33088419-0871-4164-9bdd-9df97c864a20",
+        "extends": "51182d7a-b87c-4d73-9029-b7979a3535dc",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "33088419-0871-4164-9bdd-9df97c864a20"
+          "51182d7a-b87c-4d73-9029-b7979a3535dc"
         ]
       },
       "has_fibo_mapping": true,
@@ -4694,7 +2131,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "1cc51c9e-140a-4f60-a0b1-5e4bba099eca",
+      "id": "2f2f7e4c-1249-4428-be9f-436e94d5af15",
       "name": "Manual",
       "type": "concept",
       "sources": [
@@ -4723,11 +2160,11 @@ const TEST_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "33088419-0871-4164-9bdd-9df97c864a20",
+        "extends": "51182d7a-b87c-4d73-9029-b7979a3535dc",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "33088419-0871-4164-9bdd-9df97c864a20"
+          "51182d7a-b87c-4d73-9029-b7979a3535dc"
         ]
       },
       "has_fibo_mapping": true,
@@ -4736,7 +2173,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "fef71090-db68-4dc1-bfe5-47ae716e646b",
+      "id": "5134f027-1fef-4747-ac2f-a06353edb44e",
       "name": "Trade",
       "type": "concept",
       "sources": [
@@ -4778,7 +2215,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "4efffb56-de3d-453b-b46a-152f9d23a894",
+      "id": "9d49ef70-65f9-4b27-b8b0-7ac8a84c859a",
       "name": "Repo trade",
       "type": "concept",
       "sources": [
@@ -4820,7 +2257,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "3ab1e5b9-1c21-4609-b712-aa86f255dfeb",
+      "id": "428fa0d2-6833-4ab0-b295-7adaa16fcbf6",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -4862,7 +2299,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "7cd8aac7-c95b-4379-bf6e-830817fb5e96",
+      "id": "7fe9124f-bbcd-4843-98cd-c95057dd7b29",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -4904,7 +2341,205 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "cdc8af33-d996-4b4c-8130-a512df8cdc03",
+      "id": "474a8ae9-080e-432b-84a3-6608cca8a6cd",
+      "name": "Position",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [
+    {
+      "name": "Action",
+      "uri": "https://schema.org/Action",
+      "type": "schema.org",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "inherited_from": "Automatic",
+          "relationship": "isA"
+        }
+      ]
+    }
+  ],
+  "categorizations": [
+    {
+      "id": "7dace9d7-cd5e-4f9e-963e-4ceb2fc859c8",
+      "parent_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+      "parent_name": "Transaction",
+      "category_name": "@ by the type of trades",
+      "children_ids": [
+        "5134f027-1fef-4747-ac2f-a06353edb44e",
+        "9d49ef70-65f9-4b27-b8b0-7ac8a84c859a"
+      ],
+      "children_names": [
+        "Trade",
+        "Repo trade"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "id": "6847fc78-17e7-4284-a30b-afc9f5b4fa8d",
+      "parent_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+      "parent_name": "Transaction",
+      "category_name": "@ by the type of processing",
+      "children_ids": [
+        "fc50a529-18b5-44aa-9fc5-8106aa8aaeee",
+        "2f2f7e4c-1249-4428-be9f-436e94d5af15"
+      ],
+      "children_names": [
+        "Automatic",
+        "Manual"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "id": "effe45db-aafb-43d9-9e3d-bfe2dfbb4bd5",
+      "parent_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+      "parent_name": "Transaction",
+      "category_name": "kind of [Transaction]",
+      "children_ids": [
+        "7fe9124f-bbcd-4843-98cd-c95057dd7b29",
+        "428fa0d2-6833-4ab0-b295-7adaa16fcbf6"
+      ],
+      "children_names": [
+        "Executed order",
+        "Payment"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 16
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "bdcb7f8c-f8b0-42d5-a681-488776b966db",
+      "subject_id": "474a8ae9-080e-432b-84a3-6608cca8a6cd",
+      "subject_name": "Position",
+      "object_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+      "object_name": "Transaction",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "source_name": "Automatic",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:process_types",
+      "external_uri": "https://schema.org/Action"
+    },
+    {
+      "source_name": "Manual",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:process_types",
+      "external_uri": "https://schema.org/Action"
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 8,
+    "external_concept_count": 1,
+    "fibo_mapped_count": 8,
+    "fibo_coverage": 100.0,
+    "schema_mapped_count": 2,
+    "semantic_coverage": 125.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 4,
+    "synonym_matches": 0,
+    "parent_matches": 2,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 0,
+    "non_fibo_count": 0,
+    "draft_definitions": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-25T17:49:00.136452",
+  "modified_at": "2025-12-25T17:49:00.136464",
+  "generated": "2025-12-25T17:49:00.136467",
+  "fibo_version": "2024Q1"
+};
+
+// Payment domain
+const PAYMENT_DATA = {
+  "domain": {
+    "path": "Test",
+    "name": "Test",
+    "version": "1.0.0",
+    "created": "2025-12-25T17:48:14.181871",
+    "sources": [
+      "Investment_Payment.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "9670a742-693c-4374-af1f-f3f282abda17",
       "name": "Fee",
       "type": "concept",
       "sources": [
@@ -4946,7 +2581,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "a70b7057-779f-48ff-bb1d-cc19a88f9604",
+      "id": "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
       "name": "Incoming Payment",
       "type": "concept",
       "sources": [
@@ -4988,7 +2623,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "840ca546-7463-4026-8e05-35fd21758399",
+      "id": "f0d43782-81bb-4c24-bd1d-36b4d4a0fbc7",
       "name": "Outgoing Payment",
       "type": "concept",
       "sources": [
@@ -5030,7 +2665,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "80b064dd-34a3-4a4a-a2c4-a523ee826ef9",
+      "id": "e434dacc-6c9b-49cb-9514-a8f63429da1d",
       "name": "Deposit",
       "type": "concept",
       "sources": [
@@ -5072,7 +2707,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "f37832ac-3f43-4714-b5b3-b0e06927375b",
+      "id": "58cbd6a9-5de8-48f9-a8d6-316b0e02ce9e",
       "name": "First date of Deposit",
       "type": "concept",
       "sources": [
@@ -5114,7 +2749,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "99044663-d50d-460a-beb8-43dc1b73f7db",
+      "id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -5156,7 +2791,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "77cf5306-e53b-4959-a3b0-d02550a4ef00",
+      "id": "4e257042-6376-409a-83bb-0ac87e9562d6",
       "name": "Custody fee",
       "type": "concept",
       "sources": [
@@ -5198,7 +2833,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "364d26a0-ed98-4d79-955b-35b846f260a5",
+      "id": "b0f3d9ae-955d-4183-86a2-6d7e830fd528",
       "name": "Entry fee",
       "type": "concept",
       "sources": [
@@ -5240,7 +2875,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "d2134a26-0a6b-4ab0-a001-e1d55f3acd7d",
+      "id": "6764cde5-bb83-40b1-9b27-8fe6393f4b16",
       "name": "Kickback fee",
       "type": "concept",
       "sources": [
@@ -5282,7 +2917,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "52c68771-cb0a-451f-bf46-143c2137a9c0",
+      "id": "dad94bdd-7b17-4e9f-aebf-2bc019a331a1",
       "name": "Liability margin",
       "type": "concept",
       "sources": [
@@ -5328,7 +2963,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "a1f7d763-13d3-4b82-9bc6-d7a57bef432f",
+      "id": "fb6be760-2595-4a22-b311-34ac7c27db73",
       "name": "Trailer fee",
       "type": "concept",
       "sources": [
@@ -5370,7 +3005,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "e3d6df58-293f-4694-8f60-46a183a6e605",
+      "id": "b77182c4-5734-45be-b33b-120b4c13ca19",
       "name": "Other fee",
       "type": "concept",
       "sources": [
@@ -5412,7 +3047,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "9a36bcb3-bff5-4aae-a210-959274b776e8",
+      "id": "57f145d1-095c-49c5-9908-d3f112b3cb51",
       "name": "Portfolio-based fee",
       "type": "concept",
       "sources": [
@@ -5454,7 +3089,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "fea921ff-9b73-4310-82f6-5a455d69e4eb",
+      "id": "1f8334e8-2de7-4239-8304-32f7c2eb4376",
       "name": "Sales fee",
       "type": "concept",
       "sources": [
@@ -5496,7 +3131,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
+      "id": "5376ba27-4ff3-4481-90f2-670d682e4014",
       "name": "Income",
       "type": "concept",
       "sources": [
@@ -5538,7 +3173,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "b71d2039-ec63-473b-aeef-a3cc7a20d9a8",
+      "id": "b5caccd7-95ee-4b2d-9e93-9571187e33df",
       "name": "Core income",
       "type": "concept",
       "sources": [
@@ -5580,7 +3215,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "4d7b1c43-5b95-47e6-b07c-264e7f1a70b7",
+      "id": "16c7b6f2-8ff9-48f2-b40e-7fec50dbf0d6",
       "name": "RIS group income",
       "type": "concept",
       "sources": [
@@ -5622,7 +3257,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "3574ea18-2d89-4bcf-a7ca-3bf880b8cb0e",
+      "id": "b47bbc2b-568e-407d-a1ff-b57890322da2",
       "name": "Allocated income",
       "type": "concept",
       "sources": [
@@ -5664,7 +3299,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "e52c85c4-462f-4d01-bbb5-69d2e320ae57",
+      "id": "83fa8853-ff5d-45a1-8840-a4de2e13c7d1",
       "name": "LAMC income",
       "type": "concept",
       "sources": [
@@ -5706,7 +3341,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
+      "id": "2810963b-2f06-45e1-b261-1a442cb460cc",
       "name": "Profitability",
       "type": "concept",
       "sources": [
@@ -5740,7 +3375,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "48b7cbb1-80a5-4301-a387-2afa6242c0c6",
+      "id": "44e55b0c-509a-47bf-ab13-7278fca68c22",
       "name": "Gross Income",
       "type": "concept",
       "sources": [
@@ -5782,7 +3417,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "e0a1c21e-cd4e-4f5b-a3dd-df40d46f0e23",
+      "id": "81aa323f-bb8d-4efe-a098-ab9f82e8ffb8",
       "name": "LTV (Life Time Value) GI (Gross Income)",
       "type": "concept",
       "sources": [
@@ -5816,7 +3451,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "53b448a4-f199-4977-b361-fd3760f7be7c",
+      "id": "f8982d76-48ea-48a4-a12f-c89462abe765",
       "name": "Other income",
       "type": "concept",
       "sources": [
@@ -5858,7 +3493,562 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "85e23f29-d2e2-4c91-8f74-eab774b8354c",
+      "id": "a1c7f0d5-2a52-4134-b5bd-6532fcc205b5",
+      "name": "Position",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 28
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2fecfe48-8b19-4bad-b759-da68c66d038d",
+      "name": "Executed order",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 29
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e2ba229a-0438-4ade-b6a7-93dfdb134689",
+      "name": "Investment account (BIU)",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 30
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "label": "investment account",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "extends_name": "investment account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "00869b62-9a27-4570-a8cf-53b9c7dd61a4",
+      "name": "Balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 31
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [],
+  "categorizations": [
+    {
+      "id": "8b967280-eed3-4006-b426-9a94b8b070ab",
+      "parent_id": "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
+      "parent_name": "Incoming Payment",
+      "category_name": "kind of[IncomingPayment]",
+      "children_ids": [
+        "9670a742-693c-4374-af1f-f3f282abda17",
+        "e434dacc-6c9b-49cb-9514-a8f63429da1d"
+      ],
+      "children_names": [
+        "Fee",
+        "Deposit"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "id": "73671576-b958-4f56-a93c-f2c2c60ba4ec",
+      "parent_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "parent_name": "Payment",
+      "category_name": "Kind of [Payment]",
+      "children_ids": [
+        "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
+        "f0d43782-81bb-4c24-bd1d-36b4d4a0fbc7"
+      ],
+      "children_names": [
+        "Incoming Payment",
+        "Outgoing Payment"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "id": "1232a868-0543-413e-946e-4f8fdc824d82",
+      "parent_id": "1f8334e8-2de7-4239-8304-32f7c2eb4376",
+      "parent_name": "Sales fee",
+      "category_name": "@ by fee name",
+      "children_ids": [
+        "6764cde5-bb83-40b1-9b27-8fe6393f4b16",
+        "b0f3d9ae-955d-4183-86a2-6d7e830fd528"
+      ],
+      "children_names": [
+        "Kickback fee",
+        "Entry fee"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "id": "1a674229-56d1-4320-a271-b6c34bce4f92",
+      "parent_id": "57f145d1-095c-49c5-9908-d3f112b3cb51",
+      "parent_name": "Portfolio-based fee",
+      "category_name": "@ by fee name",
+      "children_ids": [
+        "4e257042-6376-409a-83bb-0ac87e9562d6",
+        "b77182c4-5734-45be-b33b-120b4c13ca19",
+        "fb6be760-2595-4a22-b311-34ac7c27db73"
+      ],
+      "children_names": [
+        "Custody fee",
+        "Other fee",
+        "Trailer fee"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "id": "ceff083f-6e60-4e62-b6ad-bfa452af4019",
+      "parent_id": "9670a742-693c-4374-af1f-f3f282abda17",
+      "parent_name": "Fee",
+      "category_name": "@ by fee category",
+      "children_ids": [
+        "57f145d1-095c-49c5-9908-d3f112b3cb51",
+        "1f8334e8-2de7-4239-8304-32f7c2eb4376",
+        "dad94bdd-7b17-4e9f-aebf-2bc019a331a1"
+      ],
+      "children_names": [
+        "Portfolio-based fee",
+        "Sales fee",
+        "Liability margin"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "id": "d36633ec-9368-4647-ac62-e9e402df80de",
+      "parent_id": "5376ba27-4ff3-4481-90f2-670d682e4014",
+      "parent_name": "Income",
+      "category_name": "kind of [Income]",
+      "children_ids": [
+        "f8982d76-48ea-48a4-a12f-c89462abe765",
+        "16c7b6f2-8ff9-48f2-b40e-7fec50dbf0d6",
+        "b47bbc2b-568e-407d-a1ff-b57890322da2",
+        "83fa8853-ff5d-45a1-8840-a4de2e13c7d1",
+        "b5caccd7-95ee-4b2d-9e93-9571187e33df"
+      ],
+      "children_names": [
+        "Other income",
+        "RIS group income",
+        "Allocated income",
+        "LAMC income",
+        "Core income"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 40
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "859d93a5-062d-4779-a338-6f262bd19491",
+      "subject_id": "e434dacc-6c9b-49cb-9514-a8f63429da1d",
+      "subject_name": "Deposit",
+      "object_id": "58cbd6a9-5de8-48f9-a8d6-316b0e02ce9e",
+      "object_name": "First date of Deposit",
+      "verb_phrase": "has [First date]",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "id": "77c081b2-9969-45df-841a-b08c136fd8e7",
+      "subject_id": "5376ba27-4ff3-4481-90f2-670d682e4014",
+      "subject_name": "Income",
+      "object_id": "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
+      "object_name": "Incoming Payment",
+      "verb_phrase": "is generated by",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "id": "002ec4c7-bf5b-41f4-a834-8c5cfb070c2a",
+      "subject_id": "2810963b-2f06-45e1-b261-1a442cb460cc",
+      "subject_name": "Profitability",
+      "object_id": "5376ba27-4ff3-4481-90f2-670d682e4014",
+      "object_name": "Income",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 45
+        }
+      ]
+    },
+    {
+      "id": "ebf24694-acc2-43b1-a830-0da0732d3978",
+      "subject_id": "44e55b0c-509a-47bf-ab13-7278fca68c22",
+      "subject_name": "Gross Income",
+      "object_id": "2810963b-2f06-45e1-b261-1a442cb460cc",
+      "object_name": "Profitability",
+      "verb_phrase": "measures",
+      "inverse_verb_phrase": "is measured by",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 46
+        }
+      ]
+    },
+    {
+      "id": "7d177c76-aef1-4683-8856-22777629f77e",
+      "subject_id": "81aa323f-bb8d-4efe-a098-ab9f82e8ffb8",
+      "subject_name": "LTV (Life Time Value) GI (Gross Income)",
+      "object_id": "2810963b-2f06-45e1-b261-1a442cb460cc",
+      "object_name": "Profitability",
+      "verb_phrase": "predicts",
+      "inverse_verb_phrase": "is measured by",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 47
+        }
+      ]
+    },
+    {
+      "id": "ddb6d876-a8e3-4177-a45a-cf1becd572fd",
+      "subject_id": "2fecfe48-8b19-4bad-b759-da68c66d038d",
+      "subject_name": "Executed order",
+      "object_id": "a1c7f0d5-2a52-4134-b5bd-6532fcc205b5",
+      "object_name": "Position",
+      "verb_phrase": "predicts",
+      "inverse_verb_phrase": "consists of",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 48
+        }
+      ]
+    },
+    {
+      "id": "f9285050-9749-45cd-9f94-764fe06ff305",
+      "subject_id": "e2ba229a-0438-4ade-b6a7-93dfdb134689",
+      "subject_name": "Investment account (BIU)",
+      "object_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "object_name": "Payment",
+      "verb_phrase": "processes",
+      "inverse_verb_phrase": "is settled from",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "id": "3cb86fab-5143-4bac-8958-517bd3ea06af",
+      "subject_id": "00869b62-9a27-4570-a8cf-53b9c7dd61a4",
+      "subject_name": "Balance",
+      "object_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "object_name": "Payment",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "e871bb80-2ab5-47ea-847b-47448bafb0f1",
+      "subject_id": "2fecfe48-8b19-4bad-b759-da68c66d038d",
+      "subject_name": "Executed order",
+      "object_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "object_name": "Payment",
+      "verb_phrase": "is being settled for",
+      "inverse_verb_phrase": "is settled to",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "#~Settlement",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 51
+        }
+      ]
+    },
+    {
+      "id": "14556f4c-2d78-4881-b779-69d23d403992",
+      "subject_id": "4e257042-6376-409a-83bb-0ac87e9562d6",
+      "subject_name": "Custody fee",
+      "object_id": "a1c7f0d5-2a52-4134-b5bd-6532fcc205b5",
+      "object_name": "Position",
+      "verb_phrase": "is charged for",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 52
+        }
+      ]
+    },
+    {
+      "id": "579d210b-a326-4925-a9d6-c5ce4956875c",
+      "subject_id": "e434dacc-6c9b-49cb-9514-a8f63429da1d",
+      "subject_name": "Deposit",
+      "object_id": "00869b62-9a27-4570-a8cf-53b9c7dd61a4",
+      "object_name": "Balance",
+      "verb_phrase": "increases",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 53
+        }
+      ]
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 27,
+    "external_concept_count": 0,
+    "fibo_mapped_count": 25,
+    "fibo_coverage": 92.5925925925926,
+    "schema_mapped_count": 0,
+    "semantic_coverage": 92.5925925925926,
+    "definition_coverage": 100.0,
+    "exact_matches": 6,
+    "synonym_matches": 0,
+    "parent_matches": 0,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 2,
+    "non_fibo_count": 2,
+    "draft_definitions": 2,
+    "validation_errors": [],
+    "validation_warnings": [
+      "2 concepts have DRAFT definitions that need review"
+    ]
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-25T17:49:10.462119",
+  "modified_at": "2025-12-25T17:49:10.462131",
+  "generated": "2025-12-25T17:49:10.462133",
+  "fibo_version": "2024Q1"
+};
+
+// FinancialAccount domain
+const FINANCIAL_ACCOUNT_DATA = {
+  "domain": {
+    "path": "Test",
+    "name": "Test",
+    "version": "1.0.0",
+    "created": "2025-12-25T17:48:15.009512",
+    "sources": [
+      "Investment_Financial_Account.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
       "name": "Account",
       "type": "concept",
       "sources": [
@@ -5900,7 +4090,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
+      "id": "4b82f40b-087a-4efe-bef9-814596a61597",
       "name": "Current account",
       "type": "concept",
       "sources": [
@@ -5942,7 +4132,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "ae97a7d8-bacf-480b-8e0f-0d46f784622f",
+      "id": "da492dfb-0eec-4597-be60-a82e89de90c7",
       "name": "Active current account",
       "type": "concept",
       "sources": [
@@ -5984,7 +4174,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "74190731-4374-4229-b180-728f95905b4d",
+      "id": "6b4c0590-99b3-436c-bd72-c25b90db0e17",
       "name": "Saving Account",
       "type": "concept",
       "sources": [
@@ -6026,7 +4216,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "8fe8680d-8937-4bb2-86aa-ced80c114f67",
+      "id": "956ebb9c-4ef2-46a6-9e35-f27682ffcfa3",
       "name": "Investment account (BIU)",
       "type": "concept",
       "sources": [
@@ -6068,7 +4258,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "b04e3f72-4410-4ee7-9701-5460803d201b",
+      "id": "860b3fea-2dc4-409d-b705-9e66c645edae",
       "name": "Currency",
       "type": "concept",
       "sources": [
@@ -6110,7 +4300,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "549f7019-bf11-4a64-a855-fbcee46e195a",
+      "id": "7dfbbdfd-eeb2-4d69-9626-c7a61b138b13",
       "name": "CZK",
       "type": "concept",
       "sources": [
@@ -6152,7 +4342,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "b815754a-7e68-4318-b3cc-9bd63a424c76",
+      "id": "077cb51f-1d79-4945-abac-e481cbbfc6f8",
       "name": "EUR",
       "type": "concept",
       "sources": [
@@ -6194,7 +4384,7 @@ const TEST_DATA = {
       "has_parent": true
     },
     {
-      "id": "f207c3da-a550-4c30-8670-1d8b7068f68d",
+      "id": "9f146986-87cf-403c-907d-e6e09587a8d7",
       "name": "USD",
       "type": "concept",
       "sources": [
@@ -6234,6 +4424,3970 @@ const TEST_DATA = {
       "has_schema_mapping": false,
       "has_definition": true,
       "has_parent": true
+    },
+    {
+      "id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "name": "Balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 13
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "43bf72d8-6314-4901-bf72-edef3db6897c",
+      "name": "End of day (EOD) balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3f1ea9d9-d38d-4df2-9142-c6d240a7030f",
+      "name": "Active contract",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e2f4c2c4-90f7-4d3a-9252-ce120e9befba",
+      "name": "Number of active current accounts",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2ba21f6b-2008-47f5-8a46-d64b743935b3",
+      "name": "Deposit",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "label": "Deposit",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "extends_name": "Deposit",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "623308fb-1756-40b4-9b7e-a2f89b4701aa",
+      "name": "Payment",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [],
+  "categorizations": [
+    {
+      "id": "6df5f479-04ed-4958-8c4f-a56c37286798",
+      "parent_id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
+      "parent_name": "Account",
+      "category_name": "kind of [Account]",
+      "children_ids": [
+        "4b82f40b-087a-4efe-bef9-814596a61597",
+        "6b4c0590-99b3-436c-bd72-c25b90db0e17"
+      ],
+      "children_names": [
+        "Current account",
+        "Saving Account"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "ec3801cd-fe78-4f5d-9b85-df65c6026cac",
+      "parent_id": "4b82f40b-087a-4efe-bef9-814596a61597",
+      "parent_name": "Current account",
+      "category_name": "by state",
+      "children_ids": [
+        "da492dfb-0eec-4597-be60-a82e89de90c7"
+      ],
+      "children_names": [
+        "Active current account"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "2c66cc1f-e953-4f17-bfb0-635ff5ecc041",
+      "parent_id": "860b3fea-2dc4-409d-b705-9e66c645edae",
+      "parent_name": "Currency",
+      "category_name": "kind of [Currency]",
+      "children_ids": [
+        "077cb51f-1d79-4945-abac-e481cbbfc6f8",
+        "7dfbbdfd-eeb2-4d69-9626-c7a61b138b13",
+        "9f146986-87cf-403c-907d-e6e09587a8d7"
+      ],
+      "children_names": [
+        "EUR",
+        "CZK",
+        "USD"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "id": "d9be07a4-67c5-403a-89c6-35afc0fc7b8f",
+      "parent_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "parent_name": "Balance",
+      "category_name": "aggregation by time",
+      "children_ids": [
+        "43bf72d8-6314-4901-bf72-edef3db6897c"
+      ],
+      "children_names": [
+        "End of day (EOD) balance"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 24
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "1525a363-d886-4762-a682-664a5f4477dd",
+      "subject_id": "4b82f40b-087a-4efe-bef9-814596a61597",
+      "subject_name": "Current account",
+      "object_id": "956ebb9c-4ef2-46a6-9e35-f27682ffcfa3",
+      "object_name": "Investment account (BIU)",
+      "verb_phrase": "Is a",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "d01c950f-d66f-4d27-9ce7-a353efd7df76",
+      "subject_id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
+      "subject_name": "Account",
+      "object_id": "860b3fea-2dc4-409d-b705-9e66c645edae",
+      "object_name": "Currency",
+      "verb_phrase": "is composed of",
+      "inverse_verb_phrase": "composes",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "id": "37426b71-5cb3-45d5-bbfb-71aea9c6b401",
+      "subject_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "subject_name": "Balance",
+      "object_id": "3f1ea9d9-d38d-4df2-9142-c6d240a7030f",
+      "object_name": "Active contract",
+      "verb_phrase": "aggregated by",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "f4d416c5-17e6-41fe-941a-0b5c756defeb",
+      "subject_id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
+      "subject_name": "Account",
+      "object_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "object_name": "Balance",
+      "verb_phrase": "has",
+      "inverse_verb_phrase": "is calculated for",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "d2d87feb-2fba-40e5-8aa2-d361cedce79f",
+      "subject_id": "e2f4c2c4-90f7-4d3a-9252-ce120e9befba",
+      "subject_name": "Number of active current accounts",
+      "object_id": "da492dfb-0eec-4597-be60-a82e89de90c7",
+      "object_name": "Active current account",
+      "verb_phrase": "measures",
+      "inverse_verb_phrase": "measured by",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "b150db1d-a9c2-4099-aa8d-4dd76044b1c0",
+      "subject_id": "2ba21f6b-2008-47f5-8a46-d64b743935b3",
+      "subject_name": "Deposit",
+      "object_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "object_name": "Balance",
+      "verb_phrase": "increases",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "7ce49d10-3bfe-4bcd-b0f9-4b2a24b12b45",
+      "subject_id": "956ebb9c-4ef2-46a6-9e35-f27682ffcfa3",
+      "subject_name": "Investment account (BIU)",
+      "object_id": "623308fb-1756-40b4-9b7e-a2f89b4701aa",
+      "object_name": "Payment",
+      "verb_phrase": "processes",
+      "inverse_verb_phrase": "is settled from",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "id": "0e6d653e-fa89-4275-ba3d-8bb90ff1a6a4",
+      "subject_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "subject_name": "Balance",
+      "object_id": "623308fb-1756-40b4-9b7e-a2f89b4701aa",
+      "object_name": "Payment",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 34
+        }
+      ]
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 15,
+    "external_concept_count": 0,
+    "fibo_mapped_count": 15,
+    "fibo_coverage": 100.0,
+    "schema_mapped_count": 0,
+    "semantic_coverage": 100.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 5,
+    "synonym_matches": 1,
+    "parent_matches": 0,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 0,
+    "non_fibo_count": 0,
+    "draft_definitions": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-25T17:49:47.752948",
+  "modified_at": "2025-12-25T17:49:47.752962",
+  "generated": "2025-12-25T17:49:47.752966",
+  "fibo_version": "2024Q1"
+};
+
+// Merged Test domain (all views combined)
+const TEST_DATA = {
+  "domain": {
+    "path": "Test",
+    "name": "Test",
+    "version": "1.0.0",
+    "created": "2025-12-25T17:50:02.010560",
+    "sources": [
+      "Investment_Order.cs",
+      "Investment_Position.cs",
+      "Investment_Transaction.cs",
+      "Investment_Payment.cs",
+      "Investment_Financial_Account.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "0b69c292-ec51-4ef6-aaaa-f838ef4c9992",
+      "name": "Buy",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "a0080959-60f1-4524-93de-abefe6dab8d2",
+      "name": "Sell",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "85651491-ac31-4b73-931e-53c33a824790",
+      "name": "Saving plan (regular investment)",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/NorthAmericanEntities/USFinancialServicesEntities/SavingsBank",
+        "label": "savings bank",
+        "match_type": "keyword",
+        "confidence": 0.738,
+        "fibo_definition": "banking institution organized to accept savings deposits and pay interest on those savings deposits",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "banking institution organized to accept savings deposits and pay interest on those savings deposits",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/NorthAmericanEntities/USFinancialServicesEntities/SavingsBank",
+        "extends_name": "savings bank",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/NorthAmericanEntities/USFinancialServicesEntities/SavingsBank"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "68060a44-4020-4899-8226-64589b20efd2",
+      "name": "One-time",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/TimeDirection",
+        "label": "time direction",
+        "match_type": "keyword",
+        "confidence": 0.736,
+        "fibo_definition": "enumeration that indicates whether a calendar-specified date is figured from the start or the end of a calendar period",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "enumeration that indicates whether a calendar-specified date is figured from the start or the end of a calendar period",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/TimeDirection",
+        "extends_name": "time direction",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/TimeDirection"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "9320a85f-ac28-450d-8ecc-e7703bbe8e8d",
+      "name": "Weekly",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/AverageWeeklyEarnings",
+        "label": "average weekly earnings",
+        "match_type": "keyword",
+        "confidence": 0.6769999999999999,
+        "fibo_definition": "measure of the average weekly wage an employee makes over the reporting period",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "measure of the average weekly wage an employee makes over the reporting period",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/AverageWeeklyEarnings",
+        "extends_name": "average weekly earnings",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/AverageWeeklyEarnings"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "aedd1d1a-722a-4b5d-875b-10becf53cf13",
+      "name": "Monthly",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/LOAN/LoansGeneral/LoanApplications/BorrowerMonthlyIncome",
+        "label": "borrower monthly income",
+        "match_type": "keyword",
+        "confidence": 0.6769999999999999,
+        "fibo_definition": "total monthly qualifying income of a potential borrower",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "total monthly qualifying income of a potential borrower",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/LOAN/LoansGeneral/LoanApplications/BorrowerMonthlyIncome",
+        "extends_name": "borrower monthly income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/LOAN/LoansGeneral/LoanApplications/BorrowerMonthlyIncome"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "68d29707-015b-4565-9828-cd167d4db22e",
+      "name": "Order",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b7707459-023e-481c-9c61-2c6f592a61cf",
+      "name": "Executed order",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "87d2ce75-d17c-4720-9842-694d88b2ecf3",
+      "name": "Digital Onboarding Channel",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 12
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "parent",
+        "confidence": 0.8,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "68d29707-015b-4565-9828-cd167d4db22e",
+        "extends_name": "Order",
+        "depth": 2,
+        "path": [
+          "68d29707-015b-4565-9828-cd167d4db22e"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "59afe995-d5ce-4b22-b23a-909e551741a5",
+      "name": "Non-digital Onboarding Channel",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 13
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "parent",
+        "confidence": 0.8,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "68d29707-015b-4565-9828-cd167d4db22e",
+        "extends_name": "Order",
+        "depth": 2,
+        "path": [
+          "68d29707-015b-4565-9828-cd167d4db22e"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "23e2893a-aabe-4cb9-bbfd-90068677aa2b",
+      "name": "Placed order",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "62178978-3d6c-4b4a-9a26-3401f1a69ae8",
+      "name": "Settled order",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "62721c78-c839-4eef-9a17-07e0e725ebbb",
+      "name": "Sales",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Sale",
+        "label": "sale",
+        "match_type": "fuzzy",
+        "confidence": 0.8,
+        "fibo_definition": "exchange of goods or services for money",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "exchange of goods or services for money",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Sale",
+        "extends_name": "sale",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Sale"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f1e62582-8ddf-4ed4-9ebd-7f2b36f37c16",
+      "name": "Position",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0a4aac6e-c7ad-482c-ae71-8097ae4ec156",
+      "name": "Payment",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "08972fe9-a545-46ee-9cdd-c6aed6315626",
+      "name": "Custody fee",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "label": "Custody Agreement",
+        "match_type": "keyword",
+        "confidence": 0.733,
+        "fibo_definition": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "extends_name": "Custody Agreement",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "name": "Position",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c40f8e76-a6b1-4235-b21d-166d8240a8d7",
+      "name": "Market / exchange",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/Exchange",
+        "label": "exchange",
+        "match_type": "keyword",
+        "confidence": 0.842,
+        "fibo_definition": "any organization, association, or group of persons, whether incorporated or unincorporated, which constitutes, maintains, or provides a facility for bringing together purchasers and sellers of financial instruments, commodities, or other products, services, or goods, and includes the market place and facilities maintained by such exchange",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "any organization, association, or group of persons, whether incorporated or unincorporated, which constitutes, maintains, or provides a facility for bringing together purchasers and sellers of financial instruments, commodities, or other products, services, or goods, and includes the market place and facilities maintained by such exchange",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/Exchange",
+        "extends_name": "exchange",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/Exchange"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b7f5f94a-fbc1-4dff-b0d3-1e84dd034c0c",
+      "name": "Date",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/Date",
+        "label": "Date",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "A specific point in time defined by year, month, and day.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A specific point in time defined by year, month, and day.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/Date",
+        "extends_name": "Date",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/Date"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "df268fe2-5ec8-4232-a165-8a6b692f582b",
+      "name": "Trade date",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BP/Process/FinancialContextAndProcess/SecuritiesTradeDatePositionReporting",
+        "label": "securities trade date position reporting",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "Matching of trade allegations to identify confirmed trades, on an Over the Counter market in Traded Securities.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Matching of trade allegations to identify confirmed trades, on an Over the Counter market in Traded Securities.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BP/Process/FinancialContextAndProcess/SecuritiesTradeDatePositionReporting",
+        "extends_name": "securities trade date position reporting",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BP/Process/FinancialContextAndProcess/SecuritiesTradeDatePositionReporting"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2983666e-3830-4b9c-a81f-f679a0e0fb8a",
+      "name": "Settlement date",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/ParametricSchedules/SettlementDateRule",
+        "label": "settlement date rule",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "convention for determining settlement dates by reference to some jurisdiction or as set by a given exchange or similar venue",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "convention for determining settlement dates by reference to some jurisdiction or as set by a given exchange or similar venue",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/ParametricSchedules/SettlementDateRule",
+        "extends_name": "settlement date rule",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/ParametricSchedules/SettlementDateRule"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "46bedd79-30ea-49cd-aa35-cb137a1cfab1",
+      "name": "Sold position",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "keyword",
+        "confidence": 0.842,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "name": "Asset under Management (AUM)",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "label": "Assets Under Management",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "extends_name": "Assets Under Management",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0a2b1647-6456-47e7-adbb-abf27c7cc281",
+      "name": "Market value",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/MarketValue",
+        "label": "market value",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "price an asset would sell for in the market",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "price an asset would sell for in the market",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/MarketValue",
+        "extends_name": "market value",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Assessments/MarketValue"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c21ce011-2375-4424-85f2-49ab2db8d910",
+      "name": "Number of products",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 12
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BP/SecuritiesIssuance/PrivateLabelMBSIssuance/NumberingAgency",
+        "label": "numbering agency",
+        "match_type": "keyword",
+        "confidence": 0.734,
+        "fibo_definition": "The agency which will provide the primary securitiy identifier for the security. Term origin:MBS PoC Reviews",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "The agency which will provide the primary securitiy identifier for the security. Term origin:MBS PoC Reviews",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BP/SecuritiesIssuance/PrivateLabelMBSIssuance/NumberingAgency",
+        "extends_name": "numbering agency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BP/SecuritiesIssuance/PrivateLabelMBSIssuance/NumberingAgency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "49b8ea7f-7029-422e-bbc4-79f6bbb655cf",
+      "name": "Portfolio",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 13
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
+        "label": "portfolio",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
+        "extends_name": "portfolio",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "7923de3c-8168-4629-99fd-ddc5337064df",
+      "name": "Product",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "ef8296fa-39cd-4f72-8c6e-bc4d49a10246",
+      "name": "Active contract",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "name": "Customer",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Customer",
+        "label": "customer",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "party that receives or consumes products (goods or services) and has the ability to choose between different products and suppliers",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "party that receives or consumes products (goods or services) and has the ability to choose between different products and suppliers",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Customer",
+        "extends_name": "customer",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Customer"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c5a6cf85-2b70-451e-b0ca-18c4886b16dd",
+      "name": "Executed order",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "69ed9244-3d1a-426f-a089-162220ac42ae",
+      "name": "Transaction",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "extends_name": "Transaction",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1d9d5541-094a-4bf2-8c75-1523885ceb0d",
+      "name": "Custody fee",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "label": "Custody Agreement",
+        "match_type": "keyword",
+        "confidence": 0.733,
+        "fibo_definition": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "extends_name": "Custody Agreement",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+      "name": "Transaction",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "extends_name": "Transaction",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "fc50a529-18b5-44aa-9fc5-8106aa8aaeee",
+      "name": "Automatic",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "parent",
+        "confidence": 0.8,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+        "extends_name": "Transaction",
+        "depth": 2,
+        "path": [
+          "51182d7a-b87c-4d73-9029-b7979a3535dc"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2f2f7e4c-1249-4428-be9f-436e94d5af15",
+      "name": "Manual",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "parent",
+        "confidence": 0.8,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "51182d7a-b87c-4d73-9029-b7979a3535dc",
+        "extends_name": "Transaction",
+        "depth": 2,
+        "path": [
+          "51182d7a-b87c-4d73-9029-b7979a3535dc"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "5134f027-1fef-4747-ac2f-a06353edb44e",
+      "name": "Trade",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "label": "trade",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "extends_name": "trade",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "9d49ef70-65f9-4b27-b8b0-7ac8a84c859a",
+      "name": "Repo trade",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "label": "trade",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "extends_name": "trade",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "428fa0d2-6833-4ab0-b295-7adaa16fcbf6",
+      "name": "Payment",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "7fe9124f-bbcd-4843-98cd-c95057dd7b29",
+      "name": "Executed order",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "474a8ae9-080e-432b-84a3-6608cca8a6cd",
+      "name": "Position",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Transaction.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "9670a742-693c-4374-af1f-f3f282abda17",
+      "name": "Fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Fee",
+        "label": "fee",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "charge for services performed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "charge for services performed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Fee",
+        "extends_name": "fee",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Fee"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
+      "name": "Incoming Payment",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f0d43782-81bb-4c24-bd1d-36b4d4a0fbc7",
+      "name": "Outgoing Payment",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e434dacc-6c9b-49cb-9514-a8f63429da1d",
+      "name": "Deposit",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "label": "Deposit",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "extends_name": "Deposit",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "58cbd6a9-5de8-48f9-a8d6-316b0e02ce9e",
+      "name": "First date of Deposit",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/Bonds/FirstRegularCouponDate",
+        "label": "first regular coupon date",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "scheduled date for the first regular coupon payment, in a regular repeating series of coupon periods, after any non standard (long or short) first coupon period in the schedule",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "scheduled date for the first regular coupon payment, in a regular repeating series of coupon periods, after any non standard (long or short) first coupon period in the schedule",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/Bonds/FirstRegularCouponDate",
+        "extends_name": "first regular coupon date",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/Bonds/FirstRegularCouponDate"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "name": "Payment",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "4e257042-6376-409a-83bb-0ac87e9562d6",
+      "name": "Custody fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "label": "Custody Agreement",
+        "match_type": "keyword",
+        "confidence": 0.733,
+        "fibo_definition": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A contract between an investor and a custodian bank for the safekeeping of securities and other assets.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement",
+        "extends_name": "Custody Agreement",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesHoldings/CustodyAgreement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b0f3d9ae-955d-4183-86a2-6d7e830fd528",
+      "name": "Entry fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/LedgerEntry",
+        "label": "ledger entry",
+        "match_type": "keyword",
+        "confidence": 0.688,
+        "fibo_definition": "Some imbalance, at a given point in time, between the respective rights and obligations of two parties with respect to one another.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Some imbalance, at a given point in time, between the respective rights and obligations of two parties with respect to one another.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/LedgerEntry",
+        "extends_name": "ledger entry",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/TransactionsExt/REATransactions/LedgerEntry"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "6764cde5-bb83-40b1-9b27-8fe6393f4b16",
+      "name": "Kickback fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 12
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
+        "label": "sales strategy",
+        "match_type": "inherited",
+        "confidence": 0.5152,
+        "fibo_definition": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
+        "extends_name": "sales strategy",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "dad94bdd-7b17-4e9f-aebf-2bc019a331a1",
+      "name": "Liability margin",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 13
+        },
+        {
+          "file": "Investment_Payment.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/DebtInstruments/Margin",
+        "label": "margin",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "a variable that is added to a specified index rate to determine the fully indexed interest rate charged to a borrower on a credit balance",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "a variable that is added to a specified index rate to determine the fully indexed interest rate charged to a borrower on a credit balance",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/DebtInstruments/Margin",
+        "extends_name": "margin",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/DebtInstruments/Margin"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "fb6be760-2595-4a22-b311-34ac7c27db73",
+      "name": "Trailer fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
+        "label": "portfolio",
+        "match_type": "inherited",
+        "confidence": 0.5886999999999999,
+        "fibo_definition": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
+        "extends_name": "portfolio",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b77182c4-5734-45be-b33b-120b4c13ca19",
+      "name": "Other fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Funds/CollectiveInvestmentVehicles/OtherInvestmentFundInformation",
+        "label": "other investment fund information",
+        "match_type": "keyword",
+        "confidence": 0.717,
+        "fibo_definition": "Things which are not part of the prospectus but are important if you want to understand the fund.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Things which are not part of the prospectus but are important if you want to understand the fund.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Funds/CollectiveInvestmentVehicles/OtherInvestmentFundInformation",
+        "extends_name": "other investment fund information",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Funds/CollectiveInvestmentVehicles/OtherInvestmentFundInformation"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "57f145d1-095c-49c5-9908-d3f112b3cb51",
+      "name": "Portfolio-based fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
+        "label": "portfolio",
+        "match_type": "keyword",
+        "confidence": 0.841,
+        "fibo_definition": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "collection of investments (financial assets) such as stocks, bonds and cash equivalents, as well as mutual funds, real estate, and so forth",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio",
+        "extends_name": "portfolio",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecurityAssets/Portfolio"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1f8334e8-2de7-4239-8304-32f7c2eb4376",
+      "name": "Sales fee",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
+        "label": "sales strategy",
+        "match_type": "keyword",
+        "confidence": 0.736,
+        "fibo_definition": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "strategy for selling something, including allocating resources to the sales process, reducing costs, and optimizing revenues",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy",
+        "extends_name": "sales strategy",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/SalesStrategy"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "5376ba27-4ff3-4481-90f2-670d682e4014",
+      "name": "Income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "label": "income",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "revenue received during a period of time",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "revenue received during a period of time",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "extends_name": "income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b5caccd7-95ee-4b2d-9e93-9571187e33df",
+      "name": "Core income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 20
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "label": "income",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "revenue received during a period of time",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "revenue received during a period of time",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "extends_name": "income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "16c7b6f2-8ff9-48f2-b40e-7fec50dbf0d6",
+      "name": "RIS group income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 21
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/Group",
+        "label": "group",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "collection of agents (people, organizations, software agents, etc.) that are considered as a unit",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "collection of agents (people, organizations, software agents, etc.) that are considered as a unit",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/Group",
+        "extends_name": "group",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/FormalOrganizations/Group"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b47bbc2b-568e-407d-a1ff-b57890322da2",
+      "name": "Allocated income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 22
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "label": "income",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "revenue received during a period of time",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "revenue received during a period of time",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "extends_name": "income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "83fa8853-ff5d-45a1-8840-a4de2e13c7d1",
+      "name": "LAMC income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 23
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "label": "income",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "revenue received during a period of time",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "revenue received during a period of time",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "extends_name": "income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2810963b-2f06-45e1-b261-1a442cb460cc",
+      "name": "Profitability",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 24
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Profitability in Test domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "44e55b0c-509a-47bf-ab13-7278fca68c22",
+      "name": "Gross Income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 25
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "label": "income",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "revenue received during a period of time",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "revenue received during a period of time",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "extends_name": "income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "81aa323f-bb8d-4efe-a098-ab9f82e8ffb8",
+      "name": "LTV (Life Time Value) GI (Gross Income)",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 26
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "LTV (Life Time Value) GI (Gross Income) in Test domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f8982d76-48ea-48a4-a12f-c89462abe765",
+      "name": "Other income",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 27
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "label": "income",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "revenue received during a period of time",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "revenue received during a period of time",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income",
+        "extends_name": "income",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/AccountingEquity/Income"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "a1c7f0d5-2a52-4134-b5bd-6532fcc205b5",
+      "name": "Position",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 28
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2fecfe48-8b19-4bad-b759-da68c66d038d",
+      "name": "Executed order",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 29
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e2ba229a-0438-4ade-b6a7-93dfdb134689",
+      "name": "Investment account (BIU)",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 30
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "label": "investment account",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "extends_name": "investment account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "00869b62-9a27-4570-a8cf-53b9c7dd61a4",
+      "name": "Balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 31
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
+      "name": "Account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "label": "account",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "container for records associated with a business arrangement for regular transactions and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "container for records associated with a business arrangement for regular transactions and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "extends_name": "account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "4b82f40b-087a-4efe-bef9-814596a61597",
+      "name": "Current account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount",
+        "label": "Deposit Account",
+        "match_type": "synonym",
+        "confidence": 0.9,
+        "fibo_definition": "A bank account that allows money to be deposited and withdrawn by the account holder.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A bank account that allows money to be deposited and withdrawn by the account holder.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount",
+        "extends_name": "Deposit Account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "da492dfb-0eec-4597-be60-a82e89de90c7",
+      "name": "Active current account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "6b4c0590-99b3-436c-bd72-c25b90db0e17",
+      "name": "Saving Account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "label": "account",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "container for records associated with a business arrangement for regular transactions and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "container for records associated with a business arrangement for regular transactions and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "extends_name": "account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "956ebb9c-4ef2-46a6-9e35-f27682ffcfa3",
+      "name": "Investment account (BIU)",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "label": "investment account",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "extends_name": "investment account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "860b3fea-2dc4-409d-b705-9e66c645edae",
+      "name": "Currency",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "7dfbbdfd-eeb2-4d69-9626-c7a61b138b13",
+      "name": "CZK",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "077cb51f-1d79-4945-abac-e481cbbfc6f8",
+      "name": "EUR",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "9f146986-87cf-403c-907d-e6e09587a8d7",
+      "name": "USD",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 12
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "name": "Balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 13
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "43bf72d8-6314-4901-bf72-edef3db6897c",
+      "name": "End of day (EOD) balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3f1ea9d9-d38d-4df2-9142-c6d240a7030f",
+      "name": "Active contract",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e2f4c2c4-90f7-4d3a-9252-ce120e9befba",
+      "name": "Number of active current accounts",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2ba21f6b-2008-47f5-8a46-d64b743935b3",
+      "name": "Deposit",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "label": "Deposit",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "extends_name": "Deposit",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "623308fb-1756-40b4-9b7e-a2f89b4701aa",
+      "name": "Payment",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
     }
   ],
   "external_concepts": [
@@ -6264,13 +8418,13 @@ const TEST_DATA = {
   ],
   "categorizations": [
     {
-      "id": "a21969ee-4592-4778-a3d1-3de569f88bd0",
-      "parent_id": "42465b86-692b-458c-a977-520ce4fe0368",
+      "id": "92e3a3de-5556-4688-afdd-dea93c3da98d",
+      "parent_id": "85651491-ac31-4b73-931e-53c33a824790",
       "parent_name": "Saving plan (regular investment)",
       "category_name": "@ by the frequency",
       "children_ids": [
-        "8a759cf0-ef95-42b2-8558-8fe53e53f319",
-        "401e7382-7694-4675-81b2-7ce43650f7e0"
+        "9320a85f-ac28-450d-8ecc-e7703bbe8e8d",
+        "aedd1d1a-722a-4b5d-875b-10becf53cf13"
       ],
       "children_names": [
         "Weekly",
@@ -6284,13 +8438,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "e97d3d14-8260-404d-94cb-05314b41720e",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
+      "id": "ff9d967c-7617-4997-ada1-a2bc05b4f639",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
       "parent_name": "Order",
       "category_name": "@ by the frequency of trading",
       "children_ids": [
-        "42465b86-692b-458c-a977-520ce4fe0368",
-        "cda6b2f7-6efd-448d-ada7-da6e0fa08e0a"
+        "85651491-ac31-4b73-931e-53c33a824790",
+        "68060a44-4020-4899-8226-64589b20efd2"
       ],
       "children_names": [
         "Saving plan (regular investment)",
@@ -6304,13 +8458,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "859bc475-6079-4921-9847-8b257cdb8259",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
+      "id": "dd13a321-31a0-4f3d-8b90-e8def9ec9d46",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
       "parent_name": "Order",
       "category_name": "@ by the kind of trading",
       "children_ids": [
-        "fc788e1b-74ca-4dd8-919e-5f8f8c361326",
-        "1569de41-5c9b-41a8-8414-3382be68a684"
+        "a0080959-60f1-4524-93de-abefe6dab8d2",
+        "0b69c292-ec51-4ef6-aaaa-f838ef4c9992"
       ],
       "children_names": [
         "Sell",
@@ -6324,14 +8478,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "f367e41c-0ba3-4ea6-9f91-c339c02d3f31",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
+      "id": "70ff36cd-7d20-4d9c-9a2c-62454a2a0e23",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
       "parent_name": "Order",
       "category_name": "@ by state",
       "children_ids": [
-        "dd73bf1c-f6f7-4137-b2b5-c1adcefb02e7",
-        "29bfa43c-50d2-48f6-b64a-79264d10738e",
-        "dc4dac15-b538-414d-9b29-c18fe545babe"
+        "b7707459-023e-481c-9c61-2c6f592a61cf",
+        "62178978-3d6c-4b4a-9a26-3401f1a69ae8",
+        "23e2893a-aabe-4cb9-bbfd-90068677aa2b"
       ],
       "children_names": [
         "Executed order",
@@ -6346,13 +8500,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "3ff5a511-bae5-44c0-82b7-75315d60dc99",
-      "parent_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
+      "id": "e4b302e0-5f15-4c8e-ab45-39c020660487",
+      "parent_id": "68d29707-015b-4565-9828-cd167d4db22e",
       "parent_name": "Order",
       "category_name": "@ by [Onboarding Channel]",
       "children_ids": [
-        "070a2151-e607-48f0-8bf8-c2973f4b0472",
-        "f3ec86ea-7d0b-4e3c-8b0c-2a17478642cf"
+        "59afe995-d5ce-4b22-b23a-909e551741a5",
+        "87d2ce75-d17c-4720-9842-694d88b2ecf3"
       ],
       "children_names": [
         "Non-digital Onboarding Channel",
@@ -6366,13 +8520,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "13fc2d66-3c03-490b-8429-42ea78b1f1bc",
-      "parent_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "id": "6a02df0a-a920-4271-92f6-5565d1dfb4d4",
+      "parent_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
       "parent_name": "Position",
       "category_name": "kind of [Posiition]",
       "children_ids": [
-        "b42e63d0-f31d-47e6-a21d-3c3237feaeb9",
-        "bc9be2f7-02f8-4680-82a0-32124708fb54"
+        "c40f8e76-a6b1-4235-b21d-166d8240a8d7",
+        "b7f5f94a-fbc1-4dff-b0d3-1e84dd034c0c"
       ],
       "children_names": [
         "Market / exchange",
@@ -6386,12 +8540,12 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "849b3615-c7b9-42f8-b0e2-703bd4bd3b60",
-      "parent_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "id": "d0a84f55-9ad8-4545-8066-fc62ad6c2f8e",
+      "parent_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
       "parent_name": "Position",
       "category_name": "by the state",
       "children_ids": [
-        "7c5dfdd3-9a87-462e-96bc-0ef78853d9ae"
+        "46bedd79-30ea-49cd-aa35-cb137a1cfab1"
       ],
       "children_names": [
         "Sold position"
@@ -6404,13 +8558,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "decb0a2f-a999-468a-81ab-38fb3f94638f",
-      "parent_id": "bc9be2f7-02f8-4680-82a0-32124708fb54",
+      "id": "f2755328-518e-40e6-b121-8c65e2731c7a",
+      "parent_id": "b7f5f94a-fbc1-4dff-b0d3-1e84dd034c0c",
       "parent_name": "Date",
       "category_name": "kind of [Date]",
       "children_ids": [
-        "d90d108d-099e-4d9e-965c-8d3e83780296",
-        "4d998fff-dbd1-4ea1-af7c-bc8a17933f0f"
+        "df268fe2-5ec8-4232-a165-8a6b692f582b",
+        "2983666e-3830-4b9c-a81f-f679a0e0fb8a"
       ],
       "children_names": [
         "Trade date",
@@ -6424,13 +8578,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "a880e288-d5e8-4b63-b99b-35e35f42b0be",
-      "parent_id": "33088419-0871-4164-9bdd-9df97c864a20",
+      "id": "7dace9d7-cd5e-4f9e-963e-4ceb2fc859c8",
+      "parent_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
       "parent_name": "Transaction",
       "category_name": "@ by the type of trades",
       "children_ids": [
-        "fef71090-db68-4dc1-bfe5-47ae716e646b",
-        "4efffb56-de3d-453b-b46a-152f9d23a894"
+        "5134f027-1fef-4747-ac2f-a06353edb44e",
+        "9d49ef70-65f9-4b27-b8b0-7ac8a84c859a"
       ],
       "children_names": [
         "Trade",
@@ -6444,13 +8598,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "acbd563a-ac51-4543-82f9-bdf13263cf90",
-      "parent_id": "33088419-0871-4164-9bdd-9df97c864a20",
+      "id": "6847fc78-17e7-4284-a30b-afc9f5b4fa8d",
+      "parent_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
       "parent_name": "Transaction",
       "category_name": "@ by the type of processing",
       "children_ids": [
-        "b4625732-d22e-4e28-aa97-0d83b0410113",
-        "1cc51c9e-140a-4f60-a0b1-5e4bba099eca"
+        "fc50a529-18b5-44aa-9fc5-8106aa8aaeee",
+        "2f2f7e4c-1249-4428-be9f-436e94d5af15"
       ],
       "children_names": [
         "Automatic",
@@ -6464,13 +8618,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "f6518646-c550-4f96-a628-a4821c76b6ce",
-      "parent_id": "33088419-0871-4164-9bdd-9df97c864a20",
+      "id": "effe45db-aafb-43d9-9e3d-bfe2dfbb4bd5",
+      "parent_id": "51182d7a-b87c-4d73-9029-b7979a3535dc",
       "parent_name": "Transaction",
       "category_name": "kind of [Transaction]",
       "children_ids": [
-        "7cd8aac7-c95b-4379-bf6e-830817fb5e96",
-        "3ab1e5b9-1c21-4609-b712-aa86f255dfeb"
+        "7fe9124f-bbcd-4843-98cd-c95057dd7b29",
+        "428fa0d2-6833-4ab0-b295-7adaa16fcbf6"
       ],
       "children_names": [
         "Executed order",
@@ -6484,13 +8638,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "c0ab9c0b-72ee-48b9-bd54-c775abaef1b5",
-      "parent_id": "a70b7057-779f-48ff-bb1d-cc19a88f9604",
+      "id": "8b967280-eed3-4006-b426-9a94b8b070ab",
+      "parent_id": "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
       "parent_name": "Incoming Payment",
       "category_name": "kind of[IncomingPayment]",
       "children_ids": [
-        "cdc8af33-d996-4b4c-8130-a512df8cdc03",
-        "80b064dd-34a3-4a4a-a2c4-a523ee826ef9"
+        "9670a742-693c-4374-af1f-f3f282abda17",
+        "e434dacc-6c9b-49cb-9514-a8f63429da1d"
       ],
       "children_names": [
         "Fee",
@@ -6504,13 +8658,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "0232a674-33eb-445b-8722-a75826e2bfd2",
-      "parent_id": "99044663-d50d-460a-beb8-43dc1b73f7db",
+      "id": "73671576-b958-4f56-a93c-f2c2c60ba4ec",
+      "parent_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
       "parent_name": "Payment",
       "category_name": "Kind of [Payment]",
       "children_ids": [
-        "a70b7057-779f-48ff-bb1d-cc19a88f9604",
-        "840ca546-7463-4026-8e05-35fd21758399"
+        "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
+        "f0d43782-81bb-4c24-bd1d-36b4d4a0fbc7"
       ],
       "children_names": [
         "Incoming Payment",
@@ -6524,13 +8678,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d50d29c1-b2cb-4555-bcfe-a4ef4af7262a",
-      "parent_id": "fea921ff-9b73-4310-82f6-5a455d69e4eb",
+      "id": "1232a868-0543-413e-946e-4f8fdc824d82",
+      "parent_id": "1f8334e8-2de7-4239-8304-32f7c2eb4376",
       "parent_name": "Sales fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "d2134a26-0a6b-4ab0-a001-e1d55f3acd7d",
-        "364d26a0-ed98-4d79-955b-35b846f260a5"
+        "6764cde5-bb83-40b1-9b27-8fe6393f4b16",
+        "b0f3d9ae-955d-4183-86a2-6d7e830fd528"
       ],
       "children_names": [
         "Kickback fee",
@@ -6544,14 +8698,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "dce039dc-5e35-438d-830e-2cd419bfe24e",
-      "parent_id": "9a36bcb3-bff5-4aae-a210-959274b776e8",
+      "id": "1a674229-56d1-4320-a271-b6c34bce4f92",
+      "parent_id": "57f145d1-095c-49c5-9908-d3f112b3cb51",
       "parent_name": "Portfolio-based fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "77cf5306-e53b-4959-a3b0-d02550a4ef00",
-        "e3d6df58-293f-4694-8f60-46a183a6e605",
-        "a1f7d763-13d3-4b82-9bc6-d7a57bef432f"
+        "4e257042-6376-409a-83bb-0ac87e9562d6",
+        "b77182c4-5734-45be-b33b-120b4c13ca19",
+        "fb6be760-2595-4a22-b311-34ac7c27db73"
       ],
       "children_names": [
         "Custody fee",
@@ -6566,14 +8720,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "ffae47a4-6702-40a3-a7e3-a3ac6ecacc16",
-      "parent_id": "cdc8af33-d996-4b4c-8130-a512df8cdc03",
+      "id": "ceff083f-6e60-4e62-b6ad-bfa452af4019",
+      "parent_id": "9670a742-693c-4374-af1f-f3f282abda17",
       "parent_name": "Fee",
       "category_name": "@ by fee category",
       "children_ids": [
-        "9a36bcb3-bff5-4aae-a210-959274b776e8",
-        "fea921ff-9b73-4310-82f6-5a455d69e4eb",
-        "52c68771-cb0a-451f-bf46-143c2137a9c0"
+        "57f145d1-095c-49c5-9908-d3f112b3cb51",
+        "1f8334e8-2de7-4239-8304-32f7c2eb4376",
+        "dad94bdd-7b17-4e9f-aebf-2bc019a331a1"
       ],
       "children_names": [
         "Portfolio-based fee",
@@ -6588,16 +8742,16 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "a1a6a6b3-9c73-4834-ad2d-403552f8c14e",
-      "parent_id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
+      "id": "d36633ec-9368-4647-ac62-e9e402df80de",
+      "parent_id": "5376ba27-4ff3-4481-90f2-670d682e4014",
       "parent_name": "Income",
       "category_name": "kind of [Income]",
       "children_ids": [
-        "53b448a4-f199-4977-b361-fd3760f7be7c",
-        "4d7b1c43-5b95-47e6-b07c-264e7f1a70b7",
-        "3574ea18-2d89-4bcf-a7ca-3bf880b8cb0e",
-        "e52c85c4-462f-4d01-bbb5-69d2e320ae57",
-        "b71d2039-ec63-473b-aeef-a3cc7a20d9a8"
+        "f8982d76-48ea-48a4-a12f-c89462abe765",
+        "16c7b6f2-8ff9-48f2-b40e-7fec50dbf0d6",
+        "b47bbc2b-568e-407d-a1ff-b57890322da2",
+        "83fa8853-ff5d-45a1-8840-a4de2e13c7d1",
+        "b5caccd7-95ee-4b2d-9e93-9571187e33df"
       ],
       "children_names": [
         "Other income",
@@ -6614,13 +8768,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d5c40c05-0756-4438-9184-14b07e266745",
-      "parent_id": "85e23f29-d2e2-4c91-8f74-eab774b8354c",
+      "id": "6df5f479-04ed-4958-8c4f-a56c37286798",
+      "parent_id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
       "parent_name": "Account",
       "category_name": "kind of [Account]",
       "children_ids": [
-        "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
-        "74190731-4374-4229-b180-728f95905b4d"
+        "4b82f40b-087a-4efe-bef9-814596a61597",
+        "6b4c0590-99b3-436c-bd72-c25b90db0e17"
       ],
       "children_names": [
         "Current account",
@@ -6634,12 +8788,12 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "994f4b2e-3e98-45bb-b42a-64def987eb5e",
-      "parent_id": "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
+      "id": "ec3801cd-fe78-4f5d-9b85-df65c6026cac",
+      "parent_id": "4b82f40b-087a-4efe-bef9-814596a61597",
       "parent_name": "Current account",
       "category_name": "by state",
       "children_ids": [
-        "ae97a7d8-bacf-480b-8e0f-0d46f784622f"
+        "da492dfb-0eec-4597-be60-a82e89de90c7"
       ],
       "children_names": [
         "Active current account"
@@ -6652,14 +8806,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "73a71bd8-26ea-4ae2-8b4e-c6832aaed927",
-      "parent_id": "b04e3f72-4410-4ee7-9701-5460803d201b",
+      "id": "2c66cc1f-e953-4f17-bfb0-635ff5ecc041",
+      "parent_id": "860b3fea-2dc4-409d-b705-9e66c645edae",
       "parent_name": "Currency",
       "category_name": "kind of [Currency]",
       "children_ids": [
-        "b815754a-7e68-4318-b3cc-9bd63a424c76",
-        "549f7019-bf11-4a64-a855-fbcee46e195a",
-        "f207c3da-a550-4c30-8670-1d8b7068f68d"
+        "077cb51f-1d79-4945-abac-e481cbbfc6f8",
+        "7dfbbdfd-eeb2-4d69-9626-c7a61b138b13",
+        "9f146986-87cf-403c-907d-e6e09587a8d7"
       ],
       "children_names": [
         "EUR",
@@ -6672,14 +8826,32 @@ const TEST_DATA = {
           "line": 23
         }
       ]
+    },
+    {
+      "id": "d9be07a4-67c5-403a-89c6-35afc0fc7b8f",
+      "parent_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "parent_name": "Balance",
+      "category_name": "aggregation by time",
+      "children_ids": [
+        "43bf72d8-6314-4901-bf72-edef3db6897c"
+      ],
+      "children_names": [
+        "End of day (EOD) balance"
+      ],
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 24
+        }
+      ]
     }
   ],
   "relationships": [
     {
-      "id": "06b038ad-99e2-4bfc-a6a3-22281842aabc",
-      "subject_id": "78aea508-9f2f-4535-b5bb-4252e8c437c6",
+      "id": "ebb44a21-d6d3-4cab-970c-885d13c6b505",
+      "subject_id": "62721c78-c839-4eef-9a17-07e0e725ebbb",
       "subject_name": "Sales",
-      "object_id": "dad0060e-c829-4ccf-97c1-19be598661b2",
+      "object_id": "68d29707-015b-4565-9828-cd167d4db22e",
       "object_name": "Order",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -6695,6 +8867,63 @@ const TEST_DATA = {
       ]
     },
     {
+      "id": "e44cb03b-a1a3-4ccc-8b92-3ec444b8dbc6",
+      "subject_id": "b7707459-023e-481c-9c61-2c6f592a61cf",
+      "subject_name": "Executed order",
+      "object_id": "f1e62582-8ddf-4ed4-9ebd-7f2b36f37c16",
+      "object_name": "Position",
+      "verb_phrase": "predicts",
+      "inverse_verb_phrase": "consists of",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "5454e5e7-2a54-4eaf-b225-07118067b92b",
+      "subject_id": "b7707459-023e-481c-9c61-2c6f592a61cf",
+      "subject_name": "Executed order",
+      "object_id": "0a4aac6e-c7ad-482c-ae71-8097ae4ec156",
+      "object_name": "Payment",
+      "verb_phrase": "is being settled for",
+      "inverse_verb_phrase": "is settled to",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "#~Settlement",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "3358e43e-bca3-4639-8ae6-f91ef8e74b16",
+      "subject_id": "08972fe9-a545-46ee-9cdd-c6aed6315626",
+      "subject_name": "Custody fee",
+      "object_id": "f1e62582-8ddf-4ed4-9ebd-7f2b36f37c16",
+      "object_name": "Position",
+      "verb_phrase": "is charged for",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Order.cs",
+          "line": 32
+        }
+      ]
+    },
+    {
       "source_name": "Digital Onboarding Channel",
       "target_name": "Schema.org:Service Channel",
       "forward_verb": "is a",
@@ -6704,19 +8933,10 @@ const TEST_DATA = {
       "external_uri": "https://schema.org/ServiceChannel"
     },
     {
-      "source_name": "Non-digital Onboarding Channel",
-      "target_name": "Schema.org:Service Channel",
-      "forward_verb": "is a",
-      "backward_verb": "",
-      "type": "isA",
-      "match_source": "manual:channels",
-      "external_uri": "https://schema.org/ServiceChannel"
-    },
-    {
-      "id": "ab8bb4a1-4e88-4bf1-a6ae-4a983699376d",
-      "subject_id": "7c5dfdd3-9a87-462e-96bc-0ef78853d9ae",
+      "id": "8b534015-8d2f-4451-83b5-0410ba5f6053",
+      "subject_id": "46bedd79-30ea-49cd-aa35-cb137a1cfab1",
       "subject_name": "Sold position",
-      "object_id": "4d998fff-dbd1-4ea1-af7c-bc8a17933f0f",
+      "object_id": "2983666e-3830-4b9c-a81f-f679a0e0fb8a",
       "object_name": "Settlement date",
       "verb_phrase": "transfers of funds on",
       "inverse_verb_phrase": "",
@@ -6732,10 +8952,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "aba30229-b7cc-47ec-b3d4-c4e4d19094d5",
-      "subject_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "id": "6b8ee21b-23ac-4602-b195-993785f60308",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
       "subject_name": "Position",
-      "object_id": "d90d108d-099e-4d9e-965c-8d3e83780296",
+      "object_id": "df268fe2-5ec8-4232-a165-8a6b692f582b",
       "object_name": "Trade date",
       "verb_phrase": "is traded on",
       "inverse_verb_phrase": "",
@@ -6751,10 +8971,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "9991a03f-0bff-48ac-bfc1-34dfb9264e59",
-      "subject_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
+      "id": "40ecae43-8ec2-4b22-93b9-e4ecf0048a50",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "object_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
       "object_name": "Position",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -6770,10 +8990,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "146e6b97-b39e-4c58-9c32-e7cd09f53d32",
-      "subject_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
+      "id": "726398ea-c7bc-4d9b-a32a-4ec918f7ed94",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "5df0d7ed-e9b3-4154-947c-c7a7d1667cc3",
+      "object_id": "0a2b1647-6456-47e7-adbb-abf27c7cc281",
       "object_name": "Market value",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -6789,10 +9009,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "888f528a-0979-4d1d-8150-80a3220595cc",
-      "subject_id": "c8b13224-6e84-407b-bf05-006fecdd7824",
+      "id": "a2f8da64-3f0a-42ef-8e61-fe1805a67bb8",
+      "subject_id": "c21ce011-2375-4424-85f2-49ab2db8d910",
       "subject_name": "Number of products",
-      "object_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
+      "object_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
       "object_name": "Asset under Management (AUM)",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -6808,10 +9028,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d5a3d74d-a4cc-4e0c-9068-2d7fd44ac6c7",
-      "subject_id": "50e0feaa-b169-423c-8dda-9647871e0fde",
+      "id": "65afeaa3-cab5-44d6-8fb6-0769bdba2f54",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
       "subject_name": "Position",
-      "object_id": "bc7432d0-f214-4726-820e-9f30f25a8a4d",
+      "object_id": "49b8ea7f-7029-422e-bbc4-79f6bbb655cf",
       "object_name": "Portfolio",
       "verb_phrase": "is part of",
       "inverse_verb_phrase": "is sum of",
@@ -6827,10 +9047,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d36cc0c8-cda4-4047-9691-c9f2cb199847",
-      "subject_id": "c84fc3c1-ae17-49e4-92ae-78fc1b78c5f1",
+      "id": "1c4bcb59-39c2-4220-9941-d1d5d5254b9b",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "bc7432d0-f214-4726-820e-9f30f25a8a4d",
+      "object_id": "49b8ea7f-7029-422e-bbc4-79f6bbb655cf",
       "object_name": "Portfolio",
       "verb_phrase": "is value of",
       "inverse_verb_phrase": "is valuated as",
@@ -6846,28 +9066,124 @@ const TEST_DATA = {
       ]
     },
     {
-      "source_name": "Automatic",
-      "target_name": "Schema.org:Action",
-      "forward_verb": "is a",
-      "backward_verb": "",
-      "type": "isA",
-      "match_source": "manual:process_types",
-      "external_uri": "https://schema.org/Action"
+      "id": "a9129f28-2ff0-45a3-9905-b8c830c5e203",
+      "subject_id": "ef8296fa-39cd-4f72-8c6e-bc4d49a10246",
+      "subject_name": "Active contract",
+      "object_id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "object_name": "Customer",
+      "verb_phrase": "belongs to",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 38
+        }
+      ]
     },
     {
-      "source_name": "Manual",
-      "target_name": "Schema.org:Action",
-      "forward_verb": "is a",
-      "backward_verb": "",
-      "type": "isA",
-      "match_source": "manual:process_types",
-      "external_uri": "https://schema.org/Action"
+      "id": "1549fc25-1f1f-4c9d-b07c-62d0a2f5afc4",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "subject_name": "Position",
+      "object_id": "69ed9244-3d1a-426f-a089-162220ac42ae",
+      "object_name": "Transaction",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 39
+        }
+      ]
     },
     {
-      "id": "8cfa6eae-7197-4ff0-898f-374c968eaff5",
-      "subject_id": "80b064dd-34a3-4a4a-a2c4-a523ee826ef9",
+      "id": "1591c3d5-3095-44c1-82b8-e1fa80314407",
+      "subject_id": "56439e8a-e407-43d4-9be6-e517ae1ff18b",
+      "subject_name": "Position",
+      "object_id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "object_name": "Customer",
+      "verb_phrase": "is owned by",
+      "inverse_verb_phrase": "owns",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 40
+        }
+      ]
+    },
+    {
+      "id": "6114489e-0cb4-4293-a9d3-a01ac50dc679",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "ef8296fa-39cd-4f72-8c6e-bc4d49a10246",
+      "object_name": "Active contract",
+      "verb_phrase": "",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "id": "0196c3e2-70cf-42de-83ad-f5824bfa5aba",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "845e1a18-e2b9-4b75-bf7b-66d974c1fa4d",
+      "object_name": "Customer",
+      "verb_phrase": "",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "id": "839f946d-6e70-4738-84d2-9af7ac903b56",
+      "subject_id": "1ae89883-56d9-4ca6-93b5-f81b28989583",
+      "subject_name": "Asset under Management (AUM)",
+      "object_id": "7923de3c-8168-4629-99fd-ddc5337064df",
+      "object_name": "Product",
+      "verb_phrase": "",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Position.cs",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "id": "859d93a5-062d-4779-a338-6f262bd19491",
+      "subject_id": "e434dacc-6c9b-49cb-9514-a8f63429da1d",
       "subject_name": "Deposit",
-      "object_id": "f37832ac-3f43-4714-b5b3-b0e06927375b",
+      "object_id": "58cbd6a9-5de8-48f9-a8d6-316b0e02ce9e",
       "object_name": "First date of Deposit",
       "verb_phrase": "has [First date]",
       "inverse_verb_phrase": "",
@@ -6883,10 +9199,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "91f15e39-1bf2-4b55-bdef-ec063c65398f",
-      "subject_id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
+      "id": "77c081b2-9969-45df-841a-b08c136fd8e7",
+      "subject_id": "5376ba27-4ff3-4481-90f2-670d682e4014",
       "subject_name": "Income",
-      "object_id": "a70b7057-779f-48ff-bb1d-cc19a88f9604",
+      "object_id": "4720d418-95c1-4f05-a347-d5da3d2a3ff0",
       "object_name": "Incoming Payment",
       "verb_phrase": "is generated by",
       "inverse_verb_phrase": "generates",
@@ -6902,10 +9218,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "519ffd3f-4e07-4009-81ac-36ca0f531533",
-      "subject_id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
+      "id": "002ec4c7-bf5b-41f4-a834-8c5cfb070c2a",
+      "subject_id": "2810963b-2f06-45e1-b261-1a442cb460cc",
       "subject_name": "Profitability",
-      "object_id": "1ec549a5-4052-4db8-9b15-814bc6f26a4a",
+      "object_id": "5376ba27-4ff3-4481-90f2-670d682e4014",
       "object_name": "Income",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -6921,10 +9237,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "625bdd31-6229-4d10-9e3a-1720f2e2f682",
-      "subject_id": "48b7cbb1-80a5-4301-a387-2afa6242c0c6",
+      "id": "ebf24694-acc2-43b1-a830-0da0732d3978",
+      "subject_id": "44e55b0c-509a-47bf-ab13-7278fca68c22",
       "subject_name": "Gross Income",
-      "object_id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
+      "object_id": "2810963b-2f06-45e1-b261-1a442cb460cc",
       "object_name": "Profitability",
       "verb_phrase": "measures",
       "inverse_verb_phrase": "is measured by",
@@ -6940,10 +9256,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "a0dbe670-fc87-43d7-8a6b-2457cfc996df",
-      "subject_id": "e0a1c21e-cd4e-4f5b-a3dd-df40d46f0e23",
+      "id": "7d177c76-aef1-4683-8856-22777629f77e",
+      "subject_id": "81aa323f-bb8d-4efe-a098-ab9f82e8ffb8",
       "subject_name": "LTV (Life Time Value) GI (Gross Income)",
-      "object_id": "6ccacced-14c7-4b0c-937a-6dae2c17ebc4",
+      "object_id": "2810963b-2f06-45e1-b261-1a442cb460cc",
       "object_name": "Profitability",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "is measured by",
@@ -6959,10 +9275,67 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "9cc9b384-50d3-48c2-a07e-7efae8d62e1c",
-      "subject_id": "8bd6b5ce-e153-4ffa-8807-f66d4b5f74ee",
+      "id": "f9285050-9749-45cd-9f94-764fe06ff305",
+      "subject_id": "e2ba229a-0438-4ade-b6a7-93dfdb134689",
+      "subject_name": "Investment account (BIU)",
+      "object_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "object_name": "Payment",
+      "verb_phrase": "processes",
+      "inverse_verb_phrase": "is settled from",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "id": "3cb86fab-5143-4bac-8958-517bd3ea06af",
+      "subject_id": "00869b62-9a27-4570-a8cf-53b9c7dd61a4",
+      "subject_name": "Balance",
+      "object_id": "8c3f22a1-11a6-4cd2-803f-b9fe08217882",
+      "object_name": "Payment",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "579d210b-a326-4925-a9d6-c5ce4956875c",
+      "subject_id": "e434dacc-6c9b-49cb-9514-a8f63429da1d",
+      "subject_name": "Deposit",
+      "object_id": "00869b62-9a27-4570-a8cf-53b9c7dd61a4",
+      "object_name": "Balance",
+      "verb_phrase": "increases",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Payment.cs",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "id": "1525a363-d886-4762-a682-664a5f4477dd",
+      "subject_id": "4b82f40b-087a-4efe-bef9-814596a61597",
       "subject_name": "Current account",
-      "object_id": "8fe8680d-8937-4bb2-86aa-ced80c114f67",
+      "object_id": "956ebb9c-4ef2-46a6-9e35-f27682ffcfa3",
       "object_name": "Investment account (BIU)",
       "verb_phrase": "Is a",
       "inverse_verb_phrase": "",
@@ -6973,15 +9346,15 @@ const TEST_DATA = {
       "sources": [
         {
           "file": "Investment_Financial_Account.cs",
-          "line": 29
+          "line": 27
         }
       ]
     },
     {
-      "id": "77ec4e7f-1b01-4a72-b4e1-af239fab12f4",
-      "subject_id": "85e23f29-d2e2-4c91-8f74-eab774b8354c",
+      "id": "d01c950f-d66f-4d27-9ce7-a353efd7df76",
+      "subject_id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
       "subject_name": "Account",
-      "object_id": "b04e3f72-4410-4ee7-9701-5460803d201b",
+      "object_id": "860b3fea-2dc4-409d-b705-9e66c645edae",
       "object_name": "Currency",
       "verb_phrase": "is composed of",
       "inverse_verb_phrase": "composes",
@@ -6992,15 +9365,72 @@ const TEST_DATA = {
       "sources": [
         {
           "file": "Investment_Financial_Account.cs",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "id": "37426b71-5cb3-45d5-bbfb-71aea9c6b401",
+      "subject_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "subject_name": "Balance",
+      "object_id": "3f1ea9d9-d38d-4df2-9142-c6d240a7030f",
+      "object_name": "Active contract",
+      "verb_phrase": "aggregated by",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "f4d416c5-17e6-41fe-941a-0b5c756defeb",
+      "subject_id": "b00fb49f-b433-4ae8-ba29-811491e6b036",
+      "subject_name": "Account",
+      "object_id": "97409c79-948a-4c86-8847-b5ef52d8eb04",
+      "object_name": "Balance",
+      "verb_phrase": "has",
+      "inverse_verb_phrase": "is calculated for",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
           "line": 30
+        }
+      ]
+    },
+    {
+      "id": "d2d87feb-2fba-40e5-8aa2-d361cedce79f",
+      "subject_id": "e2f4c2c4-90f7-4d3a-9252-ce120e9befba",
+      "subject_name": "Number of active current accounts",
+      "object_id": "da492dfb-0eec-4597-be60-a82e89de90c7",
+      "object_name": "Active current account",
+      "verb_phrase": "measures",
+      "inverse_verb_phrase": "measured by",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Investment_Financial_Account.cs",
+          "line": 31
         }
       ]
     }
   ],
   "enumerations": [
     {
-      "id": "9d6e15c9-46ed-4b1b-b671-cb5dead416a1",
-      "concept_id": "b42e63d0-f31d-47e6-a21d-3c3237feaeb9",
+      "id": "52cc0d2b-b032-496f-a3b5-537cc701267a",
+      "concept_id": "c40f8e76-a6b1-4235-b21d-166d8240a8d7",
       "concept_name": "Market / exchange",
       "values": [
         "BCPP",
@@ -7017,10 +9447,10 @@ const TEST_DATA = {
   ],
   "unary_states": [],
   "metadata": {
-    "concept_count": 62,
+    "concept_count": 82,
     "external_concept_count": 2,
-    "fibo_mapped_count": 60,
-    "fibo_coverage": 96.7741935483871,
+    "fibo_mapped_count": 80,
+    "fibo_coverage": 97.5609756097561,
     "schema_mapped_count": 0,
     "semantic_coverage": 0,
     "definition_coverage": 0,

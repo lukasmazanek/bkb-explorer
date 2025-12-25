@@ -230,11 +230,31 @@ def merge_domain_data(datasets, domain_name):
                 seen_external_uris.add(ext.get("uri"))
                 merged["external_concepts"].append(ext)
 
-        # Merge relationships, categorizations, etc.
+        # Merge relationships, categorizations, etc. (with deduplication)
         merged["categorizations"].extend(data.get("categorizations", []))
         merged["relationships"].extend(data.get("relationships", []))
         merged["enumerations"].extend(data.get("enumerations", []))
         merged["unary_states"].extend(data.get("unary_states", []))
+
+    # Deduplicate relationships by (subject_name, object_name, verb_phrase)
+    seen_rels = set()
+    unique_rels = []
+    for rel in merged["relationships"]:
+        key = (rel.get("subject_name"), rel.get("object_name"), rel.get("verb_phrase"))
+        if key not in seen_rels:
+            seen_rels.add(key)
+            unique_rels.append(rel)
+    merged["relationships"] = unique_rels
+
+    # Deduplicate categorizations by (parent_name, children hash)
+    seen_cats = set()
+    unique_cats = []
+    for cat in merged["categorizations"]:
+        key = (cat.get("parent_name"), tuple(sorted(cat.get("children_names", []))))
+        if key not in seen_cats:
+            seen_cats.add(key)
+            unique_cats.append(cat)
+    merged["categorizations"] = unique_cats
 
     # Update metadata
     merged["metadata"]["concept_count"] = len(merged["concepts"])
