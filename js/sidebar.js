@@ -247,11 +247,19 @@ const Sidebar = {
         // Remove previous active
         this.container.querySelectorAll('.tree-item.active').forEach(item => {
             item.classList.remove('active');
-            // Reset icon only for items without children/views (leaf domains)
             const icon = item.querySelector('.icon');
-            const hasChildren = this.container.querySelector(`.tree-children[data-parent="${item.dataset.name}"]`);
-            if (icon && !item.classList.contains('view-item') && !hasChildren) {
-                icon.textContent = '○';
+            if (icon) {
+                // Reset view icons (◆→◇)
+                if (item.classList.contains('view-item')) {
+                    icon.textContent = '◇';
+                }
+                // Reset leaf domain icons (●→○)
+                else {
+                    const hasChildren = this.container.querySelector(`.tree-children[data-parent="${item.dataset.name}"]`);
+                    if (!hasChildren) {
+                        icon.textContent = '○';
+                    }
+                }
             }
         });
 
