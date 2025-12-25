@@ -160,8 +160,9 @@ const Graph = {
 
         // Also include concepts connected via relationships to visible nodes
         relationships.forEach(rel => {
-            const subj = rel.subject_name;
-            const obj = rel.object_name;
+            // Support multiple formats: subject_name/object_name, source_name/target_name, from/to
+            const subj = rel.subject_name || rel.source_name || rel.from || '';
+            const obj = rel.object_name || rel.target_name || rel.to || '';
             // If one end is visible, add the other end too
             if (visibleNames.has(subj) && internalNames.has(obj)) {
                 visibleNames.add(obj);
@@ -261,34 +262,38 @@ const Graph = {
         // Track external concepts referenced by isA relationships (ADR-042/043)
         const referencedExternals = new Set();
 
-        // Add relationship edges (binary verbs from ConceptSpeak)
-        relationships.forEach(rel => {
-            // ADR-042/043: Handle isA relationships with cross-domain refs
+        // Helper function to process isA relationships (can be in relationships or categorizations)
+        const processIsARelationship = (rel) => {
             const relType = rel.type || '';
             const isIsA = relType === 'isA';
+            if (!isIsA) return;
 
-            // Support both old format (subject_name/object_name) and new format (source_name/target_name)
-            const subj = rel.subject_name || rel.source_name || '';
-            const obj = rel.object_name || rel.target_name || '';
-
-            // Get both verb phrases for bidirectional labels
+            const subj = rel.subject_name || rel.source_name || rel.from || '';
+            const obj = rel.object_name || rel.target_name || rel.to || '';
             const verbPhrase = (rel.verb_phrase || rel.forward_verb || '').trim();
-            const inversePhrase = (rel.inverse_verb_phrase || '').trim();
 
-            // For isA: target might be external concept (e.g., "Schema.org:Action")
+            // Extract short name from cross-domain ref (e.g., "Schema.org:Action" -> "Action")
+            const shortName = obj.includes(':') ? obj.split(':').slice(1).join(':') : obj;
+
             const isExternalTarget = externalMap.has(obj);
+            const isSchemaConceptTarget = conceptMap.has(shortName) &&
+                conceptMap.get(shortName).sources?.some(s => s.type === 'schema.org');
 
-            if (isIsA && isExternalTarget) {
-                // Track that we need this external concept node
+            console.log('isA check:', subj, '->', obj, 'shortName:', shortName,
+                'isExternal:', isExternalTarget, 'isSchema:', isSchemaConceptTarget,
+                'inConceptMap:', conceptMap.has(shortName));
+
+            if (isExternalTarget || isSchemaConceptTarget) {
                 referencedExternals.add(obj);
+                const targetNodeId = isSchemaConceptTarget ? shortName : obj;
 
-                // Add isA edge if source is visible
                 if (visibleNames.has(subj)) {
+                    console.log('Adding isA edge:', subj, '->', targetNodeId);
                     edges.push({
                         data: {
                             id: `isA-${rel.id || Math.random()}`,
                             source: subj,
-                            target: obj,  // External concept ID (e.g., "Schema.org:Action")
+                            target: targetNodeId,
                             type: 'isA',
                             sourceLabel: verbPhrase || 'is a',
                             targetLabel: ''
@@ -296,7 +301,33 @@ const Graph = {
                         classes: 'isA'
                     });
                 }
-            } else if (visibleNames.has(subj) && (visibleNames.has(obj) || internalNames.has(obj))) {
+            }
+        };
+
+        // Check categorizations for isA relationships (legacy test data format)
+        categorizations.forEach(processIsARelationship);
+
+        // Add relationship edges (binary verbs from ConceptSpeak)
+        relationships.forEach(rel => {
+            // ADR-042/043: Handle isA relationships with cross-domain refs
+            const relType = rel.type || '';
+            const isIsA = relType === 'isA';
+
+            // Process isA relationships using helper function
+            if (isIsA) {
+                processIsARelationship(rel);
+                return;
+            }
+
+            // Support multiple formats: subject_name/object_name, source_name/target_name, from/to
+            const subj = rel.subject_name || rel.source_name || rel.from || '';
+            const obj = rel.object_name || rel.target_name || rel.to || '';
+
+            // Get both verb phrases for bidirectional labels
+            const verbPhrase = (rel.verb_phrase || rel.forward_verb || '').trim();
+            const inversePhrase = (rel.inverse_verb_phrase || '').trim();
+
+            if (visibleNames.has(subj) && (visibleNames.has(obj) || internalNames.has(obj))) {
                 // Regular relationship: both concepts should be visible
                 if (visibleNames.has(obj)) {
                     // Context relationships get dotted styling
@@ -321,6 +352,7 @@ const Graph = {
         referencedExternals.forEach(extRef => {
             const ext = externalMap.get(extRef);
             if (ext) {
+                // New format: external_concepts[] array
                 nodes.push({
                     data: {
                         id: extRef,  // e.g., "Schema.org:Action"
@@ -334,6 +366,20 @@ const Graph = {
                     },
                     classes: 'external'
                 });
+            } else {
+                // Legacy format: Schema.org concept in concepts[] array
+                // extRef might be "Schema.org:Action", but concept is named "Action"
+                const shortName = extRef.includes(':') ? extRef.split(':').slice(1).join(':') : extRef;
+                const schemaConcept = conceptMap.get(shortName);
+                if (schemaConcept && schemaConcept.sources?.some(s => s.type === 'schema.org')) {
+                    // Mark as external and add class
+                    const existingNode = nodes.find(n => n.data.id === shortName);
+                    if (existingNode) {
+                        existingNode.data.isExternal = true;
+                        existingNode.data.externalType = 'schema.org';
+                        existingNode.classes = (existingNode.classes || '') + ' external';
+                    }
+                }
             }
         });
 

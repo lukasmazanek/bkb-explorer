@@ -5,7 +5,7 @@
  * Source: conceptspeak/tests/
  * DO NOT EDIT MANUALLY
  *
- * Generated: 2025-12-22T07:54:38.999995
+ * Generated: 2025-12-25T07:29:56.140373
  */
 
 // Domain hierarchy
