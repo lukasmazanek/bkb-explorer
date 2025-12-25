@@ -150,11 +150,12 @@ echo "Step 4: Generating data.js..."
 
 # Generate data.js
 # Note: ontology-lift creates directories with '/' separator (Test/Order) not ':' (Test:Order)
-ORDER_FILE="$SCRIPT_DIR/test/Order/Test/Order/ontology.json"
-POSITION_FILE="$SCRIPT_DIR/test/Position/Test/Position/ontology.json"
-TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test/Transaction/ontology.json"
-PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test/Payment/ontology.json"
-FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test/FinancialAccount/ontology.json"
+# Note: ontology-lift outputs to Test/ based on domain.path from domain.json
+ORDER_FILE="$SCRIPT_DIR/test/Order/Test/ontology.json"
+POSITION_FILE="$SCRIPT_DIR/test/Position/Test/ontology.json"
+TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test/ontology.json"
+PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test/ontology.json"
+FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test/ontology.json"
 
 python3 << PYTHON
 import json
