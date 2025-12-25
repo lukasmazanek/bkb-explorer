@@ -41,7 +41,9 @@ const Sidebar = {
         this.container.querySelectorAll('.tree-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
-                this.handleClick(item);
+                // Check if click was on the icon
+                const clickedOnIcon = e.target.classList.contains('icon');
+                this.handleClick(item, clickedOnIcon);
             });
         });
 
@@ -150,12 +152,13 @@ const Sidebar = {
 
     /**
      * Handle tree item click
+     * @param {HTMLElement} item - The clicked tree item
+     * @param {boolean} clickedOnIcon - True if click was on the expand/collapse icon
      */
-    handleClick(item) {
+    handleClick(item, clickedOnIcon = false) {
         const name = item.dataset.name;
         const type = item.dataset.type;
         const domain = item.dataset.domain;  // For views
-        const isClickable = item.dataset.clickable === 'true';
 
         // Handle view click - load view data
         if (type === 'view' && domain) {
@@ -166,33 +169,30 @@ const Sidebar = {
 
         // Handle domain click
         if (type === 'domain') {
-            // Check if domain has views (children container with views-list class)
             const viewsList = this.container.querySelector(`.tree-children.views-list[data-parent="${name}"]`);
+            const children = this.container.querySelector(`.tree-children[data-parent="${name}"]`);
+            const expandable = viewsList || children;
 
-            if (viewsList) {
-                // Domain with views - just expand if collapsed, then load domain data
-                if (viewsList.classList.contains('collapsed')) {
-                    viewsList.classList.remove('collapsed');
+            if (clickedOnIcon && expandable) {
+                // Click on icon = only toggle expand/collapse
+                const isCollapsed = expandable.classList.contains('collapsed');
+                expandable.classList.toggle('collapsed');
+                const icon = item.querySelector('.icon');
+                if (icon) icon.textContent = isCollapsed ? '▼' : '▶';
+                return;
+            }
+
+            // Click on text = load domain data
+            if (expandable) {
+                // Ensure expanded when loading
+                if (expandable.classList.contains('collapsed')) {
+                    expandable.classList.remove('collapsed');
                     const icon = item.querySelector('.icon');
                     if (icon) icon.textContent = '▼';
                 }
-                // Load full domain data (all views merged)
-                BKBExplorer.selectDomain(name);
-                this.setActive(name);
-            } else {
-                // Domain without views - toggle expand/collapse and load
-                const children = this.container.querySelector(`.tree-children[data-parent="${name}"]`);
-                if (children) {
-                    const isCollapsed = children.classList.contains('collapsed');
-                    children.classList.toggle('collapsed');
-                    const icon = item.querySelector('.icon');
-                    if (icon) icon.textContent = isCollapsed ? '▼' : '▶';
-                }
-                if (isClickable) {
-                    BKBExplorer.selectDomain(name);
-                    this.setActive(name);
-                }
             }
+            BKBExplorer.selectDomain(name);
+            this.setActive(name);
             return;
         }
 
