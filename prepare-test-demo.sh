@@ -56,13 +56,14 @@ echo "  - Transaction/Investment_Transaction.cs"
 echo "  - Payment/Investment_Payment.cs"
 echo ""
 
-# Create config files
+# Create config files - all use domain "Test", views derived from source file
 cat > "$SCRIPT_DIR/test/Order/config.json" << 'EOF'
 {
   "domain": {
-    "path": "Test:Order",
-    "name": "Order"
+    "path": "Test",
+    "name": "Test"
   },
+  "view": "Order",
   "sources": [
     "Investment_Order.cs"
   ]
@@ -72,9 +73,10 @@ EOF
 cat > "$SCRIPT_DIR/test/Position/config.json" << 'EOF'
 {
   "domain": {
-    "path": "Test:Position",
-    "name": "Position"
+    "path": "Test",
+    "name": "Test"
   },
+  "view": "Position",
   "sources": [
     "Investment_Position.cs"
   ]
@@ -84,9 +86,10 @@ EOF
 cat > "$SCRIPT_DIR/test/Transaction/config.json" << 'EOF'
 {
   "domain": {
-    "path": "Test:Transaction",
-    "name": "Transaction"
+    "path": "Test",
+    "name": "Test"
   },
+  "view": "Transaction",
   "sources": [
     "Investment_Transaction.cs"
   ]
@@ -96,9 +99,10 @@ EOF
 cat > "$SCRIPT_DIR/test/Payment/config.json" << 'EOF'
 {
   "domain": {
-    "path": "Test:Payment",
-    "name": "Payment"
+    "path": "Test",
+    "name": "Test"
   },
+  "view": "Payment",
   "sources": [
     "Investment_Payment.cs"
   ]
@@ -108,9 +112,10 @@ EOF
 cat > "$SCRIPT_DIR/test/FinancialAccount/config.json" << 'EOF'
 {
   "domain": {
-    "path": "Test:FinancialAccount",
-    "name": "FinancialAccount"
+    "path": "Test",
+    "name": "Test"
   },
+  "view": "FinancialAccount",
   "sources": [
     "Financial_Account.cs"
   ]
@@ -174,6 +179,7 @@ def total_concepts(data):
     return len(data.get('concepts', [])) + len(data.get('external_concepts', []))
 
 # Generate data.js
+# ADR-040: Views are perspectives within a domain, not subdomains
 output = f'''/**
  * BKB Explorer - Test Demo Data
  *
@@ -184,18 +190,21 @@ output = f'''/**
  * Generated: {datetime.now().isoformat()}
  */
 
-// Domain hierarchy
+// Domain hierarchy (ADR-040: Views are NOT subdomains)
 const DOMAINS_DATA = {{
   "version": "1.0",
   "hierarchy": {{
     "Test": {{
-      "type": "test",
-      "children": {{
-        "Order": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(order_data)} }} }},
-        "Position": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(position_data)} }} }},
-        "Transaction": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(transaction_data)} }} }},
-        "Payment": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(payment_data)} }} }},
-        "FinancialAccount": {{ "type": "domain", "stats": {{ "concepts": {total_concepts(financial_account_data)} }} }}
+      "type": "domain",
+      "stats": {{
+        "concepts": {total_concepts(order_data) + total_concepts(position_data) + total_concepts(transaction_data) + total_concepts(payment_data) + total_concepts(financial_account_data)}
+      }},
+      "views": {{
+        "Order": {{ "stats": {{ "concepts": {total_concepts(order_data)} }} }},
+        "Position": {{ "stats": {{ "concepts": {total_concepts(position_data)} }} }},
+        "Transaction": {{ "stats": {{ "concepts": {total_concepts(transaction_data)} }} }},
+        "Payment": {{ "stats": {{ "concepts": {total_concepts(payment_data)} }} }},
+        "FinancialAccount": {{ "stats": {{ "concepts": {total_concepts(financial_account_data)} }} }}
       }}
     }}
   }},

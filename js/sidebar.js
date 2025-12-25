@@ -45,10 +45,11 @@ const Sidebar = {
             });
         });
 
-        // Expand all top-level nodes and their first-level children by default
+        // Expand all top-level domains by default (shows views underneath)
         for (const name of Object.keys(this.domainsData.hierarchy)) {
             this.expandNode(name);
             const node = this.domainsData.hierarchy[name];
+            // Also expand child domains (not views - those are already visible)
             if (node.children) {
                 for (const childName of Object.keys(node.children)) {
                     this.expandNode(childName);
@@ -59,11 +60,12 @@ const Sidebar = {
 
     /**
      * Render hierarchy recursively
+     * ADR-040: Views are perspectives within domains, NOT subdomains
      */
     renderHierarchy(node, depth) {
         let html = '';
 
-        // Sort: Test always last, others alphabetically
+        // Sort: Test always last, others alphabetically (ADR-041)
         const entries = Object.entries(node).sort(([a], [b]) => {
             if (a === 'Test') return 1;
             if (b === 'Test') return -1;
@@ -72,12 +74,13 @@ const Sidebar = {
 
         for (const [name, data] of entries) {
             const hasChildren = data.children && Object.keys(data.children).length > 0;
+            const hasViews = data.views && Object.keys(data.views).length > 0;
             const isClickable = data.type === 'domain';
             const conceptCount = data.stats?.concepts || 0;
 
             // Determine icon (simple Unicode symbols)
             let icon = '○';
-            if (hasChildren) icon = '▶';
+            if (hasChildren || hasViews) icon = '▶';
 
             // Count display
             const countDisplay = conceptCount > 0 ? `(${conceptCount})` : '';
@@ -94,9 +97,33 @@ const Sidebar = {
                 </div>
             `;
 
+            // Render child domains (subdomains)
             if (hasChildren) {
                 html += `<div class="tree-children collapsed" data-parent="${name}">`;
                 html += this.renderHierarchy(data.children, depth + 1);
+                html += '</div>';
+            }
+
+            // Render views (NOT subdomains - just perspectives within the domain)
+            if (hasViews) {
+                html += `<div class="tree-children views-list collapsed" data-parent="${name}">`;
+                // Sort views alphabetically (ADR-041)
+                const viewEntries = Object.entries(data.views).sort(([a], [b]) => a.localeCompare(b));
+                for (const [viewName, viewData] of viewEntries) {
+                    const viewCount = viewData.stats?.concepts || 0;
+                    html += `
+                        <div class="tree-item view-item"
+                             data-name="${viewName}"
+                             data-type="view"
+                             data-domain="${name}"
+                             data-depth="${depth + 1}"
+                             data-clickable="true">
+                            <span class="icon">◇</span>
+                            <span class="label">${viewName}</span>
+                            <span class="count">(${viewCount})</span>
+                        </div>
+                    `;
+                }
                 html += '</div>';
             }
         }
@@ -127,6 +154,7 @@ const Sidebar = {
     handleClick(item) {
         const name = item.dataset.name;
         const type = item.dataset.type;
+        const domain = item.dataset.domain;  // For views
         const isClickable = item.dataset.clickable === 'true';
 
         // Toggle children visibility for folders
@@ -137,14 +165,53 @@ const Sidebar = {
 
             // Update icon
             const icon = item.querySelector('.icon');
-            if (icon) {
+            if (icon && type !== 'view') {
                 icon.textContent = isCollapsed ? '▼' : '▶';
             }
         }
 
+        // Handle view click - load domain with view filter
+        if (type === 'view' && domain) {
+            BKBExplorer.selectDomain(domain, name);  // Pass view name as second arg
+            this.setActiveView(domain, name);
+            return;
+        }
+
         // Load domain if it's a domain type
-        if (isClickable) {
+        if (isClickable && type === 'domain') {
             BKBExplorer.selectDomain(name);
+            this.setActive(name);
+        }
+    },
+
+    /**
+     * Set active view in sidebar
+     */
+    setActiveView(domainName, viewName) {
+        // Clear all active states
+        this.container.querySelectorAll('.tree-item.active').forEach(item => {
+            item.classList.remove('active');
+            const icon = item.querySelector('.icon');
+            if (icon) {
+                if (item.dataset.type === 'view') {
+                    icon.textContent = '◇';
+                } else {
+                    icon.textContent = '○';
+                }
+            }
+        });
+
+        // Set domain as semi-active (expanded but not selected)
+        const domainItem = this.container.querySelector(`.tree-item[data-name="${domainName}"][data-type="domain"]`);
+        if (domainItem) {
+            domainItem.querySelector('.icon').textContent = '▼';
+        }
+
+        // Set view as active
+        const viewItem = this.container.querySelector(`.tree-item.view-item[data-name="${viewName}"][data-domain="${domainName}"]`);
+        if (viewItem) {
+            viewItem.classList.add('active');
+            viewItem.querySelector('.icon').textContent = '◆';
         }
     },
 

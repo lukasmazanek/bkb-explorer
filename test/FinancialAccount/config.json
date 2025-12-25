@@ -1,8 +1,9 @@
 {
   "domain": {
-    "path": "Test:FinancialAccount",
-    "name": "FinancialAccount"
+    "path": "Test",
+    "name": "Test"
   },
+  "view": "FinancialAccount",
   "sources": [
     "Financial_Account.cs"
   ]
