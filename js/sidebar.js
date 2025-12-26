@@ -65,9 +65,10 @@ const Sidebar = {
      * @param {string} name - Domain or view name
      * @param {string} parentPath - Parent path (e.g., "RBCZ:MIB")
      * @param {boolean} isView - Whether this is a view (not domain)
+     * @param {Object} nodeData - Optional: the hierarchy node data (to check for views)
      * @returns {number} Total concept count (concepts + external_concepts)
      */
-    getConceptCount(name, parentPath, isView = false) {
+    getConceptCount(name, parentPath, isView = false, nodeData = null) {
         // Build lookup key for BKB_DATA
         let dataKey;
         if (isView) {
@@ -81,12 +82,30 @@ const Sidebar = {
                 dataKey = name.toLowerCase();
             }
         } else {
-            // Domain: use full path or just name
-            const fullPath = parentPath ? `${parentPath}:${name}` : name;
+            // Domain: use name
             dataKey = name.toLowerCase();
         }
 
         const data = window.BKB_DATA[dataKey];
+
+        // If domain has views but no direct data, sum up all views
+        if (!data && nodeData?.views) {
+            let total = 0;
+            const domainKey = name.toLowerCase();
+            for (const viewName of Object.keys(nodeData.views)) {
+                // Try compound key first, then simple
+                let viewKey = domainKey + viewName.toLowerCase();
+                if (!window.BKB_DATA[viewKey]) {
+                    viewKey = viewName.toLowerCase();
+                }
+                const viewData = window.BKB_DATA[viewKey];
+                if (viewData) {
+                    total += (viewData.concepts?.length || 0) + (viewData.external_concepts?.length || 0);
+                }
+            }
+            return total;
+        }
+
         if (!data) return 0;
 
         // Count concepts + external_concepts (ADR-044)
@@ -117,7 +136,8 @@ const Sidebar = {
             const hasViews = data.views && Object.keys(data.views).length > 0;
             const isClickable = data.type === 'domain';
             // Calculate count from actual data (not hardcoded stats)
-            const conceptCount = this.getConceptCount(name, parentPath);
+            // Pass nodeData to sum views if domain has no direct data
+            const conceptCount = this.getConceptCount(name, parentPath, false, data);
 
             // Build full path for this node (e.g., "RBCZ:MIB:Investment")
             const fullPath = parentPath ? `${parentPath}:${name}` : name;

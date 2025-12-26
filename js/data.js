@@ -13492,3 +13492,72 @@ const INVESTMENT_PAYMENT_DATA = {
 window.BKB_DATA.investmentpayment = INVESTMENT_PAYMENT_DATA;
 
 console.log('Added Investment Position & Payment views');
+
+// --- Merged Investment domain (all views) ---
+// Simple merge: deduplicate concepts by name, combine relationships
+(function() {
+    const views = [
+        INVESTMENT_ORDER_DATA,
+        INVESTMENT_TRANSACTION_DATA,
+        INVESTMENT_POSITION_DATA,
+        INVESTMENT_PAYMENT_DATA
+    ];
+
+    const conceptMap = new Map();
+    const relationships = [];
+    const categorizations = [];
+    const externalMap = new Map();
+
+    for (const view of views) {
+        // Merge concepts (dedupe by name)
+        for (const c of view.concepts || []) {
+            if (!conceptMap.has(c.name)) {
+                conceptMap.set(c.name, c);
+            }
+        }
+        // Merge external concepts
+        for (const e of view.external_concepts || []) {
+            if (!externalMap.has(e.name)) {
+                externalMap.set(e.name, e);
+            }
+        }
+        // Collect relationships (dedupe later)
+        relationships.push(...(view.relationships || []));
+        categorizations.push(...(view.categorizations || []));
+    }
+
+    // Deduplicate relationships by key
+    const relMap = new Map();
+    for (const r of relationships) {
+        const src = r.subject_name || r.source_name;
+        const tgt = r.object_name || r.target_name;
+        const verb = r.verb_phrase || r.forward_verb;
+        const key = `${src}|${tgt}|${verb}`;
+        if (!relMap.has(key)) {
+            relMap.set(key, r);
+        }
+    }
+
+    // Deduplicate categorizations by key
+    const catMap = new Map();
+    for (const c of categorizations) {
+        const key = `${c.parent_name}|${c.category_name}`;
+        if (!catMap.has(key)) {
+            catMap.set(key, c);
+        }
+    }
+
+    window.BKB_DATA.investment = {
+        domain: {
+            path: "RBCZ:MIB:Investment",
+            name: "Investment",
+            version: "1.0.0"
+        },
+        concepts: Array.from(conceptMap.values()),
+        external_concepts: Array.from(externalMap.values()),
+        relationships: Array.from(relMap.values()),
+        categorizations: Array.from(catMap.values())
+    };
+
+    console.log(`Merged Investment: ${conceptMap.size} concepts, ${externalMap.size} external, ${relMap.size} relationships`);
+})();
