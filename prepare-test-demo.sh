@@ -199,20 +199,18 @@ output = f'''/**
  */
 
 // Domain hierarchy (ADR-040: Views are NOT subdomains)
+// Note: Stats are calculated dynamically from BKB_DATA by sidebar.js
 const DOMAINS_DATA = {{
   "version": "1.0",
   "hierarchy": {{
     "Test": {{
       "type": "domain",
-      "stats": {{
-        "concepts": {total_concepts(order_data) + total_concepts(position_data) + total_concepts(transaction_data) + total_concepts(payment_data) + total_concepts(financial_account_data)}
-      }},
       "views": {{
-        "Order": {{ "stats": {{ "concepts": {total_concepts(order_data)} }} }},
-        "Position": {{ "stats": {{ "concepts": {total_concepts(position_data)} }} }},
-        "Transaction": {{ "stats": {{ "concepts": {total_concepts(transaction_data)} }} }},
-        "Payment": {{ "stats": {{ "concepts": {total_concepts(payment_data)} }} }},
-        "FinancialAccount": {{ "stats": {{ "concepts": {total_concepts(financial_account_data)} }} }}
+        "Order": {{}},
+        "Position": {{}},
+        "Transaction": {{}},
+        "Payment": {{}},
+        "FinancialAccount": {{}}
       }}
     }}
   }},

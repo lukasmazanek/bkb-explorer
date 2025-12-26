@@ -61,6 +61,41 @@ const Sidebar = {
     },
 
     /**
+     * Get concept count from actual BKB_DATA (not hardcoded stats)
+     * @param {string} name - Domain or view name
+     * @param {string} parentPath - Parent path (e.g., "RBCZ:MIB")
+     * @param {boolean} isView - Whether this is a view (not domain)
+     * @returns {number} Total concept count (concepts + external_concepts)
+     */
+    getConceptCount(name, parentPath, isView = false) {
+        // Build lookup key for BKB_DATA
+        let dataKey;
+        if (isView) {
+            // View: use domain last segment + view name (e.g., "investmentorder")
+            const domainSegment = parentPath.includes(':')
+                ? parentPath.split(':').pop().toLowerCase()
+                : parentPath.toLowerCase();
+            dataKey = domainSegment + name.toLowerCase();
+            // Fallback to just view name (e.g., "order" for Test domain)
+            if (!window.BKB_DATA[dataKey]) {
+                dataKey = name.toLowerCase();
+            }
+        } else {
+            // Domain: use full path or just name
+            const fullPath = parentPath ? `${parentPath}:${name}` : name;
+            dataKey = name.toLowerCase();
+        }
+
+        const data = window.BKB_DATA[dataKey];
+        if (!data) return 0;
+
+        // Count concepts + external_concepts (ADR-044)
+        const concepts = data.concepts?.length || 0;
+        const externals = data.external_concepts?.length || 0;
+        return concepts + externals;
+    },
+
+    /**
      * Render hierarchy recursively
      * ADR-040: Views are perspectives within domains, NOT subdomains
      * @param {Object} node - Current hierarchy node
@@ -81,7 +116,8 @@ const Sidebar = {
             const hasChildren = data.children && Object.keys(data.children).length > 0;
             const hasViews = data.views && Object.keys(data.views).length > 0;
             const isClickable = data.type === 'domain';
-            const conceptCount = data.stats?.concepts || 0;
+            // Calculate count from actual data (not hardcoded stats)
+            const conceptCount = this.getConceptCount(name, parentPath);
 
             // Build full path for this node (e.g., "RBCZ:MIB:Investment")
             const fullPath = parentPath ? `${parentPath}:${name}` : name;
@@ -119,7 +155,8 @@ const Sidebar = {
                 // Sort views alphabetically (ADR-041)
                 const viewEntries = Object.entries(data.views).sort(([a], [b]) => a.localeCompare(b));
                 for (const [viewName, viewData] of viewEntries) {
-                    const viewCount = viewData.stats?.concepts || 0;
+                    // Calculate count from actual data (not hardcoded stats)
+                    const viewCount = this.getConceptCount(viewName, fullPath, true);
                     html += `
                         <div class="tree-item view-item"
                              data-name="${viewName}"

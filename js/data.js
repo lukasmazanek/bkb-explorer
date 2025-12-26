@@ -9,20 +9,18 @@
  */
 
 // Domain hierarchy (ADR-040: Views are NOT subdomains)
+// Note: Stats are calculated dynamically from BKB_DATA by sidebar.js
 const DOMAINS_DATA = {
   "version": "1.0",
   "hierarchy": {
     "Test": {
       "type": "domain",
-      "stats": {
-        "concepts": 84
-      },
       "views": {
-        "Order": { "stats": { "concepts": 17 } },
-        "Position": { "stats": { "concepts": 16 } },
-        "Transaction": { "stats": { "concepts": 9 } },
-        "Payment": { "stats": { "concepts": 27 } },
-        "FinancialAccount": { "stats": { "concepts": 15 } }
+        "Order": {},
+        "Position": {},
+        "Transaction": {},
+        "Payment": {},
+        "FinancialAccount": {}
       }
     }
   },
@@ -10528,11 +10526,8 @@ if (!DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"]) {
 }
 DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
   "type": "domain",
-  "stats": {
-    "concepts": 16
-  },
   "views": {
-    "Order": { "stats": { "concepts": 16 } }
+    "Order": {}
   }
 };
 
@@ -10540,4 +10535,4 @@ DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
 window.BKB_DATA.investment = INVESTMENT_ORDER_DATA;  // Domain-level (full Investment)
 window.BKB_DATA.investmentorder = INVESTMENT_ORDER_DATA;  // View-level (Order view)
 
-console.log('Added Investment: 16 concepts (1 view: Order)');
+console.log('Added Investment (1 view: Order)');
