@@ -13,6 +13,17 @@
 const DOMAINS_DATA = {
   "version": "1.0",
   "hierarchy": {
+    "Investment": {
+      "type": "domain",
+      "path": "RBCZ:MIB:Investment",
+      "views": {
+        "Order": {},
+        "Position": {},
+        "Transaction": {},
+        "Payment": {},
+        "FinancialAccount": {}
+      }
+    },
     "Test": {
       "type": "domain",
       "views": {
@@ -9570,7 +9581,7 @@ const TEST_DATA = {
 // Export for application
 window.BKB_DATA = {
   domains: DOMAINS_DATA,
-  test: TEST_DATA,
+  // Note: 'test' and 'investment' are added below via mergeDomainViews()
   order: ORDER_DATA,
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,
@@ -9579,6 +9590,83 @@ window.BKB_DATA = {
 };
 
 console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
+
+// --- Universal Domain Merge (ADR-049) ---
+// Single function for all domains - deduplicates concepts, relationships, categorizations
+
+function mergeDomainViews(viewDataArray, domainInfo) {
+    const conceptMap = new Map();
+    const externalMap = new Map();
+    const relationships = [];
+    const categorizations = [];
+
+    for (const view of viewDataArray) {
+        // Merge concepts (dedupe by name, prefer full concept over context)
+        for (const c of view.concepts || []) {
+            const existing = conceptMap.get(c.name);
+            if (!existing) {
+                conceptMap.set(c.name, c);
+            } else if (existing.type === 'context_reference' && c.type === 'concept') {
+                // Full concept wins over context reference
+                conceptMap.set(c.name, c);
+            }
+        }
+        // Merge external concepts (dedupe by name)
+        for (const e of view.external_concepts || []) {
+            if (!externalMap.has(e.name)) {
+                externalMap.set(e.name, e);
+            }
+        }
+        // Collect relationships and categorizations
+        relationships.push(...(view.relationships || []));
+        categorizations.push(...(view.categorizations || []));
+    }
+
+    // Deduplicate relationships by (subject, object, verb) key
+    const relMap = new Map();
+    for (const r of relationships) {
+        const src = r.subject_name || r.source_name;
+        const tgt = r.object_name || r.target_name;
+        const verb = r.verb_phrase || r.forward_verb;
+        const key = `${src}|${tgt}|${verb}`;
+        if (!relMap.has(key)) {
+            relMap.set(key, r);
+        }
+    }
+
+    // Deduplicate categorizations by (parent, category) key
+    const catMap = new Map();
+    for (const c of categorizations) {
+        const key = `${c.parent_name}|${c.category_name}`;
+        if (!catMap.has(key)) {
+            catMap.set(key, c);
+        }
+    }
+
+    return {
+        domain: domainInfo,
+        concepts: Array.from(conceptMap.values()),
+        external_concepts: Array.from(externalMap.values()),
+        relationships: Array.from(relMap.values()),
+        categorizations: Array.from(catMap.values())
+    };
+}
+
+// Domain-to-Views mapping (ADR-049)
+const DOMAIN_VIEWS = {
+    'test': {
+        info: { path: "Test", name: "Test", version: "1.0.0" },
+        views: [ORDER_DATA, POSITION_DATA, TRANSACTION_DATA, PAYMENT_DATA, FINANCIAL_ACCOUNT_DATA]
+    }
+    // 'investment' added below after Investment view data is defined
+};
+
+// Merge Test domain
+window.BKB_DATA.test = mergeDomainViews(
+    DOMAIN_VIEWS.test.views,
+    DOMAIN_VIEWS.test.info
+);
+console.log(`Merged Test: ${window.BKB_DATA.test.concepts.length} concepts, ${window.BKB_DATA.test.external_concepts.length} external`);
 
 
 // --- RBCZ:MIB:Investment#Order ---
@@ -14573,72 +14661,11 @@ const INVESTMENT_FINANCIALACCOUNT_DATA = {
 
 window.BKB_DATA.investmentfinancialaccount = INVESTMENT_FINANCIALACCOUNT_DATA;
 
-// --- Merged Investment domain (all views) ---
-// Simple merge: deduplicate concepts by name, combine relationships
-(function() {
-    const views = [
-        INVESTMENT_ORDER_DATA,
-        INVESTMENT_TRANSACTION_DATA,
-        INVESTMENT_POSITION_DATA,
-        INVESTMENT_PAYMENT_DATA,
-        INVESTMENT_FINANCIALACCOUNT_DATA
-    ];
-
-    const conceptMap = new Map();
-    const relationships = [];
-    const categorizations = [];
-    const externalMap = new Map();
-
-    for (const view of views) {
-        // Merge concepts (dedupe by name)
-        for (const c of view.concepts || []) {
-            if (!conceptMap.has(c.name)) {
-                conceptMap.set(c.name, c);
-            }
-        }
-        // Merge external concepts
-        for (const e of view.external_concepts || []) {
-            if (!externalMap.has(e.name)) {
-                externalMap.set(e.name, e);
-            }
-        }
-        // Collect relationships (dedupe later)
-        relationships.push(...(view.relationships || []));
-        categorizations.push(...(view.categorizations || []));
-    }
-
-    // Deduplicate relationships by key
-    const relMap = new Map();
-    for (const r of relationships) {
-        const src = r.subject_name || r.source_name;
-        const tgt = r.object_name || r.target_name;
-        const verb = r.verb_phrase || r.forward_verb;
-        const key = `${src}|${tgt}|${verb}`;
-        if (!relMap.has(key)) {
-            relMap.set(key, r);
-        }
-    }
-
-    // Deduplicate categorizations by key
-    const catMap = new Map();
-    for (const c of categorizations) {
-        const key = `${c.parent_name}|${c.category_name}`;
-        if (!catMap.has(key)) {
-            catMap.set(key, c);
-        }
-    }
-
-    window.BKB_DATA.investment = {
-        domain: {
-            path: "RBCZ:MIB:Investment",
-            name: "Investment",
-            version: "1.0.0"
-        },
-        concepts: Array.from(conceptMap.values()),
-        external_concepts: Array.from(externalMap.values()),
-        relationships: Array.from(relMap.values()),
-        categorizations: Array.from(catMap.values())
-    };
-
-    console.log(`Merged Investment: ${conceptMap.size} concepts, ${externalMap.size} external, ${relMap.size} relationships`);
-})();
+// --- Merged Investment domain (ADR-049) ---
+// Using universal merge function
+window.BKB_DATA.investment = mergeDomainViews(
+    [INVESTMENT_ORDER_DATA, INVESTMENT_TRANSACTION_DATA, INVESTMENT_POSITION_DATA,
+     INVESTMENT_PAYMENT_DATA, INVESTMENT_FINANCIALACCOUNT_DATA],
+    { path: "RBCZ:MIB:Investment", name: "Investment", version: "1.0.0" }
+);
+console.log(`Merged Investment: ${window.BKB_DATA.investment.concepts.length} concepts, ${window.BKB_DATA.investment.external_concepts.length} external`);
