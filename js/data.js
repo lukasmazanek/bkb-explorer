@@ -10527,12 +10527,491 @@ if (!DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"]) {
 DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
   "type": "domain",
   "views": {
-    "Order": {}
+    "Order": {},
+    "Transaction": {}
   }
 };
 
-// Add to BKB_DATA export
-window.BKB_DATA.investment = INVESTMENT_ORDER_DATA;  // Domain-level (full Investment)
-window.BKB_DATA.investmentorder = INVESTMENT_ORDER_DATA;  // View-level (Order view)
+// Add to BKB_DATA export (Order view)
+window.BKB_DATA.investmentorder = INVESTMENT_ORDER_DATA;
 
-console.log('Added Investment (1 view: Order)');
+// --- RBCZ:MIB:Investment#Transaction ---
+// Added: 2025-12-26
+// Source: ontology-lift enriched from Transaction.test
+
+const INVESTMENT_TRANSACTION_DATA = {
+  "domain": {
+    "path": "RBCZ:MIB:Investment",
+    "name": "Investment",
+    "version": "1.0.0",
+    "created": "2025-12-26T09:17:22.910930",
+    "sources": [
+      "Transaction.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "name": "Transaction",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "extends_name": "Transaction",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1a254f1e-6e8f-46d5-b4d6-7abc7100487a",
+      "name": "Automatic",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "parent",
+        "confidence": 0.8,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+        "extends_name": "Transaction",
+        "depth": 2,
+        "path": [
+          "ea54960f-768f-4292-9699-b5a1834b9e5e"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "676b90f1-56e5-42d0-9287-a9c85a2cb891",
+      "name": "Manual",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Transaction",
+        "label": "Transaction",
+        "match_type": "parent",
+        "confidence": 0.8,
+        "fibo_definition": "An instance of buying or selling something; a business deal or exchange.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instance of buying or selling something; a business deal or exchange.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+        "extends_name": "Transaction",
+        "depth": 2,
+        "path": [
+          "ea54960f-768f-4292-9699-b5a1834b9e5e"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "4b1f2201-6478-46da-b23a-7655d5539fb2",
+      "name": "Trade",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "label": "trade",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "extends_name": "trade",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0f827250-a5f0-465e-874f-9d4a7d3dcbd9",
+      "name": "Repo trade",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "label": "trade",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "situation that realizes an agreement between parties participating in a voluntary action of buying and selling goods and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade",
+        "extends_name": "trade",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Trade"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c8eaf1c1-bbb7-4257-8e76-7a5e312bb770",
+      "name": "Payment",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "68144f77-9cc7-4523-b685-8876a4ee01d1",
+      "name": "Executed order",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "label": "Order",
+        "match_type": "keyword",
+        "confidence": 0.845,
+        "fibo_definition": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "An instruction from a customer or client to buy or sell securities, commodities, or other financial instruments.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order",
+        "extends_name": "Order",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Order"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c89bab43-ef6b-4c08-951c-dcc05bd2c3c8",
+      "name": "Position",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "label": "position",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "investor's stake, i.e., a holding, in a particular asset (such as an individual security)",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position",
+        "extends_name": "position",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Position"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [
+    {
+      "name": "Action",
+      "uri": "https://schema.org/Action",
+      "type": "schema.org",
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "inherited_from": "Automatic",
+          "relationship": "isA"
+        }
+      ]
+    }
+  ],
+  "categorizations": [
+    {
+      "id": "c9b14c8a-14ab-4fc2-879c-4c9c7e2faa52",
+      "parent_id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "parent_name": "Transaction",
+      "category_name": "@ by the type of trades",
+      "children_ids": [
+        "4b1f2201-6478-46da-b23a-7655d5539fb2",
+        "0f827250-a5f0-465e-874f-9d4a7d3dcbd9"
+      ],
+      "children_names": [
+        "Trade",
+        "Repo trade"
+      ],
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "id": "a86c463b-cce7-4ee9-bfbe-073978ed88fa",
+      "parent_id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "parent_name": "Transaction",
+      "category_name": "@ by the type of processing",
+      "children_ids": [
+        "1a254f1e-6e8f-46d5-b4d6-7abc7100487a",
+        "676b90f1-56e5-42d0-9287-a9c85a2cb891"
+      ],
+      "children_names": [
+        "Automatic",
+        "Manual"
+      ],
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "id": "4ecd4abe-5b68-4fbd-9161-cf494c827c1c",
+      "parent_id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "parent_name": "Transaction",
+      "category_name": "kind of [Transaction]",
+      "children_ids": [
+        "68144f77-9cc7-4523-b685-8876a4ee01d1",
+        "c8eaf1c1-bbb7-4257-8e76-7a5e312bb770"
+      ],
+      "children_names": [
+        "Executed order",
+        "Payment"
+      ],
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 16
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "source_name": "Automatic",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:process_types",
+      "external_uri": "https://schema.org/Action"
+    },
+    {
+      "source_name": "Manual",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:process_types",
+      "external_uri": "https://schema.org/Action"
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 8,
+    "external_concept_count": 1,
+    "fibo_mapped_count": 8,
+    "fibo_coverage": 100.0,
+    "schema_mapped_count": 2,
+    "semantic_coverage": 125.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 4,
+    "synonym_matches": 0,
+    "parent_matches": 2,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 0,
+    "non_fibo_count": 0,
+    "draft_definitions": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-26T09:17:32.003029",
+  "modified_at": "2025-12-26T09:17:32.003038",
+  "generated": "2025-12-26T09:17:32.003039",
+  "fibo_version": "2024Q1"
+};
+
+// Add to BKB_DATA export (Transaction view)
+window.BKB_DATA.investmenttransaction = INVESTMENT_TRANSACTION_DATA;
+
+console.log('Added Investment Transaction: 8 concepts + 1 external');
