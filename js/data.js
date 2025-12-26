@@ -10544,14 +10544,14 @@ const INVESTMENT_TRANSACTION_DATA = {
     "path": "RBCZ:MIB:Investment",
     "name": "Investment",
     "version": "1.0.0",
-    "created": "2025-12-26T09:17:22.910930",
+    "created": "2025-12-26T09:31:54.109607",
     "sources": [
       "Transaction.cs"
     ]
   },
   "concepts": [
     {
-      "id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "id": "c579241b-cecd-423d-929d-52a650be0975",
       "name": "Transaction",
       "type": "concept",
       "sources": [
@@ -10593,7 +10593,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "1a254f1e-6e8f-46d5-b4d6-7abc7100487a",
+      "id": "6ff448e2-4cca-4c40-8876-8e7ef922ab79",
       "name": "Automatic",
       "type": "concept",
       "sources": [
@@ -10622,11 +10622,11 @@ const INVESTMENT_TRANSACTION_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+        "extends": "c579241b-cecd-423d-929d-52a650be0975",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "ea54960f-768f-4292-9699-b5a1834b9e5e"
+          "c579241b-cecd-423d-929d-52a650be0975"
         ]
       },
       "has_fibo_mapping": true,
@@ -10635,7 +10635,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "676b90f1-56e5-42d0-9287-a9c85a2cb891",
+      "id": "6242cd07-a299-46f3-99c1-76ceea7979a0",
       "name": "Manual",
       "type": "concept",
       "sources": [
@@ -10664,11 +10664,11 @@ const INVESTMENT_TRANSACTION_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+        "extends": "c579241b-cecd-423d-929d-52a650be0975",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "ea54960f-768f-4292-9699-b5a1834b9e5e"
+          "c579241b-cecd-423d-929d-52a650be0975"
         ]
       },
       "has_fibo_mapping": true,
@@ -10677,7 +10677,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "4b1f2201-6478-46da-b23a-7655d5539fb2",
+      "id": "4f1961a6-c347-4588-a61d-457dc2738e15",
       "name": "Trade",
       "type": "concept",
       "sources": [
@@ -10719,7 +10719,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "0f827250-a5f0-465e-874f-9d4a7d3dcbd9",
+      "id": "abf2d6dc-5543-4607-be8e-fc8aeffd7514",
       "name": "Repo trade",
       "type": "concept",
       "sources": [
@@ -10761,7 +10761,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "c8eaf1c1-bbb7-4257-8e76-7a5e312bb770",
+      "id": "0e68cfe7-085e-4fa5-8172-bf9be1dc34a4",
       "name": "Payment",
       "type": "context_reference",
       "sources": [
@@ -10803,7 +10803,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "68144f77-9cc7-4523-b685-8876a4ee01d1",
+      "id": "a0167d08-ff43-4bc0-aa72-c75eb17cebb0",
       "name": "Executed order",
       "type": "context_reference",
       "sources": [
@@ -10845,7 +10845,7 @@ const INVESTMENT_TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "c89bab43-ef6b-4c08-951c-dcc05bd2c3c8",
+      "id": "b85876cc-2ec6-451e-94d7-7ef04608b9b6",
       "name": "Position",
       "type": "context_reference",
       "sources": [
@@ -10903,13 +10903,13 @@ const INVESTMENT_TRANSACTION_DATA = {
   ],
   "categorizations": [
     {
-      "id": "c9b14c8a-14ab-4fc2-879c-4c9c7e2faa52",
-      "parent_id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "id": "6425006d-e70d-4070-a0fd-da9c47539299",
+      "parent_id": "c579241b-cecd-423d-929d-52a650be0975",
       "parent_name": "Transaction",
       "category_name": "@ by the type of trades",
       "children_ids": [
-        "4b1f2201-6478-46da-b23a-7655d5539fb2",
-        "0f827250-a5f0-465e-874f-9d4a7d3dcbd9"
+        "4f1961a6-c347-4588-a61d-457dc2738e15",
+        "abf2d6dc-5543-4607-be8e-fc8aeffd7514"
       ],
       "children_names": [
         "Trade",
@@ -10923,13 +10923,13 @@ const INVESTMENT_TRANSACTION_DATA = {
       ]
     },
     {
-      "id": "a86c463b-cce7-4ee9-bfbe-073978ed88fa",
-      "parent_id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "id": "0b1b4c36-9a3b-4dc7-ba1b-3212e3c183c9",
+      "parent_id": "c579241b-cecd-423d-929d-52a650be0975",
       "parent_name": "Transaction",
       "category_name": "@ by the type of processing",
       "children_ids": [
-        "1a254f1e-6e8f-46d5-b4d6-7abc7100487a",
-        "676b90f1-56e5-42d0-9287-a9c85a2cb891"
+        "6ff448e2-4cca-4c40-8876-8e7ef922ab79",
+        "6242cd07-a299-46f3-99c1-76ceea7979a0"
       ],
       "children_names": [
         "Automatic",
@@ -10943,13 +10943,13 @@ const INVESTMENT_TRANSACTION_DATA = {
       ]
     },
     {
-      "id": "4ecd4abe-5b68-4fbd-9161-cf494c827c1c",
-      "parent_id": "ea54960f-768f-4292-9699-b5a1834b9e5e",
+      "id": "6a420d7a-c0bc-4b79-9010-7aa4db5d7d74",
+      "parent_id": "c579241b-cecd-423d-929d-52a650be0975",
       "parent_name": "Transaction",
       "category_name": "kind of [Transaction]",
       "children_ids": [
-        "68144f77-9cc7-4523-b685-8876a4ee01d1",
-        "c8eaf1c1-bbb7-4257-8e76-7a5e312bb770"
+        "a0167d08-ff43-4bc0-aa72-c75eb17cebb0",
+        "0e68cfe7-085e-4fa5-8172-bf9be1dc34a4"
       ],
       "children_names": [
         "Executed order",
@@ -10964,6 +10964,63 @@ const INVESTMENT_TRANSACTION_DATA = {
     }
   ],
   "relationships": [
+    {
+      "id": "3a6fe727-fbff-42df-8b7e-b294634aba41",
+      "subject_id": "b85876cc-2ec6-451e-94d7-7ef04608b9b6",
+      "subject_name": "Position",
+      "object_id": "c579241b-cecd-423d-929d-52a650be0975",
+      "object_name": "Transaction",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "generates",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "id": "352ff748-77d8-4975-84c7-a482370b6d6c",
+      "subject_id": "a0167d08-ff43-4bc0-aa72-c75eb17cebb0",
+      "subject_name": "Executed order",
+      "object_id": "b85876cc-2ec6-451e-94d7-7ef04608b9b6",
+      "object_name": "Position",
+      "verb_phrase": "predicts",
+      "inverse_verb_phrase": "consists of",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "id": "8f094a4c-8ae0-45e0-a80c-55066d21f7fa",
+      "subject_id": "a0167d08-ff43-4bc0-aa72-c75eb17cebb0",
+      "subject_name": "Executed order",
+      "object_id": "0e68cfe7-085e-4fa5-8172-bf9be1dc34a4",
+      "object_name": "Payment",
+      "verb_phrase": "is being settled for",
+      "inverse_verb_phrase": "is settled to",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "Transaction.cs",
+          "line": 21
+        }
+      ]
+    },
     {
       "source_name": "Automatic",
       "target_name": "Schema.org:Action",
@@ -11005,9 +11062,9 @@ const INVESTMENT_TRANSACTION_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-26T09:17:32.003029",
-  "modified_at": "2025-12-26T09:17:32.003038",
-  "generated": "2025-12-26T09:17:32.003039",
+  "created_at": "2025-12-26T09:32:02.067848",
+  "modified_at": "2025-12-26T09:32:02.067860",
+  "generated": "2025-12-26T09:32:02.067862",
   "fibo_version": "2024Q1"
 };
 
