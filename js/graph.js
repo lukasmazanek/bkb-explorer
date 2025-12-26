@@ -1242,8 +1242,14 @@ const Graph = {
 
             // Handle external nodes (Schema.org/FIBO - ADR-042)
             if (node.hasClass('external')) {
-                // External nodes are only visible when relationships toggle is on
-                if (show.relationships) {
+                const source = node.data('source');
+                let visible = false;
+                if (source === 'Schema.org') {
+                    visible = show.schema;
+                } else if (source === 'FIBO') {
+                    visible = show.fibo;
+                }
+                if (visible) {
                     node.show();
                 } else {
                     node.hide();
