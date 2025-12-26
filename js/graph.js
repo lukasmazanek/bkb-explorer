@@ -1462,10 +1462,11 @@ const Graph = {
             }
         });
 
-        // Build adjacency from relationship edges (not categorizations)
+        // Build adjacency from all semantic edges (relationships, isA, categorizations)
         this.cy.edges().forEach(edge => {
             const type = edge.data('type');
-            if (type !== 'relationship' && type !== 'isA') return;
+            const isCategorization = edge.hasClass('trunk') || edge.hasClass('branch');
+            if (type !== 'relationship' && type !== 'isA' && !isCategorization) return;
 
             const sourceId = edge.source().id();
             const targetId = edge.target().id();
@@ -1499,8 +1500,11 @@ const Graph = {
                     const newPath = [...path, neighborId];
                     const newHops = hops + 1;
 
-                    if (hiddenNodes.has(neighborId)) {
-                        // Continue through hidden node
+                    const neighborNode = this.cy.getElementById(neighborId);
+                    const isJunction = neighborNode.hasClass('junction');
+
+                    if (hiddenNodes.has(neighborId) || isJunction) {
+                        // Continue through hidden node or junction
                         queue.push([neighborId, newHops, newPath]);
                     } else if (newHops > 1) {
                         // Found visible node through hidden intermediate
