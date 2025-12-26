@@ -1092,8 +1092,8 @@ const Graph = {
                     this.applyNodeHighlight(trunkEdge.source());
                 }
 
-            } else if (type === 'relationship' || type === 'isA') {
-                // Binary verb or isA - highlight edge and other endpoint
+            } else if (type === 'relationship' || type === 'isA' || type === 'transitive') {
+                // Binary verb, isA, or transitive - highlight edge and other endpoint
                 this.applyEdgeHighlight(edge);
                 const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
                 this.applyNodeHighlight(otherNode);
@@ -1141,8 +1141,8 @@ const Graph = {
                     this.applyNodeHighlight(trunkEdge.source());
                 }
 
-            } else if (type === 'relationship' || type === 'isA') {
-                // Binary verb or isA - highlight edge and other endpoint
+            } else if (type === 'relationship' || type === 'isA' || type === 'transitive') {
+                // Binary verb, isA, or transitive - highlight edge and other endpoint
                 this.applyEdgeHighlight(edge);
                 const otherNode = edge.source().id() === node.id() ? edge.target() : edge.source();
                 this.applyNodeHighlight(otherNode);
