@@ -184,9 +184,59 @@ async function runTests() {
             passed++; // Not a failure, just different UI state
         }
 
+        // Test 7: Verify transitive edges (ADR-048)
+        console.log('TEST 7: Verify transitive edges (ADR-048)...');
+
+        // Navigate to Order view (has Schema.org bridging path)
+        await page.evaluate(() => {
+            BKBExplorer.selectDomain('Test', 'Order');
+        });
+        await new Promise(r => setTimeout(r, 1000));
+
+        // Hide Schema.org nodes (creates bridgeable gap)
+        await page.evaluate(() => {
+            const checkbox = document.getElementById('show-schema');
+            if (checkbox && checkbox.checked) checkbox.click();
+        });
+        await new Promise(r => setTimeout(r, 500));
+
+        // Enable transitive toggle
+        await page.evaluate(() => {
+            const checkbox = document.getElementById('show-transitive');
+            if (checkbox && !checkbox.checked) checkbox.click();
+        });
+        await new Promise(r => setTimeout(r, 500));
+
+        // Check for transitive edges
+        const transitiveResult = await page.evaluate(() => {
+            if (!Graph || !Graph.cy) return { count: 0, sample: null };
+            const transitiveEdges = Graph.cy.edges('.transitive');
+            const sample = transitiveEdges.length > 0 ? {
+                source: transitiveEdges[0].source().data('label') || transitiveEdges[0].source().id(),
+                target: transitiveEdges[0].target().data('label') || transitiveEdges[0].target().id(),
+                hops: transitiveEdges[0].data('hops')
+            } : null;
+            return { count: transitiveEdges.length, sample };
+        });
+
+        if (transitiveResult.count > 0) {
+            console.log(`  ✓ Transitive edges working: ${transitiveResult.count} edge(s)`);
+            console.log(`    Sample: ${transitiveResult.sample.source} ··· ${transitiveResult.sample.target} (${transitiveResult.sample.hops} hops)`);
+            passed++;
+        } else {
+            console.log('  ✗ No transitive edges created');
+            failed++;
+        }
+
+        // Take screenshot of transitive state
+        await page.screenshot({
+            path: path.join(SCREENSHOT_DIR, '04-transitive-edges.png'),
+            fullPage: false
+        });
+
         // Final screenshot
         await page.screenshot({
-            path: path.join(SCREENSHOT_DIR, '03-final-state.png'),
+            path: path.join(SCREENSHOT_DIR, '05-final-state.png'),
             fullPage: false
         });
 
