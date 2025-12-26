@@ -13,15 +13,24 @@
 const DOMAINS_DATA = {
   "version": "1.0",
   "hierarchy": {
-    "Investment": {
-      "type": "domain",
-      "path": "RBCZ:MIB:Investment",
-      "views": {
-        "Order": {},
-        "Position": {},
-        "Transaction": {},
-        "Payment": {},
-        "FinancialAccount": {}
+    "RBCZ": {
+      "type": "folder",
+      "children": {
+        "MIB": {
+          "type": "folder",
+          "children": {
+            "Investment": {
+              "type": "domain",
+              "views": {
+                "Order": {},
+                "Position": {},
+                "Transaction": {},
+                "Payment": {},
+                "FinancialAccount": {}
+              }
+            }
+          }
+        }
       }
     },
     "Test": {
