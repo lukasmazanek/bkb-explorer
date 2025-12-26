@@ -686,6 +686,25 @@ const Graph = {
                     'text-background-padding': '2px'
                 }
             },
+            // Transitive relationship edges (ADR-048)
+            // Dotted line, gray, thin - computed when intermediate nodes hidden
+            {
+                selector: 'edge.transitive',
+                style: {
+                    'width': 1,
+                    'line-color': '#999999',
+                    'line-style': 'dotted',
+                    'curve-style': 'bezier',
+                    'target-arrow-shape': 'none',
+                    'source-arrow-shape': 'none',
+                    'label': 'data(hops)',
+                    'font-size': 8,
+                    'color': '#999999',
+                    'text-background-color': '#fff',
+                    'text-background-opacity': 0.9,
+                    'text-background-padding': '1px'
+                }
+            },
 
             // ===========================================
             // CATEGORIZATION EDGES - MUST BE LAST for CSS priority
@@ -1333,6 +1352,13 @@ const Graph = {
             });
         }
 
+        // Handle transitive edges (ADR-048)
+        if (show.transitive) {
+            this.computeTransitiveEdges();
+        } else {
+            this.removeTransitiveEdges();
+        }
+
         // Re-run layout only on visible elements to compact the graph
         const visibleElements = this.cy.elements().filter(ele => !ele.hidden());
         visibleElements.layout(this.getLayoutConfig()).run();
@@ -1416,12 +1442,112 @@ const Graph = {
     },
 
     /**
+     * Compute transitive edges to bridge hidden intermediate nodes (ADR-048)
+     * When node B is hidden in path A→B→C, creates transitive edge A···C
+     */
+    computeTransitiveEdges() {
+        if (!this.cy) return;
+
+        // Remove existing transitive edges
+        this.cy.remove('.transitive');
+
+        // Build adjacency from visible relationship edges
+        const adjacency = new Map();  // nodeId -> Set of {target, hops}
+        const hiddenNodes = new Set();
+
+        // Collect hidden nodes
+        this.cy.nodes().forEach(node => {
+            if (node.hidden() && !node.hasClass('junction')) {
+                hiddenNodes.add(node.id());
+            }
+        });
+
+        // Build adjacency from relationship edges (not categorizations)
+        this.cy.edges().forEach(edge => {
+            const type = edge.data('type');
+            if (type !== 'relationship' && type !== 'isA') return;
+
+            const sourceId = edge.source().id();
+            const targetId = edge.target().id();
+
+            if (!adjacency.has(sourceId)) adjacency.set(sourceId, new Set());
+            if (!adjacency.has(targetId)) adjacency.set(targetId, new Set());
+
+            adjacency.get(sourceId).add(targetId);
+            adjacency.get(targetId).add(sourceId);  // Undirected for transitivity
+        });
+
+        // BFS to find transitive connections through hidden nodes
+        const transitiveEdges = [];
+        const visited = new Set();
+
+        this.cy.nodes().forEach(startNode => {
+            if (startNode.hidden() || startNode.hasClass('junction')) return;
+
+            const startId = startNode.id();
+            const queue = [[startId, 0, [startId]]];  // [nodeId, hops, path]
+            const localVisited = new Set([startId]);
+
+            while (queue.length > 0) {
+                const [currentId, hops, path] = queue.shift();
+                const neighbors = adjacency.get(currentId) || new Set();
+
+                for (const neighborId of neighbors) {
+                    if (localVisited.has(neighborId)) continue;
+                    localVisited.add(neighborId);
+
+                    const newPath = [...path, neighborId];
+                    const newHops = hops + 1;
+
+                    if (hiddenNodes.has(neighborId)) {
+                        // Continue through hidden node
+                        queue.push([neighborId, newHops, newPath]);
+                    } else if (newHops > 1) {
+                        // Found visible node through hidden intermediate
+                        const edgeKey = [startId, neighborId].sort().join('|');
+                        if (!visited.has(edgeKey)) {
+                            visited.add(edgeKey);
+                            transitiveEdges.push({
+                                group: 'edges',
+                                data: {
+                                    id: `transitive-${startId}-${neighborId}`,
+                                    source: startId,
+                                    target: neighborId,
+                                    type: 'transitive',
+                                    hops: newHops,
+                                    path: newPath.join(' → ')
+                                },
+                                classes: 'transitive'
+                            });
+                        }
+                    }
+                }
+            }
+        });
+
+        // Add transitive edges to graph
+        if (transitiveEdges.length > 0) {
+            this.cy.add(transitiveEdges);
+        }
+
+        return transitiveEdges.length;
+    },
+
+    /**
+     * Remove all transitive edges
+     */
+    removeTransitiveEdges() {
+        if (!this.cy) return;
+        this.cy.remove('.transitive');
+    },
+
+    /**
      * Calculate filter counts for current domain
      */
     getFilterCounts() {
-        if (!this.cy) return { domain: 0, fibo: 0, schema: 0, unknown: 0, orphans: 0, context: 0, categorizations: 0, relationships: 0 };
+        if (!this.cy) return { domain: 0, fibo: 0, schema: 0, unknown: 0, orphans: 0, context: 0, categorizations: 0, relationships: 0, transitive: 0 };
 
-        const counts = { domain: 0, fibo: 0, schema: 0, unknown: 0, orphans: 0, context: 0, categorizations: 0, relationships: 0 };
+        const counts = { domain: 0, fibo: 0, schema: 0, unknown: 0, orphans: 0, context: 0, categorizations: 0, relationships: 0, transitive: 0 };
 
         // Count nodes by type
         this.cy.nodes().forEach(node => {
@@ -1464,6 +1590,8 @@ const Graph = {
                 counts.categorizations++;
             } else if (type === 'relationship' || type === 'isA') {
                 counts.relationships++;  // isA counts as relationship
+            } else if (type === 'transitive') {
+                counts.transitive++;
             }
         });
 

@@ -12,7 +12,7 @@ const BKBExplorer = {
         currentView: null,  // Active view filter (null = all)
         expandedNodes: new Set(),
         selectedNode: null,
-        // CST element visibility toggles (all default ON)
+        // CST element visibility toggles (all default ON, except transitive)
         show: {
             domain: true,
             fibo: true,
@@ -21,7 +21,8 @@ const BKBExplorer = {
             context: true,
             categorizations: true,
             relationships: true,
-            orphans: true
+            orphans: true,
+            transitive: false  // ADR-048: Off by default
         },
         layout: 'dagre'
     },
@@ -94,7 +95,7 @@ const BKBExplorer = {
         }
 
         // CST element toggles
-        const toggles = ['domain', 'fibo', 'schema', 'unknown', 'context', 'categorizations', 'relationships', 'orphans'];
+        const toggles = ['domain', 'fibo', 'schema', 'unknown', 'context', 'categorizations', 'relationships', 'orphans', 'transitive'];
         toggles.forEach(toggle => {
             const input = document.getElementById(`show-${toggle}`);
             if (input) {
@@ -257,6 +258,7 @@ const BKBExplorer = {
         document.getElementById('count-context').textContent = `(${counts.context})`;
         document.getElementById('count-categorizations').textContent = `(${counts.categorizations})`;
         document.getElementById('count-relationships').textContent = `(${counts.relationships})`;
+        document.getElementById('count-transitive').textContent = `(${counts.transitive})`;
     },
 
     /**
