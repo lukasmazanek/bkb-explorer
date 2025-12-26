@@ -63,8 +63,11 @@ const Sidebar = {
     /**
      * Render hierarchy recursively
      * ADR-040: Views are perspectives within domains, NOT subdomains
+     * @param {Object} node - Current hierarchy node
+     * @param {number} depth - Nesting depth
+     * @param {string} parentPath - Full path to parent (e.g., "RBCZ:MIB")
      */
-    renderHierarchy(node, depth) {
+    renderHierarchy(node, depth, parentPath = '') {
         let html = '';
 
         // Sort: Test always last, others alphabetically (ADR-041)
@@ -80,6 +83,9 @@ const Sidebar = {
             const isClickable = data.type === 'domain';
             const conceptCount = data.stats?.concepts || 0;
 
+            // Build full path for this node (e.g., "RBCZ:MIB:Investment")
+            const fullPath = parentPath ? `${parentPath}:${name}` : name;
+
             // Determine icon (simple Unicode symbols)
             let icon = '○';
             if (hasChildren || hasViews) icon = '▶';
@@ -90,6 +96,7 @@ const Sidebar = {
             html += `
                 <div class="tree-item"
                      data-name="${name}"
+                     data-path="${fullPath}"
                      data-type="${data.type || 'folder'}"
                      data-depth="${depth}"
                      data-clickable="${isClickable}">
@@ -102,7 +109,7 @@ const Sidebar = {
             // Render child domains (subdomains)
             if (hasChildren) {
                 html += `<div class="tree-children collapsed" data-parent="${name}">`;
-                html += this.renderHierarchy(data.children, depth + 1);
+                html += this.renderHierarchy(data.children, depth + 1, fullPath);
                 html += '</div>';
             }
 
@@ -117,7 +124,7 @@ const Sidebar = {
                         <div class="tree-item view-item"
                              data-name="${viewName}"
                              data-type="view"
-                             data-domain="${name}"
+                             data-domain="${fullPath}"
                              data-depth="${depth + 1}"
                              data-clickable="true">
                             <span class="icon">◇</span>

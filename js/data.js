@@ -11173,8 +11173,20 @@ const INVESTMENT_ORDER_DATA = {
   ]
 };
 
-// Update DOMAINS_DATA with Investment
-DOMAINS_DATA.hierarchy["RBCZ:MIB:Investment"] = {
+// Update DOMAINS_DATA with Investment (hierarchical tree structure)
+if (!DOMAINS_DATA.hierarchy["RBCZ"]) {
+  DOMAINS_DATA.hierarchy["RBCZ"] = {
+    "type": "enterprise",
+    "children": {}
+  };
+}
+if (!DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"]) {
+  DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"] = {
+    "type": "business_unit",
+    "children": {}
+  };
+}
+DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
   "type": "domain",
   "stats": {
     "concepts": 16
