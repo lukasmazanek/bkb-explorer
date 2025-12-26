@@ -10537,6 +10537,7 @@ DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
 };
 
 // Add to BKB_DATA export
-window.BKB_DATA.investmentorder = INVESTMENT_ORDER_DATA;
+window.BKB_DATA.investment = INVESTMENT_ORDER_DATA;  // Domain-level (full Investment)
+window.BKB_DATA.investmentorder = INVESTMENT_ORDER_DATA;  // View-level (Order view)
 
-console.log('Added Investment Order: 16 concepts');
+console.log('Added Investment: 16 concepts (1 view: Order)');
