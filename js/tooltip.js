@@ -233,6 +233,19 @@ const Tooltip = {
                 relationEl.innerHTML = `<strong>${targetName}</strong> is ${schemaText} <strong>${parentName}</strong>`;
                 cstEl.innerHTML = `<code>${parentName} =&lt; @ ${schema} &gt;= [${targetName}, ...]</code>`;
             }
+        } else if (type === 'transitive') {
+            // Transitive relationship (ADR-048)
+            const hops = data.hops || 2;
+            const path = data.path || '';
+
+            typeEl.textContent = 'Transitive Relationship';
+            relationEl.innerHTML = `<strong>${sourceName}</strong> ··· <strong>${targetName}</strong> <em>(${hops} hops)</em>`;
+
+            if (path) {
+                cstEl.innerHTML = `<code>via: ${path}</code>`;
+            } else {
+                cstEl.innerHTML = `<code>${sourceName} ··· ${targetName}</code>`;
+            }
         } else {
             // Generic edge
             typeEl.textContent = 'Relationship';
