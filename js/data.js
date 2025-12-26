@@ -10527,6 +10527,7 @@ if (!DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"]) {
 DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
   "type": "domain",
   "views": {
+    "FinancialAccount": {},
     "Order": {},
     "Payment": {},
     "Position": {},
@@ -13671,7 +13672,8 @@ console.log('Added Investment Position & Payment views');
         INVESTMENT_ORDER_DATA,
         INVESTMENT_TRANSACTION_DATA,
         INVESTMENT_POSITION_DATA,
-        INVESTMENT_PAYMENT_DATA
+        INVESTMENT_PAYMENT_DATA,
+        INVESTMENT_FINANCIALACCOUNT_DATA
     ];
 
     const conceptMap = new Map();
@@ -13732,3 +13734,911 @@ console.log('Added Investment Position & Payment views');
 
     console.log(`Merged Investment: ${conceptMap.size} concepts, ${externalMap.size} external, ${relMap.size} relationships`);
 })();
+
+// --- RBCZ:MIB:Investment#FinancialAccount ---
+const INVESTMENT_FINANCIALACCOUNT_DATA = {
+  "domain": {
+    "path": "RBCZ:MIB:Investment",
+    "name": "Investment",
+    "version": "1.0.0",
+    "created": "2025-12-26T19:16:54.776918",
+    "sources": [
+      "FinancialAccount.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "72e030a8-70f6-49c7-8033-93b1de006d3e",
+      "name": "Account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 4
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "label": "account",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "container for records associated with a business arrangement for regular transactions and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "container for records associated with a business arrangement for regular transactions and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "extends_name": "account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3e1e28e1-1c62-4a3a-88e3-56daa91ce025",
+      "name": "Current account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 5
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount",
+        "label": "Deposit Account",
+        "match_type": "synonym",
+        "confidence": 0.9,
+        "fibo_definition": "A bank account that allows money to be deposited and withdrawn by the account holder.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A bank account that allows money to be deposited and withdrawn by the account holder.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount",
+        "extends_name": "Deposit Account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/DepositAccount"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "04eb6e17-614f-4b65-989c-d31f24b75884",
+      "name": "Active current account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0a9738ca-c613-4adf-bf9f-4bf8944ef9c7",
+      "name": "Saving Account",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 7
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "label": "account",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "container for records associated with a business arrangement for regular transactions and services",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "container for records associated with a business arrangement for regular transactions and services",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account",
+        "extends_name": "account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2e8f1368-bcad-45af-ba1c-e4ec45a08062",
+      "name": "Investment account (BIU)",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 8
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "label": "investment account",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "account that provides a record of deposits of funds and/or securities held at a financial institution",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount",
+        "extends_name": "investment account",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/InvestmentAccount"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c091c0bc-f0f1-45fc-976e-aef5240c7f29",
+      "name": "Currency",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 9
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1a0faeb0-0233-41ae-9478-3cfde7d62c48",
+      "name": "CZK",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c0b52e3e-177c-4a74-ab8c-cf5b7d1d5e11",
+      "name": "EUR",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 11
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "395dbf74-1b37-457c-93f0-a640e69dd4aa",
+      "name": "USD",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 12
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "label": "currency",
+        "match_type": "inherited",
+        "confidence": 0.7,
+        "fibo_definition": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "medium of exchange value, defined by reference to the geographical location of the monetary authorities responsible for it",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency",
+        "extends_name": "currency",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/Currency"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3cc72f1e-dd77-4843-bee7-91c224a8586b",
+      "name": "Balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 13
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e2221093-23a4-4ef1-b8bc-7471288f9bfe",
+      "name": "End of day (EOD) balance",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "label": "balance",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "amount of money available or owed",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "amount of money available or owed",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance",
+        "extends_name": "balance",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Balance"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "118d7c35-2e06-4e82-a96b-dee9755c46c1",
+      "name": "Active contract",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 15
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "d7194f0b-ccbd-4a5a-9088-2bcfdb209b36",
+      "name": "Number of active current accounts",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 16
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "label": "active",
+        "match_type": "keyword",
+        "confidence": 0.844,
+        "fibo_definition": "Security is actively traded",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "Security is actively traded",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active",
+        "extends_name": "active",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/MD/TemporalCore/SecurityTradingStatuses/Active"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "544f1409-3c18-4ba7-bc24-b3aab5027f4a",
+      "name": "Deposit",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 17
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "label": "Deposit",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A sum of money placed or kept in a bank account, usually to gain interest.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit",
+        "extends_name": "Deposit",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Deposit"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "757a9104-ac84-4795-829e-35f8191144db",
+      "name": "Payment",
+      "type": "context_reference",
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "label": "payment",
+        "match_type": "exact",
+        "confidence": 1.0,
+        "fibo_definition": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "delivery of money in fulfillment of an obligation, such as to satisfy a claim or debt",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment",
+        "extends_name": "payment",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/PaymentsAndSchedules/Payment"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [],
+  "categorizations": [
+    {
+      "id": "5473d580-e1cf-4c2f-88dc-e1ef661189aa",
+      "parent_id": "72e030a8-70f6-49c7-8033-93b1de006d3e",
+      "parent_name": "Account",
+      "category_name": "kind of [Account]",
+      "children_ids": [
+        "3e1e28e1-1c62-4a3a-88e3-56daa91ce025",
+        "0a9738ca-c613-4adf-bf9f-4bf8944ef9c7"
+      ],
+      "children_names": [
+        "Current account",
+        "Saving Account"
+      ],
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "d39ecef0-3b81-492c-813b-f5faba6aa65f",
+      "parent_id": "3e1e28e1-1c62-4a3a-88e3-56daa91ce025",
+      "parent_name": "Current account",
+      "category_name": "by state",
+      "children_ids": [
+        "04eb6e17-614f-4b65-989c-d31f24b75884"
+      ],
+      "children_names": [
+        "Active current account"
+      ],
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "e22123a4-e86b-47ba-a631-374ac6617df4",
+      "parent_id": "c091c0bc-f0f1-45fc-976e-aef5240c7f29",
+      "parent_name": "Currency",
+      "category_name": "kind of [Currency]",
+      "children_ids": [
+        "c0b52e3e-177c-4a74-ab8c-cf5b7d1d5e11",
+        "1a0faeb0-0233-41ae-9478-3cfde7d62c48",
+        "395dbf74-1b37-457c-93f0-a640e69dd4aa"
+      ],
+      "children_names": [
+        "EUR",
+        "CZK",
+        "USD"
+      ],
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "id": "5d45b551-53df-46f3-93d9-0eda14882e5e",
+      "parent_id": "3cc72f1e-dd77-4843-bee7-91c224a8586b",
+      "parent_name": "Balance",
+      "category_name": "aggregation by time",
+      "children_ids": [
+        "e2221093-23a4-4ef1-b8bc-7471288f9bfe"
+      ],
+      "children_names": [
+        "End of day (EOD) balance"
+      ],
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 24
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "a7bc9d15-4fd6-4024-91fb-52523231e902",
+      "subject_id": "3e1e28e1-1c62-4a3a-88e3-56daa91ce025",
+      "subject_name": "Current account",
+      "object_id": "2e8f1368-bcad-45af-ba1c-e4ec45a08062",
+      "object_name": "Investment account (BIU)",
+      "verb_phrase": "Is a",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "064cb37d-5bd1-4f82-8cb9-a51ac12bf701",
+      "subject_id": "72e030a8-70f6-49c7-8033-93b1de006d3e",
+      "subject_name": "Account",
+      "object_id": "c091c0bc-f0f1-45fc-976e-aef5240c7f29",
+      "object_name": "Currency",
+      "verb_phrase": "is composed of",
+      "inverse_verb_phrase": "composes",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": false,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "id": "c49b85f2-8bf5-4552-ae4a-bcd6f75a0106",
+      "subject_id": "3cc72f1e-dd77-4843-bee7-91c224a8586b",
+      "subject_name": "Balance",
+      "object_id": "118d7c35-2e06-4e82-a96b-dee9755c46c1",
+      "object_name": "Active contract",
+      "verb_phrase": "aggregated by",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "e0440842-87c8-4d93-a003-af0294c7dca8",
+      "subject_id": "72e030a8-70f6-49c7-8033-93b1de006d3e",
+      "subject_name": "Account",
+      "object_id": "3cc72f1e-dd77-4843-bee7-91c224a8586b",
+      "object_name": "Balance",
+      "verb_phrase": "has",
+      "inverse_verb_phrase": "is calculated for",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "5e455b2f-0388-42fa-b94e-8f29d80decd0",
+      "subject_id": "d7194f0b-ccbd-4a5a-9088-2bcfdb209b36",
+      "subject_name": "Number of active current accounts",
+      "object_id": "04eb6e17-614f-4b65-989c-d31f24b75884",
+      "object_name": "Active current account",
+      "verb_phrase": "measures",
+      "inverse_verb_phrase": "measured by",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "2f81b8ab-7683-49a6-9749-f9e80fc35f03",
+      "subject_id": "544f1409-3c18-4ba7-bc24-b3aab5027f4a",
+      "subject_name": "Deposit",
+      "object_id": "3cc72f1e-dd77-4843-bee7-91c224a8586b",
+      "object_name": "Balance",
+      "verb_phrase": "increases",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "16ac8870-0e22-4825-9c4c-072f042a81e5",
+      "subject_id": "2e8f1368-bcad-45af-ba1c-e4ec45a08062",
+      "subject_name": "Investment account (BIU)",
+      "object_id": "757a9104-ac84-4795-829e-35f8191144db",
+      "object_name": "Payment",
+      "verb_phrase": "processes",
+      "inverse_verb_phrase": "is settled from",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "id": "5c5cb7e5-4dcd-46ad-902e-18106f2b8640",
+      "subject_id": "3cc72f1e-dd77-4843-bee7-91c224a8586b",
+      "subject_name": "Balance",
+      "object_id": "757a9104-ac84-4795-829e-35f8191144db",
+      "object_name": "Payment",
+      "verb_phrase": "is sum of",
+      "inverse_verb_phrase": "",
+      "role_subject": "",
+      "role_object": "",
+      "objectification_name": "",
+      "is_context": true,
+      "sources": [
+        {
+          "file": "FinancialAccount.cs",
+          "line": 34
+        }
+      ]
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 15,
+    "external_concept_count": 0,
+    "fibo_mapped_count": 15,
+    "fibo_coverage": 100.0,
+    "schema_mapped_count": 0,
+    "semantic_coverage": 100.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 5,
+    "synonym_matches": 1,
+    "parent_matches": 0,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 0,
+    "non_fibo_count": 0,
+    "draft_definitions": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-26T19:17:28.757705",
+  "modified_at": "2025-12-26T19:17:28.757720",
+  "generated": "2025-12-26T19:17:28.757723",
+  "fibo_version": "2024Q1"
+};
+
+window.BKB_DATA.investmentfinancialaccount = INVESTMENT_FINANCIALACCOUNT_DATA;
