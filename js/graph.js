@@ -278,16 +278,11 @@ const Graph = {
             const isSchemaConceptTarget = conceptMap.has(shortName) &&
                 conceptMap.get(shortName).sources?.some(s => s.type === 'schema.org');
 
-            console.log('isA check:', subj, '->', obj, 'shortName:', shortName,
-                'isExternal:', isExternalTarget, 'isSchema:', isSchemaConceptTarget,
-                'inConceptMap:', conceptMap.has(shortName));
-
             if (isExternalTarget || isSchemaConceptTarget) {
                 referencedExternals.add(obj);
                 const targetNodeId = isSchemaConceptTarget ? shortName : obj;
 
                 if (visibleNames.has(subj)) {
-                    console.log('Adding isA edge:', subj, '->', targetNodeId);
                     edges.push({
                         data: {
                             id: `isA-${rel.id || Math.random()}`,
