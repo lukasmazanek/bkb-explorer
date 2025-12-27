@@ -10625,6 +10625,7 @@ if (!DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"]) {
 DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
   "type": "domain",
   "views": {
+    "AUM": {},
     "FinancialAccount": {},
     "Order": {},
     "Payment": {},
