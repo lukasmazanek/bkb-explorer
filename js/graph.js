@@ -160,9 +160,8 @@ const Graph = {
 
         // Also include concepts connected via relationships to visible nodes
         relationships.forEach(rel => {
-            // Support multiple formats: subject_name/object_name, source_name/target_name, from/to
-            const subj = rel.subject_name || rel.source_name || rel.from || '';
-            const obj = rel.object_name || rel.target_name || rel.to || '';
+            const subj = Utils.getRelSubject(rel);
+            const obj = Utils.getRelObject(rel);
             // If one end is visible, add the other end too
             if (visibleNames.has(subj) && internalNames.has(obj)) {
                 visibleNames.add(obj);
@@ -268,12 +267,12 @@ const Graph = {
             const isIsA = relType === 'isA';
             if (!isIsA) return;
 
-            const subj = rel.subject_name || rel.source_name || rel.from || '';
-            const obj = rel.object_name || rel.target_name || rel.to || '';
-            const verbPhrase = (rel.verb_phrase || rel.forward_verb || '').trim();
+            const subj = Utils.getRelSubject(rel);
+            const obj = Utils.getRelObject(rel);
+            const verbPhrase = Utils.getVerbPhrase(rel);
 
             // Extract short name from cross-domain ref (e.g., "Schema.org:Action" -> "Action")
-            const shortName = obj.includes(':') ? obj.split(':').slice(1).join(':') : obj;
+            const shortName = Utils.getShortName(obj);
 
             const isExternalTarget = externalMap.has(obj);
             const isSchemaConceptTarget = conceptMap.has(shortName) &&
@@ -319,12 +318,11 @@ const Graph = {
                 return;
             }
 
-            // Support multiple formats: subject_name/object_name, source_name/target_name, from/to
-            const subj = rel.subject_name || rel.source_name || rel.from || '';
-            const obj = rel.object_name || rel.target_name || rel.to || '';
+            const subj = Utils.getRelSubject(rel);
+            const obj = Utils.getRelObject(rel);
 
             // Get both verb phrases for bidirectional labels
-            const verbPhrase = (rel.verb_phrase || rel.forward_verb || '').trim();
+            const verbPhrase = Utils.getVerbPhrase(rel);
             const inversePhrase = (rel.inverse_verb_phrase || '').trim();
 
             if (visibleNames.has(subj) && (visibleNames.has(obj) || internalNames.has(obj))) {
@@ -369,7 +367,7 @@ const Graph = {
             } else {
                 // Legacy format: Schema.org concept in concepts[] array
                 // extRef might be "Schema.org:Action", but concept is named "Action"
-                const shortName = extRef.includes(':') ? extRef.split(':').slice(1).join(':') : extRef;
+                const shortName = Utils.getShortName(extRef);
                 const schemaConcept = conceptMap.get(shortName);
                 if (schemaConcept && schemaConcept.sources?.some(s => s.type === 'schema.org')) {
                     // Mark as external and add class

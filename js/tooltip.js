@@ -270,9 +270,9 @@ const Tooltip = {
         const container = document.getElementById('graph-container');
         const containerRect = container.getBoundingClientRect();
 
-        // Position tooltip below and to the right of cursor, with more offset
-        let x = containerRect.left + renderedPosition.x + 40;
-        let y = containerRect.top + renderedPosition.y + 30;
+        // Calculate base position (container offset + rendered position)
+        const baseX = containerRect.left + renderedPosition.x;
+        const baseY = containerRect.top + renderedPosition.y;
 
         // Show temporarily to measure
         this.edgeElement.style.visibility = 'hidden';
@@ -280,25 +280,18 @@ const Tooltip = {
         const tooltipRect = this.edgeElement.getBoundingClientRect();
         this.edgeElement.style.visibility = 'visible';
 
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
+        // Use Utils for viewport-aware positioning
+        const pos = Utils.calculateTooltipPosition({
+            x: baseX,
+            y: baseY,
+            tooltipWidth: tooltipRect.width,
+            tooltipHeight: tooltipRect.height,
+            offsetX: 40,
+            offsetY: 30
+        });
 
-        // If goes off right, show on left
-        if (x + tooltipRect.width > viewportWidth - 20) {
-            x = containerRect.left + renderedPosition.x - tooltipRect.width - 40;
-        }
-
-        // If goes off bottom, show above
-        if (y + tooltipRect.height > viewportHeight - 20) {
-            y = containerRect.top + renderedPosition.y - tooltipRect.height - 30;
-        }
-
-        if (y < 20) {
-            y = 20;
-        }
-
-        this.edgeElement.style.left = x + 'px';
-        this.edgeElement.style.top = y + 'px';
+        this.edgeElement.style.left = pos.x + 'px';
+        this.edgeElement.style.top = pos.y + 'px';
     },
 
     /**

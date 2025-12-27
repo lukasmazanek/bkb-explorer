@@ -141,22 +141,8 @@ const BKBExplorer = {
         this.state.currentView = viewName || null;
         this.state.expandedNodes.clear();
 
-        // Get domain data - if viewName is provided, load that view's data
-        // Views are stored as separate data objects (order, position, etc.)
-        // For hierarchical domains (e.g., RBCZ:MIB:Investment), use last segment + view
-        let domainKey;
-        if (viewName) {
-            const lastSegment = domainName.includes(':')
-                ? domainName.split(':').pop().toLowerCase()
-                : domainName.toLowerCase();
-            // Try compound key first (e.g., "investmentorder"), then simple (e.g., "order")
-            domainKey = lastSegment + viewName.toLowerCase();
-            if (!window.BKB_DATA[domainKey]) {
-                domainKey = viewName.toLowerCase();
-            }
-        } else {
-            domainKey = domainName.toLowerCase();
-        }
+        // Get domain data - use Utils for key resolution
+        const domainKey = Utils.resolveDomainKey(domainName, viewName) || domainName.toLowerCase();
         const domainData = window.BKB_DATA[domainKey];
 
         if (!domainData) {

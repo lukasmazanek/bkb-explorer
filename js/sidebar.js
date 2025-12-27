@@ -69,36 +69,19 @@ const Sidebar = {
      * @returns {number} Total concept count (concepts + external_concepts)
      */
     getConceptCount(name, parentPath, isView = false, nodeData = null) {
-        // Build lookup key for BKB_DATA
-        let dataKey;
-        if (isView) {
-            // View: use domain last segment + view name (e.g., "investmentorder")
-            const domainSegment = parentPath.includes(':')
-                ? parentPath.split(':').pop().toLowerCase()
-                : parentPath.toLowerCase();
-            dataKey = domainSegment + name.toLowerCase();
-            // Fallback to just view name (e.g., "order" for Test domain)
-            if (!window.BKB_DATA[dataKey]) {
-                dataKey = name.toLowerCase();
-            }
-        } else {
-            // Domain: use name
-            dataKey = name.toLowerCase();
-        }
+        // Build lookup key for BKB_DATA using Utils
+        const dataKey = isView
+            ? Utils.resolveDomainKey(parentPath, name)
+            : Utils.resolveDomainKey(name);
 
-        const data = window.BKB_DATA[dataKey];
+        const data = dataKey ? window.BKB_DATA[dataKey] : null;
 
         // If domain has views but no direct data, sum up all views
         if (!data && nodeData?.views) {
             let total = 0;
-            const domainKey = name.toLowerCase();
             for (const viewName of Object.keys(nodeData.views)) {
-                // Try compound key first, then simple
-                let viewKey = domainKey + viewName.toLowerCase();
-                if (!window.BKB_DATA[viewKey]) {
-                    viewKey = viewName.toLowerCase();
-                }
-                const viewData = window.BKB_DATA[viewKey];
+                const viewKey = Utils.resolveDomainKey(name, viewName);
+                const viewData = viewKey ? window.BKB_DATA[viewKey] : null;
                 if (viewData) {
                     total += (viewData.concepts?.length || 0) + (viewData.external_concepts?.length || 0);
                 }
