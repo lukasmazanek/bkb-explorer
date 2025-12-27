@@ -10,16 +10,17 @@ logs/
 *.swo
 *~
 
-# Generated test data (ADR-029)
+# Generated test data (ADR-029, ADR-024)
 # Source of truth: conceptspeak/tests/
-test/*/*.cs
-test/*/config.json
-test/*/domain.json
-test/*/*/
+# Directory structure: test/{domain-hierarchy}/{view}/
+test/
 
-# Exception: FinancialAccount is bkb-explorer specific test data
-!test/FinancialAccount/Financial_Account.cs
-!test/FinancialAccount/config.json
+# Node modules (for visual tests)
+node_modules/
+package-lock.json
+
+# Test screenshots
+test-screenshots/
 
 # Organization data (never commit - contains sensitive production data)
 js/data-org.js

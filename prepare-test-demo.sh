@@ -1,9 +1,11 @@
 #!/bin/bash
 #
-# BKB Explorer - Test Demo Preparation Script (ADR-029)
+# BKB Explorer - Test Demo Preparation Script (ADR-029, ADR-024)
 #
-# Copies test data from conceptspeak/tests (Single Source of Truth),
-# runs the pipeline, and generates js/data.js for visualization.
+# Directory structure follows ADR-024 Amendment 1:
+#   test/
+#   ├── RBCZ/MIB/Investment/DP_EDI_AUM/   (Data Product view)
+#   └── Test/Order|Position|...           (Test domain views)
 #
 # Usage: ./prepare-test-demo.sh
 #
@@ -16,7 +18,7 @@ DOMAIN_FORGE_DIR="$SCRIPT_DIR/../domain-forge"
 ONTOLOGY_LIFT_DIR="$SCRIPT_DIR/../ontology-lift"
 OUTPUT_FILE="$SCRIPT_DIR/js/data.js"
 
-echo "BKB Explorer - Preparing test demo data..."
+echo "BKB Explorer - Preparing test demo data (ADR-024 structure)..."
 echo ""
 
 # Check dependencies
@@ -35,31 +37,37 @@ if [ ! -d "$ONTOLOGY_LIFT_DIR" ]; then
     exit 1
 fi
 
-# Create test directories
-mkdir -p "$SCRIPT_DIR/test/Order"
-mkdir -p "$SCRIPT_DIR/test/Position"
-mkdir -p "$SCRIPT_DIR/test/Transaction"
-mkdir -p "$SCRIPT_DIR/test/Payment"
-mkdir -p "$SCRIPT_DIR/test/FinancialAccount"
+# Create ADR-024 compliant directory structure
+echo "Creating ADR-024 directory structure..."
+mkdir -p "$SCRIPT_DIR/test/Test/Order"
+mkdir -p "$SCRIPT_DIR/test/Test/Position"
+mkdir -p "$SCRIPT_DIR/test/Test/Transaction"
+mkdir -p "$SCRIPT_DIR/test/Test/Payment"
+mkdir -p "$SCRIPT_DIR/test/Test/FinancialAccount"
+mkdir -p "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM"
 
 echo "Step 1: Copying test data from conceptspeak/tests..."
 
-# Copy test files (Single Source of Truth)
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Order.test" "$SCRIPT_DIR/test/Order/Investment_Order.cs"
-cp "$CONCEPTSPEAK_DIR/tests/InvestmentPosition.test" "$SCRIPT_DIR/test/Position/Investment_Position.cs"
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Transaction.test" "$SCRIPT_DIR/test/Transaction/Investment_Transaction.cs"
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Payment.test" "$SCRIPT_DIR/test/Payment/Investment_Payment.cs"
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Financial_Account.test" "$SCRIPT_DIR/test/FinancialAccount/Investment_Financial_Account.cs"
+# Copy test files (Single Source of Truth) - Test domain views
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Order.test" "$SCRIPT_DIR/test/Test/Order/Investment_Order.cs"
+cp "$CONCEPTSPEAK_DIR/tests/InvestmentPosition.test" "$SCRIPT_DIR/test/Test/Position/Investment_Position.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Transaction.test" "$SCRIPT_DIR/test/Test/Transaction/Investment_Transaction.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Payment.test" "$SCRIPT_DIR/test/Test/Payment/Investment_Payment.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Investment_Financial_Account.test" "$SCRIPT_DIR/test/Test/FinancialAccount/Financial_Account.cs"
 
-echo "  - Order/Investment_Order.cs"
-echo "  - Position/Investment_Position.cs"
-echo "  - Transaction/Investment_Transaction.cs"
-echo "  - Payment/Investment_Payment.cs"
-echo "  - FinancialAccount/Investment_Financial_Account.cs"
+# Copy DP_EDI_AUM data product
+cp "$CONCEPTSPEAK_DIR/tests/dp_edi_aum.yaml" "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/" 2>/dev/null || true
+
+echo "  - Test/Order/Investment_Order.cs"
+echo "  - Test/Position/Investment_Position.cs"
+echo "  - Test/Transaction/Investment_Transaction.cs"
+echo "  - Test/Payment/Investment_Payment.cs"
+echo "  - Test/FinancialAccount/Financial_Account.cs"
+echo "  - RBCZ/MIB/Investment/DP_EDI_AUM/ (if exists)"
 echo ""
 
-# Create config files - all use domain "Test", views derived from source file
-cat > "$SCRIPT_DIR/test/Order/config.json" << 'EOF'
+# Create config files - Test domain views (GOV-003 Section 8)
+cat > "$SCRIPT_DIR/test/Test/Order/config.json" << 'EOF'
 {
   "domain": {
     "path": "Test",
@@ -72,7 +80,7 @@ cat > "$SCRIPT_DIR/test/Order/config.json" << 'EOF'
 }
 EOF
 
-cat > "$SCRIPT_DIR/test/Position/config.json" << 'EOF'
+cat > "$SCRIPT_DIR/test/Test/Position/config.json" << 'EOF'
 {
   "domain": {
     "path": "Test",
@@ -85,7 +93,7 @@ cat > "$SCRIPT_DIR/test/Position/config.json" << 'EOF'
 }
 EOF
 
-cat > "$SCRIPT_DIR/test/Transaction/config.json" << 'EOF'
+cat > "$SCRIPT_DIR/test/Test/Transaction/config.json" << 'EOF'
 {
   "domain": {
     "path": "Test",
@@ -98,7 +106,7 @@ cat > "$SCRIPT_DIR/test/Transaction/config.json" << 'EOF'
 }
 EOF
 
-cat > "$SCRIPT_DIR/test/Payment/config.json" << 'EOF'
+cat > "$SCRIPT_DIR/test/Test/Payment/config.json" << 'EOF'
 {
   "domain": {
     "path": "Test",
@@ -111,7 +119,7 @@ cat > "$SCRIPT_DIR/test/Payment/config.json" << 'EOF'
 }
 EOF
 
-cat > "$SCRIPT_DIR/test/FinancialAccount/config.json" << 'EOF'
+cat > "$SCRIPT_DIR/test/Test/FinancialAccount/config.json" << 'EOF'
 {
   "domain": {
     "path": "Test",
@@ -119,54 +127,96 @@ cat > "$SCRIPT_DIR/test/FinancialAccount/config.json" << 'EOF'
   },
   "view": "FinancialAccount",
   "sources": [
-    "Investment_Financial_Account.cs"
+    "Financial_Account.cs"
+  ]
+}
+EOF
+
+# RBCZ:MIB:Investment/DP_EDI_AUM config (GOV-003 v1.4 - use info.title from YAML)
+cat > "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/config.json" << 'EOF'
+{
+  "domain": {
+    "path": "RBCZ:MIB:Investment",
+    "name": "Investment"
+  },
+  "view": "DP_EDI_AUM",
+  "sources": [
+    "dp_edi_aum.cs"
   ]
 }
 EOF
 
 echo "Step 2: Running domain-forge..."
 
-# Run domain-forge
+# Run domain-forge for Test views
 cd "$DOMAIN_FORGE_DIR"
-python -m domain_forge consolidate "$SCRIPT_DIR/test/Order/config.json"
-python -m domain_forge consolidate "$SCRIPT_DIR/test/Position/config.json"
-python -m domain_forge consolidate "$SCRIPT_DIR/test/Transaction/config.json"
-python -m domain_forge consolidate "$SCRIPT_DIR/test/Payment/config.json"
-python -m domain_forge consolidate "$SCRIPT_DIR/test/FinancialAccount/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Test/Order/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Test/Position/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Test/Transaction/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Test/Payment/config.json"
+python -m domain_forge consolidate "$SCRIPT_DIR/test/Test/FinancialAccount/config.json"
+
+# Run domain-forge for Investment/DP_EDI_AUM if source exists
+if [ -f "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/dp_edi_aum.cs" ]; then
+    python -m domain_forge consolidate "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/config.json"
+fi
 echo ""
 
 echo "Step 3: Running ontology-lift..."
 
-# Run ontology-lift
+# Run ontology-lift for Test views
 cd "$ONTOLOGY_LIFT_DIR"
-python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Order/domain.json" -o "$SCRIPT_DIR/test/Order/"
-python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Position/domain.json" -o "$SCRIPT_DIR/test/Position/"
-python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Transaction/domain.json" -o "$SCRIPT_DIR/test/Transaction/"
-python -m ontology_lift.cli lift "$SCRIPT_DIR/test/Payment/domain.json" -o "$SCRIPT_DIR/test/Payment/"
-python -m ontology_lift.cli lift "$SCRIPT_DIR/test/FinancialAccount/domain.json" -o "$SCRIPT_DIR/test/FinancialAccount/"
+
+# Function to run ontology-lift and move output in-place (ADR-024 V-2 workaround)
+run_lift_inplace() {
+    local VIEW_DIR="$1"
+    local DOMAIN_PATH="$2"
+
+    python -m ontology_lift.cli lift "$VIEW_DIR/domain.json" -o "$VIEW_DIR/"
+
+    # Workaround: ontology-lift creates nested directories, move to in-place
+    local NESTED_PATH="$VIEW_DIR/$DOMAIN_PATH/ontology.json"
+    if [ -f "$NESTED_PATH" ]; then
+        mv "$NESTED_PATH" "$VIEW_DIR/ontology.json"
+        rm -rf "$VIEW_DIR/$DOMAIN_PATH" 2>/dev/null || true
+        # Clean up parent directories if empty
+        rmdir "$VIEW_DIR/$(dirname "$DOMAIN_PATH")" 2>/dev/null || true
+    fi
+}
+
+run_lift_inplace "$SCRIPT_DIR/test/Test/Order" "Test"
+run_lift_inplace "$SCRIPT_DIR/test/Test/Position" "Test"
+run_lift_inplace "$SCRIPT_DIR/test/Test/Transaction" "Test"
+run_lift_inplace "$SCRIPT_DIR/test/Test/Payment" "Test"
+run_lift_inplace "$SCRIPT_DIR/test/Test/FinancialAccount" "Test"
+
+# Run for Investment/DP_EDI_AUM if domain.json exists
+if [ -f "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/domain.json" ]; then
+    run_lift_inplace "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM" "RBCZ/MIB/Investment"
+fi
 echo ""
 
 echo "Step 4: Generating data.js..."
 
-# Generate data.js
-# Note: ontology-lift creates directories with '/' separator (Test/Order) not ':' (Test:Order)
-# Note: ontology-lift outputs to Test/ based on domain.path from domain.json
-ORDER_FILE="$SCRIPT_DIR/test/Order/Test/ontology.json"
-POSITION_FILE="$SCRIPT_DIR/test/Position/Test/ontology.json"
-TRANSACTION_FILE="$SCRIPT_DIR/test/Transaction/Test/ontology.json"
-PAYMENT_FILE="$SCRIPT_DIR/test/Payment/Test/ontology.json"
-FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/FinancialAccount/Test/ontology.json"
+# Define file paths (ADR-024 structure - ontology.json directly in view dir)
+ORDER_FILE="$SCRIPT_DIR/test/Test/Order/ontology.json"
+POSITION_FILE="$SCRIPT_DIR/test/Test/Position/ontology.json"
+TRANSACTION_FILE="$SCRIPT_DIR/test/Test/Transaction/ontology.json"
+PAYMENT_FILE="$SCRIPT_DIR/test/Test/Payment/ontology.json"
+FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/Test/FinancialAccount/ontology.json"
+DP_EDI_AUM_FILE="$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/ontology.json"
 
 python3 << PYTHON
 import json
 import sys
+import os
 from datetime import datetime
 
 # Add domain-forge to path for merge utility
 sys.path.insert(0, '$SCRIPT_DIR/../domain-forge')
 from domain_forge.utils import merge_domains
 
-# Load ontologies
+# Load Test domain ontologies
 with open('$ORDER_FILE') as f:
     order_data = json.load(f)
 
@@ -182,69 +232,109 @@ with open('$PAYMENT_FILE') as f:
 with open('$FINANCIAL_ACCOUNT_FILE') as f:
     financial_account_data = json.load(f)
 
+# Load Investment/DP_EDI_AUM if exists
+dp_edi_aum_data = None
+if os.path.exists('$DP_EDI_AUM_FILE'):
+    with open('$DP_EDI_AUM_FILE') as f:
+        dp_edi_aum_data = json.load(f)
+
 # ADR-044: Count total concepts = domain concepts + external concepts
 def total_concepts(data):
     return len(data.get('concepts', [])) + len(data.get('external_concepts', []))
 
+# Build hierarchy (ADR-024)
+hierarchy = {
+    "RBCZ": {
+        "type": "folder",
+        "children": {
+            "MIB": {
+                "type": "folder",
+                "children": {
+                    "Investment": {
+                        "type": "domain",
+                        "views": {
+                            "DP_EDI_AUM": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "Test": {
+        "type": "domain",
+        "views": {
+            "Order": {},
+            "Position": {},
+            "Transaction": {},
+            "Payment": {},
+            "FinancialAccount": {}
+        }
+    }
+}
+
 # Generate data.js
-# ADR-040: Views are perspectives within a domain, not subdomains
 output = f'''/**
  * BKB Explorer - Test Demo Data
  *
  * Auto-generated by prepare-test-demo.sh (ADR-029)
+ * Directory structure: ADR-024 Amendment 1
  * Source: conceptspeak/tests/
  * DO NOT EDIT MANUALLY
  *
  * Generated: {datetime.now().isoformat()}
  */
 
-// Domain hierarchy (ADR-040: Views are NOT subdomains)
-// Note: Stats are calculated dynamically from BKB_DATA by sidebar.js
-const DOMAINS_DATA = {{
-  "version": "1.0",
-  "hierarchy": {{
-    "Test": {{
-      "type": "domain",
-      "views": {{
-        "Order": {{}},
-        "Position": {{}},
-        "Transaction": {{}},
-        "Payment": {{}},
-        "FinancialAccount": {{}}
-      }}
-    }}
-  }},
-  "crossDomain": {{}}
-}};
+// Domain hierarchy (ADR-024: mirrors filesystem, ADR-040: Views are NOT subdomains)
+const DOMAINS_DATA = {json.dumps({"version": "1.0", "hierarchy": hierarchy, "crossDomain": {}}, indent=2)};
 
-// Order domain
+// --- Test Domain Views ---
+
 const ORDER_DATA = {json.dumps(order_data, indent=2)};
 
-// Position domain
 const POSITION_DATA = {json.dumps(position_data, indent=2)};
 
-// Transaction domain
 const TRANSACTION_DATA = {json.dumps(transaction_data, indent=2)};
 
-// Payment domain
 const PAYMENT_DATA = {json.dumps(payment_data, indent=2)};
 
-// FinancialAccount domain
 const FINANCIAL_ACCOUNT_DATA = {json.dumps(financial_account_data, indent=2)};
 
-// Merged Test domain (all views combined, using domain-forge merge)
+// Merged Test domain (ADR-049)
 const TEST_DATA = {json.dumps(merge_domains([order_data, position_data, transaction_data, payment_data, financial_account_data], "Test"), indent=2)};
 
-// Export for application
-window.BKB_DATA = {{
+'''
+
+# Add Investment/DP_EDI_AUM if available
+if dp_edi_aum_data:
+    output += f'''// --- RBCZ:MIB:Investment Domain Views ---
+
+const INVESTMENT_DP_EDI_AUM_DATA = {json.dumps(dp_edi_aum_data, indent=2)};
+
+// Merged Investment domain (ADR-049) - currently only DP_EDI_AUM
+const INVESTMENT_DATA = {json.dumps(merge_domains([dp_edi_aum_data], "RBCZ:MIB:Investment"), indent=2)};
+
+'''
+
+# Build BKB_DATA export
+output += '''// Export for application
+window.BKB_DATA = {
   domains: DOMAINS_DATA,
+  // Test domain
   test: TEST_DATA,
   order: ORDER_DATA,
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,
   payment: PAYMENT_DATA,
-  financialaccount: FINANCIAL_ACCOUNT_DATA
-}};
+  financialaccount: FINANCIAL_ACCOUNT_DATA'''
+
+if dp_edi_aum_data:
+    output += ''',
+  // RBCZ:MIB:Investment domain
+  investment: INVESTMENT_DATA,
+  investmentdp_edi_aum: INVESTMENT_DP_EDI_AUM_DATA'''
+
+output += '''
+};
 
 console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
 '''
@@ -252,16 +342,24 @@ console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
 with open('$OUTPUT_FILE', 'w') as f:
     f.write(output)
 
+print(f"Test domain views:")
 print(f"  Order: {len(order_data['concepts'])} + {len(order_data.get('external_concepts', []))} external = {total_concepts(order_data)}")
 print(f"  Position: {len(position_data['concepts'])} + {len(position_data.get('external_concepts', []))} external = {total_concepts(position_data)}")
 print(f"  Transaction: {len(transaction_data['concepts'])} + {len(transaction_data.get('external_concepts', []))} external = {total_concepts(transaction_data)}")
 print(f"  Payment: {len(payment_data['concepts'])} + {len(payment_data.get('external_concepts', []))} external = {total_concepts(payment_data)}")
 print(f"  FinancialAccount: {len(financial_account_data['concepts'])} + {len(financial_account_data.get('external_concepts', []))} external = {total_concepts(financial_account_data)}")
+
+if dp_edi_aum_data:
+    print(f"\nRBCZ:MIB:Investment domain views:")
+    print(f"  DP_EDI_AUM: {len(dp_edi_aum_data['concepts'])} + {len(dp_edi_aum_data.get('external_concepts', []))} external = {total_concepts(dp_edi_aum_data)}")
 PYTHON
 
 echo ""
 echo "Done!"
 echo ""
 echo "Generated: $OUTPUT_FILE"
+echo ""
+echo "Directory structure (ADR-024):"
+find "$SCRIPT_DIR/test" -name "ontology.json" | sort
 echo ""
 echo "Open index.html in browser to view the demo."
