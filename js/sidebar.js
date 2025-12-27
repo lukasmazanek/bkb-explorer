@@ -341,49 +341,6 @@ const Sidebar = {
     },
 
     /**
-     * Render views under the active domain
-     * @param {Array} views - Array of { id, name, conceptCount }
-     * @param {string} domainName - Currently active domain
-     */
-    renderViews(views, domainName) {
-        if (!this.viewsEnabled || views.length === 0) return;
-
-        // Find the domain item
-        const domainItem = this.container.querySelector(`.tree-item[data-name="${domainName}"]`);
-        if (!domainItem) return;
-
-        // Remove existing views container
-        const existingContainer = domainItem.parentElement.querySelector('.views-container');
-        if (existingContainer) existingContainer.remove();
-
-        // Create views container
-        const viewsContainer = document.createElement('div');
-        viewsContainer.className = 'views-container';
-        viewsContainer.dataset.domain = domainName;
-
-        // Add view items (no "All" - redundant with domain count)
-        views.forEach(view => {
-            const viewItem = document.createElement('div');
-            viewItem.className = 'tree-item view-item';
-            viewItem.dataset.viewId = view.id;
-            viewItem.dataset.domain = domainName;
-            viewItem.innerHTML = `
-                <span class="icon">○</span>
-                <span class="label">${view.name}</span>
-                <span class="count">(${view.conceptCount})</span>
-            `;
-            viewItem.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.selectView(view.id, domainName);
-            });
-            viewsContainer.appendChild(viewItem);
-        });
-
-        // Insert after domain item
-        domainItem.insertAdjacentElement('afterend', viewsContainer);
-    },
-
-    /**
      * Select a view
      * @param {string|null} viewId - View ID or null for all
      * @param {string} domainName - Domain name
