@@ -6,13 +6,29 @@
  * Source: conceptspeak/tests/Test/
  * DO NOT EDIT MANUALLY
  *
- * Generated: 2025-12-27T07:43:46.984525
+ * Generated: 2025-12-27T08:06:58.949947
  */
 
 // Domain hierarchy (ADR-024: mirrors filesystem, ADR-040: Views are NOT subdomains)
 const DOMAINS_DATA = {
   "version": "1.0",
   "hierarchy": {
+    "RBCZ": {
+      "type": "folder",
+      "children": {
+        "MIB": {
+          "type": "folder",
+          "children": {
+            "Investment": {
+              "type": "domain",
+              "views": {
+                "DP_EDI_AUM": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "Test": {
       "type": "domain",
       "views": {
@@ -34,14 +50,14 @@ const ORDER_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-27T07:42:30.985212",
+    "created": "2025-12-27T08:04:58.746576",
     "sources": [
       "Investment_Order.cs"
     ]
   },
   "concepts": [
     {
-      "id": "f435936f-9c81-4074-b5c5-013d539779d0",
+      "id": "e71999da-d614-4692-bd2e-58da807e9acb",
       "name": "Buy",
       "type": "concept",
       "sources": [
@@ -83,7 +99,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "40aff5a2-f914-4ca4-a2b2-2cbb4b6bc93f",
+      "id": "5ea55332-404e-4235-bf95-74e8156aacd5",
       "name": "Sell",
       "type": "concept",
       "sources": [
@@ -125,7 +141,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "d1185110-4519-4d03-b6aa-8cb750344200",
+      "id": "ef1735b2-49e8-4f1e-892b-fb9aae165625",
       "name": "Saving plan (regular investment)",
       "type": "concept",
       "sources": [
@@ -167,7 +183,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "7398329a-3591-4395-a34a-143f0c8a0fb6",
+      "id": "cbbf1fd9-ec14-4a18-afbd-480d2f3e3623",
       "name": "One-time",
       "type": "concept",
       "sources": [
@@ -209,7 +225,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "f2318a55-e83f-4889-8328-ae035aafd642",
+      "id": "3b330f4b-a6f1-4a1f-86c5-85980ab176fc",
       "name": "Weekly",
       "type": "concept",
       "sources": [
@@ -251,7 +267,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "fc357c32-aede-42c6-89ab-8f3ee0ceb708",
+      "id": "f452aa69-2ab0-42ab-9a0b-4bd366ff669b",
       "name": "Monthly",
       "type": "concept",
       "sources": [
@@ -293,7 +309,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "name": "Order",
       "type": "concept",
       "sources": [
@@ -335,7 +351,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
+      "id": "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -377,7 +393,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "ff7ec49b-3466-4c7f-8362-2c58d23dc2ec",
+      "id": "6549ac8e-f6ff-4e64-888e-17a4707b78de",
       "name": "Digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -406,11 +422,11 @@ const ORDER_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+        "extends": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a"
+          "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f"
         ]
       },
       "has_fibo_mapping": true,
@@ -419,7 +435,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "ffa24377-5bcd-4941-b22e-c0eb60c2abc8",
+      "id": "390fac55-d4cd-4db4-b0a0-afe9f458eb7a",
       "name": "Non-digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -448,11 +464,11 @@ const ORDER_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+        "extends": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a"
+          "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f"
         ]
       },
       "has_fibo_mapping": true,
@@ -461,7 +477,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "7f20db67-700c-408e-b4ef-2981baf3bb89",
+      "id": "d3d84b9c-1240-428f-9b63-74ada6d60eb9",
       "name": "Placed order",
       "type": "concept",
       "sources": [
@@ -503,7 +519,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "3200207c-777e-4fd9-b058-a50dedbfbfc6",
+      "id": "888d0063-dad2-4c0d-aea4-b9732103ad81",
       "name": "Settled order",
       "type": "concept",
       "sources": [
@@ -545,7 +561,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "87b20e3a-e446-4748-8aed-92c09ed90c04",
+      "id": "01210a67-008f-490a-af2b-4ea2d0d5e0c3",
       "name": "Sales",
       "type": "concept",
       "sources": [
@@ -587,7 +603,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "c14237b5-d8ec-4339-aef7-b19dee56df55",
+      "id": "fb2ea36d-7591-484f-be64-4b4efcfa61aa",
       "name": "Position",
       "type": "context_reference",
       "sources": [
@@ -629,7 +645,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "d5b6c792-25b3-43f2-8303-866a0e1ea2c6",
+      "id": "72ed4dee-80d0-4646-bfce-399e73846251",
       "name": "Payment",
       "type": "context_reference",
       "sources": [
@@ -671,7 +687,7 @@ const ORDER_DATA = {
       "has_parent": true
     },
     {
-      "id": "0f89bfcf-db61-4e6a-88aa-aaab096a8231",
+      "id": "ff33e4cb-4abf-4971-a8d9-c785d7a4d059",
       "name": "Custody fee",
       "type": "context_reference",
       "sources": [
@@ -729,13 +745,13 @@ const ORDER_DATA = {
   ],
   "categorizations": [
     {
-      "id": "a18458ee-6c08-473c-8f64-b57c2ca5353d",
-      "parent_id": "d1185110-4519-4d03-b6aa-8cb750344200",
+      "id": "e0ac3c64-893f-46ec-a65a-a459753e34b4",
+      "parent_id": "ef1735b2-49e8-4f1e-892b-fb9aae165625",
       "parent_name": "Saving plan (regular investment)",
       "category_name": "@ by the frequency",
       "children_ids": [
-        "f2318a55-e83f-4889-8328-ae035aafd642",
-        "fc357c32-aede-42c6-89ab-8f3ee0ceb708"
+        "3b330f4b-a6f1-4a1f-86c5-85980ab176fc",
+        "f452aa69-2ab0-42ab-9a0b-4bd366ff669b"
       ],
       "children_names": [
         "Weekly",
@@ -749,13 +765,13 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "938352a2-2348-4839-bbd8-3383cc21315b",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "fc8f3b0c-cf7d-40fa-9f76-c127375ea397",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by the frequency of trading",
       "children_ids": [
-        "d1185110-4519-4d03-b6aa-8cb750344200",
-        "7398329a-3591-4395-a34a-143f0c8a0fb6"
+        "ef1735b2-49e8-4f1e-892b-fb9aae165625",
+        "cbbf1fd9-ec14-4a18-afbd-480d2f3e3623"
       ],
       "children_names": [
         "Saving plan (regular investment)",
@@ -769,13 +785,13 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "6f1a1e38-e772-4739-8e66-ce938d7437c4",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "40c2114b-d0a1-49ed-9f3b-d6f10f2b7ed8",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by the kind of trading",
       "children_ids": [
-        "40aff5a2-f914-4ca4-a2b2-2cbb4b6bc93f",
-        "f435936f-9c81-4074-b5c5-013d539779d0"
+        "5ea55332-404e-4235-bf95-74e8156aacd5",
+        "e71999da-d614-4692-bd2e-58da807e9acb"
       ],
       "children_names": [
         "Sell",
@@ -789,14 +805,14 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "3ab80733-c645-48d1-8d1a-0b556f7fb889",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "3e4acfd2-d517-44d6-be66-f33caedfb614",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by state",
       "children_ids": [
-        "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
-        "3200207c-777e-4fd9-b058-a50dedbfbfc6",
-        "7f20db67-700c-408e-b4ef-2981baf3bb89"
+        "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
+        "888d0063-dad2-4c0d-aea4-b9732103ad81",
+        "d3d84b9c-1240-428f-9b63-74ada6d60eb9"
       ],
       "children_names": [
         "Executed order",
@@ -811,13 +827,13 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "3d2bda01-7a8c-4374-9f2d-cafbfe58122b",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "fcc16378-01c7-4eb3-abb6-dcac77487dd6",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by [Onboarding Channel]",
       "children_ids": [
-        "ffa24377-5bcd-4941-b22e-c0eb60c2abc8",
-        "ff7ec49b-3466-4c7f-8362-2c58d23dc2ec"
+        "390fac55-d4cd-4db4-b0a0-afe9f458eb7a",
+        "6549ac8e-f6ff-4e64-888e-17a4707b78de"
       ],
       "children_names": [
         "Non-digital Onboarding Channel",
@@ -833,10 +849,10 @@ const ORDER_DATA = {
   ],
   "relationships": [
     {
-      "id": "cb534e4d-b707-4e2f-9431-cc0bec199c77",
-      "subject_id": "87b20e3a-e446-4748-8aed-92c09ed90c04",
+      "id": "71d7286d-efa4-439d-8d15-53db715714f8",
+      "subject_id": "01210a67-008f-490a-af2b-4ea2d0d5e0c3",
       "subject_name": "Sales",
-      "object_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "object_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "object_name": "Order",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -852,10 +868,10 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "74254736-4690-4aae-a536-7192213b87dc",
-      "subject_id": "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
+      "id": "a76df8a3-de5e-498d-bc05-c057039b44f6",
+      "subject_id": "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
       "subject_name": "Executed order",
-      "object_id": "c14237b5-d8ec-4339-aef7-b19dee56df55",
+      "object_id": "fb2ea36d-7591-484f-be64-4b4efcfa61aa",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -871,10 +887,10 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "654d6eb0-e612-4fb4-9ae5-fe2c5f5ef5e1",
-      "subject_id": "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
+      "id": "72fffffe-d5c0-4e28-8c8b-64e028377639",
+      "subject_id": "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
       "subject_name": "Executed order",
-      "object_id": "d5b6c792-25b3-43f2-8303-866a0e1ea2c6",
+      "object_id": "72ed4dee-80d0-4646-bfce-399e73846251",
       "object_name": "Payment",
       "verb_phrase": "is being settled for",
       "inverse_verb_phrase": "is settled to",
@@ -890,10 +906,10 @@ const ORDER_DATA = {
       ]
     },
     {
-      "id": "d6fad834-1c53-4cbe-9260-6d7eb763a88c",
-      "subject_id": "0f89bfcf-db61-4e6a-88aa-aaab096a8231",
+      "id": "881b5200-3db4-4431-8634-88a4c65a48a9",
+      "subject_id": "ff33e4cb-4abf-4971-a8d9-c785d7a4d059",
       "subject_name": "Custody fee",
-      "object_id": "c14237b5-d8ec-4339-aef7-b19dee56df55",
+      "object_id": "fb2ea36d-7591-484f-be64-4b4efcfa61aa",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -949,9 +965,9 @@ const ORDER_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-27T07:42:35.862255",
-  "modified_at": "2025-12-27T07:42:35.862266",
-  "generated": "2025-12-27T07:42:35.862269",
+  "created_at": "2025-12-27T08:05:05.387546",
+  "modified_at": "2025-12-27T08:05:05.387557",
+  "generated": "2025-12-27T08:05:05.387559",
   "fibo_version": "2024Q1"
 };
 
@@ -960,14 +976,14 @@ const POSITION_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-27T07:42:32.022869",
+    "created": "2025-12-27T08:05:00.103879",
     "sources": [
       "Investment_Position.cs"
     ]
   },
   "concepts": [
     {
-      "id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -1009,7 +1025,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "121105d0-8a10-41d4-b312-df4cabfb94f5",
+      "id": "c5449095-1357-4c17-8869-ac5f7e839525",
       "name": "Market / exchange",
       "type": "concept",
       "sources": [
@@ -1051,7 +1067,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "d157e7ac-0ede-49d6-b542-c2964929d159",
+      "id": "e71e821c-033c-4723-8435-846ff233bfd4",
       "name": "Date",
       "type": "concept",
       "sources": [
@@ -1093,7 +1109,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "3067f73e-5af7-4c82-ba6f-f797d511562e",
+      "id": "cec34e76-7062-4c32-95cb-6744c04d7059",
       "name": "Trade date",
       "type": "concept",
       "sources": [
@@ -1135,7 +1151,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "e58b868b-4817-4662-8fc2-5fadfebd0a7b",
+      "id": "f3902b0d-007b-4535-ba6a-7bf923559e8e",
       "name": "Settlement date",
       "type": "concept",
       "sources": [
@@ -1177,7 +1193,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "8bc441d3-ffe6-4b87-8f75-1ec3447cb2e8",
+      "id": "ca9a09ae-840c-4f60-816a-5cd273049430",
       "name": "Sold position",
       "type": "concept",
       "sources": [
@@ -1219,7 +1235,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "name": "Asset under Management (AUM)",
       "type": "concept",
       "sources": [
@@ -1261,7 +1277,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "cfa23c15-ebc2-444a-bfbb-da59b129396e",
+      "id": "d792e8fa-6250-4117-b3c6-bd820a19fac6",
       "name": "Market value",
       "type": "concept",
       "sources": [
@@ -1303,7 +1319,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "7c0bcfa8-dc97-42f4-ac2d-6d00b1153918",
+      "id": "1ad1e372-6927-4803-aed9-f223b92993fa",
       "name": "Number of products",
       "type": "concept",
       "sources": [
@@ -1345,7 +1361,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "d86ce67a-1f91-4d94-95e2-4af9bec6ac92",
+      "id": "b0f1b9f5-247c-48bd-acc5-5a5dc9b074ba",
       "name": "Portfolio",
       "type": "concept",
       "sources": [
@@ -1387,7 +1403,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "a9d021e4-914d-41be-ae61-f718613cea1c",
+      "id": "4d5f655f-7002-4058-ab2a-7ce82de0c2b9",
       "name": "Product",
       "type": "context_reference",
       "sources": [
@@ -1429,7 +1445,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "50e71c64-30b9-4920-9e92-cbcd9dcf7793",
+      "id": "d6b3930a-baec-4e26-bc6e-584aec90b4c8",
       "name": "Active contract",
       "type": "context_reference",
       "sources": [
@@ -1471,7 +1487,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "name": "Customer",
       "type": "context_reference",
       "sources": [
@@ -1513,7 +1529,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "ddc55921-ef1f-40b7-be73-968d9f61eb13",
+      "id": "9b6c54b8-b1a2-43e4-b8cc-e3ad19dacdae",
       "name": "Executed order",
       "type": "context_reference",
       "sources": [
@@ -1555,7 +1571,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "75c6fb64-b98a-4e29-ad85-86fb08ceb11c",
+      "id": "b1d38905-4148-4b1f-924a-c546bc158f8c",
       "name": "Transaction",
       "type": "context_reference",
       "sources": [
@@ -1597,7 +1613,7 @@ const POSITION_DATA = {
       "has_parent": true
     },
     {
-      "id": "e2984632-4665-471c-aef2-6ea2b51fbedf",
+      "id": "0c52bbac-f8d0-403e-8521-11f03821a38d",
       "name": "Custody fee",
       "type": "context_reference",
       "sources": [
@@ -1642,13 +1658,13 @@ const POSITION_DATA = {
   "external_concepts": [],
   "categorizations": [
     {
-      "id": "91eb2bb6-38e6-4227-a15c-d2b6eb4f4da0",
-      "parent_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "719dbdea-08e0-42f9-8cc3-d2bc72119202",
+      "parent_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "parent_name": "Position",
       "category_name": "kind of [Posiition]",
       "children_ids": [
-        "121105d0-8a10-41d4-b312-df4cabfb94f5",
-        "d157e7ac-0ede-49d6-b542-c2964929d159"
+        "c5449095-1357-4c17-8869-ac5f7e839525",
+        "e71e821c-033c-4723-8435-846ff233bfd4"
       ],
       "children_names": [
         "Market / exchange",
@@ -1662,12 +1678,12 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "c7243b3d-d3bd-427f-8787-82d31d52210f",
-      "parent_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "158c83e0-481f-4ceb-a94a-5d3cd84d0cd3",
+      "parent_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "parent_name": "Position",
       "category_name": "by the state",
       "children_ids": [
-        "8bc441d3-ffe6-4b87-8f75-1ec3447cb2e8"
+        "ca9a09ae-840c-4f60-816a-5cd273049430"
       ],
       "children_names": [
         "Sold position"
@@ -1680,13 +1696,13 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "eb870562-0a17-40ba-8728-799ee6c1b56e",
-      "parent_id": "d157e7ac-0ede-49d6-b542-c2964929d159",
+      "id": "ba6a46ad-599e-4f36-9621-ad85e52051d4",
+      "parent_id": "e71e821c-033c-4723-8435-846ff233bfd4",
       "parent_name": "Date",
       "category_name": "kind of [Date]",
       "children_ids": [
-        "3067f73e-5af7-4c82-ba6f-f797d511562e",
-        "e58b868b-4817-4662-8fc2-5fadfebd0a7b"
+        "cec34e76-7062-4c32-95cb-6744c04d7059",
+        "f3902b0d-007b-4535-ba6a-7bf923559e8e"
       ],
       "children_names": [
         "Trade date",
@@ -1702,10 +1718,10 @@ const POSITION_DATA = {
   ],
   "relationships": [
     {
-      "id": "b428386d-2016-4425-bd88-e17c1687df65",
-      "subject_id": "8bc441d3-ffe6-4b87-8f75-1ec3447cb2e8",
+      "id": "7ac07d21-8afe-4198-a5ef-609b34a8f734",
+      "subject_id": "ca9a09ae-840c-4f60-816a-5cd273049430",
       "subject_name": "Sold position",
-      "object_id": "e58b868b-4817-4662-8fc2-5fadfebd0a7b",
+      "object_id": "f3902b0d-007b-4535-ba6a-7bf923559e8e",
       "object_name": "Settlement date",
       "verb_phrase": "transfers of funds on",
       "inverse_verb_phrase": "",
@@ -1721,10 +1737,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "d743dc65-0cf0-466d-a117-59fc15a967d3",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "80ca8798-5326-406c-94d7-ed38216f8db1",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "3067f73e-5af7-4c82-ba6f-f797d511562e",
+      "object_id": "cec34e76-7062-4c32-95cb-6744c04d7059",
       "object_name": "Trade date",
       "verb_phrase": "is traded on",
       "inverse_verb_phrase": "",
@@ -1740,10 +1756,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "89debd54-f07c-421e-be5b-5bc551b58ac0",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "7fc04347-d229-49fa-b5e0-b7b296e495dd",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "object_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "object_name": "Position",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -1759,10 +1775,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "4f28068d-64ed-460b-8d10-ffde503cc5d1",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "bde0d0b1-39eb-4c6b-90cb-b88b7c41c64a",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "cfa23c15-ebc2-444a-bfbb-da59b129396e",
+      "object_id": "d792e8fa-6250-4117-b3c6-bd820a19fac6",
       "object_name": "Market value",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -1778,10 +1794,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "28a7e44c-1ca9-49e6-b464-d677aaa3dde7",
-      "subject_id": "7c0bcfa8-dc97-42f4-ac2d-6d00b1153918",
+      "id": "a81acbbe-600c-4939-acd3-7fc152f68d57",
+      "subject_id": "1ad1e372-6927-4803-aed9-f223b92993fa",
       "subject_name": "Number of products",
-      "object_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "object_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "object_name": "Asset under Management (AUM)",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -1797,10 +1813,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "48fecdee-7c52-45a7-88f4-31bbfb31636f",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "860e486d-0653-4fb8-ad1e-f09082f3d69a",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "d86ce67a-1f91-4d94-95e2-4af9bec6ac92",
+      "object_id": "b0f1b9f5-247c-48bd-acc5-5a5dc9b074ba",
       "object_name": "Portfolio",
       "verb_phrase": "is part of",
       "inverse_verb_phrase": "is sum of",
@@ -1816,10 +1832,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "a67eab31-57e5-4c7c-8e61-4dc21a1d0aca",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "29f77128-ee17-4e82-a24c-8fb7025dc109",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "d86ce67a-1f91-4d94-95e2-4af9bec6ac92",
+      "object_id": "b0f1b9f5-247c-48bd-acc5-5a5dc9b074ba",
       "object_name": "Portfolio",
       "verb_phrase": "is value of",
       "inverse_verb_phrase": "is valuated as",
@@ -1835,10 +1851,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "132aed84-3573-487f-ac6f-484bc8893f81",
-      "subject_id": "ddc55921-ef1f-40b7-be73-968d9f61eb13",
+      "id": "367ef3c0-c636-46d8-a5aa-0b32fa40fdc5",
+      "subject_id": "9b6c54b8-b1a2-43e4-b8cc-e3ad19dacdae",
       "subject_name": "Executed order",
-      "object_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "object_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -1854,10 +1870,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "54b7822b-f590-4134-bda3-0fa29d818cef",
-      "subject_id": "50e71c64-30b9-4920-9e92-cbcd9dcf7793",
+      "id": "2237c4a7-2210-4d96-81b6-5ad0756629f3",
+      "subject_id": "d6b3930a-baec-4e26-bc6e-584aec90b4c8",
       "subject_name": "Active contract",
-      "object_id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "object_id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "object_name": "Customer",
       "verb_phrase": "belongs to",
       "inverse_verb_phrase": "",
@@ -1873,10 +1889,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "d297ca0f-bc7c-41a4-97ca-10593e88550a",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "d393c313-3846-41f8-9532-ac1983f50602",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "75c6fb64-b98a-4e29-ad85-86fb08ceb11c",
+      "object_id": "b1d38905-4148-4b1f-924a-c546bc158f8c",
       "object_name": "Transaction",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -1892,10 +1908,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "254800ab-fa77-4644-b74c-2feed383572a",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "fcfbef1f-3749-4539-8daa-9d05f8e657c4",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "object_id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "object_name": "Customer",
       "verb_phrase": "is owned by",
       "inverse_verb_phrase": "owns",
@@ -1911,10 +1927,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "f19e3433-cd32-4264-8103-111828d882f7",
-      "subject_id": "e2984632-4665-471c-aef2-6ea2b51fbedf",
+      "id": "672a4d24-7637-40d0-95c0-074df5cd18a1",
+      "subject_id": "0c52bbac-f8d0-403e-8521-11f03821a38d",
       "subject_name": "Custody fee",
-      "object_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "object_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -1930,10 +1946,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "43fb73d5-fecf-475d-a546-ade3bce0661a",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "a2ea9191-eb59-4d44-84b0-02a39ba79263",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "50e71c64-30b9-4920-9e92-cbcd9dcf7793",
+      "object_id": "d6b3930a-baec-4e26-bc6e-584aec90b4c8",
       "object_name": "Active contract",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -1949,10 +1965,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "92f09dc8-6e9c-4bb1-a226-f5a6fe0f38fa",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "5b15e9f9-593d-4bff-a3b2-47c262e68571",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "object_id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "object_name": "Customer",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -1968,10 +1984,10 @@ const POSITION_DATA = {
       ]
     },
     {
-      "id": "5b140d42-2b79-4b2f-8d42-4834f9e0fe87",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "0bf18eae-6c13-420c-8ed2-15d43d22d6b8",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "a9d021e4-914d-41be-ae61-f718613cea1c",
+      "object_id": "4d5f655f-7002-4058-ab2a-7ce82de0c2b9",
       "object_name": "Product",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -1989,8 +2005,8 @@ const POSITION_DATA = {
   ],
   "enumerations": [
     {
-      "id": "16d8d11e-76c9-4761-9f0f-51d6380b0def",
-      "concept_id": "121105d0-8a10-41d4-b312-df4cabfb94f5",
+      "id": "7970f587-4e87-43fb-8354-151dc21fd60e",
+      "concept_id": "c5449095-1357-4c17-8869-ac5f7e839525",
       "concept_name": "Market / exchange",
       "values": [
         "BCPP",
@@ -2026,9 +2042,9 @@ const POSITION_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-27T07:42:49.501262",
-  "modified_at": "2025-12-27T07:42:49.501275",
-  "generated": "2025-12-27T07:42:49.501278",
+  "created_at": "2025-12-27T08:05:21.478273",
+  "modified_at": "2025-12-27T08:05:21.478290",
+  "generated": "2025-12-27T08:05:21.478292",
   "fibo_version": "2024Q1"
 };
 
@@ -2037,14 +2053,14 @@ const TRANSACTION_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-27T07:42:32.688196",
+    "created": "2025-12-27T08:05:00.998780",
     "sources": [
       "Investment_Transaction.cs"
     ]
   },
   "concepts": [
     {
-      "id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "name": "Transaction",
       "type": "concept",
       "sources": [
@@ -2086,7 +2102,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "43c85390-0a82-4b93-be2f-0286d7680d45",
+      "id": "4c48a85a-1461-4924-983a-7d04a83e88d1",
       "name": "Automatic",
       "type": "concept",
       "sources": [
@@ -2115,11 +2131,11 @@ const TRANSACTION_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+        "extends": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "28a922a3-ba5b-43ff-8301-ade3350131d8"
+          "1666ee4d-f320-4782-bba0-5e9c61e4c052"
         ]
       },
       "has_fibo_mapping": true,
@@ -2128,7 +2144,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "209718c4-45c4-424c-9a56-a3fe5e309cce",
+      "id": "04ed4693-c21c-45ee-a84f-1f72c749df53",
       "name": "Manual",
       "type": "concept",
       "sources": [
@@ -2157,11 +2173,11 @@ const TRANSACTION_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+        "extends": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "28a922a3-ba5b-43ff-8301-ade3350131d8"
+          "1666ee4d-f320-4782-bba0-5e9c61e4c052"
         ]
       },
       "has_fibo_mapping": true,
@@ -2170,7 +2186,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "e4a5677e-4570-4808-b2f6-a43e188c68c8",
+      "id": "f2c65198-7b7e-41b0-be1e-44d3daf1dac0",
       "name": "Trade",
       "type": "concept",
       "sources": [
@@ -2212,7 +2228,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "352ac1a5-5836-43ae-bc84-47aa6dd84eb4",
+      "id": "90884cdb-b656-491e-983c-62eccbb775ad",
       "name": "Repo trade",
       "type": "concept",
       "sources": [
@@ -2254,7 +2270,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "1fc9bbea-d4f9-4071-a5c1-af21143421c8",
+      "id": "dbb07349-1427-47f8-8529-3909a2f434ea",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -2296,7 +2312,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "f8afbf05-a2ca-4473-b505-ee4f42742f0f",
+      "id": "ea949b3e-fbe3-4b80-a8d3-abbaba0b6c74",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -2338,7 +2354,7 @@ const TRANSACTION_DATA = {
       "has_parent": true
     },
     {
-      "id": "60c94b09-d7bb-4e11-b6df-7ccaae691543",
+      "id": "446bb76e-6607-4f84-9ccb-6aebbe539388",
       "name": "Position",
       "type": "context_reference",
       "sources": [
@@ -2396,13 +2412,13 @@ const TRANSACTION_DATA = {
   ],
   "categorizations": [
     {
-      "id": "dce77b58-38e2-47db-9e8f-91f61c1ae0ef",
-      "parent_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "0367cad8-1ba4-40d7-8e56-e91ca663e86d",
+      "parent_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "parent_name": "Transaction",
       "category_name": "@ by the type of trades",
       "children_ids": [
-        "e4a5677e-4570-4808-b2f6-a43e188c68c8",
-        "352ac1a5-5836-43ae-bc84-47aa6dd84eb4"
+        "f2c65198-7b7e-41b0-be1e-44d3daf1dac0",
+        "90884cdb-b656-491e-983c-62eccbb775ad"
       ],
       "children_names": [
         "Trade",
@@ -2416,13 +2432,13 @@ const TRANSACTION_DATA = {
       ]
     },
     {
-      "id": "2b23a82b-6e98-4934-83e6-5013f85852e3",
-      "parent_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "670b050e-c438-4164-a53f-414450848139",
+      "parent_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "parent_name": "Transaction",
       "category_name": "@ by the type of processing",
       "children_ids": [
-        "43c85390-0a82-4b93-be2f-0286d7680d45",
-        "209718c4-45c4-424c-9a56-a3fe5e309cce"
+        "4c48a85a-1461-4924-983a-7d04a83e88d1",
+        "04ed4693-c21c-45ee-a84f-1f72c749df53"
       ],
       "children_names": [
         "Automatic",
@@ -2436,13 +2452,13 @@ const TRANSACTION_DATA = {
       ]
     },
     {
-      "id": "0a6ecbf9-cafd-46de-bae0-55b2a4a76ad3",
-      "parent_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "c9f50367-da55-4e2d-8a2b-686485e5f1fb",
+      "parent_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "parent_name": "Transaction",
       "category_name": "kind of [Transaction]",
       "children_ids": [
-        "f8afbf05-a2ca-4473-b505-ee4f42742f0f",
-        "1fc9bbea-d4f9-4071-a5c1-af21143421c8"
+        "ea949b3e-fbe3-4b80-a8d3-abbaba0b6c74",
+        "dbb07349-1427-47f8-8529-3909a2f434ea"
       ],
       "children_names": [
         "Executed order",
@@ -2458,10 +2474,10 @@ const TRANSACTION_DATA = {
   ],
   "relationships": [
     {
-      "id": "14f92c47-c08b-4fa4-967c-156946dde007",
-      "subject_id": "60c94b09-d7bb-4e11-b6df-7ccaae691543",
+      "id": "43c28dca-aa3d-4813-9b4d-326947818925",
+      "subject_id": "446bb76e-6607-4f84-9ccb-6aebbe539388",
       "subject_name": "Position",
-      "object_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "object_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "object_name": "Transaction",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -2517,9 +2533,9 @@ const TRANSACTION_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-27T07:43:03.189406",
-  "modified_at": "2025-12-27T07:43:03.189421",
-  "generated": "2025-12-27T07:43:03.189424",
+  "created_at": "2025-12-27T08:05:42.913421",
+  "modified_at": "2025-12-27T08:05:42.913436",
+  "generated": "2025-12-27T08:05:42.913440",
   "fibo_version": "2024Q1"
 };
 
@@ -2528,14 +2544,14 @@ const PAYMENT_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-27T07:42:33.335059",
+    "created": "2025-12-27T08:05:01.918360",
     "sources": [
       "Investment_Payment.cs"
     ]
   },
   "concepts": [
     {
-      "id": "2cbd19ee-c00f-45ef-9b7b-1dbcd1e6be6c",
+      "id": "1eefe305-8474-4247-9063-ca5ca6452357",
       "name": "Fee",
       "type": "concept",
       "sources": [
@@ -2577,7 +2593,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
+      "id": "4f167e87-bb00-4481-b6df-60de2ff444b3",
       "name": "Incoming Payment",
       "type": "concept",
       "sources": [
@@ -2619,7 +2635,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "8550cf92-b465-4e2e-a982-d079f2a47594",
+      "id": "32c03c2c-2a48-4e2d-9c19-f4c812bf2443",
       "name": "Outgoing Payment",
       "type": "concept",
       "sources": [
@@ -2661,7 +2677,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "aa4839fc-b548-425e-826a-ac01104907e9",
+      "id": "bc630354-1609-4a25-a42e-a3aade4f9f50",
       "name": "Deposit",
       "type": "concept",
       "sources": [
@@ -2703,7 +2719,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "f192269f-ddc0-4bbc-9a00-03073bcd1f8e",
+      "id": "fee54743-b082-42b9-af9a-c2b2ad19bfb4",
       "name": "First date of Deposit",
       "type": "concept",
       "sources": [
@@ -2745,7 +2761,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -2787,7 +2803,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "57126444-0f7c-4c2b-ae0f-8306d03dae64",
+      "id": "e3d6b027-2247-42d6-ae56-874e775484fe",
       "name": "Custody fee",
       "type": "concept",
       "sources": [
@@ -2829,7 +2845,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "4aad153b-35d9-4d6a-aa85-36943cd08cd7",
+      "id": "499a90a4-062d-4591-ae94-ce65c255437a",
       "name": "Entry fee",
       "type": "concept",
       "sources": [
@@ -2871,7 +2887,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "83c8c93e-cbc3-4540-8735-d143aa9e60ab",
+      "id": "a37f40cd-b801-4784-87ae-c8618ead3997",
       "name": "Kickback fee",
       "type": "concept",
       "sources": [
@@ -2913,7 +2929,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "bf6f1267-4588-4513-a183-4225b70cbf90",
+      "id": "f609e0c7-736b-4cbc-901a-f806cdbdc2f0",
       "name": "Liability margin",
       "type": "concept",
       "sources": [
@@ -2959,7 +2975,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "ad199d41-c158-43cf-b0c6-df95b961ccb4",
+      "id": "3ed12df8-115f-4be2-918d-64f70fd65365",
       "name": "Trailer fee",
       "type": "concept",
       "sources": [
@@ -3001,7 +3017,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "cda60707-0bc6-4a65-a82d-c738173c6227",
+      "id": "a6100756-c3df-4f35-b2bc-6f2fcd4e4405",
       "name": "Other fee",
       "type": "concept",
       "sources": [
@@ -3043,7 +3059,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "18160a67-cb51-4fce-8eba-56e49237d415",
+      "id": "5180b8a4-6371-4c31-8b88-f7ecf7e6c0f5",
       "name": "Portfolio-based fee",
       "type": "concept",
       "sources": [
@@ -3085,7 +3101,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "bb1f9849-dc1c-4e26-ab77-0f1ea963c288",
+      "id": "f4a8e9b5-7ae6-4fe6-9273-a2f5f1348952",
       "name": "Sales fee",
       "type": "concept",
       "sources": [
@@ -3127,7 +3143,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "name": "Income",
       "type": "concept",
       "sources": [
@@ -3169,7 +3185,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "7128a9b5-ba1f-430b-8bf5-a720991a558c",
+      "id": "bf157444-c68f-4213-bfac-5d22aeaa928e",
       "name": "Core income",
       "type": "concept",
       "sources": [
@@ -3211,7 +3227,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "3300e655-41d5-47c5-b742-ba0757190e69",
+      "id": "41d06f86-5359-4691-a22a-7d63ca3a4a33",
       "name": "RIS group income",
       "type": "concept",
       "sources": [
@@ -3253,7 +3269,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "321a58ee-9348-43ff-961d-1a5f530dae83",
+      "id": "fe64bc14-ef97-477a-a362-8cafca23ca98",
       "name": "Allocated income",
       "type": "concept",
       "sources": [
@@ -3295,7 +3311,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "fc463d25-fbe0-48d5-a548-1b06bf7c1731",
+      "id": "35c1e39f-0896-4d30-9041-b912572fb000",
       "name": "LAMC income",
       "type": "concept",
       "sources": [
@@ -3337,7 +3353,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "name": "Profitability",
       "type": "concept",
       "sources": [
@@ -3371,7 +3387,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "cae47677-7466-46be-b414-2742760d8f2e",
+      "id": "9afa487a-3324-4bf5-8cdb-3e82deba4534",
       "name": "Gross Income",
       "type": "concept",
       "sources": [
@@ -3413,7 +3429,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "6a6226c8-b58e-4517-92a3-c8ec4ef8651d",
+      "id": "f5afbe25-767c-4b16-80a9-ba0aaf58f496",
       "name": "LTV (Life Time Value) GI (Gross Income)",
       "type": "concept",
       "sources": [
@@ -3447,7 +3463,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "bf472dbd-6818-4103-b02a-ffb3bec13d64",
+      "id": "44020d87-9863-45a0-a560-0a2924fd4223",
       "name": "Other income",
       "type": "concept",
       "sources": [
@@ -3489,7 +3505,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "c7002cc4-611d-4ee2-8916-e955b1af667f",
+      "id": "fb3cee15-743b-41a6-8100-a7c79767c7eb",
       "name": "Position",
       "type": "context_reference",
       "sources": [
@@ -3531,7 +3547,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "0e6fa673-635d-4b4b-9d20-d1c2d1db236b",
+      "id": "3a3ae578-1d93-4b55-876b-b174d7848ce4",
       "name": "Executed order",
       "type": "context_reference",
       "sources": [
@@ -3573,7 +3589,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "1db7ee4a-aab6-4fe9-a19e-75139589c821",
+      "id": "5e0a4a06-b3e8-4ccf-9a9f-13c9469b0906",
       "name": "Investment account (BIU)",
       "type": "context_reference",
       "sources": [
@@ -3615,7 +3631,7 @@ const PAYMENT_DATA = {
       "has_parent": true
     },
     {
-      "id": "8ba5eb46-9af9-4ebc-8d7d-c85fc88da4d3",
+      "id": "efc72d75-a8a6-4ebb-80d0-b6efbe3940cb",
       "name": "Balance",
       "type": "context_reference",
       "sources": [
@@ -3660,13 +3676,13 @@ const PAYMENT_DATA = {
   "external_concepts": [],
   "categorizations": [
     {
-      "id": "73bf1ef1-7338-4c41-b05c-706cd462f01a",
-      "parent_id": "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
+      "id": "8bb5f411-ffa6-494f-9344-922c479c1c54",
+      "parent_id": "4f167e87-bb00-4481-b6df-60de2ff444b3",
       "parent_name": "Incoming Payment",
       "category_name": "kind of[IncomingPayment]",
       "children_ids": [
-        "2cbd19ee-c00f-45ef-9b7b-1dbcd1e6be6c",
-        "aa4839fc-b548-425e-826a-ac01104907e9"
+        "1eefe305-8474-4247-9063-ca5ca6452357",
+        "bc630354-1609-4a25-a42e-a3aade4f9f50"
       ],
       "children_names": [
         "Fee",
@@ -3680,13 +3696,13 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "6f3ae07b-98d6-4230-a8fc-0b717b6755fd",
-      "parent_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "id": "eb4aa39a-822f-4286-ac4e-8da043f21bcc",
+      "parent_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "parent_name": "Payment",
       "category_name": "Kind of [Payment]",
       "children_ids": [
-        "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
-        "8550cf92-b465-4e2e-a982-d079f2a47594"
+        "4f167e87-bb00-4481-b6df-60de2ff444b3",
+        "32c03c2c-2a48-4e2d-9c19-f4c812bf2443"
       ],
       "children_names": [
         "Incoming Payment",
@@ -3700,13 +3716,13 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "1f15dccd-9895-4b5f-b130-fa77a88012c1",
-      "parent_id": "bb1f9849-dc1c-4e26-ab77-0f1ea963c288",
+      "id": "d5665df8-b136-482c-9c93-3fb1c123acbe",
+      "parent_id": "f4a8e9b5-7ae6-4fe6-9273-a2f5f1348952",
       "parent_name": "Sales fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "83c8c93e-cbc3-4540-8735-d143aa9e60ab",
-        "4aad153b-35d9-4d6a-aa85-36943cd08cd7"
+        "a37f40cd-b801-4784-87ae-c8618ead3997",
+        "499a90a4-062d-4591-ae94-ce65c255437a"
       ],
       "children_names": [
         "Kickback fee",
@@ -3720,14 +3736,14 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "82ee769f-b223-43d6-8fd8-17d135dd8dd8",
-      "parent_id": "18160a67-cb51-4fce-8eba-56e49237d415",
+      "id": "14c10e02-31fb-4198-bf3f-173a59f4b329",
+      "parent_id": "5180b8a4-6371-4c31-8b88-f7ecf7e6c0f5",
       "parent_name": "Portfolio-based fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "57126444-0f7c-4c2b-ae0f-8306d03dae64",
-        "cda60707-0bc6-4a65-a82d-c738173c6227",
-        "ad199d41-c158-43cf-b0c6-df95b961ccb4"
+        "e3d6b027-2247-42d6-ae56-874e775484fe",
+        "a6100756-c3df-4f35-b2bc-6f2fcd4e4405",
+        "3ed12df8-115f-4be2-918d-64f70fd65365"
       ],
       "children_names": [
         "Custody fee",
@@ -3742,14 +3758,14 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "76c324f7-9e88-4b75-9167-39ca9567d1b4",
-      "parent_id": "2cbd19ee-c00f-45ef-9b7b-1dbcd1e6be6c",
+      "id": "f3691fa4-671f-45e3-8054-d28ebd1cdc99",
+      "parent_id": "1eefe305-8474-4247-9063-ca5ca6452357",
       "parent_name": "Fee",
       "category_name": "@ by fee category",
       "children_ids": [
-        "18160a67-cb51-4fce-8eba-56e49237d415",
-        "bb1f9849-dc1c-4e26-ab77-0f1ea963c288",
-        "bf6f1267-4588-4513-a183-4225b70cbf90"
+        "5180b8a4-6371-4c31-8b88-f7ecf7e6c0f5",
+        "f4a8e9b5-7ae6-4fe6-9273-a2f5f1348952",
+        "f609e0c7-736b-4cbc-901a-f806cdbdc2f0"
       ],
       "children_names": [
         "Portfolio-based fee",
@@ -3764,16 +3780,16 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "22e2633f-983a-4f5c-844a-bb63beb03b30",
-      "parent_id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "id": "ca075cbf-57d9-4c82-aa0c-95fdc6fb6678",
+      "parent_id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "parent_name": "Income",
       "category_name": "kind of [Income]",
       "children_ids": [
-        "bf472dbd-6818-4103-b02a-ffb3bec13d64",
-        "3300e655-41d5-47c5-b742-ba0757190e69",
-        "321a58ee-9348-43ff-961d-1a5f530dae83",
-        "fc463d25-fbe0-48d5-a548-1b06bf7c1731",
-        "7128a9b5-ba1f-430b-8bf5-a720991a558c"
+        "44020d87-9863-45a0-a560-0a2924fd4223",
+        "41d06f86-5359-4691-a22a-7d63ca3a4a33",
+        "fe64bc14-ef97-477a-a362-8cafca23ca98",
+        "35c1e39f-0896-4d30-9041-b912572fb000",
+        "bf157444-c68f-4213-bfac-5d22aeaa928e"
       ],
       "children_names": [
         "Other income",
@@ -3792,10 +3808,10 @@ const PAYMENT_DATA = {
   ],
   "relationships": [
     {
-      "id": "9c54784a-5f2b-4e3c-b663-61ea430f4a5b",
-      "subject_id": "aa4839fc-b548-425e-826a-ac01104907e9",
+      "id": "a9d54c5c-c729-4d5f-b56d-c0d06df67c55",
+      "subject_id": "bc630354-1609-4a25-a42e-a3aade4f9f50",
       "subject_name": "Deposit",
-      "object_id": "f192269f-ddc0-4bbc-9a00-03073bcd1f8e",
+      "object_id": "fee54743-b082-42b9-af9a-c2b2ad19bfb4",
       "object_name": "First date of Deposit",
       "verb_phrase": "has [First date]",
       "inverse_verb_phrase": "",
@@ -3811,10 +3827,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "7d73549b-6899-4fdf-8a27-a2f78f376ff7",
-      "subject_id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "id": "528482b3-eac0-4e75-a5b9-7ed6664cad22",
+      "subject_id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "subject_name": "Income",
-      "object_id": "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
+      "object_id": "4f167e87-bb00-4481-b6df-60de2ff444b3",
       "object_name": "Incoming Payment",
       "verb_phrase": "is generated by",
       "inverse_verb_phrase": "generates",
@@ -3830,10 +3846,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "210cc95d-55b0-46ed-a0ec-b44c14a23700",
-      "subject_id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "id": "1a48bafb-a8a7-4251-88ee-6a48dcd8babb",
+      "subject_id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "subject_name": "Profitability",
-      "object_id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "object_id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "object_name": "Income",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -3849,10 +3865,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "c7466ddd-74f1-4c97-bad6-5fa0443d660b",
-      "subject_id": "cae47677-7466-46be-b414-2742760d8f2e",
+      "id": "de2af9de-752d-43be-bdff-8d831b9f5538",
+      "subject_id": "9afa487a-3324-4bf5-8cdb-3e82deba4534",
       "subject_name": "Gross Income",
-      "object_id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "object_id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "object_name": "Profitability",
       "verb_phrase": "measures",
       "inverse_verb_phrase": "is measured by",
@@ -3868,10 +3884,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "e2f2d213-4cd9-4768-a9f8-b3a266ce627c",
-      "subject_id": "6a6226c8-b58e-4517-92a3-c8ec4ef8651d",
+      "id": "33d23588-38af-4385-bd91-a5937e53ebd5",
+      "subject_id": "f5afbe25-767c-4b16-80a9-ba0aaf58f496",
       "subject_name": "LTV (Life Time Value) GI (Gross Income)",
-      "object_id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "object_id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "object_name": "Profitability",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "is measured by",
@@ -3887,10 +3903,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "588d52cc-215b-4219-bce3-94ab7719f169",
-      "subject_id": "0e6fa673-635d-4b4b-9d20-d1c2d1db236b",
+      "id": "83b8df66-ac0f-4b8c-a42e-15bd8a596ead",
+      "subject_id": "3a3ae578-1d93-4b55-876b-b174d7848ce4",
       "subject_name": "Executed order",
-      "object_id": "c7002cc4-611d-4ee2-8916-e955b1af667f",
+      "object_id": "fb3cee15-743b-41a6-8100-a7c79767c7eb",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -3906,10 +3922,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "c66514c4-5b92-4f6a-bd8c-1d2f8d49258a",
-      "subject_id": "1db7ee4a-aab6-4fe9-a19e-75139589c821",
+      "id": "d9678e95-63ed-4dc9-87fe-66db7343b236",
+      "subject_id": "5e0a4a06-b3e8-4ccf-9a9f-13c9469b0906",
       "subject_name": "Investment account (BIU)",
-      "object_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "object_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "object_name": "Payment",
       "verb_phrase": "processes",
       "inverse_verb_phrase": "is settled from",
@@ -3925,10 +3941,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "32b52ba2-820a-4f14-b932-f8ffc7934e85",
-      "subject_id": "8ba5eb46-9af9-4ebc-8d7d-c85fc88da4d3",
+      "id": "1c88725b-f5ca-4810-8e26-b535252e7bc4",
+      "subject_id": "efc72d75-a8a6-4ebb-80d0-b6efbe3940cb",
       "subject_name": "Balance",
-      "object_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "object_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "object_name": "Payment",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "",
@@ -3944,10 +3960,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "da7171e8-10a0-4b0d-84ed-d6fd8496bde8",
-      "subject_id": "0e6fa673-635d-4b4b-9d20-d1c2d1db236b",
+      "id": "e9374b33-6e04-4aa5-beff-15ce295821ad",
+      "subject_id": "3a3ae578-1d93-4b55-876b-b174d7848ce4",
       "subject_name": "Executed order",
-      "object_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "object_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "object_name": "Payment",
       "verb_phrase": "is being settled for",
       "inverse_verb_phrase": "is settled to",
@@ -3963,10 +3979,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "09b64b23-0a32-49c2-9cd9-221f5d8a9301",
-      "subject_id": "57126444-0f7c-4c2b-ae0f-8306d03dae64",
+      "id": "218a5b40-edcd-4880-b894-fdcd67cbc8dd",
+      "subject_id": "e3d6b027-2247-42d6-ae56-874e775484fe",
       "subject_name": "Custody fee",
-      "object_id": "c7002cc4-611d-4ee2-8916-e955b1af667f",
+      "object_id": "fb3cee15-743b-41a6-8100-a7c79767c7eb",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -3982,10 +3998,10 @@ const PAYMENT_DATA = {
       ]
     },
     {
-      "id": "3de04267-7da0-468e-949f-357ff7bf3297",
-      "subject_id": "aa4839fc-b548-425e-826a-ac01104907e9",
+      "id": "a18ddca1-a5c8-44f6-ac32-b770d8590a2e",
+      "subject_id": "bc630354-1609-4a25-a42e-a3aade4f9f50",
       "subject_name": "Deposit",
-      "object_id": "8ba5eb46-9af9-4ebc-8d7d-c85fc88da4d3",
+      "object_id": "efc72d75-a8a6-4ebb-80d0-b6efbe3940cb",
       "object_name": "Balance",
       "verb_phrase": "increases",
       "inverse_verb_phrase": "",
@@ -4025,9 +4041,9 @@ const PAYMENT_DATA = {
     ]
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-27T07:43:08.755790",
-  "modified_at": "2025-12-27T07:43:08.755801",
-  "generated": "2025-12-27T07:43:08.755803",
+  "created_at": "2025-12-27T08:05:49.519886",
+  "modified_at": "2025-12-27T08:05:49.519897",
+  "generated": "2025-12-27T08:05:49.519899",
   "fibo_version": "2024Q1"
 };
 
@@ -4036,14 +4052,14 @@ const FINANCIAL_ACCOUNT_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-27T07:42:33.932455",
+    "created": "2025-12-27T08:05:02.751567",
     "sources": [
       "Financial_Account.cs"
     ]
   },
   "concepts": [
     {
-      "id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "name": "Account",
       "type": "concept",
       "sources": [
@@ -4085,7 +4101,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
+      "id": "b751a625-c2f7-4da0-83b0-6477b0337a0f",
       "name": "Current account",
       "type": "concept",
       "sources": [
@@ -4127,7 +4143,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "9fff2f12-681e-40cf-84eb-3bf284cec7a9",
+      "id": "89871a45-867e-48d4-b5fb-72fc316cbe61",
       "name": "Active current account",
       "type": "concept",
       "sources": [
@@ -4169,7 +4185,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "42cc6613-5563-4965-8ade-35db565f5051",
+      "id": "a3ae84eb-0f3a-4a4e-bfde-a67ddbea15c2",
       "name": "Saving Account",
       "type": "concept",
       "sources": [
@@ -4211,7 +4227,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "b31de037-2ad8-47f8-a45d-05e12bfb668a",
+      "id": "441007ca-c82d-4462-85da-f51aecc67a1c",
       "name": "Investment account (BIU)",
       "type": "concept",
       "sources": [
@@ -4253,7 +4269,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "8469111f-27f0-4044-9dde-d31f1b820031",
+      "id": "a5d78d8d-903d-4001-ba61-85ec7eb08c12",
       "name": "Currency",
       "type": "concept",
       "sources": [
@@ -4295,7 +4311,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "dfd097a8-3143-4758-ba2e-051616cf89c7",
+      "id": "c6077190-354a-4e1f-9ef5-74f88b5b087b",
       "name": "CZK",
       "type": "concept",
       "sources": [
@@ -4337,7 +4353,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "f2313aa6-8dbd-4783-a9bf-103e7d7c20f8",
+      "id": "533c3fdb-d8eb-40b8-8f46-6ffc197819ba",
       "name": "EUR",
       "type": "concept",
       "sources": [
@@ -4379,7 +4395,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "3d00e346-a524-40fe-a65e-c0be8c8d626b",
+      "id": "af66a137-0c01-45cc-9b0d-773237eae37f",
       "name": "USD",
       "type": "concept",
       "sources": [
@@ -4421,7 +4437,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "name": "Balance",
       "type": "context_reference",
       "sources": [
@@ -4463,7 +4479,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "43f90d19-0a40-43cf-8e77-05fa356e2245",
+      "id": "6e91d38f-1c3c-4706-a0dc-3cd4bd424846",
       "name": "End of day (EOD) balance",
       "type": "context_reference",
       "sources": [
@@ -4505,7 +4521,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "60f4f04d-8571-49fa-b88f-61532971813a",
+      "id": "c84948d0-d988-418b-8975-d5717121ad94",
       "name": "Active contract",
       "type": "context_reference",
       "sources": [
@@ -4547,7 +4563,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "ea3e275d-56c2-4e1c-baa2-a91c80e0e9e1",
+      "id": "399227a9-30e6-40bf-8774-e49d82374396",
       "name": "Number of active current accounts",
       "type": "context_reference",
       "sources": [
@@ -4589,7 +4605,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "5fdb7cbd-23ce-48a3-8da3-3318744a37f2",
+      "id": "9067eb7f-187b-407d-bf6b-e605999c73a0",
       "name": "Deposit",
       "type": "context_reference",
       "sources": [
@@ -4631,7 +4647,7 @@ const FINANCIAL_ACCOUNT_DATA = {
       "has_parent": true
     },
     {
-      "id": "f8be15e3-f08b-427f-a182-8ef79bc6294b",
+      "id": "6af1cbd9-ebcc-4df3-84c9-ecf4a39de3e6",
       "name": "Payment",
       "type": "context_reference",
       "sources": [
@@ -4676,13 +4692,13 @@ const FINANCIAL_ACCOUNT_DATA = {
   "external_concepts": [],
   "categorizations": [
     {
-      "id": "f6c42987-1a7e-4198-b3ac-1ddeb53e74ab",
-      "parent_id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "e7fe5029-7ab6-46e4-ab36-7619902220af",
+      "parent_id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "parent_name": "Account",
       "category_name": "kind of [Account]",
       "children_ids": [
-        "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
-        "42cc6613-5563-4965-8ade-35db565f5051"
+        "b751a625-c2f7-4da0-83b0-6477b0337a0f",
+        "a3ae84eb-0f3a-4a4e-bfde-a67ddbea15c2"
       ],
       "children_names": [
         "Current account",
@@ -4696,12 +4712,12 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "7c280352-f518-44e0-9150-7f1b7ef25984",
-      "parent_id": "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
+      "id": "a9e48ad7-86fa-460f-93e3-a0652ea6f30c",
+      "parent_id": "b751a625-c2f7-4da0-83b0-6477b0337a0f",
       "parent_name": "Current account",
       "category_name": "by state",
       "children_ids": [
-        "9fff2f12-681e-40cf-84eb-3bf284cec7a9"
+        "89871a45-867e-48d4-b5fb-72fc316cbe61"
       ],
       "children_names": [
         "Active current account"
@@ -4714,14 +4730,14 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "53d02acb-5b8b-444d-bfba-6c09f62862bf",
-      "parent_id": "8469111f-27f0-4044-9dde-d31f1b820031",
+      "id": "1d3e6486-a808-4f8d-aa19-2cd002aee67e",
+      "parent_id": "a5d78d8d-903d-4001-ba61-85ec7eb08c12",
       "parent_name": "Currency",
       "category_name": "kind of [Currency]",
       "children_ids": [
-        "f2313aa6-8dbd-4783-a9bf-103e7d7c20f8",
-        "dfd097a8-3143-4758-ba2e-051616cf89c7",
-        "3d00e346-a524-40fe-a65e-c0be8c8d626b"
+        "533c3fdb-d8eb-40b8-8f46-6ffc197819ba",
+        "c6077190-354a-4e1f-9ef5-74f88b5b087b",
+        "af66a137-0c01-45cc-9b0d-773237eae37f"
       ],
       "children_names": [
         "EUR",
@@ -4736,12 +4752,12 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "eebed829-2f25-49fd-b3c3-9a19a6ebcd9a",
-      "parent_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "4ffa8bd8-5344-4a7f-bc3b-f6a4347f3b6c",
+      "parent_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "parent_name": "Balance",
       "category_name": "aggregation by time",
       "children_ids": [
-        "43f90d19-0a40-43cf-8e77-05fa356e2245"
+        "6e91d38f-1c3c-4706-a0dc-3cd4bd424846"
       ],
       "children_names": [
         "End of day (EOD) balance"
@@ -4756,10 +4772,10 @@ const FINANCIAL_ACCOUNT_DATA = {
   ],
   "relationships": [
     {
-      "id": "482a79e3-eae7-473b-8149-050a00763e6b",
-      "subject_id": "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
+      "id": "da662693-6e56-48fd-8f1c-5dd9ff327f7a",
+      "subject_id": "b751a625-c2f7-4da0-83b0-6477b0337a0f",
       "subject_name": "Current account",
-      "object_id": "b31de037-2ad8-47f8-a45d-05e12bfb668a",
+      "object_id": "441007ca-c82d-4462-85da-f51aecc67a1c",
       "object_name": "Investment account (BIU)",
       "verb_phrase": "Is a",
       "inverse_verb_phrase": "",
@@ -4775,10 +4791,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "a10e5eb9-cf2e-4cb9-80dd-bf74fee8575b",
-      "subject_id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "c70f5878-502f-4cc1-97d8-13b7aca2b335",
+      "subject_id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "subject_name": "Account",
-      "object_id": "8469111f-27f0-4044-9dde-d31f1b820031",
+      "object_id": "a5d78d8d-903d-4001-ba61-85ec7eb08c12",
       "object_name": "Currency",
       "verb_phrase": "is composed of",
       "inverse_verb_phrase": "composes",
@@ -4794,10 +4810,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "43c94b85-5234-4638-9fcd-e10c93cb1b4c",
-      "subject_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "dfde806e-397b-4d3b-8182-56c347920ecb",
+      "subject_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "subject_name": "Balance",
-      "object_id": "60f4f04d-8571-49fa-b88f-61532971813a",
+      "object_id": "c84948d0-d988-418b-8975-d5717121ad94",
       "object_name": "Active contract",
       "verb_phrase": "aggregated by",
       "inverse_verb_phrase": "",
@@ -4813,10 +4829,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "f2f05f0c-9729-4d80-881d-3a0a9aa0b108",
-      "subject_id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "b9cf4001-342b-4df0-a235-28cc97f483d4",
+      "subject_id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "subject_name": "Account",
-      "object_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "object_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "object_name": "Balance",
       "verb_phrase": "has",
       "inverse_verb_phrase": "is calculated for",
@@ -4832,10 +4848,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "09fa01ce-de71-4a7b-97d7-4980196bb0b3",
-      "subject_id": "ea3e275d-56c2-4e1c-baa2-a91c80e0e9e1",
+      "id": "eac10ce5-63bb-45dc-bd9d-63310d9c63fe",
+      "subject_id": "399227a9-30e6-40bf-8774-e49d82374396",
       "subject_name": "Number of active current accounts",
-      "object_id": "9fff2f12-681e-40cf-84eb-3bf284cec7a9",
+      "object_id": "89871a45-867e-48d4-b5fb-72fc316cbe61",
       "object_name": "Active current account",
       "verb_phrase": "measures",
       "inverse_verb_phrase": "measured by",
@@ -4851,10 +4867,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "c418453f-2bee-4087-97a1-25ea9fe41eb0",
-      "subject_id": "5fdb7cbd-23ce-48a3-8da3-3318744a37f2",
+      "id": "c99aa2a0-973e-4209-b78b-374b844a6e94",
+      "subject_id": "9067eb7f-187b-407d-bf6b-e605999c73a0",
       "subject_name": "Deposit",
-      "object_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "object_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "object_name": "Balance",
       "verb_phrase": "increases",
       "inverse_verb_phrase": "",
@@ -4870,10 +4886,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "69059568-2acc-44e4-8a67-a156467bdffd",
-      "subject_id": "b31de037-2ad8-47f8-a45d-05e12bfb668a",
+      "id": "3dd70de6-4ba9-42f1-a14a-73a4ae3091c2",
+      "subject_id": "441007ca-c82d-4462-85da-f51aecc67a1c",
       "subject_name": "Investment account (BIU)",
-      "object_id": "f8be15e3-f08b-427f-a182-8ef79bc6294b",
+      "object_id": "6af1cbd9-ebcc-4df3-84c9-ecf4a39de3e6",
       "object_name": "Payment",
       "verb_phrase": "processes",
       "inverse_verb_phrase": "is settled from",
@@ -4889,10 +4905,10 @@ const FINANCIAL_ACCOUNT_DATA = {
       ]
     },
     {
-      "id": "4d5885da-134a-4da3-8409-0c67ca5fee18",
-      "subject_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "8608581b-b681-4bff-b610-65108fa0dbb6",
+      "subject_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "subject_name": "Balance",
-      "object_id": "f8be15e3-f08b-427f-a182-8ef79bc6294b",
+      "object_id": "6af1cbd9-ebcc-4df3-84c9-ecf4a39de3e6",
       "object_name": "Payment",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "",
@@ -4930,9 +4946,9 @@ const FINANCIAL_ACCOUNT_DATA = {
     "validation_warnings": []
   },
   "schema_version": "1.0.0",
-  "created_at": "2025-12-27T07:43:36.919686",
-  "modified_at": "2025-12-27T07:43:36.919696",
-  "generated": "2025-12-27T07:43:36.919698",
+  "created_at": "2025-12-27T08:06:34.355956",
+  "modified_at": "2025-12-27T08:06:34.355968",
+  "generated": "2025-12-27T08:06:34.355969",
   "fibo_version": "2024Q1"
 };
 
@@ -4942,7 +4958,7 @@ const TEST_DATA = {
     "path": "Test",
     "name": "Test",
     "version": "1.0.0",
-    "created": "2025-12-27T07:43:46.993142",
+    "created": "2025-12-27T08:06:58.967185",
     "sources": [
       "Investment_Order.cs",
       "Investment_Position.cs",
@@ -4953,7 +4969,7 @@ const TEST_DATA = {
   },
   "concepts": [
     {
-      "id": "f435936f-9c81-4074-b5c5-013d539779d0",
+      "id": "e71999da-d614-4692-bd2e-58da807e9acb",
       "name": "Buy",
       "type": "concept",
       "sources": [
@@ -4996,7 +5012,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "40aff5a2-f914-4ca4-a2b2-2cbb4b6bc93f",
+      "id": "5ea55332-404e-4235-bf95-74e8156aacd5",
       "name": "Sell",
       "type": "concept",
       "sources": [
@@ -5039,7 +5055,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "d1185110-4519-4d03-b6aa-8cb750344200",
+      "id": "ef1735b2-49e8-4f1e-892b-fb9aae165625",
       "name": "Saving plan (regular investment)",
       "type": "concept",
       "sources": [
@@ -5082,7 +5098,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "7398329a-3591-4395-a34a-143f0c8a0fb6",
+      "id": "cbbf1fd9-ec14-4a18-afbd-480d2f3e3623",
       "name": "One-time",
       "type": "concept",
       "sources": [
@@ -5125,7 +5141,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "f2318a55-e83f-4889-8328-ae035aafd642",
+      "id": "3b330f4b-a6f1-4a1f-86c5-85980ab176fc",
       "name": "Weekly",
       "type": "concept",
       "sources": [
@@ -5168,7 +5184,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "fc357c32-aede-42c6-89ab-8f3ee0ceb708",
+      "id": "f452aa69-2ab0-42ab-9a0b-4bd366ff669b",
       "name": "Monthly",
       "type": "concept",
       "sources": [
@@ -5211,7 +5227,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "name": "Order",
       "type": "concept",
       "sources": [
@@ -5254,7 +5270,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
+      "id": "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -5297,7 +5313,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "ff7ec49b-3466-4c7f-8362-2c58d23dc2ec",
+      "id": "6549ac8e-f6ff-4e64-888e-17a4707b78de",
       "name": "Digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -5326,11 +5342,11 @@ const TEST_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+        "extends": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a"
+          "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f"
         ]
       },
       "has_fibo_mapping": true,
@@ -5340,7 +5356,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "ffa24377-5bcd-4941-b22e-c0eb60c2abc8",
+      "id": "390fac55-d4cd-4db4-b0a0-afe9f458eb7a",
       "name": "Non-digital Onboarding Channel",
       "type": "concept",
       "sources": [
@@ -5369,11 +5385,11 @@ const TEST_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+        "extends": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
         "extends_name": "Order",
         "depth": 2,
         "path": [
-          "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a"
+          "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f"
         ]
       },
       "has_fibo_mapping": true,
@@ -5383,7 +5399,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "7f20db67-700c-408e-b4ef-2981baf3bb89",
+      "id": "d3d84b9c-1240-428f-9b63-74ada6d60eb9",
       "name": "Placed order",
       "type": "concept",
       "sources": [
@@ -5426,7 +5442,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "3200207c-777e-4fd9-b058-a50dedbfbfc6",
+      "id": "888d0063-dad2-4c0d-aea4-b9732103ad81",
       "name": "Settled order",
       "type": "concept",
       "sources": [
@@ -5469,7 +5485,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "87b20e3a-e446-4748-8aed-92c09ed90c04",
+      "id": "01210a67-008f-490a-af2b-4ea2d0d5e0c3",
       "name": "Sales",
       "type": "concept",
       "sources": [
@@ -5512,7 +5528,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "c14237b5-d8ec-4339-aef7-b19dee56df55",
+      "id": "fb2ea36d-7591-484f-be64-4b4efcfa61aa",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -5555,7 +5571,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "d5b6c792-25b3-43f2-8303-866a0e1ea2c6",
+      "id": "72ed4dee-80d0-4646-bfce-399e73846251",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -5598,7 +5614,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "0f89bfcf-db61-4e6a-88aa-aaab096a8231",
+      "id": "ff33e4cb-4abf-4971-a8d9-c785d7a4d059",
       "name": "Custody fee",
       "type": "concept",
       "sources": [
@@ -5641,7 +5657,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -5684,7 +5700,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "121105d0-8a10-41d4-b312-df4cabfb94f5",
+      "id": "c5449095-1357-4c17-8869-ac5f7e839525",
       "name": "Market / exchange",
       "type": "concept",
       "sources": [
@@ -5727,7 +5743,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "d157e7ac-0ede-49d6-b542-c2964929d159",
+      "id": "e71e821c-033c-4723-8435-846ff233bfd4",
       "name": "Date",
       "type": "concept",
       "sources": [
@@ -5770,7 +5786,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "3067f73e-5af7-4c82-ba6f-f797d511562e",
+      "id": "cec34e76-7062-4c32-95cb-6744c04d7059",
       "name": "Trade date",
       "type": "concept",
       "sources": [
@@ -5813,7 +5829,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "e58b868b-4817-4662-8fc2-5fadfebd0a7b",
+      "id": "f3902b0d-007b-4535-ba6a-7bf923559e8e",
       "name": "Settlement date",
       "type": "concept",
       "sources": [
@@ -5856,7 +5872,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "8bc441d3-ffe6-4b87-8f75-1ec3447cb2e8",
+      "id": "ca9a09ae-840c-4f60-816a-5cd273049430",
       "name": "Sold position",
       "type": "concept",
       "sources": [
@@ -5899,7 +5915,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "name": "Asset under Management (AUM)",
       "type": "concept",
       "sources": [
@@ -5942,7 +5958,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "cfa23c15-ebc2-444a-bfbb-da59b129396e",
+      "id": "d792e8fa-6250-4117-b3c6-bd820a19fac6",
       "name": "Market value",
       "type": "concept",
       "sources": [
@@ -5985,7 +6001,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "7c0bcfa8-dc97-42f4-ac2d-6d00b1153918",
+      "id": "1ad1e372-6927-4803-aed9-f223b92993fa",
       "name": "Number of products",
       "type": "concept",
       "sources": [
@@ -6028,7 +6044,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "d86ce67a-1f91-4d94-95e2-4af9bec6ac92",
+      "id": "b0f1b9f5-247c-48bd-acc5-5a5dc9b074ba",
       "name": "Portfolio",
       "type": "concept",
       "sources": [
@@ -6071,7 +6087,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "a9d021e4-914d-41be-ae61-f718613cea1c",
+      "id": "4d5f655f-7002-4058-ab2a-7ce82de0c2b9",
       "name": "Product",
       "type": "concept",
       "sources": [
@@ -6114,7 +6130,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "50e71c64-30b9-4920-9e92-cbcd9dcf7793",
+      "id": "d6b3930a-baec-4e26-bc6e-584aec90b4c8",
       "name": "Active contract",
       "type": "concept",
       "sources": [
@@ -6157,7 +6173,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "name": "Customer",
       "type": "concept",
       "sources": [
@@ -6200,7 +6216,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "ddc55921-ef1f-40b7-be73-968d9f61eb13",
+      "id": "9b6c54b8-b1a2-43e4-b8cc-e3ad19dacdae",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -6243,7 +6259,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "75c6fb64-b98a-4e29-ad85-86fb08ceb11c",
+      "id": "b1d38905-4148-4b1f-924a-c546bc158f8c",
       "name": "Transaction",
       "type": "concept",
       "sources": [
@@ -6286,7 +6302,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "e2984632-4665-471c-aef2-6ea2b51fbedf",
+      "id": "0c52bbac-f8d0-403e-8521-11f03821a38d",
       "name": "Custody fee",
       "type": "concept",
       "sources": [
@@ -6329,7 +6345,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "name": "Transaction",
       "type": "concept",
       "sources": [
@@ -6372,7 +6388,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "43c85390-0a82-4b93-be2f-0286d7680d45",
+      "id": "4c48a85a-1461-4924-983a-7d04a83e88d1",
       "name": "Automatic",
       "type": "concept",
       "sources": [
@@ -6401,11 +6417,11 @@ const TEST_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+        "extends": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "28a922a3-ba5b-43ff-8301-ade3350131d8"
+          "1666ee4d-f320-4782-bba0-5e9c61e4c052"
         ]
       },
       "has_fibo_mapping": true,
@@ -6415,7 +6431,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "209718c4-45c4-424c-9a56-a3fe5e309cce",
+      "id": "04ed4693-c21c-45ee-a84f-1f72c749df53",
       "name": "Manual",
       "type": "concept",
       "sources": [
@@ -6444,11 +6460,11 @@ const TEST_DATA = {
         "parent_name": ""
       },
       "hierarchy": {
-        "extends": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+        "extends": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
         "extends_name": "Transaction",
         "depth": 2,
         "path": [
-          "28a922a3-ba5b-43ff-8301-ade3350131d8"
+          "1666ee4d-f320-4782-bba0-5e9c61e4c052"
         ]
       },
       "has_fibo_mapping": true,
@@ -6458,7 +6474,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "e4a5677e-4570-4808-b2f6-a43e188c68c8",
+      "id": "f2c65198-7b7e-41b0-be1e-44d3daf1dac0",
       "name": "Trade",
       "type": "concept",
       "sources": [
@@ -6501,7 +6517,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "352ac1a5-5836-43ae-bc84-47aa6dd84eb4",
+      "id": "90884cdb-b656-491e-983c-62eccbb775ad",
       "name": "Repo trade",
       "type": "concept",
       "sources": [
@@ -6544,7 +6560,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "1fc9bbea-d4f9-4071-a5c1-af21143421c8",
+      "id": "dbb07349-1427-47f8-8529-3909a2f434ea",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -6587,7 +6603,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "f8afbf05-a2ca-4473-b505-ee4f42742f0f",
+      "id": "ea949b3e-fbe3-4b80-a8d3-abbaba0b6c74",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -6630,7 +6646,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "60c94b09-d7bb-4e11-b6df-7ccaae691543",
+      "id": "446bb76e-6607-4f84-9ccb-6aebbe539388",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -6673,7 +6689,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "2cbd19ee-c00f-45ef-9b7b-1dbcd1e6be6c",
+      "id": "1eefe305-8474-4247-9063-ca5ca6452357",
       "name": "Fee",
       "type": "concept",
       "sources": [
@@ -6716,7 +6732,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
+      "id": "4f167e87-bb00-4481-b6df-60de2ff444b3",
       "name": "Incoming Payment",
       "type": "concept",
       "sources": [
@@ -6759,7 +6775,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "8550cf92-b465-4e2e-a982-d079f2a47594",
+      "id": "32c03c2c-2a48-4e2d-9c19-f4c812bf2443",
       "name": "Outgoing Payment",
       "type": "concept",
       "sources": [
@@ -6802,7 +6818,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "aa4839fc-b548-425e-826a-ac01104907e9",
+      "id": "bc630354-1609-4a25-a42e-a3aade4f9f50",
       "name": "Deposit",
       "type": "concept",
       "sources": [
@@ -6845,7 +6861,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "f192269f-ddc0-4bbc-9a00-03073bcd1f8e",
+      "id": "fee54743-b082-42b9-af9a-c2b2ad19bfb4",
       "name": "First date of Deposit",
       "type": "concept",
       "sources": [
@@ -6888,7 +6904,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -6931,7 +6947,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "57126444-0f7c-4c2b-ae0f-8306d03dae64",
+      "id": "e3d6b027-2247-42d6-ae56-874e775484fe",
       "name": "Custody fee",
       "type": "concept",
       "sources": [
@@ -6974,7 +6990,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "4aad153b-35d9-4d6a-aa85-36943cd08cd7",
+      "id": "499a90a4-062d-4591-ae94-ce65c255437a",
       "name": "Entry fee",
       "type": "concept",
       "sources": [
@@ -7017,7 +7033,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "83c8c93e-cbc3-4540-8735-d143aa9e60ab",
+      "id": "a37f40cd-b801-4784-87ae-c8618ead3997",
       "name": "Kickback fee",
       "type": "concept",
       "sources": [
@@ -7060,7 +7076,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "bf6f1267-4588-4513-a183-4225b70cbf90",
+      "id": "f609e0c7-736b-4cbc-901a-f806cdbdc2f0",
       "name": "Liability margin",
       "type": "concept",
       "sources": [
@@ -7107,7 +7123,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "ad199d41-c158-43cf-b0c6-df95b961ccb4",
+      "id": "3ed12df8-115f-4be2-918d-64f70fd65365",
       "name": "Trailer fee",
       "type": "concept",
       "sources": [
@@ -7150,7 +7166,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "cda60707-0bc6-4a65-a82d-c738173c6227",
+      "id": "a6100756-c3df-4f35-b2bc-6f2fcd4e4405",
       "name": "Other fee",
       "type": "concept",
       "sources": [
@@ -7193,7 +7209,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "18160a67-cb51-4fce-8eba-56e49237d415",
+      "id": "5180b8a4-6371-4c31-8b88-f7ecf7e6c0f5",
       "name": "Portfolio-based fee",
       "type": "concept",
       "sources": [
@@ -7236,7 +7252,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "bb1f9849-dc1c-4e26-ab77-0f1ea963c288",
+      "id": "f4a8e9b5-7ae6-4fe6-9273-a2f5f1348952",
       "name": "Sales fee",
       "type": "concept",
       "sources": [
@@ -7279,7 +7295,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "name": "Income",
       "type": "concept",
       "sources": [
@@ -7322,7 +7338,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "7128a9b5-ba1f-430b-8bf5-a720991a558c",
+      "id": "bf157444-c68f-4213-bfac-5d22aeaa928e",
       "name": "Core income",
       "type": "concept",
       "sources": [
@@ -7365,7 +7381,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "3300e655-41d5-47c5-b742-ba0757190e69",
+      "id": "41d06f86-5359-4691-a22a-7d63ca3a4a33",
       "name": "RIS group income",
       "type": "concept",
       "sources": [
@@ -7408,7 +7424,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "321a58ee-9348-43ff-961d-1a5f530dae83",
+      "id": "fe64bc14-ef97-477a-a362-8cafca23ca98",
       "name": "Allocated income",
       "type": "concept",
       "sources": [
@@ -7451,7 +7467,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "fc463d25-fbe0-48d5-a548-1b06bf7c1731",
+      "id": "35c1e39f-0896-4d30-9041-b912572fb000",
       "name": "LAMC income",
       "type": "concept",
       "sources": [
@@ -7494,7 +7510,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "name": "Profitability",
       "type": "concept",
       "sources": [
@@ -7529,7 +7545,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "cae47677-7466-46be-b414-2742760d8f2e",
+      "id": "9afa487a-3324-4bf5-8cdb-3e82deba4534",
       "name": "Gross Income",
       "type": "concept",
       "sources": [
@@ -7572,7 +7588,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "6a6226c8-b58e-4517-92a3-c8ec4ef8651d",
+      "id": "f5afbe25-767c-4b16-80a9-ba0aaf58f496",
       "name": "LTV (Life Time Value) GI (Gross Income)",
       "type": "concept",
       "sources": [
@@ -7607,7 +7623,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "bf472dbd-6818-4103-b02a-ffb3bec13d64",
+      "id": "44020d87-9863-45a0-a560-0a2924fd4223",
       "name": "Other income",
       "type": "concept",
       "sources": [
@@ -7650,7 +7666,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "c7002cc4-611d-4ee2-8916-e955b1af667f",
+      "id": "fb3cee15-743b-41a6-8100-a7c79767c7eb",
       "name": "Position",
       "type": "concept",
       "sources": [
@@ -7693,7 +7709,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "0e6fa673-635d-4b4b-9d20-d1c2d1db236b",
+      "id": "3a3ae578-1d93-4b55-876b-b174d7848ce4",
       "name": "Executed order",
       "type": "concept",
       "sources": [
@@ -7736,7 +7752,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "1db7ee4a-aab6-4fe9-a19e-75139589c821",
+      "id": "5e0a4a06-b3e8-4ccf-9a9f-13c9469b0906",
       "name": "Investment account (BIU)",
       "type": "concept",
       "sources": [
@@ -7779,7 +7795,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "8ba5eb46-9af9-4ebc-8d7d-c85fc88da4d3",
+      "id": "efc72d75-a8a6-4ebb-80d0-b6efbe3940cb",
       "name": "Balance",
       "type": "concept",
       "sources": [
@@ -7822,7 +7838,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "name": "Account",
       "type": "concept",
       "sources": [
@@ -7865,7 +7881,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
+      "id": "b751a625-c2f7-4da0-83b0-6477b0337a0f",
       "name": "Current account",
       "type": "concept",
       "sources": [
@@ -7908,7 +7924,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "9fff2f12-681e-40cf-84eb-3bf284cec7a9",
+      "id": "89871a45-867e-48d4-b5fb-72fc316cbe61",
       "name": "Active current account",
       "type": "concept",
       "sources": [
@@ -7951,7 +7967,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "42cc6613-5563-4965-8ade-35db565f5051",
+      "id": "a3ae84eb-0f3a-4a4e-bfde-a67ddbea15c2",
       "name": "Saving Account",
       "type": "concept",
       "sources": [
@@ -7994,7 +8010,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "b31de037-2ad8-47f8-a45d-05e12bfb668a",
+      "id": "441007ca-c82d-4462-85da-f51aecc67a1c",
       "name": "Investment account (BIU)",
       "type": "concept",
       "sources": [
@@ -8037,7 +8053,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "8469111f-27f0-4044-9dde-d31f1b820031",
+      "id": "a5d78d8d-903d-4001-ba61-85ec7eb08c12",
       "name": "Currency",
       "type": "concept",
       "sources": [
@@ -8080,7 +8096,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "dfd097a8-3143-4758-ba2e-051616cf89c7",
+      "id": "c6077190-354a-4e1f-9ef5-74f88b5b087b",
       "name": "CZK",
       "type": "concept",
       "sources": [
@@ -8123,7 +8139,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "f2313aa6-8dbd-4783-a9bf-103e7d7c20f8",
+      "id": "533c3fdb-d8eb-40b8-8f46-6ffc197819ba",
       "name": "EUR",
       "type": "concept",
       "sources": [
@@ -8166,7 +8182,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "3d00e346-a524-40fe-a65e-c0be8c8d626b",
+      "id": "af66a137-0c01-45cc-9b0d-773237eae37f",
       "name": "USD",
       "type": "concept",
       "sources": [
@@ -8209,7 +8225,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "name": "Balance",
       "type": "concept",
       "sources": [
@@ -8252,7 +8268,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "43f90d19-0a40-43cf-8e77-05fa356e2245",
+      "id": "6e91d38f-1c3c-4706-a0dc-3cd4bd424846",
       "name": "End of day (EOD) balance",
       "type": "concept",
       "sources": [
@@ -8295,7 +8311,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "60f4f04d-8571-49fa-b88f-61532971813a",
+      "id": "c84948d0-d988-418b-8975-d5717121ad94",
       "name": "Active contract",
       "type": "concept",
       "sources": [
@@ -8338,7 +8354,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "ea3e275d-56c2-4e1c-baa2-a91c80e0e9e1",
+      "id": "399227a9-30e6-40bf-8774-e49d82374396",
       "name": "Number of active current accounts",
       "type": "concept",
       "sources": [
@@ -8381,7 +8397,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "5fdb7cbd-23ce-48a3-8da3-3318744a37f2",
+      "id": "9067eb7f-187b-407d-bf6b-e605999c73a0",
       "name": "Deposit",
       "type": "concept",
       "sources": [
@@ -8424,7 +8440,7 @@ const TEST_DATA = {
       "is_context": false
     },
     {
-      "id": "f8be15e3-f08b-427f-a182-8ef79bc6294b",
+      "id": "6af1cbd9-ebcc-4df3-84c9-ecf4a39de3e6",
       "name": "Payment",
       "type": "concept",
       "sources": [
@@ -8495,13 +8511,13 @@ const TEST_DATA = {
   ],
   "categorizations": [
     {
-      "id": "a18458ee-6c08-473c-8f64-b57c2ca5353d",
-      "parent_id": "d1185110-4519-4d03-b6aa-8cb750344200",
+      "id": "e0ac3c64-893f-46ec-a65a-a459753e34b4",
+      "parent_id": "ef1735b2-49e8-4f1e-892b-fb9aae165625",
       "parent_name": "Saving plan (regular investment)",
       "category_name": "@ by the frequency",
       "children_ids": [
-        "f2318a55-e83f-4889-8328-ae035aafd642",
-        "fc357c32-aede-42c6-89ab-8f3ee0ceb708"
+        "3b330f4b-a6f1-4a1f-86c5-85980ab176fc",
+        "f452aa69-2ab0-42ab-9a0b-4bd366ff669b"
       ],
       "children_names": [
         "Weekly",
@@ -8515,13 +8531,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "938352a2-2348-4839-bbd8-3383cc21315b",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "fc8f3b0c-cf7d-40fa-9f76-c127375ea397",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by the frequency of trading",
       "children_ids": [
-        "d1185110-4519-4d03-b6aa-8cb750344200",
-        "7398329a-3591-4395-a34a-143f0c8a0fb6"
+        "ef1735b2-49e8-4f1e-892b-fb9aae165625",
+        "cbbf1fd9-ec14-4a18-afbd-480d2f3e3623"
       ],
       "children_names": [
         "Saving plan (regular investment)",
@@ -8535,13 +8551,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "6f1a1e38-e772-4739-8e66-ce938d7437c4",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "40c2114b-d0a1-49ed-9f3b-d6f10f2b7ed8",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by the kind of trading",
       "children_ids": [
-        "40aff5a2-f914-4ca4-a2b2-2cbb4b6bc93f",
-        "f435936f-9c81-4074-b5c5-013d539779d0"
+        "5ea55332-404e-4235-bf95-74e8156aacd5",
+        "e71999da-d614-4692-bd2e-58da807e9acb"
       ],
       "children_names": [
         "Sell",
@@ -8555,14 +8571,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "3ab80733-c645-48d1-8d1a-0b556f7fb889",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "3e4acfd2-d517-44d6-be66-f33caedfb614",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by state",
       "children_ids": [
-        "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
-        "3200207c-777e-4fd9-b058-a50dedbfbfc6",
-        "7f20db67-700c-408e-b4ef-2981baf3bb89"
+        "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
+        "888d0063-dad2-4c0d-aea4-b9732103ad81",
+        "d3d84b9c-1240-428f-9b63-74ada6d60eb9"
       ],
       "children_names": [
         "Executed order",
@@ -8577,13 +8593,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "3d2bda01-7a8c-4374-9f2d-cafbfe58122b",
-      "parent_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "id": "fcc16378-01c7-4eb3-abb6-dcac77487dd6",
+      "parent_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "parent_name": "Order",
       "category_name": "@ by [Onboarding Channel]",
       "children_ids": [
-        "ffa24377-5bcd-4941-b22e-c0eb60c2abc8",
-        "ff7ec49b-3466-4c7f-8362-2c58d23dc2ec"
+        "390fac55-d4cd-4db4-b0a0-afe9f458eb7a",
+        "6549ac8e-f6ff-4e64-888e-17a4707b78de"
       ],
       "children_names": [
         "Non-digital Onboarding Channel",
@@ -8597,13 +8613,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "91eb2bb6-38e6-4227-a15c-d2b6eb4f4da0",
-      "parent_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "719dbdea-08e0-42f9-8cc3-d2bc72119202",
+      "parent_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "parent_name": "Position",
       "category_name": "kind of [Posiition]",
       "children_ids": [
-        "121105d0-8a10-41d4-b312-df4cabfb94f5",
-        "d157e7ac-0ede-49d6-b542-c2964929d159"
+        "c5449095-1357-4c17-8869-ac5f7e839525",
+        "e71e821c-033c-4723-8435-846ff233bfd4"
       ],
       "children_names": [
         "Market / exchange",
@@ -8617,12 +8633,12 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "c7243b3d-d3bd-427f-8787-82d31d52210f",
-      "parent_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "158c83e0-481f-4ceb-a94a-5d3cd84d0cd3",
+      "parent_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "parent_name": "Position",
       "category_name": "by the state",
       "children_ids": [
-        "8bc441d3-ffe6-4b87-8f75-1ec3447cb2e8"
+        "ca9a09ae-840c-4f60-816a-5cd273049430"
       ],
       "children_names": [
         "Sold position"
@@ -8635,13 +8651,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "eb870562-0a17-40ba-8728-799ee6c1b56e",
-      "parent_id": "d157e7ac-0ede-49d6-b542-c2964929d159",
+      "id": "ba6a46ad-599e-4f36-9621-ad85e52051d4",
+      "parent_id": "e71e821c-033c-4723-8435-846ff233bfd4",
       "parent_name": "Date",
       "category_name": "kind of [Date]",
       "children_ids": [
-        "3067f73e-5af7-4c82-ba6f-f797d511562e",
-        "e58b868b-4817-4662-8fc2-5fadfebd0a7b"
+        "cec34e76-7062-4c32-95cb-6744c04d7059",
+        "f3902b0d-007b-4535-ba6a-7bf923559e8e"
       ],
       "children_names": [
         "Trade date",
@@ -8655,13 +8671,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "dce77b58-38e2-47db-9e8f-91f61c1ae0ef",
-      "parent_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "0367cad8-1ba4-40d7-8e56-e91ca663e86d",
+      "parent_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "parent_name": "Transaction",
       "category_name": "@ by the type of trades",
       "children_ids": [
-        "e4a5677e-4570-4808-b2f6-a43e188c68c8",
-        "352ac1a5-5836-43ae-bc84-47aa6dd84eb4"
+        "f2c65198-7b7e-41b0-be1e-44d3daf1dac0",
+        "90884cdb-b656-491e-983c-62eccbb775ad"
       ],
       "children_names": [
         "Trade",
@@ -8675,13 +8691,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "2b23a82b-6e98-4934-83e6-5013f85852e3",
-      "parent_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "670b050e-c438-4164-a53f-414450848139",
+      "parent_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "parent_name": "Transaction",
       "category_name": "@ by the type of processing",
       "children_ids": [
-        "43c85390-0a82-4b93-be2f-0286d7680d45",
-        "209718c4-45c4-424c-9a56-a3fe5e309cce"
+        "4c48a85a-1461-4924-983a-7d04a83e88d1",
+        "04ed4693-c21c-45ee-a84f-1f72c749df53"
       ],
       "children_names": [
         "Automatic",
@@ -8695,13 +8711,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "0a6ecbf9-cafd-46de-bae0-55b2a4a76ad3",
-      "parent_id": "28a922a3-ba5b-43ff-8301-ade3350131d8",
+      "id": "c9f50367-da55-4e2d-8a2b-686485e5f1fb",
+      "parent_id": "1666ee4d-f320-4782-bba0-5e9c61e4c052",
       "parent_name": "Transaction",
       "category_name": "kind of [Transaction]",
       "children_ids": [
-        "f8afbf05-a2ca-4473-b505-ee4f42742f0f",
-        "1fc9bbea-d4f9-4071-a5c1-af21143421c8"
+        "ea949b3e-fbe3-4b80-a8d3-abbaba0b6c74",
+        "dbb07349-1427-47f8-8529-3909a2f434ea"
       ],
       "children_names": [
         "Executed order",
@@ -8715,13 +8731,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "73bf1ef1-7338-4c41-b05c-706cd462f01a",
-      "parent_id": "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
+      "id": "8bb5f411-ffa6-494f-9344-922c479c1c54",
+      "parent_id": "4f167e87-bb00-4481-b6df-60de2ff444b3",
       "parent_name": "Incoming Payment",
       "category_name": "kind of[IncomingPayment]",
       "children_ids": [
-        "2cbd19ee-c00f-45ef-9b7b-1dbcd1e6be6c",
-        "aa4839fc-b548-425e-826a-ac01104907e9"
+        "1eefe305-8474-4247-9063-ca5ca6452357",
+        "bc630354-1609-4a25-a42e-a3aade4f9f50"
       ],
       "children_names": [
         "Fee",
@@ -8735,13 +8751,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "6f3ae07b-98d6-4230-a8fc-0b717b6755fd",
-      "parent_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "id": "eb4aa39a-822f-4286-ac4e-8da043f21bcc",
+      "parent_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "parent_name": "Payment",
       "category_name": "Kind of [Payment]",
       "children_ids": [
-        "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
-        "8550cf92-b465-4e2e-a982-d079f2a47594"
+        "4f167e87-bb00-4481-b6df-60de2ff444b3",
+        "32c03c2c-2a48-4e2d-9c19-f4c812bf2443"
       ],
       "children_names": [
         "Incoming Payment",
@@ -8755,13 +8771,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "1f15dccd-9895-4b5f-b130-fa77a88012c1",
-      "parent_id": "bb1f9849-dc1c-4e26-ab77-0f1ea963c288",
+      "id": "d5665df8-b136-482c-9c93-3fb1c123acbe",
+      "parent_id": "f4a8e9b5-7ae6-4fe6-9273-a2f5f1348952",
       "parent_name": "Sales fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "83c8c93e-cbc3-4540-8735-d143aa9e60ab",
-        "4aad153b-35d9-4d6a-aa85-36943cd08cd7"
+        "a37f40cd-b801-4784-87ae-c8618ead3997",
+        "499a90a4-062d-4591-ae94-ce65c255437a"
       ],
       "children_names": [
         "Kickback fee",
@@ -8775,14 +8791,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "82ee769f-b223-43d6-8fd8-17d135dd8dd8",
-      "parent_id": "18160a67-cb51-4fce-8eba-56e49237d415",
+      "id": "14c10e02-31fb-4198-bf3f-173a59f4b329",
+      "parent_id": "5180b8a4-6371-4c31-8b88-f7ecf7e6c0f5",
       "parent_name": "Portfolio-based fee",
       "category_name": "@ by fee name",
       "children_ids": [
-        "57126444-0f7c-4c2b-ae0f-8306d03dae64",
-        "cda60707-0bc6-4a65-a82d-c738173c6227",
-        "ad199d41-c158-43cf-b0c6-df95b961ccb4"
+        "e3d6b027-2247-42d6-ae56-874e775484fe",
+        "a6100756-c3df-4f35-b2bc-6f2fcd4e4405",
+        "3ed12df8-115f-4be2-918d-64f70fd65365"
       ],
       "children_names": [
         "Custody fee",
@@ -8797,14 +8813,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "76c324f7-9e88-4b75-9167-39ca9567d1b4",
-      "parent_id": "2cbd19ee-c00f-45ef-9b7b-1dbcd1e6be6c",
+      "id": "f3691fa4-671f-45e3-8054-d28ebd1cdc99",
+      "parent_id": "1eefe305-8474-4247-9063-ca5ca6452357",
       "parent_name": "Fee",
       "category_name": "@ by fee category",
       "children_ids": [
-        "18160a67-cb51-4fce-8eba-56e49237d415",
-        "bb1f9849-dc1c-4e26-ab77-0f1ea963c288",
-        "bf6f1267-4588-4513-a183-4225b70cbf90"
+        "5180b8a4-6371-4c31-8b88-f7ecf7e6c0f5",
+        "f4a8e9b5-7ae6-4fe6-9273-a2f5f1348952",
+        "f609e0c7-736b-4cbc-901a-f806cdbdc2f0"
       ],
       "children_names": [
         "Portfolio-based fee",
@@ -8819,16 +8835,16 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "22e2633f-983a-4f5c-844a-bb63beb03b30",
-      "parent_id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "id": "ca075cbf-57d9-4c82-aa0c-95fdc6fb6678",
+      "parent_id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "parent_name": "Income",
       "category_name": "kind of [Income]",
       "children_ids": [
-        "bf472dbd-6818-4103-b02a-ffb3bec13d64",
-        "3300e655-41d5-47c5-b742-ba0757190e69",
-        "321a58ee-9348-43ff-961d-1a5f530dae83",
-        "fc463d25-fbe0-48d5-a548-1b06bf7c1731",
-        "7128a9b5-ba1f-430b-8bf5-a720991a558c"
+        "44020d87-9863-45a0-a560-0a2924fd4223",
+        "41d06f86-5359-4691-a22a-7d63ca3a4a33",
+        "fe64bc14-ef97-477a-a362-8cafca23ca98",
+        "35c1e39f-0896-4d30-9041-b912572fb000",
+        "bf157444-c68f-4213-bfac-5d22aeaa928e"
       ],
       "children_names": [
         "Other income",
@@ -8845,13 +8861,13 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "f6c42987-1a7e-4198-b3ac-1ddeb53e74ab",
-      "parent_id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "e7fe5029-7ab6-46e4-ab36-7619902220af",
+      "parent_id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "parent_name": "Account",
       "category_name": "kind of [Account]",
       "children_ids": [
-        "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
-        "42cc6613-5563-4965-8ade-35db565f5051"
+        "b751a625-c2f7-4da0-83b0-6477b0337a0f",
+        "a3ae84eb-0f3a-4a4e-bfde-a67ddbea15c2"
       ],
       "children_names": [
         "Current account",
@@ -8865,12 +8881,12 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "7c280352-f518-44e0-9150-7f1b7ef25984",
-      "parent_id": "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
+      "id": "a9e48ad7-86fa-460f-93e3-a0652ea6f30c",
+      "parent_id": "b751a625-c2f7-4da0-83b0-6477b0337a0f",
       "parent_name": "Current account",
       "category_name": "by state",
       "children_ids": [
-        "9fff2f12-681e-40cf-84eb-3bf284cec7a9"
+        "89871a45-867e-48d4-b5fb-72fc316cbe61"
       ],
       "children_names": [
         "Active current account"
@@ -8883,14 +8899,14 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "53d02acb-5b8b-444d-bfba-6c09f62862bf",
-      "parent_id": "8469111f-27f0-4044-9dde-d31f1b820031",
+      "id": "1d3e6486-a808-4f8d-aa19-2cd002aee67e",
+      "parent_id": "a5d78d8d-903d-4001-ba61-85ec7eb08c12",
       "parent_name": "Currency",
       "category_name": "kind of [Currency]",
       "children_ids": [
-        "f2313aa6-8dbd-4783-a9bf-103e7d7c20f8",
-        "dfd097a8-3143-4758-ba2e-051616cf89c7",
-        "3d00e346-a524-40fe-a65e-c0be8c8d626b"
+        "533c3fdb-d8eb-40b8-8f46-6ffc197819ba",
+        "c6077190-354a-4e1f-9ef5-74f88b5b087b",
+        "af66a137-0c01-45cc-9b0d-773237eae37f"
       ],
       "children_names": [
         "EUR",
@@ -8905,12 +8921,12 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "eebed829-2f25-49fd-b3c3-9a19a6ebcd9a",
-      "parent_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "4ffa8bd8-5344-4a7f-bc3b-f6a4347f3b6c",
+      "parent_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "parent_name": "Balance",
       "category_name": "aggregation by time",
       "children_ids": [
-        "43f90d19-0a40-43cf-8e77-05fa356e2245"
+        "6e91d38f-1c3c-4706-a0dc-3cd4bd424846"
       ],
       "children_names": [
         "End of day (EOD) balance"
@@ -8925,10 +8941,10 @@ const TEST_DATA = {
   ],
   "relationships": [
     {
-      "id": "cb534e4d-b707-4e2f-9431-cc0bec199c77",
-      "subject_id": "87b20e3a-e446-4748-8aed-92c09ed90c04",
+      "id": "71d7286d-efa4-439d-8d15-53db715714f8",
+      "subject_id": "01210a67-008f-490a-af2b-4ea2d0d5e0c3",
       "subject_name": "Sales",
-      "object_id": "b15f93fe-ef5c-40eb-aef1-22dbb6906c1a",
+      "object_id": "89d6f0b9-6a61-4c4d-8c01-7539674a6a5f",
       "object_name": "Order",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -8944,10 +8960,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "74254736-4690-4aae-a536-7192213b87dc",
-      "subject_id": "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
+      "id": "a76df8a3-de5e-498d-bc05-c057039b44f6",
+      "subject_id": "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
       "subject_name": "Executed order",
-      "object_id": "c14237b5-d8ec-4339-aef7-b19dee56df55",
+      "object_id": "fb2ea36d-7591-484f-be64-4b4efcfa61aa",
       "object_name": "Position",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "consists of",
@@ -8963,10 +8979,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "654d6eb0-e612-4fb4-9ae5-fe2c5f5ef5e1",
-      "subject_id": "6a7f05f2-691d-45a4-8071-2a6c4d3da374",
+      "id": "72fffffe-d5c0-4e28-8c8b-64e028377639",
+      "subject_id": "3a37b2c2-566b-4bf8-b27d-a67cf6643f6b",
       "subject_name": "Executed order",
-      "object_id": "d5b6c792-25b3-43f2-8303-866a0e1ea2c6",
+      "object_id": "72ed4dee-80d0-4646-bfce-399e73846251",
       "object_name": "Payment",
       "verb_phrase": "is being settled for",
       "inverse_verb_phrase": "is settled to",
@@ -8982,10 +8998,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d6fad834-1c53-4cbe-9260-6d7eb763a88c",
-      "subject_id": "0f89bfcf-db61-4e6a-88aa-aaab096a8231",
+      "id": "881b5200-3db4-4431-8634-88a4c65a48a9",
+      "subject_id": "ff33e4cb-4abf-4971-a8d9-c785d7a4d059",
       "subject_name": "Custody fee",
-      "object_id": "c14237b5-d8ec-4339-aef7-b19dee56df55",
+      "object_id": "fb2ea36d-7591-484f-be64-4b4efcfa61aa",
       "object_name": "Position",
       "verb_phrase": "is charged for",
       "inverse_verb_phrase": "generates",
@@ -9019,10 +9035,10 @@ const TEST_DATA = {
       "external_uri": "https://schema.org/ServiceChannel"
     },
     {
-      "id": "b428386d-2016-4425-bd88-e17c1687df65",
-      "subject_id": "8bc441d3-ffe6-4b87-8f75-1ec3447cb2e8",
+      "id": "7ac07d21-8afe-4198-a5ef-609b34a8f734",
+      "subject_id": "ca9a09ae-840c-4f60-816a-5cd273049430",
       "subject_name": "Sold position",
-      "object_id": "e58b868b-4817-4662-8fc2-5fadfebd0a7b",
+      "object_id": "f3902b0d-007b-4535-ba6a-7bf923559e8e",
       "object_name": "Settlement date",
       "verb_phrase": "transfers of funds on",
       "inverse_verb_phrase": "",
@@ -9038,10 +9054,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d743dc65-0cf0-466d-a117-59fc15a967d3",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "80ca8798-5326-406c-94d7-ed38216f8db1",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "3067f73e-5af7-4c82-ba6f-f797d511562e",
+      "object_id": "cec34e76-7062-4c32-95cb-6744c04d7059",
       "object_name": "Trade date",
       "verb_phrase": "is traded on",
       "inverse_verb_phrase": "",
@@ -9057,10 +9073,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "89debd54-f07c-421e-be5b-5bc551b58ac0",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "7fc04347-d229-49fa-b5e0-b7b296e495dd",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "object_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "object_name": "Position",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -9076,10 +9092,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "4f28068d-64ed-460b-8d10-ffde503cc5d1",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "bde0d0b1-39eb-4c6b-90cb-b88b7c41c64a",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "cfa23c15-ebc2-444a-bfbb-da59b129396e",
+      "object_id": "d792e8fa-6250-4117-b3c6-bd820a19fac6",
       "object_name": "Market value",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -9095,10 +9111,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "28a7e44c-1ca9-49e6-b464-d677aaa3dde7",
-      "subject_id": "7c0bcfa8-dc97-42f4-ac2d-6d00b1153918",
+      "id": "a81acbbe-600c-4939-acd3-7fc152f68d57",
+      "subject_id": "1ad1e372-6927-4803-aed9-f223b92993fa",
       "subject_name": "Number of products",
-      "object_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "object_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "object_name": "Asset under Management (AUM)",
       "verb_phrase": "is calculated based on",
       "inverse_verb_phrase": "",
@@ -9114,10 +9130,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "48fecdee-7c52-45a7-88f4-31bbfb31636f",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "860e486d-0653-4fb8-ad1e-f09082f3d69a",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "d86ce67a-1f91-4d94-95e2-4af9bec6ac92",
+      "object_id": "b0f1b9f5-247c-48bd-acc5-5a5dc9b074ba",
       "object_name": "Portfolio",
       "verb_phrase": "is part of",
       "inverse_verb_phrase": "is sum of",
@@ -9133,10 +9149,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "a67eab31-57e5-4c7c-8e61-4dc21a1d0aca",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "29f77128-ee17-4e82-a24c-8fb7025dc109",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "d86ce67a-1f91-4d94-95e2-4af9bec6ac92",
+      "object_id": "b0f1b9f5-247c-48bd-acc5-5a5dc9b074ba",
       "object_name": "Portfolio",
       "verb_phrase": "is value of",
       "inverse_verb_phrase": "is valuated as",
@@ -9152,10 +9168,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "54b7822b-f590-4134-bda3-0fa29d818cef",
-      "subject_id": "50e71c64-30b9-4920-9e92-cbcd9dcf7793",
+      "id": "2237c4a7-2210-4d96-81b6-5ad0756629f3",
+      "subject_id": "d6b3930a-baec-4e26-bc6e-584aec90b4c8",
       "subject_name": "Active contract",
-      "object_id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "object_id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "object_name": "Customer",
       "verb_phrase": "belongs to",
       "inverse_verb_phrase": "",
@@ -9171,10 +9187,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "d297ca0f-bc7c-41a4-97ca-10593e88550a",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "d393c313-3846-41f8-9532-ac1983f50602",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "75c6fb64-b98a-4e29-ad85-86fb08ceb11c",
+      "object_id": "b1d38905-4148-4b1f-924a-c546bc158f8c",
       "object_name": "Transaction",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -9190,10 +9206,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "254800ab-fa77-4644-b74c-2feed383572a",
-      "subject_id": "74902bda-29ac-4502-a7ab-2e0fba776629",
+      "id": "fcfbef1f-3749-4539-8daa-9d05f8e657c4",
+      "subject_id": "0a76a5a9-57c0-4c89-b6a9-b18fe650b3b6",
       "subject_name": "Position",
-      "object_id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "object_id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "object_name": "Customer",
       "verb_phrase": "is owned by",
       "inverse_verb_phrase": "owns",
@@ -9209,10 +9225,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "43fb73d5-fecf-475d-a546-ade3bce0661a",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "a2ea9191-eb59-4d44-84b0-02a39ba79263",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "50e71c64-30b9-4920-9e92-cbcd9dcf7793",
+      "object_id": "d6b3930a-baec-4e26-bc6e-584aec90b4c8",
       "object_name": "Active contract",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -9228,10 +9244,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "92f09dc8-6e9c-4bb1-a226-f5a6fe0f38fa",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "5b15e9f9-593d-4bff-a3b2-47c262e68571",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "1fe505a1-c52c-4dd8-a3b3-aac6e361c9f9",
+      "object_id": "7d6a87c2-5b59-47a0-a4fb-802b1641f1f3",
       "object_name": "Customer",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -9247,10 +9263,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "5b140d42-2b79-4b2f-8d42-4834f9e0fe87",
-      "subject_id": "44e681d9-f22c-44ce-8429-b9c538e56c86",
+      "id": "0bf18eae-6c13-420c-8ed2-15d43d22d6b8",
+      "subject_id": "8f53304e-10de-4245-9a44-97ff799a65b9",
       "subject_name": "Asset under Management (AUM)",
-      "object_id": "a9d021e4-914d-41be-ae61-f718613cea1c",
+      "object_id": "4d5f655f-7002-4058-ab2a-7ce82de0c2b9",
       "object_name": "Product",
       "verb_phrase": "",
       "inverse_verb_phrase": "",
@@ -9284,10 +9300,10 @@ const TEST_DATA = {
       "external_uri": "https://schema.org/Action"
     },
     {
-      "id": "9c54784a-5f2b-4e3c-b663-61ea430f4a5b",
-      "subject_id": "aa4839fc-b548-425e-826a-ac01104907e9",
+      "id": "a9d54c5c-c729-4d5f-b56d-c0d06df67c55",
+      "subject_id": "bc630354-1609-4a25-a42e-a3aade4f9f50",
       "subject_name": "Deposit",
-      "object_id": "f192269f-ddc0-4bbc-9a00-03073bcd1f8e",
+      "object_id": "fee54743-b082-42b9-af9a-c2b2ad19bfb4",
       "object_name": "First date of Deposit",
       "verb_phrase": "has [First date]",
       "inverse_verb_phrase": "",
@@ -9303,10 +9319,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "7d73549b-6899-4fdf-8a27-a2f78f376ff7",
-      "subject_id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "id": "528482b3-eac0-4e75-a5b9-7ed6664cad22",
+      "subject_id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "subject_name": "Income",
-      "object_id": "9c8a2ab9-a939-4fff-9c77-3f493458ef81",
+      "object_id": "4f167e87-bb00-4481-b6df-60de2ff444b3",
       "object_name": "Incoming Payment",
       "verb_phrase": "is generated by",
       "inverse_verb_phrase": "generates",
@@ -9322,10 +9338,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "210cc95d-55b0-46ed-a0ec-b44c14a23700",
-      "subject_id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "id": "1a48bafb-a8a7-4251-88ee-6a48dcd8babb",
+      "subject_id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "subject_name": "Profitability",
-      "object_id": "82475aed-554d-4a46-9e15-6dff53025ddb",
+      "object_id": "fcf9c22c-f6c9-4ef3-8e6e-fe40e104c556",
       "object_name": "Income",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "generates",
@@ -9341,10 +9357,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "c7466ddd-74f1-4c97-bad6-5fa0443d660b",
-      "subject_id": "cae47677-7466-46be-b414-2742760d8f2e",
+      "id": "de2af9de-752d-43be-bdff-8d831b9f5538",
+      "subject_id": "9afa487a-3324-4bf5-8cdb-3e82deba4534",
       "subject_name": "Gross Income",
-      "object_id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "object_id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "object_name": "Profitability",
       "verb_phrase": "measures",
       "inverse_verb_phrase": "is measured by",
@@ -9360,10 +9376,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "e2f2d213-4cd9-4768-a9f8-b3a266ce627c",
-      "subject_id": "6a6226c8-b58e-4517-92a3-c8ec4ef8651d",
+      "id": "33d23588-38af-4385-bd91-a5937e53ebd5",
+      "subject_id": "f5afbe25-767c-4b16-80a9-ba0aaf58f496",
       "subject_name": "LTV (Life Time Value) GI (Gross Income)",
-      "object_id": "34716f98-57f9-42ac-b12a-97d875fdbd45",
+      "object_id": "0d9a4a08-5505-42bd-b9cf-f00957bf254b",
       "object_name": "Profitability",
       "verb_phrase": "predicts",
       "inverse_verb_phrase": "is measured by",
@@ -9379,10 +9395,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "c66514c4-5b92-4f6a-bd8c-1d2f8d49258a",
-      "subject_id": "1db7ee4a-aab6-4fe9-a19e-75139589c821",
+      "id": "d9678e95-63ed-4dc9-87fe-66db7343b236",
+      "subject_id": "5e0a4a06-b3e8-4ccf-9a9f-13c9469b0906",
       "subject_name": "Investment account (BIU)",
-      "object_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "object_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "object_name": "Payment",
       "verb_phrase": "processes",
       "inverse_verb_phrase": "is settled from",
@@ -9398,10 +9414,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "32b52ba2-820a-4f14-b932-f8ffc7934e85",
-      "subject_id": "8ba5eb46-9af9-4ebc-8d7d-c85fc88da4d3",
+      "id": "1c88725b-f5ca-4810-8e26-b535252e7bc4",
+      "subject_id": "efc72d75-a8a6-4ebb-80d0-b6efbe3940cb",
       "subject_name": "Balance",
-      "object_id": "eeb810c9-6fca-4e7b-a009-54db8a559710",
+      "object_id": "16219e86-3b50-479c-a6d2-8a4c9437d61b",
       "object_name": "Payment",
       "verb_phrase": "is sum of",
       "inverse_verb_phrase": "",
@@ -9417,10 +9433,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "3de04267-7da0-468e-949f-357ff7bf3297",
-      "subject_id": "aa4839fc-b548-425e-826a-ac01104907e9",
+      "id": "a18ddca1-a5c8-44f6-ac32-b770d8590a2e",
+      "subject_id": "bc630354-1609-4a25-a42e-a3aade4f9f50",
       "subject_name": "Deposit",
-      "object_id": "8ba5eb46-9af9-4ebc-8d7d-c85fc88da4d3",
+      "object_id": "efc72d75-a8a6-4ebb-80d0-b6efbe3940cb",
       "object_name": "Balance",
       "verb_phrase": "increases",
       "inverse_verb_phrase": "",
@@ -9436,10 +9452,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "482a79e3-eae7-473b-8149-050a00763e6b",
-      "subject_id": "b5ba40b2-5911-4bf4-a704-f9a9154b905f",
+      "id": "da662693-6e56-48fd-8f1c-5dd9ff327f7a",
+      "subject_id": "b751a625-c2f7-4da0-83b0-6477b0337a0f",
       "subject_name": "Current account",
-      "object_id": "b31de037-2ad8-47f8-a45d-05e12bfb668a",
+      "object_id": "441007ca-c82d-4462-85da-f51aecc67a1c",
       "object_name": "Investment account (BIU)",
       "verb_phrase": "Is a",
       "inverse_verb_phrase": "",
@@ -9455,10 +9471,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "a10e5eb9-cf2e-4cb9-80dd-bf74fee8575b",
-      "subject_id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "c70f5878-502f-4cc1-97d8-13b7aca2b335",
+      "subject_id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "subject_name": "Account",
-      "object_id": "8469111f-27f0-4044-9dde-d31f1b820031",
+      "object_id": "a5d78d8d-903d-4001-ba61-85ec7eb08c12",
       "object_name": "Currency",
       "verb_phrase": "is composed of",
       "inverse_verb_phrase": "composes",
@@ -9474,10 +9490,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "43c94b85-5234-4638-9fcd-e10c93cb1b4c",
-      "subject_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "id": "dfde806e-397b-4d3b-8182-56c347920ecb",
+      "subject_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "subject_name": "Balance",
-      "object_id": "60f4f04d-8571-49fa-b88f-61532971813a",
+      "object_id": "c84948d0-d988-418b-8975-d5717121ad94",
       "object_name": "Active contract",
       "verb_phrase": "aggregated by",
       "inverse_verb_phrase": "",
@@ -9493,10 +9509,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "f2f05f0c-9729-4d80-881d-3a0a9aa0b108",
-      "subject_id": "1a111008-5df7-496d-ac78-26febb25b68e",
+      "id": "b9cf4001-342b-4df0-a235-28cc97f483d4",
+      "subject_id": "8d3f884e-9698-40bb-8294-69ecfcdbd797",
       "subject_name": "Account",
-      "object_id": "9cdeb360-2c93-453b-b2f9-5be428d13292",
+      "object_id": "6f45c2b8-5ae0-42e8-8779-2d352aa6158c",
       "object_name": "Balance",
       "verb_phrase": "has",
       "inverse_verb_phrase": "is calculated for",
@@ -9512,10 +9528,10 @@ const TEST_DATA = {
       ]
     },
     {
-      "id": "09fa01ce-de71-4a7b-97d7-4980196bb0b3",
-      "subject_id": "ea3e275d-56c2-4e1c-baa2-a91c80e0e9e1",
+      "id": "eac10ce5-63bb-45dc-bd9d-63310d9c63fe",
+      "subject_id": "399227a9-30e6-40bf-8774-e49d82374396",
       "subject_name": "Number of active current accounts",
-      "object_id": "9fff2f12-681e-40cf-84eb-3bf284cec7a9",
+      "object_id": "89871a45-867e-48d4-b5fb-72fc316cbe61",
       "object_name": "Active current account",
       "verb_phrase": "measures",
       "inverse_verb_phrase": "measured by",
@@ -9533,8 +9549,8 @@ const TEST_DATA = {
   ],
   "enumerations": [
     {
-      "id": "16d8d11e-76c9-4761-9f0f-51d6380b0def",
-      "concept_id": "121105d0-8a10-41d4-b312-df4cabfb94f5",
+      "id": "7970f587-4e87-43fb-8354-151dc21fd60e",
+      "concept_id": "c5449095-1357-4c17-8869-ac5f7e839525",
       "concept_name": "Market / exchange",
       "values": [
         "BCPP",
@@ -9564,15 +9580,3576 @@ const TEST_DATA = {
   "schema_version": "1.0.0"
 };
 
+// --- RBCZ:MIB:Investment Domain Views ---
+
+const DP_EDI_AUM_DATA = {
+  "domain": {
+    "path": "RBCZ:MIB:Investment",
+    "name": "Investment",
+    "version": "1.0.0",
+    "created": "2025-12-27T07:59:55.099127",
+    "sources": [
+      "dp_edi_aum.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "9853f791-b219-4dec-88f4-1c6e2ed3872a",
+      "name": "EDI AUM",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "cf0ed2b7-77b7-4bc2-9ae8-a2fe8bd633ea",
+      "name": "@data_contract",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 7
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 11
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 15
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "label": "contract",
+        "match_type": "keyword",
+        "confidence": 0.842,
+        "fibo_definition": "voluntary, deliberate agreement between competent parties to which the parties agree to be legally bound, and for which the parties provide valuable consideration",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "voluntary, deliberate agreement between competent parties to which the parties agree to be legally bound, and for which the parties provide valuable consideration",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "extends_name": "contract",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "d19d4d21-d0a8-48a4-a22d-d307c3323c06",
+      "name": "@source_entity",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 8
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 12
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 16
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 20
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner",
+        "label": "entity owner",
+        "match_type": "keyword",
+        "confidence": 0.738,
+        "fibo_definition": "owner (person, group of people, or other business entity) that owns, or holds an ownership interest in, a formal business organization",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "owner (person, group of people, or other business entity) that owns, or holds an ownership interest in, a formal business organization",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner",
+        "extends_name": "entity owner",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "54740603-25b7-4696-9e4b-c5eb3e1bc5a1",
+      "name": "@status",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 9
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 13
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 17
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 21
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus",
+        "label": "entity status",
+        "match_type": "keyword",
+        "confidence": 0.6869999999999999,
+        "fibo_definition": "lifecycle stage indicating the operational and/or legal status of an entity",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "lifecycle stage indicating the operational and/or legal status of an entity",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus",
+        "extends_name": "entity status",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "231bb60e-10f5-440d-95c5-bde929688f1d",
+      "name": "IDM COUNTRIES",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM COUNTRIES in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "10810094-349b-49c2-b037-ac0921f37f3b",
+      "name": "IDM PRODUCTS",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector",
+        "label": "industrial products sector",
+        "match_type": "keyword",
+        "confidence": 0.6739999999999999,
+        "fibo_definition": "a classifier for a sector of the economy used for price indices focused on major commodities sold by manufacturers in Canada",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "a classifier for a sector of the economy used for price indices focused on major commodities sold by manufacturers in Canada",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector",
+        "extends_name": "industrial products sector",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "441a516a-9a5e-40fb-9c17-aa8745108542",
+      "name": "IDM SEGMENTS",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0338c692-12f6-48f2-891b-785da81e4884",
+      "name": "Calendar Day",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 22
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod",
+        "label": "calendar period",
+        "match_type": "keyword",
+        "confidence": 0.735,
+        "fibo_definition": "time interval that occurs within a system that fixes the beginning and length of a segment of the year with respect to that system",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "time interval that occurs within a system that fixes the beginning and length of a segment of the year with respect to that system",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod",
+        "extends_name": "calendar period",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e92fecb3-73d8-4f02-b9c7-32e8c86133d0",
+      "name": "Countrycode",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 23
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Countrycode in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "ee19c9ac-1fb9-4755-9b1e-089bc5c20c03",
+      "name": "ISIN Code",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 24
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3f5f1c1a-b566-4e27-a719-ae6ca73704c1",
+      "name": "Profitcenter",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 25
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Profitcenter in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "00f50f77-0de3-4878-85bc-0aa5edf1833f",
+      "name": "Source Code",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 26
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "93264dfd-4369-402c-a28f-dcd2fd89dd0b",
+      "name": "Source Code Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 27
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "60b10c3d-09a1-43eb-a631-0b497502d665",
+      "name": "Asset under management in local currency",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 28
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "label": "Assets Under Management",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "extends_name": "Assets Under Management",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c3dd51c9-5bc3-43c4-a7a8-fb11a31e7c4e",
+      "name": "Country name",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 29
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState",
+        "label": "Sovereign State",
+        "match_type": "override",
+        "confidence": 1.0,
+        "fibo_definition": "non-physical juridical entity that is represented by one centralized government that has sovereignty over a geographic area",
+        "fibo_module": "FIBO-BE",
+        "isA": ""
+      },
+      "definition": {
+        "text": "non-physical juridical entity that is represented by one centralized government that has sovereignty over a geographic area",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState",
+        "extends_name": "Sovereign State",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "14fcb8f9-fcf4-4a35-8b83-717ca31a8979",
+      "name": "Product Name",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 30
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName",
+        "label": "project name",
+        "match_type": "fuzzy",
+        "confidence": 0.8333333333333334,
+        "fibo_definition": "contextual designation for a project",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "contextual designation for a project",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName",
+        "extends_name": "project name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3197305b-9f60-43ca-a44e-a2bc3cd59778",
+      "name": "Level 0 Product Type",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 31
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "17f8d15a-8271-440f-a4cc-84fecd6cf10e",
+      "name": "Level 1 Product Type",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 32
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "883e0245-ee4d-4a86-bd60-9530cb8e0b05",
+      "name": "Level 0 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 33
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "431693ed-9ecf-4ba5-b611-34932619e935",
+      "name": "Level 1 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 34
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "93a8be27-f3f5-4e14-b3cf-da2de8be2b6b",
+      "name": "Level 2 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 35
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "39c2c5ec-f4c9-491f-8b35-b56192e988c2",
+      "name": "EDI AUM -- datum [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 38
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- datum [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "656ad93f-d8c2-4a3f-b02e-bfcef901bc53",
+      "name": "@type_source",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 39
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 41
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 43
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 45
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 47
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 49
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 51
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 53
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 55
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 57
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 59
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 61
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 63
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 65
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 67
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 69
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 71
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 73
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType",
+        "label": "tranche type",
+        "match_type": "keyword",
+        "confidence": 0.688,
+        "fibo_definition": "the type of tranche in a tranched MBS security",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "the type of tranche in a tranched MBS security",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType",
+        "extends_name": "tranche type",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "eb7d976d-d30e-41eb-8b39-9de34f4fef75",
+      "name": "EDI AUM -- country code [Country Code]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 40
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "72a8e900-0ae6-4081-a835-97c93d7f9296",
+      "name": "EDI AUM -- secinstr isin code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 42
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "6a214d94-a4f7-4668-89b7-94a1d08e8cb1",
+      "name": "EDI AUM -- profitcenter code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 44
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "596ac4da-0ca9-4bf9-94ea-008ded2fbb1c",
+      "name": "EDI AUM -- source code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 46
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "ab256ae2-3ea5-417e-829d-d983dcfb1a52",
+      "name": "EDI AUM -- source code desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 48
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "bfef9d6e-8a51-4cc0-afb3-0a9447eb85a0",
+      "name": "EDI AUM -- aum lcy [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 50
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- aum lcy [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "7606b6d5-b7dd-45d1-a3cd-8d2b7168b42c",
+      "name": "EDI AUM -- aum eur [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 52
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- aum eur [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "8569d798-608c-4986-9af5-9bb728b9c3ee",
+      "name": "IDM COUNTRIES -- country code [Country Code]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 54
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f69abc04-708a-4e9a-b079-8a8cdb30fab4",
+      "name": "IDM COUNTRIES -- country name [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 56
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "label": "Name",
+        "match_type": "keyword",
+        "confidence": 0.846,
+        "fibo_definition": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "extends_name": "Name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2c1c22dd-33a9-41c2-b5d9-4b0f2a96e03f",
+      "name": "IDM PRODUCTS -- secinstr isin code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 58
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "de00a3b1-bd20-4d59-950d-8acfed85e5e3",
+      "name": "IDM PRODUCTS -- product name [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 60
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "label": "Name",
+        "match_type": "keyword",
+        "confidence": 0.846,
+        "fibo_definition": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "extends_name": "Name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "6005a341-b44b-44d4-a6d9-e14fb2c593eb",
+      "name": "IDM PRODUCTS -- l0 product type [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 62
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "56528b71-9fb3-41cc-b0a3-d7319a6ad47c",
+      "name": "IDM PRODUCTS -- l1 product type [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 64
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "7821c9f1-fe77-4571-a36b-14e2b321aee6",
+      "name": "IDM SEGMENTS -- profitcenter code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 66
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "8cef913b-f3c4-48a4-a5e6-d66f473a7272",
+      "name": "IDM SEGMENTS -- l0 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 68
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l0 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "52a17b86-150b-462f-8aa8-40283de2dc87",
+      "name": "IDM SEGMENTS -- l1 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 70
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l1 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "84cf1ec3-a331-40a7-96e3-f9face40999d",
+      "name": "IDM SEGMENTS -- l2 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 72
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l2 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [
+    {
+      "name": "Action",
+      "uri": "https://schema.org/Action",
+      "type": "schema.org",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "inherited_from": "Profitcenter",
+          "relationship": "isA"
+        }
+      ]
+    }
+  ],
+  "categorizations": [],
+  "relationships": [
+    {
+      "source_name": "Profitcenter",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:operational",
+      "external_uri": "https://schema.org/Action"
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 40,
+    "external_concept_count": 1,
+    "fibo_mapped_count": 29,
+    "fibo_coverage": 72.5,
+    "schema_mapped_count": 1,
+    "semantic_coverage": 75.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 0,
+    "synonym_matches": 0,
+    "parent_matches": 0,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 10,
+    "non_fibo_count": 11,
+    "draft_definitions": 11,
+    "validation_errors": [],
+    "validation_warnings": [
+      "11 concepts have DRAFT definitions that need review"
+    ]
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-27T08:00:15.670502",
+  "modified_at": "2025-12-27T08:00:15.670514",
+  "generated": "2025-12-27T08:00:15.670516",
+  "fibo_version": "2024Q1"
+};
+
+// Merged Investment domain (ADR-049) - currently only DP_EDI_AUM
+const INVESTMENT_DATA = {
+  "domain": {
+    "path": "RBCZ:MIB:Investment",
+    "name": "RBCZ:MIB:Investment",
+    "version": "1.0.0",
+    "created": "2025-12-27T08:06:59.002305",
+    "sources": [
+      "dp_edi_aum.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "9853f791-b219-4dec-88f4-1c6e2ed3872a",
+      "name": "EDI AUM",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "cf0ed2b7-77b7-4bc2-9ae8-a2fe8bd633ea",
+      "name": "@data_contract",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 7
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 11
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 15
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "label": "contract",
+        "match_type": "keyword",
+        "confidence": 0.842,
+        "fibo_definition": "voluntary, deliberate agreement between competent parties to which the parties agree to be legally bound, and for which the parties provide valuable consideration",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "voluntary, deliberate agreement between competent parties to which the parties agree to be legally bound, and for which the parties provide valuable consideration",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "extends_name": "contract",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "d19d4d21-d0a8-48a4-a22d-d307c3323c06",
+      "name": "@source_entity",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 8
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 12
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 16
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 20
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner",
+        "label": "entity owner",
+        "match_type": "keyword",
+        "confidence": 0.738,
+        "fibo_definition": "owner (person, group of people, or other business entity) that owns, or holds an ownership interest in, a formal business organization",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "owner (person, group of people, or other business entity) that owns, or holds an ownership interest in, a formal business organization",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner",
+        "extends_name": "entity owner",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "54740603-25b7-4696-9e4b-c5eb3e1bc5a1",
+      "name": "@status",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 9
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 13
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 17
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 21
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus",
+        "label": "entity status",
+        "match_type": "keyword",
+        "confidence": 0.6869999999999999,
+        "fibo_definition": "lifecycle stage indicating the operational and/or legal status of an entity",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "lifecycle stage indicating the operational and/or legal status of an entity",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus",
+        "extends_name": "entity status",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "231bb60e-10f5-440d-95c5-bde929688f1d",
+      "name": "IDM COUNTRIES",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM COUNTRIES in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "10810094-349b-49c2-b037-ac0921f37f3b",
+      "name": "IDM PRODUCTS",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector",
+        "label": "industrial products sector",
+        "match_type": "keyword",
+        "confidence": 0.6739999999999999,
+        "fibo_definition": "a classifier for a sector of the economy used for price indices focused on major commodities sold by manufacturers in Canada",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "a classifier for a sector of the economy used for price indices focused on major commodities sold by manufacturers in Canada",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector",
+        "extends_name": "industrial products sector",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "441a516a-9a5e-40fb-9c17-aa8745108542",
+      "name": "IDM SEGMENTS",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "0338c692-12f6-48f2-891b-785da81e4884",
+      "name": "Calendar Day",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 22
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod",
+        "label": "calendar period",
+        "match_type": "keyword",
+        "confidence": 0.735,
+        "fibo_definition": "time interval that occurs within a system that fixes the beginning and length of a segment of the year with respect to that system",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "time interval that occurs within a system that fixes the beginning and length of a segment of the year with respect to that system",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod",
+        "extends_name": "calendar period",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "e92fecb3-73d8-4f02-b9c7-32e8c86133d0",
+      "name": "Countrycode",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 23
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Countrycode in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "ee19c9ac-1fb9-4755-9b1e-089bc5c20c03",
+      "name": "ISIN Code",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 24
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "3f5f1c1a-b566-4e27-a719-ae6ca73704c1",
+      "name": "Profitcenter",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 25
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Profitcenter in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "00f50f77-0de3-4878-85bc-0aa5edf1833f",
+      "name": "Source Code",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 26
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "93264dfd-4369-402c-a28f-dcd2fd89dd0b",
+      "name": "Source Code Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 27
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "60b10c3d-09a1-43eb-a631-0b497502d665",
+      "name": "Asset under management in local currency",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 28
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "label": "Assets Under Management",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "extends_name": "Assets Under Management",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "c3dd51c9-5bc3-43c4-a7a8-fb11a31e7c4e",
+      "name": "Country name",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 29
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState",
+        "label": "Sovereign State",
+        "match_type": "override",
+        "confidence": 1.0,
+        "fibo_definition": "non-physical juridical entity that is represented by one centralized government that has sovereignty over a geographic area",
+        "fibo_module": "FIBO-BE",
+        "isA": ""
+      },
+      "definition": {
+        "text": "non-physical juridical entity that is represented by one centralized government that has sovereignty over a geographic area",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState",
+        "extends_name": "Sovereign State",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "14fcb8f9-fcf4-4a35-8b83-717ca31a8979",
+      "name": "Product Name",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 30
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName",
+        "label": "project name",
+        "match_type": "fuzzy",
+        "confidence": 0.8333333333333334,
+        "fibo_definition": "contextual designation for a project",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "contextual designation for a project",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName",
+        "extends_name": "project name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "3197305b-9f60-43ca-a44e-a2bc3cd59778",
+      "name": "Level 0 Product Type",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 31
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "17f8d15a-8271-440f-a4cc-84fecd6cf10e",
+      "name": "Level 1 Product Type",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 32
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "883e0245-ee4d-4a86-bd60-9530cb8e0b05",
+      "name": "Level 0 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 33
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "431693ed-9ecf-4ba5-b611-34932619e935",
+      "name": "Level 1 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 34
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "93a8be27-f3f5-4e14-b3cf-da2de8be2b6b",
+      "name": "Level 2 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 35
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "39c2c5ec-f4c9-491f-8b35-b56192e988c2",
+      "name": "EDI AUM -- datum [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 38
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- datum [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "656ad93f-d8c2-4a3f-b02e-bfcef901bc53",
+      "name": "@type_source",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 39
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 41
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 43
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 45
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 47
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 49
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 51
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 53
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 55
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 57
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 59
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 61
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 63
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 65
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 67
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 69
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 71
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 73
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType",
+        "label": "tranche type",
+        "match_type": "keyword",
+        "confidence": 0.688,
+        "fibo_definition": "the type of tranche in a tranched MBS security",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "the type of tranche in a tranched MBS security",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType",
+        "extends_name": "tranche type",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "eb7d976d-d30e-41eb-8b39-9de34f4fef75",
+      "name": "EDI AUM -- country code [Country Code]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 40
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "72a8e900-0ae6-4081-a835-97c93d7f9296",
+      "name": "EDI AUM -- secinstr isin code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 42
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "6a214d94-a4f7-4668-89b7-94a1d08e8cb1",
+      "name": "EDI AUM -- profitcenter code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 44
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "596ac4da-0ca9-4bf9-94ea-008ded2fbb1c",
+      "name": "EDI AUM -- source code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 46
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "ab256ae2-3ea5-417e-829d-d983dcfb1a52",
+      "name": "EDI AUM -- source code desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 48
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "bfef9d6e-8a51-4cc0-afb3-0a9447eb85a0",
+      "name": "EDI AUM -- aum lcy [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 50
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- aum lcy [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "7606b6d5-b7dd-45d1-a3cd-8d2b7168b42c",
+      "name": "EDI AUM -- aum eur [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 52
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- aum eur [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "8569d798-608c-4986-9af5-9bb728b9c3ee",
+      "name": "IDM COUNTRIES -- country code [Country Code]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 54
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "f69abc04-708a-4e9a-b079-8a8cdb30fab4",
+      "name": "IDM COUNTRIES -- country name [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 56
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "label": "Name",
+        "match_type": "keyword",
+        "confidence": 0.846,
+        "fibo_definition": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "extends_name": "Name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "2c1c22dd-33a9-41c2-b5d9-4b0f2a96e03f",
+      "name": "IDM PRODUCTS -- secinstr isin code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 58
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "de00a3b1-bd20-4d59-950d-8acfed85e5e3",
+      "name": "IDM PRODUCTS -- product name [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 60
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "label": "Name",
+        "match_type": "keyword",
+        "confidence": 0.846,
+        "fibo_definition": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "extends_name": "Name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "6005a341-b44b-44d4-a6d9-e14fb2c593eb",
+      "name": "IDM PRODUCTS -- l0 product type [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 62
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "56528b71-9fb3-41cc-b0a3-d7319a6ad47c",
+      "name": "IDM PRODUCTS -- l1 product type [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 64
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "7821c9f1-fe77-4571-a36b-14e2b321aee6",
+      "name": "IDM SEGMENTS -- profitcenter code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 66
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "8cef913b-f3c4-48a4-a5e6-d66f473a7272",
+      "name": "IDM SEGMENTS -- l0 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 68
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l0 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "52a17b86-150b-462f-8aa8-40283de2dc87",
+      "name": "IDM SEGMENTS -- l1 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 70
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l1 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    },
+    {
+      "id": "84cf1ec3-a331-40a7-96e3-f9face40999d",
+      "name": "IDM SEGMENTS -- l2 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 72
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l2 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true,
+      "is_context": false
+    }
+  ],
+  "external_concepts": [
+    {
+      "name": "Action",
+      "uri": "https://schema.org/Action",
+      "type": "schema.org",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "inherited_from": "Profitcenter",
+          "relationship": "isA"
+        }
+      ]
+    }
+  ],
+  "categorizations": [],
+  "relationships": [
+    {
+      "source_name": "Profitcenter",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:operational",
+      "external_uri": "https://schema.org/Action"
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 40,
+    "external_concept_count": 1,
+    "fibo_mapped_count": 29,
+    "fibo_coverage": 72.5,
+    "schema_mapped_count": 1,
+    "semantic_coverage": 75.0,
+    "definition_coverage": 0,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "schema_version": "1.0.0"
+};
+
 // Export for application
 window.BKB_DATA = {
   domains: DOMAINS_DATA,
+  // Test domain
   test: TEST_DATA,
   order: ORDER_DATA,
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,
   payment: PAYMENT_DATA,
-  financialaccount: FINANCIAL_ACCOUNT_DATA
+  financialaccount: FINANCIAL_ACCOUNT_DATA,
+  // RBCZ:MIB:Investment domain (Data Contract)
+  investment: INVESTMENT_DATA,
+  dp_edi_aum: DP_EDI_AUM_DATA
 };
 
-console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
+console.log('BKB data loaded:', Object.keys(window.BKB_DATA));

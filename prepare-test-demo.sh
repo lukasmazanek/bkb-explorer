@@ -174,6 +174,7 @@ POSITION_FILE="$SCRIPT_DIR/test/Test/Position/ontology.json"
 TRANSACTION_FILE="$SCRIPT_DIR/test/Test/Transaction/ontology.json"
 PAYMENT_FILE="$SCRIPT_DIR/test/Test/Payment/ontology.json"
 FINANCIAL_ACCOUNT_FILE="$SCRIPT_DIR/test/Test/FinancialAccount/ontology.json"
+DP_EDI_AUM_FILE="$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/ontology.json"
 
 python3 << PYTHON
 import json
@@ -200,12 +201,35 @@ with open('$PAYMENT_FILE') as f:
 with open('$FINANCIAL_ACCOUNT_FILE') as f:
     financial_account_data = json.load(f)
 
+# Load RBCZ:MIB:Investment domain (Data Contract source)
+import os
+dp_edi_aum_data = None
+if os.path.exists('$DP_EDI_AUM_FILE'):
+    with open('$DP_EDI_AUM_FILE') as f:
+        dp_edi_aum_data = json.load(f)
+
 # ADR-044: Count total concepts = domain concepts + external concepts
 def total_concepts(data):
     return len(data.get('concepts', [])) + len(data.get('external_concepts', []))
 
 # Build hierarchy (ADR-024, ADR-040)
 hierarchy = {
+    "RBCZ": {
+        "type": "folder",
+        "children": {
+            "MIB": {
+                "type": "folder",
+                "children": {
+                    "Investment": {
+                        "type": "domain",
+                        "views": {
+                            "DP_EDI_AUM": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
     "Test": {
         "type": "domain",
         "views": {
@@ -248,18 +272,41 @@ const FINANCIAL_ACCOUNT_DATA = {json.dumps(financial_account_data, indent=2)};
 // Merged Test domain (ADR-049)
 const TEST_DATA = {json.dumps(merge_domains([order_data, position_data, transaction_data, payment_data, financial_account_data], "Test"), indent=2)};
 
-// Export for application
-window.BKB_DATA = {{
+'''
+
+# Add Investment domain if available
+if dp_edi_aum_data:
+    output += f'''// --- RBCZ:MIB:Investment Domain Views ---
+
+const DP_EDI_AUM_DATA = {json.dumps(dp_edi_aum_data, indent=2)};
+
+// Merged Investment domain (ADR-049) - currently only DP_EDI_AUM
+const INVESTMENT_DATA = {json.dumps(merge_domains([dp_edi_aum_data], "RBCZ:MIB:Investment"), indent=2)};
+
+'''
+
+# Build exports
+output += '''// Export for application
+window.BKB_DATA = {
   domains: DOMAINS_DATA,
+  // Test domain
   test: TEST_DATA,
   order: ORDER_DATA,
   position: POSITION_DATA,
   transaction: TRANSACTION_DATA,
   payment: PAYMENT_DATA,
-  financialaccount: FINANCIAL_ACCOUNT_DATA
-}};
+  financialaccount: FINANCIAL_ACCOUNT_DATA'''
 
-console.log('BKB Test data loaded:', Object.keys(window.BKB_DATA));
+if dp_edi_aum_data:
+    output += ''',
+  // RBCZ:MIB:Investment domain (Data Contract)
+  investment: INVESTMENT_DATA,
+  dp_edi_aum: DP_EDI_AUM_DATA'''
+
+output += '''
+};
+
+console.log('BKB data loaded:', Object.keys(window.BKB_DATA));
 '''
 
 with open('$OUTPUT_FILE', 'w') as f:
@@ -271,6 +318,10 @@ print(f"  Position: {len(position_data['concepts'])} + {len(position_data.get('e
 print(f"  Transaction: {len(transaction_data['concepts'])} + {len(transaction_data.get('external_concepts', []))} external = {total_concepts(transaction_data)}")
 print(f"  Payment: {len(payment_data['concepts'])} + {len(payment_data.get('external_concepts', []))} external = {total_concepts(payment_data)}")
 print(f"  FinancialAccount: {len(financial_account_data['concepts'])} + {len(financial_account_data.get('external_concepts', []))} external = {total_concepts(financial_account_data)}")
+
+if dp_edi_aum_data:
+    print(f"\nRBCZ:MIB:Investment domain views:")
+    print(f"  DP_EDI_AUM: {len(dp_edi_aum_data['concepts'])} + {len(dp_edi_aum_data.get('external_concepts', []))} external = {total_concepts(dp_edi_aum_data)}")
 PYTHON
 
 echo ""
