@@ -22,7 +22,7 @@ const DOMAINS_DATA = {
             "Investment": {
               "type": "domain",
               "views": {
-                "AUM": {},
+                "DP_EDI_AUM": {},
                 "Order": {},
                 "Position": {},
                 "Transaction": {},
@@ -10625,7 +10625,7 @@ if (!DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"]) {
 DOMAINS_DATA.hierarchy["RBCZ"].children["MIB"].children["Investment"] = {
   "type": "domain",
   "views": {
-    "AUM": {},
+    "DP_EDI_AUM": {},
     "FinancialAccount": {},
     "Order": {},
     "Payment": {},
@@ -14674,7 +14674,7 @@ window.BKB_DATA.investmentfinancialaccount = INVESTMENT_FINANCIALACCOUNT_DATA;
 
 
 // --- AUM View (Data Product: dp_edi_aum) ---
-const INVESTMENT_AUM_DATA = 
+const INVESTMENT_DP_EDI_AUM_DATA = 
 {
   "domain": {
     "path": "RBCZ:MIB:Investment",
@@ -16439,12 +16439,12 @@ const INVESTMENT_AUM_DATA =
   "fibo_version": "2024Q1"
 };
 
-window.BKB_DATA.investmentaum = INVESTMENT_AUM_DATA;
+window.BKB_DATA.investmentdp_edi_aum = INVESTMENT_DP_EDI_AUM_DATA;
 
 // --- Merged Investment domain (ADR-049) ---
 // Using universal merge function
 window.BKB_DATA.investment = mergeDomainViews(
-    [INVESTMENT_AUM_DATA, INVESTMENT_ORDER_DATA, INVESTMENT_TRANSACTION_DATA, INVESTMENT_POSITION_DATA,
+    [INVESTMENT_DP_EDI_AUM_DATA, INVESTMENT_ORDER_DATA, INVESTMENT_TRANSACTION_DATA, INVESTMENT_POSITION_DATA,
      INVESTMENT_PAYMENT_DATA, INVESTMENT_FINANCIALACCOUNT_DATA],
     { path: "RBCZ:MIB:Investment", name: "Investment", version: "1.0.0" }
 );
