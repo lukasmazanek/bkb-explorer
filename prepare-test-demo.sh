@@ -48,14 +48,15 @@ mkdir -p "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM"
 
 echo "Step 1: Copying test data from conceptspeak/tests..."
 
-# Copy test files (Single Source of Truth) - Test domain views
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Order.test" "$SCRIPT_DIR/test/Test/Order/Investment_Order.cs"
-cp "$CONCEPTSPEAK_DIR/tests/InvestmentPosition.test" "$SCRIPT_DIR/test/Test/Position/Investment_Position.cs"
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Transaction.test" "$SCRIPT_DIR/test/Test/Transaction/Investment_Transaction.cs"
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Payment.test" "$SCRIPT_DIR/test/Test/Payment/Investment_Payment.cs"
-cp "$CONCEPTSPEAK_DIR/tests/Investment_Financial_Account.test" "$SCRIPT_DIR/test/Test/FinancialAccount/Financial_Account.cs"
+# Copy test files (Single Source of Truth) - already in ADR-024 structure
+# Source: conceptspeak/tests/{domain-path}/{view}.test
+cp "$CONCEPTSPEAK_DIR/tests/Test/Investment_Order.test" "$SCRIPT_DIR/test/Test/Order/Investment_Order.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Test/InvestmentPosition.test" "$SCRIPT_DIR/test/Test/Position/Investment_Position.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Test/Investment_Transaction.test" "$SCRIPT_DIR/test/Test/Transaction/Investment_Transaction.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Test/Investment_Payment.test" "$SCRIPT_DIR/test/Test/Payment/Investment_Payment.cs"
+cp "$CONCEPTSPEAK_DIR/tests/Test/Investment_Financial_Account.test" "$SCRIPT_DIR/test/Test/FinancialAccount/Financial_Account.cs"
 
-# Copy DP_EDI_AUM data product
+# Copy DP_EDI_AUM data product YAML for reference
 cp "$CONCEPTSPEAK_DIR/tests/dp_edi_aum.yaml" "$SCRIPT_DIR/test/RBCZ/MIB/Investment/DP_EDI_AUM/" 2>/dev/null || true
 
 echo "  - Test/Order/Investment_Order.cs"
@@ -63,7 +64,7 @@ echo "  - Test/Position/Investment_Position.cs"
 echo "  - Test/Transaction/Investment_Transaction.cs"
 echo "  - Test/Payment/Investment_Payment.cs"
 echo "  - Test/FinancialAccount/Financial_Account.cs"
-echo "  - RBCZ/MIB/Investment/DP_EDI_AUM/ (if exists)"
+echo "  - RBCZ/MIB/Investment/DP_EDI_AUM/dp_edi_aum.yaml (if exists)"
 echo ""
 
 # Create config files - Test domain views (GOV-003 Section 8)
