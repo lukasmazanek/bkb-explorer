@@ -22,6 +22,7 @@ const DOMAINS_DATA = {
             "Investment": {
               "type": "domain",
               "views": {
+                "AUM": {},
                 "Order": {},
                 "Position": {},
                 "Transaction": {},
@@ -14670,10 +14671,1779 @@ const INVESTMENT_FINANCIALACCOUNT_DATA = {
 
 window.BKB_DATA.investmentfinancialaccount = INVESTMENT_FINANCIALACCOUNT_DATA;
 
+
+// --- AUM View (Data Product: dp_edi_aum) ---
+const INVESTMENT_AUM_DATA = 
+{
+  "domain": {
+    "path": "RBCZ:MIB:Investment",
+    "name": "Investment",
+    "version": "1.0.0",
+    "created": "2025-12-27T06:35:16.257104",
+    "sources": [
+      "dp_edi_aum.cs"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "7bb693f9-bb0f-4b62-bcc3-b641db2a915b",
+      "name": "EDI AUM",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 6
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0b70d9cb-3ea9-448f-a59a-553ec745f7c1",
+      "name": "@data_contract",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 7
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 11
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 15
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 19
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "label": "contract",
+        "match_type": "keyword",
+        "confidence": 0.842,
+        "fibo_definition": "voluntary, deliberate agreement between competent parties to which the parties agree to be legally bound, and for which the parties provide valuable consideration",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "voluntary, deliberate agreement between competent parties to which the parties agree to be legally bound, and for which the parties provide valuable consideration",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "extends_name": "contract",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "69ee4ac0-5d64-4d27-b234-9d26dd1978db",
+      "name": "@source_entity",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 8
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 12
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 16
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 20
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner",
+        "label": "entity owner",
+        "match_type": "keyword",
+        "confidence": 0.738,
+        "fibo_definition": "owner (person, group of people, or other business entity) that owns, or holds an ownership interest in, a formal business organization",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "owner (person, group of people, or other business entity) that owns, or holds an ownership interest in, a formal business organization",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner",
+        "extends_name": "entity owner",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/OwnershipParties/EntityOwner"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "647d11ef-301c-4396-9f87-b46b142df7f9",
+      "name": "@status",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 9
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 13
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 17
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 21
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus",
+        "label": "entity status",
+        "match_type": "keyword",
+        "confidence": 0.6869999999999999,
+        "fibo_definition": "lifecycle stage indicating the operational and/or legal status of an entity",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "lifecycle stage indicating the operational and/or legal status of an entity",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus",
+        "extends_name": "entity status",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/BusinessRegistries/EntityStatus"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "3d8100ea-57a5-4c53-b6c4-bf1d4a119219",
+      "name": "IDM COUNTRIES",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 10
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM COUNTRIES in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "bfd015e3-2691-42b2-88bf-1b2d0b45ffb8",
+      "name": "IDM PRODUCTS",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 14
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector",
+        "label": "industrial products sector",
+        "match_type": "keyword",
+        "confidence": 0.6739999999999999,
+        "fibo_definition": "a classifier for a sector of the economy used for price indices focused on major commodities sold by manufacturers in Canada",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "a classifier for a sector of the economy used for price indices focused on major commodities sold by manufacturers in Canada",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector",
+        "extends_name": "industrial products sector",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/NorthAmericanIndicators/CAEconomicIndicators/IndustrialProductsSector"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "322cf3e3-350e-4032-8d0c-af289ac3b8ea",
+      "name": "IDM SEGMENTS",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 18
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "5f2467c7-dd17-4db1-b69c-456e78cff6b1",
+      "name": "Calendar Day",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 22
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod",
+        "label": "calendar period",
+        "match_type": "keyword",
+        "confidence": 0.735,
+        "fibo_definition": "time interval that occurs within a system that fixes the beginning and length of a segment of the year with respect to that system",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "time interval that occurs within a system that fixes the beginning and length of a segment of the year with respect to that system",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod",
+        "extends_name": "calendar period",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/FinancialDates/CalendarPeriod"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f3a069eb-f3eb-45e9-9f33-4f0a05809899",
+      "name": "Countrycode",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 23
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Countrycode in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "5fcd9552-352b-4571-9baa-a400deb16255",
+      "name": "ISIN Code",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 24
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1a846b4c-ccb8-4cfe-a72f-a46509a3db4e",
+      "name": "Profitcenter",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 25
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "Profitcenter in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": true,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2bad5599-6de7-469f-9b5b-84d0023c631b",
+      "name": "Source Code",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 26
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "0769fb1e-4def-4d29-b45d-6dcfadbd081f",
+      "name": "Source Code Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 27
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "fd2d27c3-92db-4f97-93c0-7f8e33e75ec0",
+      "name": "Asset under management in local currency",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 28
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "label": "Assets Under Management",
+        "match_type": "keyword",
+        "confidence": 0.8,
+        "fibo_definition": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "The total market value of investments that a financial institution manages on behalf of clients.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement",
+        "extends_name": "Assets Under Management",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/AssetsUnderManagement"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "a690e023-5a91-4310-930a-c71be2917f7c",
+      "name": "Country name",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 29
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState",
+        "label": "Sovereign State",
+        "match_type": "override",
+        "confidence": 1.0,
+        "fibo_definition": "non-physical juridical entity that is represented by one centralized government that has sovereignty over a geographic area",
+        "fibo_module": "FIBO-BE",
+        "isA": ""
+      },
+      "definition": {
+        "text": "non-physical juridical entity that is represented by one centralized government that has sovereignty over a geographic area",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState",
+        "extends_name": "Sovereign State",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/BE/GovernmentEntities/GovernmentEntities/SovereignState"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "ea3a5e41-5b7f-44cb-80d6-e946ba66924d",
+      "name": "Product Name",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 30
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName",
+        "label": "project name",
+        "match_type": "fuzzy",
+        "confidence": 0.8333333333333334,
+        "fibo_definition": "contextual designation for a project",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "contextual designation for a project",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName",
+        "extends_name": "project name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/GoalsAndObjectives/Objectives/ProjectName"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "83669768-7387-4bc3-9e07-11e3843f9396",
+      "name": "Level 0 Product Type",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 31
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "2f18b6c5-bd34-4689-a352-eb08f0c2e522",
+      "name": "Level 1 Product Type",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 32
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "00eae638-812b-4f41-8d54-191aa907fc20",
+      "name": "Level 0 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 33
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "71e01f25-e0d9-4bed-a13b-dd55effbafcc",
+      "name": "Level 1 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 34
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "af8c3ac8-a0f4-47e0-b103-c242739f0078",
+      "name": "Level 2 Segment Description",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 35
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "label": "classification of financial instruments code scheme",
+        "match_type": "keyword",
+        "confidence": 0.699,
+        "fibo_definition": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "classification scheme for set of codes for financial instruments that can be used globally for straight-through processing by all involved participants in an electronic data processing environment",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme",
+        "extends_name": "classification of financial instruments code scheme",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Securities/SecuritiesClassification/ClassificationOfFinancialInstrumentsCodeScheme"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "355a0aac-bb1d-434f-849d-0cbcf2e6ac7b",
+      "name": "EDI AUM -- datum [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 38
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- datum [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e06b7cd2-ee8e-4558-b65b-326bf76d6b54",
+      "name": "@type_source",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 39
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 41
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 43
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 45
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 47
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 49
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 51
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 53
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 55
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 57
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 59
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 61
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 63
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 65
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 67
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 69
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 71
+        },
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 73
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType",
+        "label": "tranche type",
+        "match_type": "keyword",
+        "confidence": 0.688,
+        "fibo_definition": "the type of tranche in a tranched MBS security",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "the type of tranche in a tranched MBS security",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType",
+        "extends_name": "tranche type",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/SEC/Debt/CollateralizedDebtObligations/TrancheType"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1072a21e-00af-4031-bf00-e180be3c851d",
+      "name": "EDI AUM -- country code [Country Code]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 40
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "9999308d-4b09-4d2d-8621-239bd708fbbd",
+      "name": "EDI AUM -- secinstr isin code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 42
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f313cf75-c7f7-46b7-95a2-9eab95633661",
+      "name": "EDI AUM -- profitcenter code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 44
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "ed43e5be-b0f1-4b95-a12a-8920d5073d7f",
+      "name": "EDI AUM -- source code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 46
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "51dd26be-678f-476c-aef9-cfcfef50365c",
+      "name": "EDI AUM -- source code desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 48
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "88b79272-8e85-4eff-ac03-0417e36e941d",
+      "name": "EDI AUM -- aum lcy [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 50
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- aum lcy [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "a05a6550-0b4c-4430-9636-86d1282d5abd",
+      "name": "EDI AUM -- aum eur [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 52
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "EDI AUM -- aum eur [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "35999bb9-9246-466f-8a3e-ac3e1ce7e6d8",
+      "name": "IDM COUNTRIES -- country code [Country Code]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 54
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "1847109f-f8ca-405e-bf00-a6aec7c9595a",
+      "name": "IDM COUNTRIES -- country name [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 56
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "label": "Name",
+        "match_type": "keyword",
+        "confidence": 0.846,
+        "fibo_definition": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "extends_name": "Name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "f806e8f2-4497-438e-82d1-0a7f0956d706",
+      "name": "IDM PRODUCTS -- secinstr isin code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 58
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "d3e4b721-ea5c-40b2-bb2e-de75d2184762",
+      "name": "IDM PRODUCTS -- product name [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 60
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "label": "Name",
+        "match_type": "keyword",
+        "confidence": 0.846,
+        "fibo_definition": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "A word or set of words by which an entity is known, addressed, or referred to.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name",
+        "extends_name": "Name",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/Name"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "c047839b-82e1-4948-b5cb-13a7db81d453",
+      "name": "IDM PRODUCTS -- l0 product type [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 62
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "be8b6e64-b2cb-440a-9a60-5d956c08113c",
+      "name": "IDM PRODUCTS -- l1 product type [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 64
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "label": "product",
+        "match_type": "keyword",
+        "confidence": 0.843,
+        "fibo_definition": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "commercially distributed good that is (1) tangible property, (2) the output or result of a fabrication, manufacturing, or production process, or (3) something that passes through a distribution channel before being consumed or used.",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
+        "extends_name": "product",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "66c936c0-2d36-4ab3-b6f0-d197650564df",
+      "name": "IDM SEGMENTS -- profitcenter code [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 66
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": {
+        "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "label": "Zip Code",
+        "match_type": "keyword",
+        "confidence": 0.692,
+        "fibo_definition": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "fibo_module": "",
+        "isA": ""
+      },
+      "definition": {
+        "text": "five-digit code code assigned to a delivery address indicating the state and post office or postal zone",
+        "source": "FIBO",
+        "confidence": "MAPPED",
+        "needs_review": false,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode",
+        "extends_name": "Zip Code",
+        "depth": 1,
+        "path": [
+          "https://spec.edmcouncil.org/fibo/ontology/FND/Places/NorthAmerica/USPostalServiceAddresses/ZIPCode"
+        ]
+      },
+      "has_fibo_mapping": true,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "e40e0d97-a052-4777-a3a9-233cb973e731",
+      "name": "IDM SEGMENTS -- l0 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 68
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l0 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "b0db3a0b-e1ab-4044-abd8-4aa710ed272a",
+      "name": "IDM SEGMENTS -- l1 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 70
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l1 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    },
+    {
+      "id": "43b2bf8a-767e-4a48-84d5-927009f0df4c",
+      "name": "IDM SEGMENTS -- l2 segm desc [String]",
+      "type": "concept",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "line": 72
+        }
+      ],
+      "aliases": [],
+      "merged_from": [],
+      "local_definition": "",
+      "fibo_mapping": null,
+      "definition": {
+        "text": "IDM SEGMENTS -- l2 segm desc [String] in Investment domain",
+        "source": "DRAFT",
+        "confidence": "DRAFT",
+        "needs_review": true,
+        "parent_name": ""
+      },
+      "hierarchy": {
+        "extends": "owl:Thing",
+        "extends_name": "Thing",
+        "depth": 1,
+        "path": [
+          "owl:Thing"
+        ]
+      },
+      "has_fibo_mapping": false,
+      "has_schema_mapping": false,
+      "has_definition": true,
+      "has_parent": true
+    }
+  ],
+  "external_concepts": [
+    {
+      "name": "Action",
+      "uri": "https://schema.org/Action",
+      "type": "schema.org",
+      "sources": [
+        {
+          "file": "dp_edi_aum.cs",
+          "inherited_from": "Profitcenter",
+          "relationship": "isA"
+        }
+      ]
+    }
+  ],
+  "categorizations": [],
+  "relationships": [
+    {
+      "source_name": "Profitcenter",
+      "target_name": "Schema.org:Action",
+      "forward_verb": "is a",
+      "backward_verb": "",
+      "type": "isA",
+      "match_source": "manual:operational",
+      "external_uri": "https://schema.org/Action"
+    }
+  ],
+  "enumerations": [],
+  "unary_states": [],
+  "metadata": {
+    "concept_count": 40,
+    "external_concept_count": 1,
+    "fibo_mapped_count": 29,
+    "fibo_coverage": 72.5,
+    "schema_mapped_count": 1,
+    "semantic_coverage": 75.0,
+    "definition_coverage": 100.0,
+    "exact_matches": 0,
+    "synonym_matches": 0,
+    "parent_matches": 0,
+    "hierarchical_matches": 0,
+    "llm_matches": 0,
+    "no_matches": 10,
+    "non_fibo_count": 11,
+    "draft_definitions": 11,
+    "validation_errors": [],
+    "validation_warnings": [
+      "11 concepts have DRAFT definitions that need review"
+    ]
+  },
+  "schema_version": "1.0.0",
+  "created_at": "2025-12-27T06:35:28.447326",
+  "modified_at": "2025-12-27T06:35:28.447340",
+  "generated": "2025-12-27T06:35:28.447342",
+  "fibo_version": "2024Q1"
+};
+
+window.BKB_DATA.investmentaum = INVESTMENT_AUM_DATA;
+
 // --- Merged Investment domain (ADR-049) ---
 // Using universal merge function
 window.BKB_DATA.investment = mergeDomainViews(
-    [INVESTMENT_ORDER_DATA, INVESTMENT_TRANSACTION_DATA, INVESTMENT_POSITION_DATA,
+    [INVESTMENT_AUM_DATA, INVESTMENT_ORDER_DATA, INVESTMENT_TRANSACTION_DATA, INVESTMENT_POSITION_DATA,
      INVESTMENT_PAYMENT_DATA, INVESTMENT_FINANCIALACCOUNT_DATA],
     { path: "RBCZ:MIB:Investment", name: "Investment", version: "1.0.0" }
 );
