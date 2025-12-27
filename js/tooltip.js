@@ -84,8 +84,9 @@ const Tooltip = {
         // Set portal actions
         const actionsEl = document.getElementById('tooltip-actions');
         if (data.crossDomains && data.crossDomains.length > 0) {
+            const esc = Utils.escapeHtml;
             actionsEl.innerHTML = data.crossDomains.map(domain =>
-                `<button onclick="BKBExplorer.portal('${domain}', '${data.name}')">→ ${domain}</button>`
+                `<button onclick="BKBExplorer.portal('${esc(domain)}', '${esc(data.name)}')">→ ${esc(domain)}</button>`
             ).join('');
             actionsEl.style.display = 'flex';
         } else {
@@ -168,10 +169,11 @@ const Tooltip = {
 
         const data = edge.data();
         const type = data.type || 'edge';
+        const esc = Utils.escapeHtml;  // XSS protection
 
-        // Get source and target names
-        const sourceName = edge.source().data('name') || data.source;
-        const targetName = edge.target().data('name') || data.target;
+        // Get source and target names (escaped)
+        const sourceName = esc(edge.source().data('name') || data.source);
+        const targetName = esc(edge.target().data('name') || data.target);
 
         // Set type header
         const typeEl = document.getElementById('edge-tooltip-type');
@@ -180,8 +182,8 @@ const Tooltip = {
 
         if (type === 'relationship') {
             // Binary verb relationship
-            const verb = data.sourceLabel || 'relates to';
-            const inverse = data.targetLabel || '';
+            const verb = esc(data.sourceLabel || 'relates to');
+            const inverse = esc(data.targetLabel || '');
 
             typeEl.textContent = 'Binary Verb';
 
@@ -203,7 +205,7 @@ const Tooltip = {
             typeEl.textContent = 'Categorization';
 
             if (type === 'trunk') {
-                const schema = data.schema || '';
+                const schema = esc(data.schema || '');
                 relationEl.innerHTML = `<strong>${sourceName}</strong> is categorized by "${schema}"`;
                 cstEl.innerHTML = `<code>${sourceName} =&lt; @ ${schema} &gt;= [...]</code>`;
             } else {
@@ -222,8 +224,8 @@ const Tooltip = {
                 let schema = '';
 
                 if (trunkEdge && trunkEdge.length > 0) {
-                    parentName = trunkEdge.source().data('name') || 'Parent';
-                    schema = trunkEdge.data('schema') || '';
+                    parentName = esc(trunkEdge.source().data('name') || 'Parent');
+                    schema = esc(trunkEdge.data('schema') || '');
                 }
 
                 // Format: "Child is {schema} Parent"
@@ -235,8 +237,8 @@ const Tooltip = {
             }
         } else if (type === 'transitive') {
             // Transitive relationship (ADR-048)
-            const hops = data.hops || 2;
-            const path = data.path || '';
+            const hops = parseInt(data.hops, 10) || 2;  // Ensure numeric
+            const path = esc(data.path || '');
 
             typeEl.textContent = 'Transitive Relationship';
             relationEl.innerHTML = `<strong>${sourceName}</strong> ··· <strong>${targetName}</strong> <em>(${hops} hops)</em>`;
